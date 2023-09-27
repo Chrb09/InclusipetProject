@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/styleboot.css"> <!-- CSS EXTERNO -->
+    <link rel="script" href="js/script.js"> <!-- JAVASCRIPT EXTERNO -->
+    <link rel="icon" href="img/Logo/Inclusipet.ico"> <!-- ICON -->
+    <title>Home</title>
+</head>
+<body>
+      <!-- HEADER ^ CIMA / TOP -->
+    <nav class="navbar navbar-expand-lg  bg-body-tertiary"> 
+        <div class="container-fluid">
+        <div> <!--LOGO-->
+          <a class="navbar-brand" href="index.html"><img src="img/Logo/Inclusipet.png" alt="Logo" class="logo"></a>
+        </div>
+        <div> <!--BOTAO RESPONSIVO-->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div> <!--LINKS-->
+        <div class="links">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#sobrenos">Sobre Nós</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="serviços.html">Serviços</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="unidades.html">Unidades</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contatos.html">Contatos</a>
+              </li>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </nav>
+        <!-- NAV v DE BAIXO / BOTTOM -->
+      <div class="navbottom"> 
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="navbar-title-page"> <!--PAGINA ATUAL-->
+                <a href="index.html">Home</a>
+            </div>
+        <div>
+           
+          <div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Login
+                </a>
+                <ul class="dropdown-menu"> <!--JANELA LOGIN-->
+                  <li><a class="dropdown-item" href="#">Entrar</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Cadastrar-se</a></li>
+                </ul>
+              </li>
+            </ul>
+            
+          </div>
+          </div>
+        </div>
+      </nav>
+      </div>
+
+        <!-- CARROSSEL -->
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active"> <!--IMAGENS CARROSSEL-->
+            <a href="serviços.html"><img src="img/Carrossel/Slide1.png" class="d-block w-100" alt="Serviços"></a>
+          </div>
+          <div class="carousel-item">
+            <img src="img/Carrossel/Slide2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <a href="contatos.html"><img src="img/Carrossel/Slide3.png" class="d-block w-100" alt="..."></a>
+          </div>
+          <div class="carousel-item">
+            <img src="img/Carrossel/Slide4.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/Carrossel/Slide5.png" class="d-block w-100" alt="...">
+          </div>
+        </div> <!--BOTÕES CARROSSEL-->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Proximo</span>
+        </button>
+      </div>
+
+        <!-- SECTION > SOBRE NOS -->
+        <div class="aboutus">
+
+          <div class="titulo"><a name="sobrenos">Sobre Nós</a></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-6"><div class="text">Bem-vindos à <b>Inclusipet</b>, especializada em animais com deficiência, onde a nossa paixão por cuidar de todos os animais, independentemente de suas limitações, é o nosso compromisso central. Aqui, acreditamos que todos os seres merecem amor, atenção e cuidados de saúde excepcionais, e estamos dedicados a oferecer isso a animais com deficiência.</div></div>
+              <div class="col-6"><img src="img/Sobrenos/Gato.png" alt="gato" class="imgaboutus"></div>
+            </div>
+          </div>
+    
+          <div class="titulo"><a name="sobrenos">Nossa História</a></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-6"><img src="img/Sobrenos/Cachorro.png" alt="gato" class="imgaboutus"></div>
+              <div class="col-6"><div class="text">     Nossa jornada começou com a visão de um grupo de médicos veterinários que acreditavam que os animais com deficiência merecem uma atenção especializada. Fundada em 2020, nossa clínica tem trabalhado incansavelmente desde então para preencher uma lacuna crucial no campo da medicina veterinária. Ao longo dos anos, nossa equipe tem se dedicado a desenvolver expertise em lidar com uma variedade de desafios de saúde que animais com deficiência podem enfrentar.</div></div>
+            </div>
+          </div>
+    
+          <div class="titulo"><a name="sobrenos">O Que Fazemos</a></div>
+          <div class="container">
+            <div class="row justify-content-md-center">
+              <div class="col-md-auto">
+                Na <b>Inclusipet</b>, oferecemos uma gama abrangente de serviços voltados para melhorar a qualidade de vida de animais com deficiência. Nossa equipe altamente treinada está comprometida em fornecer:<br>
+                Avaliação e Diagnóstico Precisos: Utilizamos tecnologia de ponta e métodos de diagnóstico avançados para entender as necessidades específicas de cada animal.<br>
+                Planos de Tratamento Personalizados: Criamos planos de tratamento individualizados que abordam as necessidades físicas e emocionais do seu animal de estimação. <br>
+                Reabilitação e Fisioterapia: Oferecemos terapias especializadas para ajudar os animais a recuperar mobilidade e viver uma vida mais ativa. <br>
+                Suporte Dedicado: Nossa equipe está sempre disponível para responder a perguntas, oferecer orientações e apoiar tanto você quanto seu animal de estimação durante todo o processo.<br>
+              </div>
+            </div>
+          </div>
+          <!--Ultimos Posts-->
+    
+          <div class="titulo"><a name="sobrenos">Últimos Posts</a></div>
+            <div class="lastposts">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+                  <div class="card h-100">
+                    <img src="img/Blog/Blog1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Como Cuidar dos Dentes do Seu Pet</h5>
+                      <p class="card-text">Cuidar dos dentes do seu pet é essencial para a saúde bucal e geral do animal. Este artigo destaca a importância da higiene dental em...</p>
+                    </div>
+                  </div>
+
+
+
+                  <div class="card h-100">
+                    <img src="img/Blog/Blog2.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Animais Exóticos como Animais de Estimação</h5>
+                      <p class="card-text">Animais exóticos como animais de estimação têm ganhado popularidade, mas cuidar deles requer um conjunto único...</p>
+                    </div>
+                  </div>
+
+
+
+                  <div class="card h-100">
+                    <img src="img/Blog/Blog3.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Alergias em Animais de Estimação</h5>
+                      <p class="card-text">As alergias em animais de estimação são um problema comum que afeta a qualidade de vida dos animais e pode ser preocupante para...</p>
+                    </div>
+                  </div>
+
+
+              </div>
+            </div>
+          <!--BOTÃO-->
+            <center>
+            <a href="blog.html"type="button" class="btn btn-primary btn-lg">Ver Mais</a>
+            </center>
+          
+    <!-- FOOTER -->
+    <footer class="footer">
+      <nav class="navbar bg-body-tertiary"> 
+        <div class="container-fluid">  
+
+        <div class="links"> <!--LINKS FOOTER-->
+            <ul>
+              <li class="nav-itemt">
+                <a class="nav-link">Páginas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#sobrenos">Sobre Nós</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="serviços.html">Serviços</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="unidades.html">Unidades</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contatos.html">Contato</a>
+              </li>
+            </ul>
+          </div>
+          <div class="links">
+            <a class="navbar-brand" href="index.html"><img src="img/Logo/InclusipetFooter.png" alt="Logo" class="logof"></a> 
+          </div>
+
+          <div class="links"> <!--INFORMAÇÕES FOOTER-->
+            <ul>
+              <li class="nav-itemt">
+                <a class="nav-link">Fale <br>Conosco</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">(11)  11111-1111</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Rua xxxxxxxxxxxxx  <br> - São Paulo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Inclusipet@gmail.com</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Inclusipet_ofc</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="navbottom"> 
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="copyr">
+                ®2023 Inclusipet. Todos os direitos reservados.
+            </div>
+        </div>
+      </nav>
+      </div>
+      </footer>
+</body>

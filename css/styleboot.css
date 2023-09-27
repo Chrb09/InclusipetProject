@@ -1,0 +1,407 @@
+/**** VARIAVEL DE COR ****/
+:root{ 
+    --white: #fff;
+    --purple: #5555A0;
+    --darkpurple:#47478a;
+    --shadow:#00000040;
+    --black:#000000;
+    --beige: #F7EEE4;
+    --gray:#434343;
+    --light-gray: #F3F3F3;
+    --red:#ff0808;
+}
+/*HEADER*/
+.navbar{
+    --bs-navbar-padding-y: 0rem;
+    --bs-navbar-nav-link-padding-x: 1rem;
+    --bs-navbar-active-color: var(--darkpurple);
+}
+.navbar-title-page {
+    text-decoration: none;
+    color: var(--purple);
+    font-family: Fredoka One;
+    font-size: 1.6rem; 
+    line-height: normal;
+    font-style: normal;
+    font-weight: 700;
+}
+.container-fluid{
+    background-color: var(--purple);
+    --bs-gutter-x: 25rem;
+    --bs-gutter-y: 2rem;
+    padding-top: calc(var(--bs-gutter-y) * .5);
+    z-index: 1;
+}
+.container-fluid a{
+    text-decoration: none;
+    color: var(--white);
+    font-family: Inter;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;   
+}
+.navbottom .container-fluid{
+    background-color: var(--beige );
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+    --bs-gutter-y: 0rem;
+}
+.navbottom .container-fluid a{
+    text-decoration: none;
+    color: var(--purple);
+    font-family: Fredoka One;
+    font-size: 1.6rem; 
+    line-height: normal;
+    font-style: normal;
+    font-weight: 700;
+}
+.container-fluid a:hover{
+    color: var(--beige);
+}
+.navbottom .container-fluid a:hover{
+    color: var(--darkpurple);
+}
+.logo{
+    width: 22vmax;
+    padding: 0 0 0.5rem 0;
+}
+.dropdown-menu a{
+    color: var(--gray);
+}
+.dropdown-menu a:hover{
+    color: var(--purple);
+}
+/*FOOTER*/
+.footer{
+    margin-top: 5rem;
+}
+.footer .links{
+    flex-direction: column;
+}
+.footer .container-fluid{
+    justify-content: center;
+}
+.footer li{
+    list-style: none;
+    padding: 0.3rem 0;
+}
+.footer a {
+    text-decoration: none;
+    color: var(--white);
+    font-family: Inter;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.footer .links{
+    width: 20vmax;
+    text-align: center;
+}
+.footer .nav-itemt a {
+    text-decoration: none;
+    color: var(--white);
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-bottom: 1rem;
+}
+.footer .nav-item{
+    padding: 0.5rem 0;
+}
+.copyr{
+    padding: 0.5rem 0rem 0.5rem 0;
+    color: var(--purple);
+    font-family: Inter;
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-align: center;
+}
+.logof{
+    width: 19vmax;
+    padding: 2rem 0 1rem 0;
+}
+
+/****SOBRE NÓS****/
+
+/*CARROSSEL*/
+.carousel-item active img{
+    height: 20px;
+    object-fit: cover;
+
+}
+.titulo{
+    color: var(--purple);
+    text-align: center;
+    font-family: Inter;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: center;
+    margin: 3.5rem 0 0 0;
+}
+.container{
+    padding: 0 3rem;
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 1.35rem;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 500;
+}
+.text{
+    text-indent: 2rem;
+    padding: 4rem 0rem;
+}
+.text b{
+    color: var(--purple);
+}
+.imgaboutus{
+    width: 80%;
+    margin: 2rem 0;
+}
+.col-md-auto{
+    width: 90%;
+    font-weight: 350;
+    flex-shrink: 0;
+    color: var(--white);
+    background-color: var(--purple);
+    padding: 5%;
+    border-radius: 25px;
+    margin: 2rem 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-indent: 50px;
+}
+
+/*ULTIMOS POSTS*/
+.lastposts .row-cols-1{
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.lastposts .row{
+    padding: 2rem 2rem;
+    gap: 2%;
+}
+.lastposts .card {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 1rem;
+    --bs-card-title-color: var(--purple);
+    --bs-card-color: var(--gray);
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+    width: 20rem;
+}
+.lastposts .card-title{
+    color: var(--purple);
+    font-family: Inter;
+    font-size: 1.60rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.lastposts .card-body{
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    height: 17rem;
+}
+.lastposts .col{
+    width: 20rem;   
+}
+.lastposts .g-4, .gx-4 {
+    --bs-gutter-x: 0rem;
+}
+.btn{
+    margin: 3rem 0 0rem 0;
+    font-size: 1.75rem;
+    border-radius: 1.25rem;
+    width: 15rem;
+    border: 0px ;
+    --bs-btn-font-weight: 650;
+    --bs-btn-color: var(--white);
+    --bs-btn-bg: var(--purple);
+    --bs-btn-hover-color: var(--white);
+    --bs-btn-hover-bg: var(--darkpurple);
+    --bs-btn-active-bg: var(--darkpurple);
+}
+/****SERVIÇOS****/
+
+/****UNIDADES****/
+
+/****BLOG****/
+
+.blog {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog .card {
+    border: 0;  
+    border-radius: 1rem;
+    background-color: var(--light-gray);
+    width: 80%;
+}
+.blog .card-body{
+    border-radius: 25px;
+    padding: 0 2.87rem 2.19rem 3.06rem;
+}
+.blog .card-img-top{
+    width: auto;
+    height: auto;
+}
+.blog .card-title {
+    color: var(--purple);
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 750;
+    line-height: normal;
+    margin: 1rem 0 0 0;
+}
+.blog .card-text {
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 1.600rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+/****CONTATOS****/
+
+/* FONTES */
+@font-face { 
+    font-family: Inter;
+    src: url(Inter.ttf);
+}
+@font-face {
+    font-family: Fredoka One;
+    src: url(Fredoka.ttf);
+}
+/* RESPONSIVO > TAMANHO: MOBILE L */
+@media screen and (max-width: 425px) {
+    .titulo{
+        font-size: 2rem;
+        padding-bottom: 2rem;
+    }
+    .imgaboutus{
+        width: 90%;
+    }
+    .copyr{
+        font-size: 0.8rem;
+    }
+    .container-fluid a{
+        font-size: 1rem;
+        flex-direction: column;
+    }
+    .navbottom .container-fluid{
+        flex-direction: column;
+        --bs-gutter-y: 1rem;
+    }
+    .navbottom .container-fluid a{
+        font-size: 1.2rem;
+    }
+    .row{
+        flex-direction: column;
+        align-items: center;
+    }
+    .w-100 {
+        width: 200%!important;
+    }
+    .lastposts .card{
+        margin: 0;
+    }
+    .lastposts .card-title{
+        font-size: 1.3rem;
+    }
+    .lastposts .card-body{
+        font-size: 1.1rem;
+        height: 5%;
+    }
+    
+    .btn{
+        margin: 2rem 0;
+    }
+    .text, .col-6, .col-md-auto{
+        width: 100%;
+        font-size: 1rem;
+    }
+    .text, .col, .col-6{
+        padding: 0;
+    }
+    .lastposts .card, .col{
+        width: 90%;   
+    }
+    .links ul{
+        padding: 0rem;
+    }
+    .blog .card {
+        border: 0;  
+        border-radius: 1rem;
+        background-color: var(--light-gray);
+        width: 93%;
+    }
+    .blog .card-body{
+        border-radius: 25px;
+        padding: 0 0.5rem 2.19rem 0.5rem;
+    }
+    .blog .card-text {
+        font-size: 1.3rem;
+    }
+    .blog .card-title {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 777px) { /*Tamanho Tablet*/
+    .logo{
+        width: 90%;
+        padding: 0 0 0.5rem 0;
+    }
+    .links{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container-fluid{
+        padding-right: 0;
+        --bs-gutter-x: 3rem;
+        text-align: center;
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .lastposts .row{
+        padding: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+    }
+    .container{
+        padding: 0 2rem;
+    }
+    .navbar-toggler{
+        margin-bottom: 2rem;
+    }
+}
+@media screen and (max-width: 1024px) { /*Tamanho Laptop*/
+    .footer .container-fluid{
+        justify-content: center;
+        flex-direction: column;
+    }
+    .logof{
+        display: none;
+    }
+    
+}
