@@ -156,6 +156,7 @@
     font-weight: 500;
 }
 .text{
+    font-size: 1.8rem;
     text-indent: 2rem;
     padding: 4rem 0rem;
 }
@@ -167,6 +168,7 @@
     margin: 2rem 0;
 }
 .col-md-auto{
+    font-size: 1.8rem;
     width: 90%;
     font-weight: 350;
     flex-shrink: 0;
@@ -253,6 +255,7 @@
     border-radius: 1rem;
     background-color: var(--light-gray);
     width: 80%;
+    margin: 0 0 7rem 0;
 }
 .blog .card-body{
     border-radius: 25px;
