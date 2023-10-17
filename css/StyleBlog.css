@@ -1,0 +1,75 @@
+/****BLOG****/
+
+.blog {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog .card {
+    border: 0;  
+    border-radius: 1rem;
+    background-color: var(--light-gray);
+    width: 80%;
+    margin: 0 0 7rem 0;
+}
+.blog .card-body{
+    border-radius: 25px;
+    padding: 0 2.87rem 2.19rem 3.06rem;
+}
+.blog .card-img-top{
+    width: auto;
+    height: auto;
+}
+.blog .card-title {
+    color: var(--purple);
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 750;
+    line-height: normal;
+    margin: 1rem 0 0 0;
+}
+.blog .card-text {
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 1.600rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+/*Responsividade*/
+
+@media screen and (max-width: 425px) { /*Tamanho Mobile L*/
+    .blog .card {
+        border: 0;  
+        border-radius: 1rem;
+        background-color: var(--light-gray);
+        width: 93%;
+    }
+    .blog .card-body{
+        border-radius: 25px;
+        padding: 0 0.5rem 2.19rem 0.5rem;
+    }
+    .blog .card-text {
+        font-size: 1.3rem;
+    }
+    .blog .card-title {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 777px) { /*Tamanho Tablet*/
+
+
+}
+
+@media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
+
+
+}
+@media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
+    
+}

@@ -1,0 +1,182 @@
+/****SOBRE NÓS****/
+
+/*CARROSSEL*/
+.titulo{
+    color: var(--purple);
+    text-align: center;
+    font-family: Inter;
+    font-size: 4.5rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: center;
+    margin: 3.5rem 0 0 0;
+}
+.hr {
+    border-top: 3px solid var(--purple);
+    border-radius: 5px;
+    width:75%;
+    margin: 1.5rem 0 1.5rem 0;
+  }
+.brancoh{
+    border-top: 3px solid var(--white);
+    width:50%;
+}
+.brancot{
+    color: var(--white);
+}
+.container{
+    padding: 0 3rem;
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 1.35rem;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 500;
+}
+.text{
+    font-size: 1.8rem;
+    text-indent: 2rem;
+    padding: 4rem 0rem;
+}
+.text b{
+    color: var(--purple);
+}
+.imgaboutus{
+    width: 80%;
+    margin: 2rem 0;
+}
+.col-md-auto{
+    font-size: 1.8rem;
+    width: 90%;
+    font-weight: 350;
+    flex-shrink: 0;
+    color: var(--white);
+    background-color: var(--purple);
+    padding: 5%;
+    border-radius: 25px;
+    margin: 2rem 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-indent: 50px;
+}
+
+/*ULTIMOS POSTS*/
+.lastposts{
+    padding: 3rem 0 5rem 0;
+    background-color: var(--purple);
+    --bs-border-radius: 0.8rem;
+}
+.lastposts .row-cols-1{
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+.lastposts .row{
+    gap: 2%;
+}
+.lastposts .card {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 1rem;
+    --bs-card-title-color: var(--purple);
+    --bs-card-color: var(--gray);
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+    width: 28rem;
+    height: 38rem;
+}
+.lastposts .card-title{
+    color: var(--purple);
+    font-family: Inter;
+    font-size: 2.3rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.lastposts .card-body{
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 650;
+    line-height: normal;
+    height: 17rem;
+}
+.lastposts .card-text{
+    text-align: justify;    
+}
+.lastposts .col{
+    width: 20rem;   
+}
+.lastposts .g-4, .gx-4 {
+    --bs-gutter-x: 0rem;
+}
+.btn{
+    margin: 3rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+    font-size: 2.3rem;
+    border-radius: 1.25rem;
+    padding: 1rem 0 1rem 0;
+    width: 28rem;
+    border: 0px ;
+    --bs-btn-font-weight: 800;
+    --bs-btn-color: var(--purple);
+    --bs-btn-bg: var(--white);
+    --bs-btn-hover-color: var(--purple);
+    --bs-btn-hover-bg: var(--white);
+    --bs-btn-active-bg: var(--purple);
+}
+.lastposts .card {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 1rem;
+    --bs-card-title-color: var(--purple);
+    --bs-card-color: var(--gray);
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+    width: 28rem;
+    height: 38rem;
+    }
+
+/*Responsividade*/
+
+@media screen and (max-width: 425px) { /*Tamanho Mobile L*/
+
+
+}
+
+@media screen and (max-width: 777px) { /*Tamanho Tablet*/
+
+
+}
+
+@media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
+
+
+}
+@media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
+    .titulo{
+        font-size: 3.5rem;
+    }
+    .lastposts{
+        --bs-border-radius: 0.6rem;
+    }
+    .lastposts .card {
+
+        width: 20rem;
+        height: 30rem;
+    }
+    .lastposts .card-title{
+        font-size: 1.6rem;
+    }
+    .lastposts .card-body{
+        font-size: 1.2rem;
+    }
+    .btn{
+        font-size: 1.8rem;
+        width: 19rem;
+        padding: 0.7rem 0 0.7rem 0;
+        border-radius: 1rem;
+    }
+}
