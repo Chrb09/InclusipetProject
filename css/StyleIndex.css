@@ -33,38 +33,67 @@
 .sobrenos {
     background-color: var(--light-gray);
     display: flex;
-    padding: 9.37rem 13rem;
+    gap: 3rem;
+    padding: 9rem 10rem;
 }
-.titulo-sobrenos, .text-sobrenos {
+.titulo-sobrenos {
     text-align: left;
+    font-size: 4rem;
+    margin: 0;
 }
 .text-sobrenos {
+    text-indent: 2rem;
+    text-align: left;
     font-family: Inter;
-    font-size: 1.60rem;
+    font-size: 2.2rem;
     font-style: normal;
-    font-weight: 700;
+    color: var(--gray);
+    font-weight: 630;
     line-height: normal;
     text-align: justify;
 }
-.text-sobrenos span {
+.text-sobrenos b {
     color: var(--purple)
 }
-.botao-sobrenos {
-    display: inline ;
+.botao-sobrenos{
+    display: flex;
+    gap: 2.3rem;
 }
-.bot {
+.botao-sobrenos .btn{
+    border-radius: 1.4rem;
+    text-align: center;
+    font-family: Inter;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0.5rem 1.3rem;
+    cursor: pointer;
+    box-shadow: 0px 8px 8px 0px var(--shadow);
+}
+.botao-sobrenos .sn{
+    border: 0.5rem solid var(--purple);
     background-color: var(--purple);
     color: var(--white);
-    display: inline-block;
-    padding: 12px 24px;
-    width: 1px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
+}
+.botao-sobrenos .servicos{
+    border: 0.5rem solid var(--gray);
+    color: var(--gray);
+    --bs-btn-hover-bg: var(--white);
+}
+.gato{
+    width: 35vmax;
+}
+.sobrenos .left{
+    display: flex;
+    flex-direction: column;
+    gap: 12%;
+    justify-content: center;
 }
 /* Reviews */
 .reviews {
     background-color: var(--purple);
+    height: 75rem;
 }
 
 .text{
@@ -93,7 +122,68 @@
     margin-right: auto;
     text-indent: 50px;
 }
+/* Profissionais */
+.profi{
+    height: 120rem;
+}
 
+/*Fale Conosco*/
+.contato {
+    display: flex;
+    gap: 3rem;
+    padding: 9rem 10rem 0rem 10rem;
+}
+.titulo-contato {
+    text-align: right;
+    font-size: 4rem;
+    margin: 0;
+}
+.text-contato {
+    padding-left: 20%;
+    text-indent: 2rem;
+    text-align: right;
+    font-family: Inter;
+    font-size: 2.2rem;
+    font-style: normal;
+    color: var(--gray);
+    font-weight: 630;
+    line-height: normal;
+    text-align: justify;
+}
+.text-contato b {
+    color: var(--purple);
+}
+.botao-contato{
+    display: flex;
+    justify-content: end;
+    gap: 2.3rem;
+}
+.botao-contato .btn{
+    border-radius: 1.4rem;
+    text-align: center;
+    font-family: Inter;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0.5rem 1.3rem;
+    cursor: pointer;
+    box-shadow: 0px 8px 8px 0px var(--shadow);
+}
+.botao-contato .con {
+    border: 0.5rem solid var(--purple);
+    background-color: var(--purple);
+    color: var(--white);
+}
+.cachorro{
+    width: 30vmax;
+}
+.contato .right{
+    display: flex;
+    flex-direction: column;
+    gap: 12%;
+    justify-content: center;
+}
 /*ULTIMOS POSTS*/
 .lastposts{
     padding: 3rem 0 5rem 0;
@@ -143,7 +233,7 @@
 .lastposts .g-4, .gx-4 {
     --bs-gutter-x: 0rem;
 }
-.btn{
+.lastposts .btn{
     margin: 3rem 0 0 0;
     display: flex;
     justify-content: center;
@@ -206,10 +296,29 @@
     .lastposts .card-body{
         font-size: 1.2rem;
     }
-    .btn{
+    .lastposts .btn{
         font-size: 1.8rem;
         width: 19rem;
         padding: 0.7rem 0 0.7rem 0;
         border-radius: 1rem;
     }
+    .text-sobrenos {
+        font-size: 1.7rem;
+    }
+    .botao-sobrenos .btn{
+        border-radius: 1rem;
+        font-size: 2rem;
+        padding: 0.4rem 1rem;
+        border-width: 0.35rem;
+    }
+    .text-contato {
+        font-size: 1.7rem;
+    }
+    .botao-contato .btn{
+        border-radius: 1rem;
+        font-size: 2rem;
+        padding: 0.4rem 1rem;
+        border-width: 0.35rem;
+    }
+    
 }
