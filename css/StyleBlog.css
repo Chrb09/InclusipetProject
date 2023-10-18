@@ -1,40 +1,115 @@
 /****BLOG****/
-
-.blog {
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 8rem;
+    margin-top: 6rem;
+    gap: 4rem;
+}
+.linha {
+    margin: 0;
     align-items: center;
     display: flex;
-    flex-direction: column;
-    gap: 3rem;
+    flex-direction: row;
 }
 
-.blog .card {
-    border: 0;  
-    border-radius: 1rem;
-    background-color: var(--light-gray);
-    width: 80%;
-    margin: 0 0 7rem 0;
+.row{
+    gap: 2rem;
 }
-.blog .card-body{
-    border-radius: 25px;
-    padding: 0 2.87rem 2.19rem 3.06rem;
-}
-.blog .card-img-top{
-    width: auto;
-    height: auto;
-}
-.blog .card-title {
+.titulo{
+    display: flex;
     color: var(--purple);
     font-family: Inter;
-    font-size: 2rem;
+    font-size: 4rem;
     font-style: normal;
-    font-weight: 750;
+    font-weight: 800;
     line-height: normal;
-    margin: 1rem 0 0 0;
+    margin: 2.5rem 0;
 }
-.blog .card-text {
+.col{
+    width: 27vmax;
+}
+.card{
+    height: 37vmax;
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+    border-radius: 1.6rem;
+    --bs-card-title-spacer-y: 0rem;
+}
+.card-text{
     color: var(--gray);
     font-family: Inter;
-    font-size: 1.600rem;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.text-body-secondary{
+    color: var(--lgray);
+    font-family: Inter;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.card-title{
+    color: var(--purple);
+    font-family: Inter;
+    font-size: 1.9rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.side{
+    display: flex;
+    flex-direction: column;
+    margin-top: 9.8125rem;
+    gap: 3.5rem;
+}
+.pesquisa, .postsrecentes{
+    width: 20vmax;
+}
+.pesquisa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6vmax;
+    border-radius: 0.3rem;
+    background-color: var(--purple);
+}
+::placeholder {
+    color: var(--purple);
+    font-family: Inter;
+    font-size: 1.5vmax;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    opacity: 1;
+  }
+  .inputpesquisa{
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+    font-size: 1.5vmax;
+  }
+.pt{
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.postsrecentes{
+    display: flex;
+    padding: 1.3125rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background-color: var(--white);
+    box-shadow: 0px 8px 8px 3px var(--shadow);
+    color: var(--lgray);
+    font-family: Inter;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -42,34 +117,95 @@
 /*Responsividade*/
 
 @media screen and (max-width: 425px) { /*Tamanho Mobile L*/
-    .blog .card {
-        border: 0;  
-        border-radius: 1rem;
-        background-color: var(--light-gray);
-        width: 93%;
-    }
-    .blog .card-body{
-        border-radius: 25px;
-        padding: 0 0.5rem 2.19rem 0.5rem;
-    }
-    .blog .card-text {
-        font-size: 1.3rem;
-    }
-    .blog .card-title {
-        font-size: 1.5rem;
-    }
+
 
 }
 
 @media screen and (max-width: 777px) { /*Tamanho Tablet*/
-
-
+    .side{
+        justify-content: center;
+        align-items: center;
+    }
+    .postsrecentes, .pesquisa{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:80%;
+    }
+    
 }
 
 @media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
-
-
+    .main{
+        padding: 0 0.5rem;
+        gap: 2rem;
+        margin-top: 0;
+        flex-direction: column-reverse;
+    }
+    .side{
+        margin-top: 0rem;
+    }
+    .row {
+        gap: 0rem;
+    }
+    .col{
+        width: 45vmax;
+    }
+    .card{
+        height: 55vmax;
+    }
+    .pesquisa, .postsrecentes{
+        width: 25vmax;
+    }
+    .text-body-secondary{
+        font-size: 0rem;
+    }
+    .card-text{
+        font-size: 1rem;
+        font-weight: 620;
+    }
+    .postsrecentes{
+        display: none;
+    }
+    .titulo, .linha, .side{
+        align-items: center;
+        justify-content: center;
+    }
+    .pesquisa{
+        width: 50vmax;
+        height: 10vmax;
+    }
+    ::placeholder {
+        color: var(--purple);
+        font-family: Inter;
+        font-size: 3vmax;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        opacity: 1;
+      }
+      .inputpesquisa{
+        border-radius: 0.5rem;
+        padding: 0.4rem;
+        font-size: 3vmax;
+      }
 }
 @media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
-    
+    .card-text{
+        font-size: 1.3rem;
+        font-weight: 620;
+    }
+    .text-body-secondary{
+        font-size: 1.5rem;
+    }
+    .card-title{
+        font-size: 1.4rem;
+    }
+    .pt{
+        font-size: 1.8rem;
+    }
+    .postsrecentes{
+        gap: 0.5rem;
+        font-size: 1.4rem;
+    }
 }
