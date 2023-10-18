@@ -27,12 +27,21 @@ body {
     box-shadow: 0px 8px 8px 3px rgba(0, 0, 0, 0.25);
     margin: 6.06rem 0 5.37rem 0;
     text-decoration: none;
-
+    width: 40rem;
 }
 .box {
     margin-left: 0.79rem;
     display: flex;
     flex-direction: column;
+    justify-content:space-evenly;
+}
+#box a {
+    color: var(--purple);
+    text-decoration: none;
+}
+#box-text a {
+    color: var(--gray);
+    text-decoration: none;
 }
 #box {
     color: var(--purple);
@@ -91,11 +100,11 @@ body {
     border: none;
     cursor: pointer;
     background-color: var(--purple);
+
     transition: 0.3s ease;
 }
 #botao:hover {
     background-color: var(--purpleHover); /*arrumar isso dps */
-    color: var(--white);
 }
 span, small {
     color: var(--gray);
@@ -108,7 +117,7 @@ span {
     line-height: normal;
 }
 #button {
-    color: var(--fadedwhite);
+    color: var(--white);
 }
 /*  INFORMAÇÃO */
 .info {
