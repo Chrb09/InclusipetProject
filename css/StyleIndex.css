@@ -1,6 +1,10 @@
 /****SOBRE NÓS****/
 
 /*CARROSSEL*/
+
+.titulo-page {
+    margin: 3.5rem 0 6.56rem 0;
+}
 .titulo{
     color: var(--purple);
     text-align: center;
@@ -10,14 +14,14 @@
     font-weight: 800;
     line-height: normal;
     text-align: center;
-    margin: 3.5rem 0 0 0;
+    margin-bottom: 4.44rem;
 }
 .hr {
     border-top: 3px solid var(--purple);
     border-radius: 5px;
     width:75%;
     margin: 1.5rem 0 1.5rem 0;
-  }
+}
 .brancoh{
     border-top: 3px solid var(--white);
     width:50%;
@@ -25,15 +29,44 @@
 .brancot{
     color: var(--white);
 }
-.container{
-    padding: 0 3rem;
-    color: var(--gray);
-    font-family: Inter;
-    font-size: 1.35rem;
-    font-style: normal;
-    line-height: normal;
-    font-weight: 500;
+/* Section > About us */
+.sobrenos {
+    background-color: var(--light-gray);
+    display: flex;
+    padding: 9.37rem 13rem;
 }
+.titulo-sobrenos, .text-sobrenos {
+    text-align: left;
+}
+.text-sobrenos {
+    font-family: Inter;
+    font-size: 1.60rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: justify;
+}
+.text-sobrenos span {
+    color: var(--purple)
+}
+.botao-sobrenos {
+    display: inline ;
+}
+.bot {
+    background-color: var(--purple);
+    color: var(--white);
+    display: inline-block;
+    padding: 12px 24px;
+    width: 1px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
+}
+/* Reviews */
+.reviews {
+    background-color: var(--purple);
+}
+
 .text{
     font-size: 1.8rem;
     text-indent: 2rem;
