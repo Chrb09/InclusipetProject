@@ -159,5 +159,14 @@ small {
 
 }
 @media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
+    .titulo{
+        font-size: 3.5rem;
+    }
+    .box-consulta, .box-info {
+        width: 30rem;
+    }
+    #box {
+        font-size: 1.5rem;
+    }
     
 }
