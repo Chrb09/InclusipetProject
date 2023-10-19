@@ -93,9 +93,112 @@
 /* Reviews */
 .reviews {
     background-color: var(--purple);
-    height: 75rem;
 }
-
+.titulo-reviews {
+    padding-top: 6.90rem;
+}
+.reviews {
+    background-color: var(--purple);
+}
+.reviews {
+    padding: 3rem 0 5rem 0;
+    background-color: var(--purple);
+    --bs-border-radius: 0.8rem;
+}
+.estatisticas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 3rem 0;
+} 
+.reviews .star {
+    display: flex;
+    justify-content: center;
+    gap: 8%;
+}
+.reviews span {
+    color: var(--white);
+    font-family: Inter;
+    font-size: 2.500rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.reviews h5 {
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.reviews small {
+    font-size: 1.80rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 1rem;
+}
+.reviews .row-cols-1{
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+.reviews .row{
+    gap: 4%;
+}
+.reviews .card {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 1rem;
+    --bs-card-title-color: var(--purple);
+    --bs-card-color: var(--gray);
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+    width: 28rem;
+    height: 38rem;
+    border-radius: 25px;
+}
+.reviews .card-title{
+    font-family: Inter;
+    font-size: 2.9rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin: 0;
+}
+.reviews .card-body{
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 650;
+    line-height: normal;
+    height: 17rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+.reviews p {
+    font-size: 1.625rem;
+    font-weight: 600;
+}
+.reviews .card-text{
+    margin-top: 1.45rem;
+    width: 20.5625rem;
+    height: 14.90rem;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: Inter;
+    text-align: center;    
+    color: var(--gray);
+}
+.reviews.col{
+    width: 20rem;   
+}
+.reviews .g-4, .gx-4 {
+    --bs-gutter-x: 0rem;
+}
 .text{
     font-size: 1.8rem;
     text-indent: 2rem;
@@ -126,7 +229,49 @@
 .profi{
     height: 120rem;
 }
-
+.titulo-profi {
+    margin-top: 7rem;
+}
+.profissionais {
+    display: flex;
+    flex-flow: row wrap;    
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+}
+.profcard {
+    width: 22.5rem;
+    height: 22.5rem;
+    flex-shrink: 0;
+    margin-bottom: 10rem;
+}
+.nome {
+    text-align: center;
+    color: var(--purple);
+    font-weight: 700;
+    font-size: 3.90rem;
+}
+.span {
+    color: var(--lgray);
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.texto {
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 1rem;
+}
+.prof {
+    margin: 2rem 0 7.56rem 0;
+}
 /*Fale Conosco*/
 .contato {
     display: flex;
@@ -228,7 +373,7 @@
     text-align: justify;    
 }
 .lastposts .col{
-    width: 20rem;   
+    width: 20rem;
 }
 .lastposts .g-4, .gx-4 {
     --bs-gutter-x: 0rem;
