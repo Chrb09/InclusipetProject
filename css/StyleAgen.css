@@ -1,12 +1,117 @@
 /****AGENDAMENTO****/
-
-
-
-
-
-
-
-
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.titulo{
+    color: var(--purple);
+    text-align: center;
+    font-family: Inter;
+    font-size: 4.5rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-top: 6.44rem;
+}
+.subtitulo {
+    color: var(--purple);
+    font-family: Inter;
+    font-size: 3.90rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 1rem;    
+}
+.section {
+    width: 75%;
+}
+#margin {
+    margin-top: 7rem;
+}
+.margin {
+    margin-bottom: 7rem;
+}
+.message {
+    border-color: var(--purple);
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    width: 100%;
+}
+.together-space {
+    margin-bottom: 3rem;
+}
+.hr {
+    border-top: 3px solid var(--purple);
+    border-radius: 5px;
+    width:75%;
+    margin: 6rem 0 6rem 0;
+}
+.box {
+    width: 88.375rem;
+    height: 145.500rem;
+    flex-shrink: 0;
+    background: var(--white);
+    box-shadow: 0px 7px 7px 2px rgba(0, 0, 0, 0.25);
+}
+.ficha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-control{
+    border-color: var(--purple);
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    width: 100%;
+}
+.together {
+    display: flex;
+    justify-content: space-between;
+}
+.together input {
+    width: 27vmax;
+}
+#botao {
+    display: inline-block;
+    padding: 12px 24px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--purple);
+    transition: 0.3s ease;
+}
+#botao:hover {
+    background-color: var(--purpleHover); 
+}
+span, small {
+    color: var(--gray);
+}
+.span {
+    color: var(--gray);
+    text-align: center;
+    font-family: Inter;
+    font-size: 2.625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+span {
+    font-family: Inter;
+    font-size: 1.60rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+#button {
+    color: var(--white);
+}
+.btn {
+    margin-bottom: 3rem;
+}
 /*Responsividade*/
 
 @media screen and (max-width: 425px) { /*Tamanho Mobile L*/
