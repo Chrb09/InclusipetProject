@@ -20,6 +20,7 @@
     --bs-navbar-padding-y: 0rem;
     --bs-navbar-nav-link-padding-x: 1rem;
     --bs-navbar-active-color: var(--purple);
+    flex-wrap: nowrap;
 }
 .navbar-nav{
     gap: 2rem;
@@ -27,7 +28,6 @@
 .container-fluid{
     background-color: var(--purple);
     box-shadow: 0px 5px 7px 0px var(--shadow);
-    height: 11rem;
     --bs-gutter-x: 23rem;
     padding-top: 2rem;
     align-items:center;
@@ -73,9 +73,9 @@
 }
 .footer .container-fluid{
     background-color: var(--purple);
-    height: 24rem;
     box-shadow: 0px 5px 7px 0px var(--shadow);
     --bs-gutter-x: 23rem;
+    height: 20rem;
     padding-top: 2rem;
     padding-bottom: 0;
     align-items:flex-start;
@@ -154,13 +154,6 @@
 }
 /* RESPONSIVO*/
 @media screen and (max-width: 425px) { /*Tamanho Mobile L*/
-    .titulo{
-        font-size: 2rem;
-        padding-bottom: 2rem;
-    }
-    .imgaboutus{
-        width: 90%;
-    }
     .copyr{
         font-size: 0.8rem;
     }
@@ -168,53 +161,10 @@
         font-size: 1rem;
         flex-direction: column;
     }
-    .navbottom .container-fluid{
-        flex-direction: column;
-        --bs-gutter-y: 1rem;
-    }
-    .navbottom .container-fluid a{
-        font-size: 1.2rem;
-    }
-    .row{
-        flex-direction: column;
-        align-items: center;
-    }
-    .w-100 {
-        width: 200%!important;
-    }
-    .lastposts .card{
-        margin: 0;
-    }
-    .lastposts .card-title{
-        font-size: 1.3rem;
-    }
-    .lastposts .card-body{
-        font-size: 1.1rem;
-        height: 5%;
-    }
-    
-    .btn{
-        margin: 2rem 0;
-    }
-    .text, .col-6, .col-md-auto{
-        width: 100%;
-        font-size: 1rem;
-    }
-    .text, .col, .col-6{
-        padding: 0;
-    }
-    .lastposts .card, .col{
-        width: 90%;   
-    }
-    .links ul{
-        padding: 0rem;
-    }
-    
 }
 @media screen and (max-width: 777px) { /*Tamanho Tablet*/
     .logo{
-        width: 90%;
-        padding: 0 0 0.5rem 0;
+        width: 30rem;
     }
     .links{
         margin-right: auto;
@@ -223,16 +173,8 @@
     .container-fluid{
         padding-right: 0;
         --bs-gutter-x: 3rem;
-        text-align: center;
         flex-direction: column;
         padding-left: 0;
-    }
-    .lastposts .row{
-        padding: 0;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        width: 100%;
     }
     .container{
         padding: 0 2rem;
@@ -240,24 +182,33 @@
     .navbar-toggler{
         margin-bottom: 2rem;
     }
-}
-@media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
+    .footer .navbar{
+        height:fit-content;    
+    }
     .footer .container-fluid{
-        justify-content: center;
+        height:fit-content;
+        display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .footer .div{
+        flex-direction: row;
     }
     .logof{
         display: none;
     }
+}
+@media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
+    
     
 }
 @media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
     .container-fluid{
         background-color: var(--purple);
-        height: 8.5rem;
         --bs-gutter-x: 16rem;
         padding-top: 2rem;
-        align-items:center;
         z-index: 1;
         display: flex;
     }
@@ -273,9 +224,6 @@
     .navbar-nav{
         gap: 1rem;
     }
-    .footer .container-fluid{
-        height: 20rem;
-    }
     .footer a {
         font-size: 1.3rem;
     }
@@ -284,5 +232,16 @@
     }
     .copyr{
         font-size: 1.1rem;
+    }
+}
+@media screen and (min-width: 2000px){
+    .footer .container-fluid{
+        height: 25rem;
+    }
+    .logo{
+        width: 22vmax;
+    }
+    .logof{
+        width: 15vmax;
     }
 }

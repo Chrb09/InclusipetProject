@@ -9,13 +9,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 5rem;
 }
 .titulo{
     color: var(--purple);
     font-family: Inter;
     font-size: 4.5rem;
     font-weight: 800;
-    margin: 5.88rem 0 1.56rem 0;
+    margin: 0rem 0 1.56rem 0;
     text-align: center;
 }
 span {
@@ -28,9 +29,8 @@ span {
     color: var(--gray);
     text-align: justify;
     font-size: 2rem;
-    font-weight: 700;
-    width: 98.25rem;
-    height: 22.9375rem;
+    font-weight: 750;
+    padding: 0 10rem;
     flex-shrink: 0;
     text-indent: 2rem;
 }
@@ -82,5 +82,7 @@ span {
 
 }
 @media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
-    
+    .text{
+        font-size: 1.5rem;
+    }
 }
