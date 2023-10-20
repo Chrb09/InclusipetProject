@@ -81,6 +81,19 @@
     color: var(--gray);
     --bs-btn-hover-bg: var(--white);
 }
+#botao:hover,
+#botao:hover {
+    border-color: var(--purpleHover);
+    background-color: var(--purpleHover);
+}
+#botao-branco:hover {
+    color: var(--white);
+    background-color: var(--purpleHover);
+}
+#botao-cinza:hover {
+    background-color: var(--gray);
+    color: var(--white);
+}
 .gato{
     width: 35vmax;
 }

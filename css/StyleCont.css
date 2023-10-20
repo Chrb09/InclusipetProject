@@ -33,7 +33,6 @@ body {
     margin-left: 0.79rem;
     display: flex;
     flex-direction: column;
-    justify-content:space-evenly;
 }
 #box a {
     color: var(--purple);

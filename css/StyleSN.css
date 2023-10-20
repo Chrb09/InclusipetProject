@@ -34,6 +34,27 @@ span {
     flex-shrink: 0;
     text-indent: 2rem;
 }
+
+/* BOOTSTRAP */
+.text-time {
+    color: var(--gray);
+    text-align: justify;
+    font-family: Inter;
+    font-size: 1.9rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-indent: 2rem;
+}
+.text-time span {
+    color: var(--purple);
+    font-size: 1.9rem;
+}
+.container {
+    width: 98.25rem;
+height: 108.1875rem;
+flex-shrink: 0;
+}
 .hr {
     border-top: 3px solid var(--purple);
     border-radius: 5px;
@@ -42,10 +63,15 @@ span {
 }   
 .span {
     color: var(--purple);
+    font-size: 2rem;
 }
-/* BOOTSTRAP */
-body{margin-top:20px;}
+.rounded {
+    width: 10rem;
+    height: 10rem;
+}
 .history-wrapper {
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
     padding: 50px 0 50px;
 }
@@ -93,9 +119,7 @@ body{margin-top:20px;}
     position: absolute;
     background: #fff;
     top: 30%;
-    color: #3b3b3b;
     transform: translateY(-50%);
-    border: 1px solid #dbdbdb;
     line-height: 100px;
     text-align: center;
     font-size: 24px;
@@ -156,7 +180,7 @@ body{margin-top:20px;}
     right: -10.5px;
 }
 .timeline-box:hover:before {
-    border: 5px solid #ffa200;
+    border: 5px solid var(--purple);
 }
 @media screen and (max-width: 1199px) {
     .year {
