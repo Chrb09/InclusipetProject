@@ -218,6 +218,30 @@
 .reviews .g-4, .gx-4 {
     --bs-gutter-x: 0rem;
 }
+.reviews .btn{
+    margin: 3rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+    font-size: 2.3rem;
+    border-radius: 1.25rem;
+    padding: 1rem 4rem 1rem 4rem;
+    width:fit-content;
+    border: 0px ;
+    --bs-btn-font-weight: 800;
+    --bs-btn-color: var(--purple);
+    --bs-btn-bg: var(--white);
+    --bs-btn-hover-color: var(--purple);
+    --bs-btn-hover-bg: var(--white);
+    --bs-btn-active-bg: var(--purple);
+}
+.reviews .btn a{
+    width: 22vmax;
+}
+.estatisticas{
+    gap: 4rem;
+}
 .text{
     font-size: 1.8rem;
     text-indent: 2rem;
@@ -255,13 +279,15 @@
     align-items: center;
     gap: 10rem;
 }
+.profi{
+    padding-bottom: 5rem;
+}
 .profcard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    margin-bottom: 5rem;
 }
 .profcard img{
     width: 20vmax;
@@ -305,7 +331,6 @@
     margin: 0;
 }
 .text-contato {
-    padding-left: 20%;
     text-indent: 2rem;
     text-align: right;
     font-family: Inter;
@@ -314,7 +339,9 @@
     color: var(--gray);
     font-weight: 630;
     line-height: normal;
-    text-align: justify;
+}
+.text-contato p{
+    margin-bottom: 1rem;
 }
 .text-contato b {
     color: var(--purple);
@@ -374,12 +401,15 @@
     height: 38rem;
 }
 .lastposts .card-title{
-    color: var(--purple);
     font-family: Inter;
     font-size: 2.3rem;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+}
+.lastposts .card-title a{
+    text-decoration: none;
+    color: var(--purple);
 }
 .lastposts .card-body{
     color: var(--gray);
@@ -433,7 +463,6 @@
 @media screen and (max-width: 425px) { /*Tamanho Mobile L*/
     .estatisticas{
         flex-direction: column;
-        gap: 4rem;
     }
     .botao-sobrenos{
         flex-direction: column;
@@ -441,23 +470,13 @@
     .titulo-profi{
         font-size: 2.5rem;
     }
+    
 }
 
 @media screen and (max-width: 777px) { /*Tamanho Tablet*/
-    .reviews .row-cols-1{
-        display: flex;
-        flex-wrap: wrap;
-        
-    }
     .lastposts .row-cols-1{
         display: flex;
         flex-wrap: wrap;
-    }
-    .sobrenos, .contato{
-        display: flex;
-        flex-direction: column;
-        padding: 5rem 2rem;
-        align-items: center;
     }
     .profissionais{
         gap: 5rem;
@@ -481,6 +500,10 @@
     }
     .titulo{
         font-size: 2.5rem;
+        text-align: center;
+    }
+    .text-contato {
+        text-align: center;
     }
 }
 
@@ -488,8 +511,18 @@
     .reviews .star {
         gap: 0;
     }
+    .sobrenos, .contato{
+        display: flex;
+        flex-direction: column;
+        padding: 5rem 2rem;
+        align-items: center;
+    }
     .reviews .card-text{
-        width: 25vmax;
+        width: 35vmax;
+    }
+    .reviews .row-cols-1{
+        display: flex;
+        flex-wrap: wrap;  
     }
 }
 @media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
@@ -534,6 +567,11 @@
     .reviews .card-body{
         font-size: 1.2rem;
         gap: 0rem;
+    }
+    .reviews .btn{
+        border-radius: 1rem;
+        font-size: 2.2rem;
+        padding: 0.8rem 1rem;
     }
     
     .botao-contato .btn{

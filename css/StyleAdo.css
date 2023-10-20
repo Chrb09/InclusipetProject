@@ -1,8 +1,138 @@
 /****ADOÇÃO****/
-
-
-
-
+.title{
+    color: var(--purple);
+    text-align: center;
+    font-family: Inter;
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-top: 4rem;
+}
+.side{
+    display: flex;
+    flex-direction: row ;
+    gap: 3.5rem;
+}
+.pesquisa{
+    width: 25vmax;
+}
+.info{
+    width: fit-content;
+    color: var(--white);
+    text-align: justify;
+    font-family: Inter;
+    font-size: 2.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0 1.5rem;
+}
+.pesquisa, .info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5vmax;
+    border-radius: 0.7rem;
+    background-color: var(--purple);
+}
+::placeholder { 
+    color: var(--purple);    
+    font-family: Inter; 
+    font-size: 1.5vmax;  
+    font-style: normal;   
+    font-weight: 600;  
+    line-height: normal;  
+    opacity: 1;
+}
+.inputpesquisa{
+    border-radius: 0.5rem;
+    padding: 0.4rem 3rem;
+    font-size: 1.5vmax;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10rem;
+    margin-top: 5rem;
+    gap: 4rem;
+}
+.linha {
+    margin: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+.col{
+    width: 24vmax;
+}
+.row{
+    gap: 2rem;
+}
+.adocao{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+.card{
+    height: 37vmax;
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+    border-radius: 1.6rem;
+    --bs-card-title-spacer-y: 1.5rem;
+}
+.card-text{
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+}
+.localizacao{
+    width: 3vmax;
+    height: 3vmax;
+}
+.text-body-secondary{
+    color: var(--lgray);
+    font-family: Inter;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.card-title{
+    font-family: Inter;
+    font-size: 3.375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+}
+.card-title a{
+    text-decoration: none;
+    color: var(--purple);
+}
+.card-text .sn{
+    border: 0.5rem solid var(--purple);
+    border-radius: 3rem;
+    padding: 0 2rem;
+    background-color: var(--purple);
+    color: var(--white);
+    text-align: center;
+    font-family: Inter;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal
+}
 
 
 

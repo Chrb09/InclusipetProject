@@ -53,12 +53,15 @@
     line-height: normal;
 }
 .card-title{
-    color: var(--purple);
     font-family: Inter;
     font-size: 1.9rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+.card-title a{
+    text-decoration: none;
+    color: var(--purple);
 }
 .side{
     display: flex;

@@ -175,6 +175,9 @@
     .footer .div{
         flex-direction: row;
     }
+    .footer ul{
+        padding: 0;
+    }
     .logof{
         display: none;
     }
