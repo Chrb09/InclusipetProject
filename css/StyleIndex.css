@@ -167,9 +167,13 @@
     --bs-card-title-color: var(--purple);
     --bs-card-color: var(--gray);
     box-shadow: 0px 5px 7px 0px var(--shadow);
-    width: 28rem;
-    height: 38rem;
+    padding: 0 2vmax;
+    width:fit-content;
+    height: fit-content;
     border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .reviews .card-title{
     font-family: Inter;
@@ -186,10 +190,12 @@
     font-style: normal;
     font-weight: 650;
     line-height: normal;
-    height: 17rem;
+    width: fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
     padding: 2rem 0;
 }
 .reviews p {
@@ -198,8 +204,8 @@
 }
 .reviews .card-text{
     margin-top: 1.45rem;
-    width: 20.5625rem;
-    height: 14.90rem;
+    width: 22vmax;
+    height: 15rem;
     flex-shrink: 0;
     text-align: center;
     font-family: Inter;
@@ -239,9 +245,6 @@
     text-indent: 50px;
 }
 /* Profissionais */
-.profi{
-    height: 120rem;
-}
 .titulo-profi {
     margin-top: 7rem;
 }
@@ -253,10 +256,15 @@
     gap: 10rem;
 }
 .profcard {
-    width: 22.5rem;
-    height: 22.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-shrink: 0;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
+}
+.profcard img{
+    width: 20vmax;
 }
 .nome {
     text-align: center;
@@ -423,23 +431,68 @@
 /*Responsividade*/
 
 @media screen and (max-width: 425px) { /*Tamanho Mobile L*/
-
-
+    .estatisticas{
+        flex-direction: column;
+        gap: 4rem;
+    }
+    .botao-sobrenos{
+        flex-direction: column;
+    }
+    .titulo-profi{
+        font-size: 2.5rem;
+    }
 }
 
 @media screen and (max-width: 777px) { /*Tamanho Tablet*/
-
-
+    .reviews .row-cols-1{
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    .lastposts .row-cols-1{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .sobrenos, .contato{
+        display: flex;
+        flex-direction: column;
+        padding: 5rem 2rem;
+        align-items: center;
+    }
+    .profissionais{
+        gap: 5rem;
+    }
+    .profcard img{
+        width: 27vmax;
+    }
+    .contato .right{
+        align-items: center;
+        gap: 2rem;
+    }
+    .sobrenos .left{
+        align-items: center;
+        gap: 2rem;
+    }
+    .text-contato{
+        padding: 0;
+    }
+    .gato, .cachorro{
+        display: none;
+    }
+    .titulo{
+        font-size: 2.5rem;
+    }
 }
 
 @media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
-
-
+    .reviews .star {
+        gap: 0;
+    }
+    .reviews .card-text{
+        width: 25vmax;
+    }
 }
 @media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
-    .titulo{
-        font-size: 3.5rem;
-    }
     .lastposts{
         --bs-border-radius: 0.6rem;
     }
@@ -472,11 +525,30 @@
     .text-contato {
         font-size: 1.7rem;
     }
+    .reviews .card-text{
+        font-size: 1.5rem;
+    }
+    .reviews.star{
+        gap: 1%;
+    }
+    .reviews .card-body{
+        font-size: 1.2rem;
+        gap: 0rem;
+    }
+    
     .botao-contato .btn{
         border-radius: 1rem;
         font-size: 2rem;
         padding: 0.4rem 1rem;
         border-width: 0.35rem;
     }
+    .profcard .nome{
+        font-size: 3rem;
+    }
     
+}
+@media screen and (min-width: 2000px){
+    .profcard img{
+        width: 15vmax;
+    }
 }

@@ -161,27 +161,6 @@
         font-size: 1rem;
         flex-direction: column;
     }
-}
-@media screen and (max-width: 777px) { /*Tamanho Tablet*/
-    .logo{
-        width: 30rem;
-    }
-    .links{
-        margin-right: auto;
-        margin-left: auto;
-    }
-    .container-fluid{
-        padding-right: 0;
-        --bs-gutter-x: 3rem;
-        flex-direction: column;
-        padding-left: 0;
-    }
-    .container{
-        padding: 0 2rem;
-    }
-    .navbar-toggler{
-        margin-bottom: 2rem;
-    }
     .footer .navbar{
         height:fit-content;    
     }
@@ -199,6 +178,45 @@
     .logof{
         display: none;
     }
+    
+}
+@media screen and (min-width: 500px){
+    .footer .container-fluid{
+        flex-direction: row;
+    }
+}
+@media screen and (max-width: 777px) { /*Tamanho Tablet*/
+    .logo{
+        width: 60%;
+    }
+    .links{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container-fluid{
+        padding-right: 0;
+        --bs-gutter-x: 3rem;
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .navbar-brand{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer .container-fluid{
+        justify-content: space-around;
+    }
+    .container{
+        padding: 0 2rem;
+    }
+    .navbar-toggler{
+        margin-bottom: 2rem;
+    }
+    .logof{
+        width: 25vmax;
+    }
+
 }
 @media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
     
@@ -221,6 +239,7 @@
         font-weight: 600;
         line-height: normal;
     }
+    
     .navbar-nav{
         gap: 1rem;
     }
