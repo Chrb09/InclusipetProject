@@ -14,7 +14,6 @@ body {
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    display: flex;
 }
 .box-consulta, .box-info {
     display: flex;
@@ -73,9 +72,6 @@ body {
     display: flex;
     gap: 5vmax;
 }
-.boximg{
-
-}
 .msg{
     display: inline-block;
     vertical-align: top;
@@ -126,11 +122,8 @@ span {
 .info {
     display: flex;
     flex-direction: column;
-    width: 42rem;
 }
-.contact-form{
-    width: 42rem;
-}
+
 #telefone, small {
     margin-bottom: 2rem;
 }
@@ -140,15 +133,20 @@ span {
 }
 .info span {
     font-size: 2.25rem;
+    width: fit-content;
 }
 small {
     font-weight: 500;
     font-size: 1.90rem;
+    width: fit-content;
 }
 /*Responsividade*/
 
 @media screen and (max-width: 425px) { /*Tamanho Mobile L*/
-
+    .box-consulta, .box-info{
+        height:fit-content;
+        flex-direction: column;
+    }
 
 }
 
@@ -156,7 +154,6 @@ small {
     .grid{
         flex-direction: column;
     }
-
 }
 
 @media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
@@ -165,10 +162,7 @@ small {
 }
 @media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
     .titulo{
-        font-size: 3.5rem;
-    }
-    .box-consulta, .box-info {
-        width:fit-content;
+        font-size: 3rem;
     }
     #box {
         font-size: 1.5rem;

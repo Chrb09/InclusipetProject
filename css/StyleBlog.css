@@ -1,5 +1,5 @@
 /****BLOG****/
-.main{
+.posts{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -16,7 +16,6 @@
 .row{
     gap: 2rem;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 .titulo{
@@ -129,10 +128,11 @@
 #titulo {
     margin-bottom: 0;
 }
-.bottom {
-    width: 98.5625rem;
-    height: 159.375rem;
-    flex-shrink: 0;
+.top, .bottom{
+    width: 80vmax;
+}
+.top img{
+    width: 80vmax;
 }
 .artigo small {
     color: var(--lgray);
@@ -180,7 +180,17 @@
 
 
 }
-
+@media screen and (max-width: 600px) {
+    .row{
+        flex-flow: column nowrap;
+    }
+    .top, .bottom{
+        width: 40vmax;
+    }
+    .top img{
+        width: 40vmax;
+    }
+}
 @media screen and (max-width: 777px) { /*Tamanho Tablet*/
     .side{
         justify-content: center;
@@ -195,13 +205,20 @@
     .txt{
         height: 25vh;
     }
-    .titulo{
-        font-size: 2.4rem;
+    .artigo small{
+        font-size: 1.5rem;
     }
+    .titulo, .bold{
+        font-size: 2rem;
+    }
+    .texto{
+        font-size: 1.5rem;
+    }
+
 }
 
 @media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
-    .main{
+    .posts{
         padding: 0 0.5rem;
         gap: 2rem;
         margin-top: 0;

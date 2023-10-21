@@ -29,8 +29,8 @@ span {
     color: var(--gray);
     text-align: justify;
     font-size: 2rem;
-    font-weight: 750;
-    padding: 0 10rem;
+    font-weight: 600;
+    padding: 0 5rem;
     flex-shrink: 0;
     text-indent: 2rem;
 }
@@ -42,7 +42,7 @@ span {
     font-family: Inter;
     font-size: 1.9rem;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
     text-indent: 2rem;
 }
@@ -51,9 +51,7 @@ span {
     font-size: 1.9rem;
 }
 .container {
-    width: 98.25rem;
-height: 108.1875rem;
-flex-shrink: 0;
+    flex-shrink: 0;
 }
 .hr {
     border-top: 3px solid var(--purple);
@@ -113,14 +111,13 @@ flex-shrink: 0;
     padding: 0 140px 0 0;
 }
 .year {
-    width: 100px;
-    height: 100px;
+    width:100px;
+    height: fit-content;
     border-radius: 50%;
     position: absolute;
     background: #fff;
     top: 30%;
     transform: translateY(-50%);
-    line-height: 100px;
     text-align: center;
     font-size: 24px;
     font-weight: 700;
@@ -181,6 +178,16 @@ flex-shrink: 0;
 }
 .timeline-box:hover:before {
     border: 5px solid var(--purple);
+}
+.timeline-box img{
+    width: 13vmax;
+    height: 13vmax;
+}
+.timeline, .container{
+    height: fit-content;
+}
+.footer{
+    margin-top: 0;
 }
 @media screen and (max-width: 1199px) {
     .year {
@@ -266,6 +273,27 @@ flex-shrink: 0;
 
 .mb-1-6, .my-1-6 {
     margin-bottom: 1.6rem;
+}
+@media screen and (max-width: 575px) {
+    .history-wrapper, .timeline-box, .content, .text-time{
+        width: fit-content;
+        font-size: 1.5rem;
+    }
+    .one-of-two{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+    .titulo{
+        font-size: 3rem;
+    }
+    .text{
+        padding: 0 1rem;
+    }
+    .timeline-box img{
+        width: 35vmax;
+        height: 35vmax;
+    }
 }
 @media screen and (max-width: 425px) { /*Tamanho Mobile L*/
 

@@ -22,7 +22,7 @@
     color: var(--white);
     text-align: justify;
     font-family: Inter;
-    font-size: 2.125rem;
+    font-size: 1.8rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -32,7 +32,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 4.5vmax;
+    height: 5vmax;
     border-radius: 0.7rem;
     background-color: var(--purple);
 }
@@ -48,14 +48,17 @@
 .inputpesquisa{
     border-radius: 0.5rem;
     padding: 0.4rem 3rem;
-    font-size: 1.5vmax;
+    font-size: 1.3vmax;
+}
+.txt{
+    height: 12rem;
 }
 .main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 10rem;
+    padding: 0 7vmax;
     margin-top: 5rem;
     gap: 4rem;
 }
@@ -66,7 +69,7 @@
     flex-direction: row;
 }
 .col{
-    width: 24vmax;
+    width: 26vmax;
 }
 .row{
     gap: 2rem;
@@ -81,6 +84,9 @@
     box-shadow: 0px 5px 7px 0px var(--shadow);
     border-radius: 1.6rem;
     --bs-card-title-spacer-y: 1.5rem;
+}
+.card-body{
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
 }
 .card-text{
     color: var(--gray);
@@ -139,24 +145,126 @@
     font-weight: 700;
     line-height: normal
 }
-
-
-
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    border-radius: 2rem;
+    width: 70vmax;
+    margin: 0;
+    padding-bottom: 5rem;
+    flex-shrink: 0;
+    box-shadow: 0px 5px 7px 0px var(--shadow);
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.galeria{
+    width: 65%;
+    margin: 4rem 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+.petinfo{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+.petinfo, .petficha{
+    width: 93%;
+}
+.petficha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.petsex{
+    width: 4vmax;
+}
+.together, .one {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    color: var(--gray);
+    font-family: Inter;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 100%;
+}
+.infobody{
+    border-bottom: 4px var(--purple) solid;
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+.coluna{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+.one .coluna{
+    width: 100%;
+}
+.foco, .foco img{
+    width: 100%;
+}
+.escolha{
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    width: 100%;
+}
+.escolha img{
+    width: 24%;
+}
 
 /*Responsividade*/
 
-@media screen and (max-width: 425px) { /*Tamanho Mobile L*/
-
-
+@media screen and (max-width: 510px) { /*Tamanho Mobile L*/
+    .title{
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 0;
+    }
+    .infotitle, .infobody{
+        font-size: 1.5rem;
+    }
+    .escolha{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4%;
+        width: 100%;
+    }
+    .escolha img{
+        margin-top: 0.8rem;
+        width: 47%;
+    }
+    .galeria{
+        gap: 0;
+    }
 }
 
 @media screen and (max-width: 777px) { /*Tamanho Tablet*/
-
-
+    .box {
+        width: 100%;
+        box-shadow: none;
+    }
 }
 
 @media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
-
+    .galeria{
+        width: 95%;
+    }
 
 }
 @media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
