@@ -16,6 +16,9 @@
 
 .row{
     gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .titulo{
     display: flex;
@@ -28,10 +31,10 @@
     margin: 2.5rem 0;
 }
 .col{
-    width: 27vmax;
+    width: 28vmax;
 }
 .card{
-    height: 37vmax;
+    height:auto;
     box-shadow: 0px 5px 7px 0px var(--shadow);
     border-radius: 1.6rem;
     --bs-card-title-spacer-y: 0rem;
@@ -44,6 +47,9 @@
     font-weight: 600;
     line-height: normal;
 }
+.txt{
+    height: 18vh;
+}
 .text-body-secondary{
     color: var(--lgray);
     font-family: Inter;
@@ -53,6 +59,7 @@
     line-height: normal;
 }
 .card-title{
+    height: 12vh;
     font-family: Inter;
     font-size: 1.9rem;
     font-style: normal;
@@ -135,7 +142,12 @@
         justify-content: center;
         width:80%;
     }
-    
+    .txt{
+        height: 25vh;
+    }
+    .titulo{
+        font-size: 2.4rem;
+    }
 }
 
 @media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
@@ -152,13 +164,10 @@
         gap: 0rem;
     }
     .col{
-        width: 45vmax;
-    }
-    .card{
-        height: 55vmax;
+        width: 40vmax;
     }
     .pesquisa, .postsrecentes{
-        width: 25vmax;
+        width: 20vmax;
     }
     .text-body-secondary{
         font-size: 0rem;
@@ -175,7 +184,7 @@
         justify-content: center;
     }
     .pesquisa{
-        width: 50vmax;
+        width: 40vmax;
         height: 10vmax;
     }
     ::placeholder {
@@ -190,7 +199,7 @@
       .inputpesquisa{
         border-radius: 0.5rem;
         padding: 0.4rem;
-        font-size: 3vmax;
+        font-size: 2.5vmax;
       }
 }
 @media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/

@@ -188,7 +188,7 @@
         flex-direction: row;
     }
 }
-@media screen and (max-width: 777px) { /*Tamanho Tablet*/
+@media screen and (max-width: 991px) { /*Tamanho Tablet*/
     .logo{
         width: 60%;
     }

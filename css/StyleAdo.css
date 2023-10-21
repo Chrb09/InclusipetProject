@@ -77,7 +77,7 @@
     gap: 5rem;
 }
 .card{
-    height: 37vmax;
+    height:fit-content;
     box-shadow: 0px 5px 7px 0px var(--shadow);
     border-radius: 1.6rem;
     --bs-card-title-spacer-y: 1.5rem;
@@ -120,7 +120,13 @@
     text-decoration: none;
     color: var(--purple);
 }
-.card-text .sn{
+.card-botao{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.card-botao .botao{
     border: 0.5rem solid var(--purple);
     border-radius: 3rem;
     padding: 0 2rem;
