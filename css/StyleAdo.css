@@ -217,14 +217,32 @@
 .foco, .foco img{
     width: 100%;
 }
+.foco{
+    display: none;
+}
 .escolha{
     display: flex;
     justify-content: center;
     gap: 1%;
     width: 100%;
 }
-.escolha img{
+.imgescolha{
     width: 24%;
+    background-color: var(--gray);
+    border-radius: 0.5rem;
+}
+.imgescolha img{
+    width: 100%;
+    opacity: 0.5;
+    border-radius: 0.5rem;
+    border: 5px var(--gray) solid;
+}
+.cursor {
+    cursor: pointer;
+}
+.active img, .imgescolha img:hover {
+    opacity: 1;
+    border-color: var(--purple);
 }
 
 /*Responsividade*/
@@ -233,6 +251,8 @@
     .title{
         font-size: 3rem;
         text-align: center;
+    }
+    .petficha .title{
         margin-top: 0;
     }
     .infotitle, .infobody{
@@ -245,9 +265,12 @@
         gap: 4%;
         width: 100%;
     }
-    .escolha img{
-        margin-top: 0.8rem;
+    .imgescolha{
         width: 47%;
+        margin-top: 0.8rem;
+    }
+    .imgescolha img{
+        width: 100%;
     }
     .galeria{
         gap: 0;

@@ -53,13 +53,52 @@
         <div class="foco">
           <img src="img/Animal/Grande1.png" alt="">
         </div>
+        <div class="foco">
+          <img src="img/Animal/Grande2.png" alt="">
+        </div>
+        <div class="foco">
+          <img src="img/Animal/Grande3.png" alt="">
+        </div>
+        <div class="foco">
+          <img src="img/Animal/Grande4.png" alt="">
+        </div>
         <div class="escolha">
-          <img src="img/Animal/Pequeno1.png" alt="">
-          <img src="img/Animal/Pequeno2.png" alt="">
-          <img src="img/Animal/Pequeno3.png" alt="">
-          <img src="img/Animal/Pequeno4.png" alt="">
+          <div class="imgescolha"><img src="img/Animal/Pequeno1.png" class="demo cursor" onclick="currentSlide(1)"></div>
+          <div class="imgescolha"><img src="img/Animal/Pequeno2.png" class="demo cursor" onclick="currentSlide(2)"></div>
+          <div class="imgescolha"><img src="img/Animal/Pequeno3.png" class="demo cursor" onclick="currentSlide(3)"></div>
+          <div class="imgescolha"><img src="img/Animal/Pequeno4.png" class="demo cursor" onclick="currentSlide(4)"></div>
         </div>
       </div>
+      <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("foco");
+          let dots = document.getElementsByClassName("imgescolha");
+          let captionText = document.getElementById("caption");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+          captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+        </script>
       <div class="petficha">
         <div class="title">Fonseca <img src="img/Adoção/Homem.png" alt="" class="petsex"></div>
         <div class="petinfo">
