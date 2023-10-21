@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: row;
 }
-
 .row{
     gap: 2rem;
 }
@@ -116,6 +115,57 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+
+/* ARTIGO */
+#titulo {
+    margin-bottom: 0;
+}
+.bottom {
+    width: 98.5625rem;
+    height: 159.375rem;
+    flex-shrink: 0;
+}
+.artigo small {
+    color: var(--lgray);
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 2.25rem;
+}
+.artigo .span {
+    margin-bottom: 1.69rem;
+}
+.artigo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bold {
+    color: var(--grayblack);
+    text-align: center;
+    font-family: Inter;
+    font-size: 3.4375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 1.21rem;
+    margin-top: 5.70rem;
+}
+.texto {
+    color: var(--gray);
+    text-align: justify;
+    font-family: Inter;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-indent: 4rem;
+    margin-bottom: 4.86rem;
+    width: 100%;
 }
 /*Responsividade*/
 
