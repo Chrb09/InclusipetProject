@@ -226,7 +226,10 @@
 .escolha img{
     width: 24%;
 }
-
+#botao:hover {
+    background-color: var(--purpleHover);
+    border-color: var(--purpleHover);
+}
 /*Responsividade*/
 
 @media screen and (max-width: 510px) { /*Tamanho Mobile L*/
