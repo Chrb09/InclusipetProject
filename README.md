@@ -37,7 +37,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     </td>
     <td align="center">
-      <a href="https://github.com/reidelass777">
+      <a href="https://github.com/BernardoVxexra">
         <img src="https://avatars.githubusercontent.com/u/142687809?v=4" width="100px;" alt="Bernardo - Github"/><br>
         <sub>
           <b>Bernardo</b>
