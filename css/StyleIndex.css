@@ -1,283 +1,211 @@
 /****SOBRE NÓS****/
 
 /*CARROSSEL*/
-
-.titulo-page {
-    margin: 3.5rem 0 6.56rem 0;
+.carousel-item a{
+    display: block;
+}
+.container__titulo {
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
 }
 .titulo{
     color: var(--purple);
     text-align: center;
-    font-family: Inter;
     font-size: 4.5rem;
-    font-style: normal;
     font-weight: 800;
-    line-height: normal;
-    text-align: center;
     margin-bottom: 4.44rem;
 }
 .hr {
     border-top: 3px solid var(--purple);
     border-radius: 5px;
     width:75%;
-    margin: 1.5rem 0 1.5rem 0;
-}
-.brancoh{
-    border-top: 3px solid var(--white);
-    width:50%;
-}
-.brancot{
-    color: var(--white);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 /* Section > About us */
 .sobrenos {
     background-color: var(--light-gray);
+}
+.container__sobrenos{
     display: flex;
     gap: 3rem;
-    padding: 9rem 10rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
 }
-.titulo-sobrenos {
-    text-align: left;
+.titulo__sobrenos {
+    color: var(--purple);
     font-size: 4rem;
-    margin: 0;
+    font-weight: 800;
 }
-.text-sobrenos {
+.texto__sobrenos {
     text-indent: 2rem;
-    text-align: left;
-    font-family: Inter;
     font-size: 2.2rem;
-    font-style: normal;
-    color: var(--gray);
-    font-weight: 630;
-    line-height: normal;
     text-align: justify;
 }
-.text-sobrenos b {
+.texto__sobrenos b {
     color: var(--purple)
 }
-.botao-sobrenos{
+.botao__sobrenos{
     display: flex;
     gap: 2.3rem;
 }
-.botao-sobrenos .btn{
-    border-radius: 1.4rem;
+.botao__sobrenos button{
+    border-radius: 0.5em;
     text-align: center;
-    font-family: Inter;
     font-size: 3rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    padding: 0.5rem 1.3rem;
-    cursor: pointer;
+    padding: 0.2em 0.5em;
     box-shadow: 0px 8px 8px 0px var(--shadow);
 }
-.botao-sobrenos .sn{
-    border: 0.5rem solid var(--purple);
+.botao-solido{
+    border-width: 0.5rem;
+    border-style: solid;
+    border-color: var(--purple);
     background-color: var(--purple);
     color: var(--white);
+    transition: color 0.3s;
+    transition: border-color 0.3s;
+    transition: background-color 0.3s;
 }
-.botao-sobrenos .servicos{
-    border: 0.5rem solid var(--gray);
+.botao-solido:hover{
+    border-color: var(--purplehover);
+    background-color: var(--purplehover);
+}
+.branco a{
+    color: var(--purple);
+}
+.branco a:hover{
+    color: var(--white);
+}
+.branco{
+    border-color: var(--white);
+    background-color: var(--white);
+}
+.branco:hover{
+    border-color: var(--purplehover);
+    background-color: var(--purplehover);
+    color: var(--white);
+}
+.botao-borda{
+    border-width: 0.5rem;
+    border-style: solid;
+    border-color: var(--gray);
     color: var(--gray);
-    --bs-btn-hover-bg: var(--white);
+    background-color: var(--light-gray);
+    transition: background-color 0.3s
 }
-#botao:hover,
-#botao:hover {
-    border-color: var(--purpleHover);
-    background-color: var(--purpleHover);
-}
-#botao-branco:hover {
-    color: var(--white);
-    background-color: var(--purpleHover);
-}
-#botao-cinza:hover {
+.botao-borda:hover{
     background-color: var(--gray);
+}
+.botao-borda a{
+    color: var(--gray);
+    transition: color 0.3s
+}
+.botao-borda a:hover{
     color: var(--white);
 }
-.gato{
-    width: 35vmax;
+.imagem__sobrenos{
+    width: 35rem;
 }
-.sobrenos .left{
+.left-container__sobrenos{
     display: flex;
     flex-direction: column;
-    gap: 12%;
+    gap: 5vh;
     justify-content: center;
+}
+.right-container__sobrenos{
+    margin-left: auto;
+    margin-right: auto;
+    order: 0;
 }
 /* Reviews */
 .reviews {
     background-color: var(--purple);
 }
-.titulo-reviews {
-    padding-top: 6.90rem;
+.container__reviews{
+    padding-top: 8rem;
+    padding-bottom: 8rem;
 }
-.reviews {
-    background-color: var(--purple);
-}
-.reviews {
-    padding: 3rem 0 5rem 0;
-    background-color: var(--purple);
-    --bs-border-radius: 0.8rem;
-}
-.estatisticas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 3rem 0;
-} 
-.reviews .star {
-    display: flex;
-    justify-content: center;
-    gap: 8%;
-}
-.reviews span {
+.titulo__reviews{
     color: var(--white);
-    font-family: Inter;
-    font-size: 2.500rem;
-    font-style: normal;
+    text-align: center;
+    font-size: 4.5rem;
     font-weight: 800;
-    line-height: normal;
+    margin-bottom: 4.44rem;
 }
-.reviews h5 {
-    color: var(--gray);
-    font-family: Inter;
-    font-size: 3rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+.reviews .hr, .ultimosposts .hr {
+    border-top: 3px solid var(--white);
 }
-.reviews small {
-    font-size: 1.80rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin-bottom: 1rem;
-}
-.reviews .row-cols-1{
-    flex-flow: row nowrap;
-    justify-content: center;
-}
-.reviews .row{
-    gap: 4%;
-}
-.reviews .card {
-    --bs-card-spacer-y: 1rem;
-    --bs-card-spacer-x: 1rem;
-    --bs-card-title-spacer-y: 1rem;
-    --bs-card-title-color: var(--purple);
-    --bs-card-color: var(--gray);
-    box-shadow: 0px 5px 7px 0px var(--shadow);
-    padding: 0 2vmax;
-    width:fit-content;
-    height: fit-content;
-    border-radius: 25px;
+.subtitulo__reviews{
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 4.44rem;
+    gap: 4rem;
 }
-.reviews .card-title{
-    font-family: Inter;
-    font-size: 2.9rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    margin: 0;
+.subtitulo-text__reviews{
+    color: var(--white);
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 750;
 }
-.reviews .card-body{
-    color: var(--gray);
-    font-family: Inter;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 650;
-    line-height: normal;
-    width: fit-content;
-    height: fit-content;
+.linha__reviews{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+.cartao__reviews{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    padding: 2rem 0;
-}
-.reviews p {
-    font-size: 1.625rem;
-    font-weight: 600;
-}
-.reviews .card-text{
-    margin-top: 1.45rem;
-    width: 22vmax;
-    height: 15rem;
-    flex-shrink: 0;
+    justify-content: space-between;
     text-align: center;
-    font-family: Inter;
-    text-align: center;    
-    color: var(--gray);
+    background-color: var(--white);
+    border-radius: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    gap: 1.5em;
+    width: 25rem;
+    font-size: 1.5rem;
+    box-shadow: 0px 8px 8px 0px var(--shadow);
 }
-.reviews.col{
-    width: 20rem;   
+.cartao__info{
+    font-size: 2rem;
 }
-.reviews .g-4, .gx-4 {
-    --bs-gutter-x: 0rem;
+.botao__reviews button{
+    border-radius: 0.5em;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 0.2em 0.5em;
+    box-shadow: 0px 8px 8px 0px var(--shadow);
 }
-.reviews .btn{
-    margin: 3rem 0 0 0;
+.botao__reviews{
     display: flex;
+    margin-top: 4.44rem;
     justify-content: center;
-    align-items: center;
-    box-shadow: 0px 5px 7px 0px var(--shadow);
-    font-size: 2.3rem;
-    border-radius: 1.25rem;
-    padding: 1rem 4rem 1rem 4rem;
-    width:fit-content;
-    border: 0px ;
-    --bs-btn-font-weight: 800;
-    --bs-btn-color: var(--purple);
-    --bs-btn-bg: var(--white);
-    --bs-btn-hover-color: var(--purple);
-    --bs-btn-hover-bg: var(--white);
-    --bs-btn-active-bg: var(--purple);
 }
-.reviews .btn a{
-    width: 22vmax;
-}
-.estatisticas{
-    gap: 4rem;
-}
-.text{
-    font-size: 1.8rem;
-    text-indent: 2rem;
-    padding: 4rem 0rem;
-}
-.text b{
-    color: var(--purple);
-}
-.imgaboutus{
-    width: 80%;
-    margin: 2rem 0;
-}
-.col-md-auto{
-    font-size: 1.8rem;
-    width: 90%;
-    font-weight: 350;
-    flex-shrink: 0;
-    color: var(--white);
-    background-color: var(--purple);
-    padding: 5%;
-    border-radius: 25px;
-    margin: 2rem 0;
-    margin-left: auto;
-    margin-right: auto;
-    text-indent: 50px;
+.botao__reviews a{
+    font-weight: 800;
 }
 /* Profissionais */
-.titulo-profi {
-    margin-top: 7rem;
+.titulo__profissionais {
+    color: var(--purple);
+    text-align: center;
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 4.44rem;
 }
-.profissionais {
+.container__profissionais {
     display: flex;
     flex-flow: row wrap;    
     justify-content: center;
     align-items: center;
     gap: 10rem;
+}
+.container__titulo-profissionais{
+    margin-top: 4rem;
 }
 .profi{
     padding-bottom: 5rem;
@@ -290,7 +218,7 @@
     flex-shrink: 0;
 }
 .profcard img{
-    width: 20vmax;
+    width: 20rem;
 }
 .nome {
     text-align: center;
@@ -378,19 +306,19 @@
     justify-content: center;
 }
 /*ULTIMOS POSTS*/
-.lastposts{
+.ultimosposts{
     padding: 3rem 0 5rem 0;
     background-color: var(--purple);
-    --bs-border-radius: 0.8rem;
+    margin-top: 5rem;
 }
-.lastposts .row-cols-1{
+.ultimosposts .row-cols-1{
     flex-flow: row nowrap;
     justify-content: center;
 }
-.lastposts .row{
+.ultimosposts .row{
     gap: 2%;
 }
-.lastposts .card {
+.ultimosposts .card {
     --bs-card-spacer-y: 1rem;
     --bs-card-spacer-x: 1rem;
     --bs-card-title-spacer-y: 1rem;
@@ -400,18 +328,18 @@
     width: 28rem;
     height: 38rem;
 }
-.lastposts .card-title{
+.ultimosposts .card-title{
     font-family: Inter;
     font-size: 2.3rem;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
 }
-.lastposts .card-title a{
+.ultimosposts .card-title a{
     text-decoration: none;
     color: var(--purple);
 }
-.lastposts .card-body{
+.ultimosposts .card-body{
     color: var(--gray);
     font-family: Inter;
     font-size: 1.5rem;
@@ -420,34 +348,27 @@
     line-height: normal;
     height: 17rem;
 }
-.lastposts .card-text{
+.ultimosposts .card-text{
     text-align: justify;    
 }
-.lastposts .col{
+.ultimosposts .col{
     width: 20rem;
 }
-.lastposts .g-4, .gx-4 {
+.ultimosposts .g-4, .gx-4 {
     --bs-gutter-x: 0rem;
 }
-.lastposts .btn{
-    margin: 3rem 0 0 0;
+.botao__ultimosposts{
     display: flex;
     justify-content: center;
-    align-items: center;
-    box-shadow: 0px 5px 7px 0px var(--shadow);
-    font-size: 2.3rem;
-    border-radius: 1.25rem;
-    padding: 1rem 0 1rem 0;
-    width: 28rem;
-    border: 0px ;
-    --bs-btn-font-weight: 800;
-    --bs-btn-color: var(--purple);
-    --bs-btn-bg: var(--white);
-    --bs-btn-hover-color: var(--purple);
-    --bs-btn-hover-bg: var(--white);
-    --bs-btn-active-bg: var(--purple);
 }
-.lastposts .card {
+.botao__ultimosposts button{
+    border-radius: 0.5em;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 0.2em 2em;
+    box-shadow: 0px 8px 8px 0px var(--shadow);
+}
+.ultimosposts .card {
     --bs-card-spacer-y: 1rem;
     --bs-card-spacer-x: 1rem;
     --bs-card-title-spacer-y: 1rem;
@@ -460,133 +381,150 @@
 
 /*Responsividade*/
 
-@media screen and (max-width: 425px) { /*Tamanho Mobile L*/
-    .estatisticas{
-        flex-direction: column;
-    }
-    .botao-sobrenos{
-        flex-direction: column;
-    }
-    .titulo-profi{
+/* xl */
+@media (max-width: 1536px){
+    .botao__sobrenos button{
         font-size: 2.5rem;
     }
-    
 }
-
-@media screen and (max-width: 777px) { /*Tamanho Tablet*/
-    .lastposts .row-cols-1{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .profissionais{
-        gap: 5rem;
-    }
-    .profcard img{
-        width: 27vmax;
-    }
-    .contato .right{
-        align-items: center;
-        gap: 2rem;
-    }
-    .sobrenos .left{
-        align-items: center;
-        gap: 2rem;
-    }
-    .text-contato{
-        padding: 0;
-    }
-    .gato, .cachorro{
-        display: none;
+@media (max-width: 1280px) {
+    .botao-borda, .botao-solido{
+        border-width: 0.35rem;
     }
     .titulo{
-        font-size: 2.5rem;
-        text-align: center;
+        font-size: 4rem;
     }
-    .text-contato {
-        text-align: center;
+    .imagem__sobrenos{
+        width: 30rem;
+    }
+    .botao__sobrenos button{
+        font-size: 2rem;
+    }
+    .linha__reviews{
+        gap: 2rem;
     }
 }
 
-@media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
-    .reviews .star {
-        gap: 0;
+/* lg */
+@media (max-width: 1024px) {
+    .titulo{
+        font-size: 3.5rem;
     }
-    .sobrenos, .contato{
-        display: flex;
-        flex-direction: column;
-        padding: 5rem 2rem;
-        align-items: center;
-    }
-    .reviews .card-text{
-        width: 35vmax;
-    }
-    .reviews .row-cols-1{
-        display: flex;
-        flex-wrap: wrap;  
-    }
-}
-@media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
-    .lastposts{
-        --bs-border-radius: 0.6rem;
-    }
-    .lastposts .card {
-
-        width: 18rem;
-        height: 30rem;
-    }
-    .lastposts .card-title{
-        font-size: 1.6rem;
-    }
-    .lastposts .card-body{
-        font-size: 1.2rem;
-    }
-    .lastposts .btn{
-        font-size: 1.8rem;
-        width: 19rem;
-        padding: 0.7rem 0 0.7rem 0;
-        border-radius: 1rem;
-    }
-    .text-sobrenos {
-        font-size: 1.7rem;
-    }
-    .botao-sobrenos .btn{
-        border-radius: 1rem;
-        font-size: 2rem;
-        padding: 0.4rem 1rem;
-        border-width: 0.35rem;
-    }
-    .text-contato {
-        font-size: 1.7rem;
-    }
-    .reviews .card-text{
-        font-size: 1.5rem;
-    }
-    .reviews.star{
-        gap: 1%;
-    }
-    .reviews .card-body{
-        font-size: 1.2rem;
-        gap: 0rem;
-    }
-    .reviews .btn{
-        border-radius: 1rem;
-        font-size: 2.2rem;
-        padding: 0.8rem 1rem;
-    }
-    
-    .botao-contato .btn{
-        border-radius: 1rem;
-        font-size: 2rem;
-        padding: 0.4rem 1rem;
-        border-width: 0.35rem;
-    }
-    .profcard .nome{
+    .titulo__sobrenos {
         font-size: 3rem;
     }
+    .texto__sobrenos {
+        text-indent: 1.5rem;
+        font-size: 1.5rem;
+    }
+    .imagem__sobrenos{
+        width: 20rem;
+    }
+    .botao__sobrenos button{
+        font-size: 1.5rem;
+    }
+    .left-container__sobrenos{
+        gap: 2vh;
+    }
+    .cartao__reviews{
+        padding-left: 0rem;
+        padding-right: 0rem;
+        font-size: 1.2rem;
+    }
+    .cartao__info{
+        font-size: 1.7rem;
+    }
+    .titulo__reviews{
+        font-size: 3rem;
+    }
+    .imagem__quote{
+        width: 7rem;
+    }
+    .linha__reviews{
+        gap: 1rem;
+    }
+    .cartao__estrela{
+        width: 2rem;
+    }
+    .container__profissionais {
+        gap: 5rem;
+    }
     
 }
-@media screen and (min-width: 2000px){
-    .profcard img{
-        width: 15vmax;
+/* md */
+@media (max-width: 768px) {
+    .container__sobrenos{
+        flex-direction: column;
+        gap: 2rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    .botao__sobrenos button{
+        font-size: 2.5rem;
+    }
+    .titulo__sobrenos{
+        text-align: center;
+    }
+    .botao__sobrenos{
+        justify-content: center;
+    }
+    .imagem__sobrenos{
+        width: 25rem;
+    }
+    .right-container__sobrenos{
+        order: -1;
+    }
+    .linha__reviews{
+        flex-wrap: wrap;
+    }    
+    .cartao__reviews{
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 1.5rem;
+    }
+    .titulo__profissionais {
+        font-size: 3.5rem;
+    }
+}    
+/* sm */
+@media (max-width: 640px) {
+    .botao__sobrenos button{
+        font-size: 2rem;
+    }
+    .d-block{
+        height: 15rem;
+        object-fit:cover;
+    }
+    .titulo__reviews{
+        font-size: 2rem;
+    }
+    .subtitulo__reviews{
+        gap: 1rem;
+    }
+    .subtitulo-text__reviews{
+        font-size: 2rem;
+    }
+    .botao__reviews button{
+        font-size: 2em;
+    }
+}
+
+/* xs */
+@media (max-width: 475px) {
+    .imagem__sobrenos{
+        width: 80vw;
+    }
+    .botao__sobrenos button{
+        font-size: 1.5rem;
+    }
+    .subtitulo__reviews{
+        flex-direction: column;
+    }
+    .cartao__reviews{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .titulo__profissionais {
+        font-size: 2.5rem;
     }
 }

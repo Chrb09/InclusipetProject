@@ -5,7 +5,7 @@
     --fadedwhite: #dad5dc;
     --lgray: #787878;
     --purple: #574DBD;
-    --purpleHover: #403898;
+    --purplehover: #403898;
     --shadow:#00000040;
     --black:#000000;
     --beige: #F7EEE4;
@@ -39,6 +39,8 @@ html::-webkit-scrollbar-track{
 body{
     overflow-x: hidden;
     font-family: 'inter';
+    color: var(--gray);
+    font-weight: 600;
 }
 button{
     display: inline-block;

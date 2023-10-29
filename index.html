@@ -12,7 +12,7 @@
 </head>
 <body>
   <!-- HEADER-->
-    <header class="header">
+  <header class="header">
         <div class="container container__header">
           <a href="index.html"><img src="img/Logo/Inclusipet.png" alt="Logo Inclusipet" class="logo__header"></a>
           <ul class="menu__header">
@@ -55,17 +55,15 @@
             </li>
           </div>
         </div>
-    </header>
-    <script>
-        const barra__header = document.querySelector('.barra__header')
-        const dropdown__header = document.querySelector('.dropdown__header')
-
-        barra__header.onclick = function () {
-            dropdown__header.classList.toggle('open')
-        }
-    </script>
-    <!--Conteudo-->
-    <!-- CARROSSEL -->
+  </header>
+  <script>
+      const barra__header = document.querySelector('.barra__header')
+      const dropdown__header = document.querySelector('.dropdown__header')
+      barra__header.onclick = function () {
+          dropdown__header.classList.toggle('open')
+      }
+  </script>
+  <!-- CARROSSEL -->
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -75,13 +73,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active"> <!--IMAGENS CARROSSEL-->
-        <img src="img/Home/Slide1.png" class="d-block w-100" alt="Serviços">
+        <a href="serviços.html"><img src="img/Home/Slide1.png" class="d-block w-100" alt="Serviços"></a>
       </div>
       <div class="carousel-item">
-        <a href="adoção.html"><img src="img/Home/Slide2.png" class="d-block w-100" alt="..."></a>
+        <a href="adoção.html"><img src="img/Home/Slide2.png" class="d-block w-100" alt="Adoção"></a>
       </div>
       <div class="carousel-item">
-        <a href="agendamento.html"><img src="img/Home/Slide3.png" class="d-block w-100" alt="..."></a>
+        <a href="agendamento.html"><img src="img/Home/Slide3.png" class="d-block w-100" alt="Agendamento"></a>
       </div>
     </div> <!--BOTÕES CARROSSEL-->
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -94,189 +92,162 @@
     </button>
   </div>
 
-       <div class="titulo-page">
+  <div class="container container__titulo">
          <div class="titulo">Bem Vindo à <br><b>Inclusipet</b></div>
-         <center><div class="hr"></div></center>
-       </div>
-
-        <!--Sobre Nos-->
-        <div class="sobrenos">
-                  <div class="left">
-                    <div class="titulo titulo-sobrenos">Quem Somos</div>
-                    <div class="text-sobrenos">
-                      <p>Na <b>Inclusipet</b>, nós temos o privilégio de atender animais de todas as habilidades e necessidades, incluindo aqueles com necessidades especiais. Nosso compromisso é ir além.</p>
-                    </div>
-                    <div class="botao-sobrenos">
-                        <a class="btn btn-primary sn" id="botao" href="sobrenos.html" role="button">Sobre Nós</a>
-                        <a class="btn btn-outline-secondary servicos" id="botao-cinza" href="serviços.html" role="button">Serviços</a>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <img src="img/Home/Gato.png" alt="Gato" class="gato">
-                  </div>
-        </div>
-        <!--depoimentos de clientes-->
-        <div class="reviews">
-          <div class="titulo brancot titulo-reviews">Veja o que nossos<br> clientes dizem de nós</div>
-          <center><div class="hr brancoh"></div></center>
-          <div class="estatisticas">
-            <div class="est-left">
-              <span class="num-count" data-val="1000">+1.000</span>
-              <span><br>Pets Felizes</span>
+         <div class="hr"></div>
+  </div>
+  <!--Sobre Nos-->
+  <div class="sobrenos">
+          <div class="container container__sobrenos">
+            <div class="left-container__sobrenos">
+              <div class="titulo__sobrenos">Quem Somos</div>
+              <div class="texto__sobrenos">
+                <p>Na <b>Inclusipet</b>, nós temos o privilégio de atender animais de todas as habilidades e necessidades, incluindo aqueles com necessidades especiais. Nosso compromisso é ir além.</p>
+              </div>
+              <div class="botao__sobrenos">
+                  <button class="botao-solido"><a href="sobrenos.html">Sobre Nós</a></button>
+                  <button class="botao-borda"><a href="serviços.html">Serviços</a></button>
+              </div>
             </div>
-            <div class="est-right">
-              <span class="num-count" data-val="2500">+2.500</span>
-              <span><br> Atendimentos</span>
+            <div class="right-container__sobrenos">
+              <img src="img/Home/Gato.png" alt="Gato" class="imagem__sobrenos">
             </div>
           </div>
-          <div class="avaliacoes">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="card">
-                <div class="card-body">
-                  <img src="img/Home/quote.png" alt="quote">
-                  <p class="card-text">"A Inclusipet mudou a vida do meu cão! Com a atenção e expertise da equipe, ele agora desfruta de uma vida cheia de alegria e mobilidade"</p>
-                  <h5 class="card-title">Monica</h5>
-                  <small>Cliente</small>
-                  <div class="star">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
+  </div>
+  <!--Reviews-->
+  <div class="reviews">
+          <div class="container container__reviews">
+            <div class="container container__titulo">
+              <div class="titulo__reviews">Veja o que nossos <br>clientes dizem de nós</div>
+              <div class="hr"></div>
+              <div class="subtitulo__reviews">
+                <p class="subtitulo-text__reviews">
+                  +1.000 <br> Pets Felizes
+                </p>
+                <p class="subtitulo-text__reviews">
+                  +2.500 <br> Atendimentos
+                </p>
+              </div>
+            </div>
+            <div class="linha__reviews">
+              <div class="cartao__reviews">
+                <div class="cartao__quote">
+                <img src="img/Home/quote.png" alt="" class="imagem__quote"><br>
+                "A Inclusipet mudou a vida do meu cão! Com a atenção e expertise da equipe, ele agora desfruta de uma vida cheia de alegria e mobilidade"
+                </div>
+                <div class="cartao__info">
+                  <b>
+                    Mônica<br>
+                  </b>
+                    Cliente
+                  <div class="cartao__nota">
+                    <img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"> <img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"><img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"><img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"><img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela">
                   </div>
                 </div>
               </div>
-
-
-
-              <div class="card">
-                <div class="card-body">
-                  <img src="img/Home/quote.png" alt="quote">
-                  <p class="card-text">"Minha gata encontrou amor e cuidados excepcionais na Inclusipet. Eles  a trataram como nenhum outro lugar a tinha tratado"</p>
-                  <h5 class="card-title">Maria</h5>
-                  <small>Cliente</small>
-                  <div class="star">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
+              <div class="cartao__reviews">
+                <div class="cartao__quote">
+                <img src="img/Home/quote.png" alt="" class="imagem__quote"><br>
+                "Minha gata encontrou amor e cuidados excepcionais na Inclusipet. Eles a trataram como nenhum outro lugar a tinha tratado"
+                </div>
+                <div class="cartao__info">
+                  <b>
+                    Maria<br>
+                  </b>
+                    Cliente
+                  <div class="cartao__nota">
+                    <img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"> <img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"><img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"><img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"><img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela">
                   </div>
                 </div>
               </div>
-
-
-
-              <div class="card">
-                <div class="card-body">
-                  <img src="img/Home/quote.png" alt="quote">
-                  <p class="card-text">"Incrível! Meu  coelho cego recebeu tratamento de primeira classe no Inclusipet. Ele está mais feliz e saudável graças à equipe dedicada e suas inovações."</p>
-                  <h5 class="card-title">Benedito</h5>
-                  <small>Cliente</small>
-                  <div class="star">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
+              <div class="cartao__reviews">
+                <div class="cartao__quote">
+                <img src="img/Home/quote.png" alt="" ><br>
+                "Incrível! Meu coelho cego recebeu tratamento de primeira classe no Inclusipet. Ele está mais feliz e saudável graças à equipe dedicada e suas inovações."
+                </div>
+                <div class="cartao__info">
+                  <b>
+                    Benedito<br>
+                  </b>
+                    Cliente
+                  <div class="cartao__nota">
+                    <img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"> <img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"><img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"><img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela"><img src="img/Home/Estrela.png" alt="Estrela" class="cartao__estrela">
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="botao__reviews">
+              <button class="botao-solido branco"><a href="agendamento.html">Agende uma visita!</a></button>
+            </div>
           </div>
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <a href="agendamento.html"type="button" class="btn btn-primary btn-lg" id="botao-branco">Agende uma visita!</a>
-          </div>
-        </div>     
+  </div>
+  <!--Profissionais-->
+  <div class="profissionais">
+    <div class="container container__profissionais">
+      <div class="container container__titulo-profissionais">
+      <div class="titulo__profissionais">Conheça nossos<br>profissionais!</b></div>
+      <div class="hr"></div>
+    </div>
+      <div class="profcard">
+        <img src="img/Home/Prof1.png" alt="profissional">
+        <div class="nome">Jorge</div>
+        <div class="span">Veterinário</div>
       </div>
-
-        <!--Profissionais-->
-        <div class="profi">
-          <div class="titulo titulo-profi">Conheça nossos<br> profissionais!</div>
-          <center><div class="hr prof"></div></center>
-          <div class="profissionais">
-            <div class="profcard">
-              <img src="img/Home/Prof1.png" alt="profissional">
-              <div class="nome">Jorge</div>
-              <div class="span">Veterinário</div>
-            </div>
-            <div class="profcard">
-              <img src="img/Home/Prof2.png" alt="profissional">
-              <div class="nome">Ednaldo</div>
-              <div class="span">Veterinário</div>             
-            </div>
-            <div class="profcard">
-              <img src="img/Home/Prof3.png" alt="profissional">
-              <div class="nome">Márcia</div>
-              <div class="span">Veterinária</div>             
-            </div>
-            <div class="profcard">
-              <img src="img/Home/Prof4.png" alt="profissional">
-              <div class="nome">Júlia</div>
-              <div class="span">Atendimento</div>            
-            </div>
-            <div class="profcard">
-              <img src="img/Home/Prof5.png" alt="profissional">
-              <div class="nome">Maurício</div>
-              <div class="span">Atendimento</div>         
-            </div>
-          </div>
+      <div class="profcard">
+        <img src="img/Home/Prof2.png" alt="profissional">
+        <div class="nome">Ednaldo</div>
+        <div class="span">Veterinário</div>             
+      </div>
+      <div class="profcard">
+        <img src="img/Home/Prof3.png" alt="profissional">
+        <div class="nome">Márcia</div>
+        <div class="span">Veterinária</div>             
+      </div>
+      <div class="profcard">
+        <img src="img/Home/Prof4.png" alt="profissional">
+        <div class="nome">Júlia</div>
+        <div class="span">Atendimento</div>            
+      </div>
+      <div class="profcard">
+        <img src="img/Home/Prof5.png" alt="profissional">
+        <div class="nome">Maurício</div>
+        <div class="span">Atendimento</div>         
+      </div>
+    </div>
+  </div>
+  <!--Ultimos Posts-->
+  <div class="ultimosposts">
+    <div class="container container__ultimosposts">
+      <div class="container container__titulo">
+        <div class="titulo__reviews">Últimos Posts</div>
+        <div class="hr"></div>
+      </div>
+    
+    
+      <div class="botao__ultimosposts">
+        <button class="botao-solido branco"><a href="blog.html">Ver Mais</a></button>
+      </div>
+    </div>
+  </div>
+  <!--Contato-->
+  <div class="sobrenos">
+    <div class="container container__sobrenos">
+      <div class="right-container__sobrenos">
+        <img src="img/Home/Cachorro.png" alt="Cachorro" class="imagem__sobrenos">
+      </div>
+      <div class="left-container__sobrenos">
+        <div class="titulo__sobrenos">Fale Conosco</div>
+        <div class="texto__sobrenos">
+          <p>Tem alguma dúvida sobre nosso serviços<br>
+            Gostaria de dar uma sugestão?<br>
+            Nos envie uma mensagem!</p>
         </div>
-
-       <!--Ultimos Posts-->
-        <div class="lastposts">
-
-          <div class="titulo brancot"><a name="sobrenos">Últimos Posts</a></div>
-          <center><div class="hr brancoh"></div></center>
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="card">
-                <img src="img/Home/post1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="artigo.html">Desvendando Mitos sobre Animais Defi...</a></h5>
-                  <p class="card-text">A natureza é repleta de diversidade, e os animais também podem enfrentar desafios de saúde que os tornam diferentes...</p>
-                </div>
-              </div>
-
-
-
-              <div class="card">
-                <img src="img/Home/post2.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="artigo.html">Como Cuidar dos Dentes do Seu Pet</a></h5>
-                  <p class="card-text">Cuidar dos dentes do seu pet é essencial para a saúde bucal e geral do animal. Este artigo destaca a importância da higiene dental em...</p>
-                </div>
-              </div>
-
-
-
-              <div class="card">
-                <img src="img/Home/post3.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="artigo.html">Alergias em Animais de Estimação</a></h5>
-                  <p class="card-text">As alergias em animais de estimação são um problema comum que afeta a qualidade de vida dos animais e pode ser preocupante para...</p>
-                </div>
-              </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-          <a href="blog.html"type="button" class="btn btn-primary btn-lg" id="botao-branco">Ver Mais</a>
-          </div>
+        <div class="botao__sobrenos">
+            <button class="botao-solido"><a href="contatos.html">Contatos</a></button>
         </div>
-        <!--Fale Conosco-->
-        <div class="contato">
-            <div class="left">
-              <img src="img/Home/Cachorro.png" alt="Gato" class="cachorro">
-            </div>
-            <div class="right">
-              <div class="titulo titulo-contato">Fale Conosco</div>
-              <div class="text-contato">
-                <p>Tem alguma dúvida sobre nosso serviço?</p>
-                <p>Gostaria de dar uma sugestão?</p>
-                <p>Nos envie uma mensagem!</p>
-              </div>
-              <div class="botao-contato">
-                  <a class="btn btn-primary con" id="botao" href="contatos.html" role="button">Contatos</a>
-              </div>
-            </div>
-        </div>
+      </div>
+    </div>
+</div>
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container container__footer">
