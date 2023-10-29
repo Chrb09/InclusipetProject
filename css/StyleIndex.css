@@ -51,7 +51,7 @@
     display: flex;
     gap: 2.3rem;
 }
-.botao__sobrenos button{
+.botao__sobrenos button , .botao__contato button{
     border-radius: 0.5em;
     text-align: center;
     font-size: 3rem;
@@ -59,7 +59,6 @@
     box-shadow: 0px 8px 8px 0px var(--shadow);
 }
 .botao-solido{
-    border-width: 0.5rem;
     border-style: solid;
     border-color: var(--purple);
     background-color: var(--purple);
@@ -72,19 +71,20 @@
     border-color: var(--purplehover);
     background-color: var(--purplehover);
 }
-.branco a{
-    color: var(--purple);
-}
-.branco a:hover{
-    color: var(--white);
-}
-.branco{
-    border-color: var(--white);
+.botao-solido-branco{
     background-color: var(--white);
+    transition: color 0.3s;
+    transition: background-color 0.3s;
 }
-.branco:hover{
-    border-color: var(--purplehover);
+.botao-solido-branco a{
+    font-size: 3rem;
+    color: var(--purple);
+    padding: 0.2em 0.3em;
+}
+.botao-solido-branco:hover{
     background-color: var(--purplehover);
+}
+.botao-solido-branco a:hover{
     color: var(--white);
 }
 .botao-borda{
@@ -248,62 +248,21 @@
     margin: 2rem 0 7.56rem 0;
 }
 /*Fale Conosco*/
-.contato {
-    display: flex;
-    gap: 3rem;
-    padding: 9rem 10rem 0rem 10rem;
-}
-.titulo-contato {
-    text-align: right;
-    font-size: 4rem;
-    margin: 0;
-}
-.text-contato {
-    text-indent: 2rem;
-    text-align: right;
-    font-family: Inter;
-    font-size: 2.2rem;
-    font-style: normal;
-    color: var(--gray);
-    font-weight: 630;
-    line-height: normal;
-}
-.text-contato p{
-    margin-bottom: 1rem;
-}
-.text-contato b {
+.titulo__contato {
     color: var(--purple);
+    font-size: 4rem;
+    font-weight: 800;
+    text-align: right;
 }
-.botao-contato{
+.texto__contato {
+    text-indent: 2rem;
+    font-size: 2.2rem;
+    text-align: right;
+}
+.botao__contato{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 2.3rem;
-}
-.botao-contato .btn{
-    border-radius: 1.4rem;
-    text-align: center;
-    font-family: Inter;
-    font-size: 3rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    padding: 0.5rem 1.3rem;
-    cursor: pointer;
-    box-shadow: 0px 8px 8px 0px var(--shadow);
-}
-.botao-contato .con {
-    border: 0.5rem solid var(--purple);
-    background-color: var(--purple);
-    color: var(--white);
-}
-.cachorro{
-    width: 30vmax;
-}
-.contato .right{
-    display: flex;
-    flex-direction: column;
-    gap: 12%;
-    justify-content: center;
 }
 /*ULTIMOS POSTS*/
 .ultimosposts{
@@ -311,55 +270,10 @@
     background-color: var(--purple);
     margin-top: 5rem;
 }
-.ultimosposts .row-cols-1{
-    flex-flow: row nowrap;
-    justify-content: center;
-}
-.ultimosposts .row{
-    gap: 2%;
-}
-.ultimosposts .card {
-    --bs-card-spacer-y: 1rem;
-    --bs-card-spacer-x: 1rem;
-    --bs-card-title-spacer-y: 1rem;
-    --bs-card-title-color: var(--purple);
-    --bs-card-color: var(--gray);
-    box-shadow: 0px 5px 7px 0px var(--shadow);
-    width: 28rem;
-    height: 38rem;
-}
-.ultimosposts .card-title{
-    font-family: Inter;
-    font-size: 2.3rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-}
-.ultimosposts .card-title a{
-    text-decoration: none;
-    color: var(--purple);
-}
-.ultimosposts .card-body{
-    color: var(--gray);
-    font-family: Inter;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 650;
-    line-height: normal;
-    height: 17rem;
-}
-.ultimosposts .card-text{
-    text-align: justify;    
-}
-.ultimosposts .col{
-    width: 20rem;
-}
-.ultimosposts .g-4, .gx-4 {
-    --bs-gutter-x: 0rem;
-}
 .botao__ultimosposts{
     display: flex;
     justify-content: center;
+    margin-top: 4.44rem;
 }
 .botao__ultimosposts button{
     border-radius: 0.5em;
@@ -368,23 +282,53 @@
     padding: 0.2em 2em;
     box-shadow: 0px 8px 8px 0px var(--shadow);
 }
-.ultimosposts .card {
-    --bs-card-spacer-y: 1rem;
-    --bs-card-spacer-x: 1rem;
-    --bs-card-title-spacer-y: 1rem;
-    --bs-card-title-color: var(--purple);
-    --bs-card-color: var(--gray);
-    box-shadow: 0px 5px 7px 0px var(--shadow);
-    width: 28rem;
-    height: 38rem;
-    }
-
+.linha__ultimosposts{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+.cartao__ultimosposts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 1em;
+    width: 25rem;
+    font-size: 1.5rem;
+    box-shadow: 0px 8px 8px 0px var(--shadow);
+}
+.cartao__imagem{
+    width: 25.2rem;
+    object-fit: contain;
+}
+.cartao__titulo{
+    font-size: 2rem;
+    margin: 0;
+    text-align: left;
+    color: var(--purple);
+    font-weight: 700;
+}
+.cartao_texto{
+    text-align: justify;
+    font-size: 1.5rem;
+}
 /*Responsividade*/
 
 /* xl */
 @media (max-width: 1536px){
-    .botao__sobrenos button{
+    .botao__sobrenos button, .botao__contato button, .botao-solido-branco a{
         font-size: 2.5rem;
+    }
+    .cartao__ultimosposts{
+        width: 23rem;
+    }
+    .cartao__imagem{
+        width: 23.3rem;
     }
 }
 @media (max-width: 1280px) {
@@ -397,11 +341,20 @@
     .imagem__sobrenos{
         width: 30rem;
     }
-    .botao__sobrenos button{
+    .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
         font-size: 2rem;
     }
-    .linha__reviews{
+    .linha__reviews, .linha__ultimosposts{
         gap: 2rem;
+    }
+    .cartao__ultimosposts{
+        width: 19rem;
+    }
+    .cartao__imagem{
+        width: 19.3rem;
+    }
+    .cartao__titulo{
+        font-size: 1.7rem;
     }
 }
 
@@ -413,16 +366,24 @@
     .titulo__sobrenos {
         font-size: 3rem;
     }
+    .titulo__contato {
+        font-size: 3rem;
+    }
     .texto__sobrenos {
+        text-indent: 1.5rem;
+        font-size: 1.5rem;
+    }
+    .texto__contato {
         text-indent: 1.5rem;
         font-size: 1.5rem;
     }
     .imagem__sobrenos{
         width: 20rem;
     }
-    .botao__sobrenos button{
+    .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
         font-size: 1.5rem;
     }
+    
     .left-container__sobrenos{
         gap: 2vh;
     }
@@ -439,6 +400,21 @@
     }
     .imagem__quote{
         width: 7rem;
+    }
+    .cartao__ultimosposts{
+        padding-left: 0rem;
+        padding-right: 0rem;
+        font-size: 1.2rem;
+        width: 14rem;
+    }
+    .cartao__imagem{
+        width: 14.3rem;
+    }
+    .cartao__titulo{
+        font-size: 1.5rem;
+    }
+    .cartao_texto{
+        font-size: 1.2rem;
     }
     .linha__reviews{
         gap: 1rem;
@@ -459,13 +435,16 @@
         padding-top: 4rem;
         padding-bottom: 4rem;
     }
-    .botao__sobrenos button{
+    .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
         font-size: 2.5rem;
     }
     .titulo__sobrenos{
         text-align: center;
     }
-    .botao__sobrenos{
+    .titulo__contato{
+        text-align: center;
+    }
+    .botao__sobrenos , .botao__contato{
         justify-content: center;
     }
     .imagem__sobrenos{
@@ -474,21 +453,34 @@
     .right-container__sobrenos{
         order: -1;
     }
-    .linha__reviews{
+    .linha__reviews, .linha__ultimosposts{
         flex-wrap: wrap;
     }    
-    .cartao__reviews{
+    .cartao__reviews, .cartao__ultimosposts{
         padding-left: 2rem;
         padding-right: 2rem;
         font-size: 1.5rem;
+        width: 25rem;
+    }
+    .cartao__titulo{
+        font-size: 1.7rem;
+    }
+    .cartao_texto{
+        font-size: 1.5rem;
+    }
+    .cartao__imagem{
+        width: 25.2rem;
     }
     .titulo__profissionais {
         font-size: 3.5rem;
     }
+    .texto__contato{
+        text-align: center;
+    }
 }    
 /* sm */
 @media (max-width: 640px) {
-    .botao__sobrenos button{
+    .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
         font-size: 2rem;
     }
     .d-block{
@@ -514,15 +506,21 @@
     .imagem__sobrenos{
         width: 80vw;
     }
-    .botao__sobrenos button{
+    .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
         font-size: 1.5rem;
     }
     .subtitulo__reviews{
         flex-direction: column;
     }
-    .cartao__reviews{
+    .cartao__reviews, .cartao__ultimosposts{
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+    .cartao__ultimospost{
+        width: 80vw;
+    }
+    .cartao__imagem{
+        width: 80vw;
     }
     .titulo__profissionais {
         font-size: 2.5rem;

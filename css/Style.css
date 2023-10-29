@@ -31,7 +31,7 @@ html::-webkit-scrollbar-thumb{
     border-radius: 1rem;
 }
 html::-webkit-scrollbar-thumb:hover{
-    background-color: var(--purpleHover);
+    background-color: var(--purplehover);
 }
 html::-webkit-scrollbar-track{
     background-color: var(--fadedwhite);
