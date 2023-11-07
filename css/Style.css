@@ -12,6 +12,21 @@
     --gray:#434343;
     --light-gray: #F3F3F3;
     --grayblack: #232323;
+    --size-xxs: 0.5rem;
+    --size-xs: 0.75rem;
+    --size-sm: 0.875rem;
+    --size-base: 1rem;
+    --size-lg: 1.125rem;
+    --size-xl: 1.25rem;
+    --size-2x: 1.5rem;
+    --size-3x: 1.875rem;
+    --size-4x: 2.25rem;
+    --size-5x: 3rem;
+    --size-6x: 3.5rem;
+    --size-7x: 4.5rem;
+    --size-8x: 6rem;
+    --size-9x: 8rem;
+    --size-10x: 10rem;
 }
 @font-face { 
     font-family: Inter;
@@ -41,6 +56,7 @@ body{
     font-family: 'inter';
     color: var(--gray);
     font-weight: 600;
+    font-size: var(--size-base);
 }
 button{
     display: inline-block;
