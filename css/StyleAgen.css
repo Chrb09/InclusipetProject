@@ -85,7 +85,7 @@
     transition: 0.3s ease;
 }
 #botao:hover {
-    background-color: var(--purpleHover); 
+    background-color: var(--purplehover); 
 }
 span, small {
     color: var(--gray);
