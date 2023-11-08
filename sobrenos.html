@@ -2,54 +2,73 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/Style.css"> <!-- CSS EXTERNO GERAL -->
     <link rel="stylesheet" href="css/StyleSN.css"> <!-- CSS EXTERNO PAGINA -->
-    <link rel="script" href="js/script.js"> <!-- JAVASCRIPT EXTERNO -->
     <link rel="icon" href="img/Logo/Inclusipet.ico"> <!-- ICON -->
     <title>Sobre Nós</title>
 </head>
 <body>
   <!-- HEADER-->
-<nav class="navbar navbar-expand-lg  bg-body-tertiary"> 
-  <div class="container-fluid">
-  <div> <!--LOGO-->
-    <a class="navbar-brand" href="index.html"><img src="img/Logo/Inclusipet.png" alt="Logo" class="logo"></a>
-  </div>
-  <div> <!--BOTAO RESPONSIVO-->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div> <!--LINKS-->
-  <div class="links">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="sobrenos.html">Sobre Nós</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="serviços.html">Serviços</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="unidades.html">Unidades</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="blog.html">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contatos.html">Contatos</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-  </div>
-</nav>
+    <header class="header">
+        <div class="container container__header">
+          <a href="index.html"><img src="img/Logo/Inclusipet.png" alt="Logo Inclusipet" class="logo__header"></a>
+          <ul class="menu__header">
+                <li>
+                    <a href="sobrenos.html" class="links__header a-under">Sobre Nós</a>
+                </li>
+                <li>
+                    <a href="serviços.html" class="links__header a-under">Serviços</a>
+                </li>
+                <li>
+                    <a href="unidades.html" class="links__header a-under">Unidades</a>
+                </li>
+                <li>
+                    <a href="blog.html" class="links__header a-under">Blog</a>
+                </li>
+                <li>
+                  <a href="contatos.html" class="links__header a-under">Contatos</a>
+                </li>
+          </ul>
+          <button class="barra__header">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+          <div class="dropdown__header">
+            <li>
+                <a href="sobrenos.html" class="links__header">Sobre Nós</a>
+            </li>
+            <li>
+                <a href="serviços.html" class="links__header">Serviços</a>
+            </li>
+            <li>
+                <a href="unidades.html" class="links__header">Unidades</a>
+            </li>
+            <li>
+                <a href="blog.html" class="links__header">Blog</a>
+            </li>
+            <li>
+              <a href="contatos.html" class="links__header">Contatos</a>
+            </li>
+          </div>
+        </div>
+    </header>
+    <script>
+        const barra__header = document.querySelector('.barra__header')
+        const dropdown__header = document.querySelector('.dropdown__header')
+
+        barra__header.onclick = function () {
+            dropdown__header.classList.toggle('open')
+        }
+    </script>
+    <!--Conteudo-->
 <div class="sobrenos">
   <div class="top">
     <div class="titulo">Sobre nós</div>
-    <p class="text">
+    <div class="container container__text">
       Na nossa clínica veterinária, temos o privilégio de atender animais de todas as habilidades e
       necessidades, incluindo aqueles com deficiências especiais. Nosso compromisso é ir além,
       oferecendo cuidados personalizados e adaptados para garantir que todos os animais,
@@ -59,7 +78,7 @@
       animais a superar desafios e a celebrar suas capacidades únicas. Sua confiança é o que nos motiva
       a continuar sendo um refúgio seguro e inclusivo para animais e seus tutores, onde todos são
       recebidos de braços abertos.
-    </p>
+    </div>
     <div class="hr"></div>
   </div>
     <div class="bottom">
@@ -78,7 +97,7 @@
                       </div>
                       <div class="timeline-box one-of-two">
                           <div class="content">
-                              <p class="mb-0 text-time">A Clínica Veterinária <span>Inclusipet</span> foi criada por um grupo de médicos veterinários com a visão de oferecer cuidados especializados a animais com deficiência.</p>
+                              <p class="mb-0 text-time">A Clínica Veterinária <strong>Inclusipet</strong> foi criada por um grupo de médicos veterinários com a visão de oferecer cuidados especializados a animais com deficiência.</p>
                           </div>
                           <div class="year"><div class="span">2020</div></div>
                       </div>
@@ -99,7 +118,7 @@
                       <div class="timeline-box one-of-two">
                           <img class="mb-1-6 rounded" src="img/Sobrenos/Sn3.png" alt="...">
                           <div class="content">
-                              <p class="mb-0 text-time">A <span class="span">Inclusipet</span> continua a sua missão de oferecer amor, carinho, atenção e cuidados de saúde excepcionais a todos os animais, independentemente de suas limitações, mantendo o compromisso central de sua fundação.</p>
+                              <p class="mb-0 text-time">A <strong>Inclusipet</strong> continua a sua missão de oferecer amor, carinho, atenção e cuidados de saúde excepcionais a todos os animais, independentemente de suas limitações, mantendo o compromisso central de sua fundação.</p>
                           </div>
                           <div class="year"><div class="span">2023<br>(Atual)</div></div>
                       </div>
@@ -112,60 +131,54 @@
 </div>
 <!-- FOOTER -->
 <footer class="footer">
-  <nav class="navbar bg-body-tertiary"> 
-    <div class="container-fluid">  
-
-    <div class="div"> <!--LINKS FOOTER-->
-        <ul>
-          <li class="nav-itemt">
-            <a class="nav-link">Páginas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sobrenos.html">Sobre Nós</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="serviços.html">Serviços</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="unidades.html">Unidades</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contatos.html">Contato</a>
-          </li>
-        </ul>
-      </div>
-      <div class="div">
-        <a class="navbar-brand" href="index.html"><img src="img/Logo/InclusipetFooter.png" alt="Logo" class="logof"></a> 
-      </div>
-
-      <div class="div"> <!--INFORMAÇÕES FOOTER-->
-        <ul>
-          <li class="nav-itemt">
-            <a class="nav-link">Nossas <br>Redes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><img src="img/Contatos/Instagram.png" alt="Instagram" class="rsocial"> @inclusipet_</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><img src="img/Contatos/twitter.png" alt="Instagram" class="rsocial"> @Inclusipet_</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><img src="img/Contatos/facebook.png" alt="Instagram" class="rsocial"> Inclusipet</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  </footer>
-  <footer class="fbottom">
-    <nav class="navbar bg-body-tertiary"> 
-      <div class="container-fluid">
-        <div class="copyr">®2023 Inclusipet. Todos os direitos reservados.</div>
-      </div>
-    </nav>
-  </footer>
+  <div class="container container__footer">
+        <div class="section__footer">
+          <ul class="menu__footer">
+              <li>
+                <p class="titulo__footer">Páginas</p>
+              </li>
+              <li>
+                <a href="sobrenos.html" class="links__footer" >Sobre Nós</a>
+              </li>
+              <li>
+                <a href="serviços.html" class="links__footer" >Serviços</a>
+              </li>
+              <li>
+                <a href="unidades.html" class="links__footer" >Unidades</a>
+              </li>
+              <li">
+                <a href="blog.html" class="links__footer" >Blog</a>
+              </li>
+              <li>
+                <a href="contatos.html" class="links__footer" >Contato</a>
+              </li>
+            </ul>
+        </div>
+        <div class="section__footer section-logo__footer">
+          <a href="index.html" class="logo-wrapper__footer"><img src="img/Logo/InclusipetFooter.png" alt="Logo Inclusipet" class="logo__footer"></a>
+        </div>
+        <div class="section__footer">
+          <ul class="menu__footer">
+              <li>
+                <p class="titulo__footer">Nossas <br>Redes</p>
+              </li>
+              <li>
+                <a class="links__footer"><img src="img/Contatos/Instagram.png" alt="Instagram" class="rede-social"> @inclusipet_</a>
+              </li>
+              <li>
+                <a class="links__footer"><img src="img/Contatos/twitter.png" alt="twitter" class="rede-social"> @Inclusipet_</a>
+              </li>
+              <li>
+                <a class="links__footer"><img src="img/Contatos/facebook.png" alt="Facebook" class="rede-social"> Inclusipet</a>
+              </li>
+            </ul>
+        </div>
+  </div>
+</footer>
+<footer class="bottom-footer">
+  <div class="container copyright">
+      ®2023 Inclusipet. Todos os direitos reservados.
+  </div>
+</footer>
 </body>
 </html>

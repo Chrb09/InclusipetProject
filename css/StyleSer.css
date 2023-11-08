@@ -5,13 +5,6 @@
 #servicos-especialidades {
     margin: 2.9rem auto 7.13rem auto;
 }
-.servicos-box {
-    display: flex;
-    flex-flow: row wrap;
-    align-content: space-between;
-    justify-content: center;
-    gap: 5rem;
-}
 .box{
     background-color: var(--white);
     border-radius: 1rem;
@@ -21,26 +14,27 @@
     box-shadow: 0px 5px 7px 0px var(--shadow);
 }
 .titulo{
-    color: #574DBD;
+    color: var(--purple);
     text-align: center;
-    font-family: Inter;
-    font-size: 3.5rem;
-    font-style: normal;
+    font-size: var(--size-6x);
     font-weight: 800;
-    line-height: normal;
 }
 .box .servicos-subtitle {
     color: var(--purple);
     text-align: center;
-    font-family: Inter;
-    font-size: 1.8rem;      
-    font-style: normal;
+    font-size: var(--size-3x);      
     font-weight: 800;
-    line-height: normal;
     padding: 1.12rem ;
     padding-bottom: 0.5rem;
     padding-top: 0;
     margin: 0;
+}
+.servicos-box {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    justify-content: center;
+    gap: 5rem;
 }
 .container-servicos-img {
     text-align: center;
@@ -67,29 +61,51 @@
     height: 8rem;
 }
 .card-text{
-    color: #434343;
+    color: var(--gray);
     text-align: center;
-    font-family: Inter;
     font-size: 1.313rem;
-    font-style: normal;
     font-weight: 700;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 10%;
-    line-height: normal;
 }
 .servicos-bottom {
     margin-bottom: 13.31rem;
 }
-.hr {
-    border-top: 3px solid var(--purple);
-    border-radius: 5px;
-    width:75%;
-    margin: 1.5rem 0 1.5rem 0;
-  }
 /*Responsividade*/
 
-@media screen and (max-width: 425px) { /*Tamanho Mobile L*/
+@media screen and (min-width: 2000px){ 
+    .servicos-box{
+        padding: 0 20rem;
+    }
+}
+/* xl */
+@media (max-width: 1536px){
+    .servicos-box {
+        gap: 3rem;
+    }
+}
+@media (max-width: 1280px) {
+    .titulo{
+        font-size: var(--size-5x);
+    }
+  }
+  
+  /* lg */
+  @media (max-width: 1024px) {
+
+  }
+  
+  /* md */
+  @media (max-width: 768px) {
+    
+  }
+  
+  /* sm */
+  @media (max-width: 640px) {
+  }
+  /* xs */
+  @media (max-width: 475px) {
     .box {
         width: 18rem;
         height:fit-content;
@@ -98,24 +114,7 @@
         box-shadow: 0px 5px 7px 0px var(--shadow);
     }
     .titulo{
-        font-size: 2.2rem;
+        font-size: var(--size-4x);
     }
-}
 
-@media screen and (max-width: 777px) { /*Tamanho Tablet*/
-
-
-}
-
-@media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
-
-
-}
-@media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
-    
-}
-@media screen and (min-width: 2000px){ 
-    .servicos-box{
-        padding: 0 20rem;
-    }
-}
+  }

@@ -1,164 +1,180 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/Style.css"> <!-- CSS EXTERNO GERAL -->
     <link rel="stylesheet" href="css/StyleUnid.css"> <!-- CSS EXTERNO PAGINA -->
-    <link rel="script" href="js/script.js"> <!-- JAVASCRIPT EXTERNO -->
     <link rel="icon" href="img/Logo/Inclusipet.ico"> <!-- ICON -->
     <title>Unidades</title>
 </head>
 <body>
-      <!-- HEADER-->
-      <nav class="navbar navbar-expand-lg  bg-body-tertiary"> 
-        <div class="container-fluid">
-        <div> <!--LOGO-->
-          <a class="navbar-brand" href="index.html"><img src="img/Logo/Inclusipet.png" alt="Logo" class="logo"></a>
-        </div>
-        <div> <!--BOTAO RESPONSIVO-->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+  <!-- HEADER-->
+    <header class="header">
+        <div class="container container__header">
+          <a href="index.html"><img src="img/Logo/Inclusipet.png" alt="Logo Inclusipet" class="logo__header"></a>
+          <ul class="menu__header">
+                <li>
+                    <a href="sobrenos.html" class="links__header a-under">Sobre Nós</a>
+                </li>
+                <li>
+                    <a href="serviços.html" class="links__header a-under">Serviços</a>
+                </li>
+                <li>
+                    <a href="unidades.html" class="links__header a-under">Unidades</a>
+                </li>
+                <li>
+                    <a href="blog.html" class="links__header a-under">Blog</a>
+                </li>
+                <li>
+                  <a href="contatos.html" class="links__header a-under">Contatos</a>
+                </li>
+          </ul>
+          <button class="barra__header">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
           </button>
-        </div> <!--LINKS-->
-        <div class="links">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="sobrenos.html">Sobre Nós</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="serviços.html">Serviços</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="unidades.html">Unidades</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contatos.html">Contatos</a>
-              </li>
-            </ul>
-          </div>
+          <div class="dropdown__header">
+            <li>
+                <a href="sobrenos.html" class="links__header">Sobre Nós</a>
+            </li>
+            <li>
+                <a href="serviços.html" class="links__header">Serviços</a>
+            </li>
+            <li>
+                <a href="unidades.html" class="links__header">Unidades</a>
+            </li>
+            <li>
+                <a href="blog.html" class="links__header">Blog</a>
+            </li>
+            <li>
+              <a href="contatos.html" class="links__header">Contatos</a>
+            </li>
           </div>
         </div>
-      </nav>
-<h1 class="titulo" id="servicos-especialidades">Unidades</h1>
-<center><div class="hr"></div></center>
-<div class="main">
-<center><div class="card mb-3" style="max-width: 1140px;">
-  <div class="row g-0">
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Inclusipet - Guarulhos</h5>
-        <p class="texto2"><img src="img/Unidades/pv.png">Aberto das 8h as 18h</p>
-        <p class="card-text"> R. Conceição da Feira<br>
-          Jardim pres. dutra - SP<br>
-          (11) 11111-1111
-        </p>
+    </header>
+    <script>
+        const barra__header = document.querySelector('.barra__header')
+        const dropdown__header = document.querySelector('.dropdown__header')
+
+        barra__header.onclick = function () {
+            dropdown__header.classList.toggle('open')
+        }
+    </script>
+    <!--Conteudo-->
+<div class="container container__unidades">
+    <h1 class="titulo">Unidades</h1>
+  <div class="hr"></div>
+    <div class="main">
+  <div class="card mb-3" style="max-width: 1140px;">
+      <div class="row g-0">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Inclusipet - Guarulhos</h5>
+            <p class="texto2"><img src="img/Unidades/pv.png">Aberto das 8h as 18h</p>
+            <p class="card-text"> R. Conceição da Feira<br>
+              Jardim pres. dutra - SP<br>
+              (11) 11111-1111
+            </p>
+          </div>
+        </div>
+          <div class="col-md-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.9433340295095!2d-46.433593725612525!3d-23.426414056646507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce89f1b8bcf965%3A0xff24a059d917838b!2sR.%20Concei%C3%A7%C3%A3o%20da%20Feira%20-%20Jardim%20Pres.%20Dutra%2C%20Guarulhos%20-%20SP%2C%2007173-010!5e0!3m2!1spt-BR!2sbr!4v1697764260412!5m2!1spt-BR!2sbr" class="img-fluid rounded-start"></iframe>
+          </div>
       </div>
     </div>
-      <div class="col-md-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.9433340295095!2d-46.433593725612525!3d-23.426414056646507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce89f1b8bcf965%3A0xff24a059d917838b!2sR.%20Concei%C3%A7%C3%A3o%20da%20Feira%20-%20Jardim%20Pres.%20Dutra%2C%20Guarulhos%20-%20SP%2C%2007173-010!5e0!3m2!1spt-BR!2sbr!4v1697764260412!5m2!1spt-BR!2sbr" class="img-fluid rounded-start"></iframe>
-      </div>
-  </div>
-</div>
-</center>
-<center><div class="card mb-3" style="max-width: 1140px;">
-  <div class="row g-0">
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Inclusipet - Vila Cisper</h5>
-        <p class= "texto2"><img src="img/Unidades/pv.png"> Aberto das 8h as 18h</p>
-        <p class="card-text">R. Cícero Dantas<br>
-          Vila Cisper - SP<br>
-          (11) 22222-2222
-        </p>
-      </div>
-    </div>
-      <div class="col-md-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.9811661599797!2d-46.497951325609456!3d-23.497187859235876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce605e5a1481e3%3A0xb0cd6094d2133515!2sR.%20C%C3%ADcero%20Dantas%20-%20Ermelino%20Matarazzo%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003818-130!5e0!3m2!1spt-BR!2sbr!4v1697773935746!5m2!1spt-BR!2sbr"  class="img-fluid rounded-start"></iframe>
-      </div>
-  </div>
-</div>
-</center>
-<center><div class="card mb-3" style="max-width: 1140px;">
-  <div class="row g-0">
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Inclusipet - Artur Alvim</h5>
-        <p class="texto2"><img src="img/Unidades/pv.png"> Aberto das 8h as 18h</p>
-        <p class="card-text">Av. Líder<br>
-          Artur Alvim - SP<br>
-          (11) 33333-3333
-        </p>
+    
+  <div class="card mb-3" style="max-width: 1140px;">
+      <div class="row g-0">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Inclusipet - Vila Cisper</h5>
+            <p class= "texto2"><img src="img/Unidades/pv.png"> Aberto das 8h as 18h</p>
+            <p class="card-text">R. Cícero Dantas<br>
+              Vila Cisper - SP<br>
+              (11) 22222-2222
+            </p>
+          </div>
+        </div>
+          <div class="col-md-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.9811661599797!2d-46.497951325609456!3d-23.497187859235876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce605e5a1481e3%3A0xb0cd6094d2133515!2sR.%20C%C3%ADcero%20Dantas%20-%20Ermelino%20Matarazzo%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003818-130!5e0!3m2!1spt-BR!2sbr!4v1697773935746!5m2!1spt-BR!2sbr"  class="img-fluid rounded-start"></iframe>
+          </div>
       </div>
     </div>
-      <div class="col-md-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.369311320792!2d-46.47061682560695!3d-23.555176061363234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce66e1dbe1105b%3A0xb388139f5d5c5750!2sAv.%20L%C3%ADder%20-%20Artur%20Alvim%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1697774090354!5m2!1spt-BR!2sbr" class="img-fluid rounded-start"></iframe>
+    
+    <div class="card mb-3" style="max-width: 1140px;">
+      <div class="row g-0">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Inclusipet - Artur Alvim</h5>
+            <p class="texto2"><img src="img/Unidades/pv.png"> Aberto das 8h as 18h</p>
+            <p class="card-text">Av. Líder<br>
+              Artur Alvim - SP<br>
+              (11) 33333-3333
+            </p>
+          </div>
+        </div>
+          <div class="col-md-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.369311320792!2d-46.47061682560695!3d-23.555176061363234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce66e1dbe1105b%3A0xb388139f5d5c5750!2sAv.%20L%C3%ADder%20-%20Artur%20Alvim%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1697774090354!5m2!1spt-BR!2sbr" class="img-fluid rounded-start"></iframe>
+          </div>
       </div>
+    </div>
+    
+    </div>
   </div>
-</div>
-</center>
-</div>
 <!-- FOOTER -->
 <footer class="footer">
-  <nav class="navbar bg-body-tertiary"> 
-    <div class="container-fluid">  
-
-    <div class="div"> <!--LINKS FOOTER-->
-        <ul>
-          <li class="nav-itemt">
-            <a class="nav-link">Páginas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sobrenos.html">Sobre Nós</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="serviços.html">Serviços</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="unidades.html">Unidades</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contatos.html">Contato</a>
-          </li>
-        </ul>
-      </div>
-      <div class="div">
-        <a class="navbar-brand" href="index.html"><img src="img/Logo/InclusipetFooter.png" alt="Logo" class="logof"></a> 
-      </div>
-
-      <div class="div"> <!--INFORMAÇÕES FOOTER-->
-        <ul>
-          <li class="nav-itemt">
-            <a class="nav-link">Nossas <br>Redes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><img src="img/Contatos/Instagram.png" alt="Instagram" class="rsocial"> @inclusipet_</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><img src="img/Contatos/twitter.png" alt="Instagram" class="rsocial"> @Inclusipet_</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><img src="img/Contatos/facebook.png" alt="Instagram" class="rsocial"> Inclusipet</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  </footer>
-  <footer class="fbottom">
-    <nav class="navbar bg-body-tertiary"> 
-      <div class="container-fluid">
-        <div class="copyr">®2023 Inclusipet. Todos os direitos reservados.</div>
-      </div>
-    </nav>
-  </footer>
-  </body>
-  </html>
+  <div class="container container__footer">
+        <div class="section__footer">
+          <ul class="menu__footer">
+              <li>
+                <p class="titulo__footer">Páginas</p>
+              </li>
+              <li>
+                <a href="sobrenos.html" class="links__footer" >Sobre Nós</a>
+              </li>
+              <li>
+                <a href="serviços.html" class="links__footer" >Serviços</a>
+              </li>
+              <li>
+                <a href="unidades.html" class="links__footer" >Unidades</a>
+              </li>
+              <li">
+                <a href="blog.html" class="links__footer" >Blog</a>
+              </li>
+              <li>
+                <a href="contatos.html" class="links__footer" >Contato</a>
+              </li>
+            </ul>
+        </div>
+        <div class="section__footer section-logo__footer">
+          <a href="index.html" class="logo-wrapper__footer"><img src="img/Logo/InclusipetFooter.png" alt="Logo Inclusipet" class="logo__footer"></a>
+        </div>
+        <div class="section__footer">
+          <ul class="menu__footer">
+              <li>
+                <p class="titulo__footer">Nossas <br>Redes</p>
+              </li>
+              <li>
+                <a class="links__footer"><img src="img/Contatos/Instagram.png" alt="Instagram" class="rede-social"> @inclusipet_</a>
+              </li>
+              <li>
+                <a class="links__footer"><img src="img/Contatos/twitter.png" alt="twitter" class="rede-social"> @Inclusipet_</a>
+              </li>
+              <li>
+                <a class="links__footer"><img src="img/Contatos/facebook.png" alt="Facebook" class="rede-social"> Inclusipet</a>
+              </li>
+            </ul>
+        </div>
+  </div>
+</footer>
+<footer class="bottom-footer">
+  <div class="container copyright">
+      ®2023 Inclusipet. Todos os direitos reservados.
+  </div>
+</footer>
+</body>
+</html>
