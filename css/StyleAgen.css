@@ -1,5 +1,5 @@
 /****AGENDAMENTO****/
-.flex {
+.container__agendamento {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,20 +8,14 @@
 .titulo{
     color: var(--purple);
     text-align: center;
-    font-family: Inter;
-    font-size: 4.5rem;
-    font-style: normal;
+    font-size: var(--size-7x);
     font-weight: 800;
-    line-height: normal;
     margin-top: 6.44rem;
 }
 .subtitulo {
     color: var(--purple);
-    font-family: Inter;
-    font-size: 3.90rem;
-    font-style: normal;
+    font-size: var(--size-6x);
     font-weight: 700;
-    line-height: normal;
     margin-bottom: 3rem;    
 }
 .section {
@@ -50,7 +44,7 @@
     margin: 6rem 0 6rem 0;
 }
 .box {
-    width: 70vmax;
+    width: 100%;
     flex-shrink: 0;
     background: var(--white);
     padding-bottom: 5rem;
@@ -99,18 +93,12 @@ span, small {
 .span {
     color: var(--gray);
     text-align: center;
-    font-family: Inter;
     font-size: 2.625rem;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
 }
 span {
-    font-family: Inter;
     font-size: 2.4rem;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
 }
 #button {
     color: var(--white);
@@ -120,38 +108,55 @@ span {
 }
 /*Responsividade*/
 
-@media screen and (max-width: 510px) { /*Tamanho Mobile L*/
-    .titulo, .subtitulo{
-        font-size: 2rem;
+/* xl */
+@media (max-width: 1536px){
+
+}
+@media (max-width: 1280px) {
+    .titulo{
+        font-size: var(--size-6x);
         text-align: center;
     }
-    #margin{
-        margin-top: 2rem;
-    }
-    span{
-    font-size: 2rem;
-    }
-    .section {
-        width: 90%;
-    }
-    .margin {
-        margin-bottom: 2rem;
+    .subtitulo{
+        font-size: var(--size-5x);
+        text-align: center;
     }
 }
 
-@media screen and (max-width: 777px) { /*Tamanho Tablet*/
-    .box {
-        width: 100%;
-        box-shadow: none;
+/* lg */
+@media (max-width: 1024px) {
+
+}
+
+/* md */
+@media (max-width: 768px) {
+  .box {
+      box-shadow: none;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .titulo, .subtitulo{
+      font-size: var(--size-4x);
+  }
+  #margin{
+      margin-top: 2rem;
+  }
+  span{
+  font-size: var(--size-3x);
+  }
+  .span{
+    font-size: var(--size-3x);
     }
-    
-
+  .section {
+      width: 90%;
+  }
+  .margin {
+      margin-bottom: 2rem;
+  }
 }
+/* xs */
+@media (max-width: 475px) {
 
-@media screen and (max-width: 1024px) { /*Tamanho Laptop 1024*/
-
-
-}
-@media screen and (max-width: 1440px){ /*Tamanho Laptop 1440*/
-    
 }

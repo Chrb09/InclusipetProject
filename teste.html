@@ -1,332 +1,123 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/Style.css"> <!-- CSS EXTERNO GERAL -->
-    <link rel="stylesheet" href="css/StyleIndex.css"> <!-- CSS EXTERNO PAGINA -->
-    <link rel="icon" href="img/Logo/Inclusipet.ico"> <!-- ICON -->
-    <title>Home</title>
-</head>
-<body>
-  <!-- HEADER-->
-    <header class="header">
-        <div class="container container__header">
-          <a href="index.html"><img src="img/Logo/Inclusipet.png" alt="Logo Inclusipet" class="logo__header"></a>
-          <ul class="menu__header">
-                <li>
-                    <a href="sobrenos.html" class="links__header a-under">Sobre Nós</a>
-                </li>
-                <li>
-                    <a href="serviços.html" class="links__header a-under">Serviços</a>
-                </li>
-                <li>
-                    <a href="unidades.html" class="links__header a-under">Unidades</a>
-                </li>
-                <li>
-                    <a href="blog.html" class="links__header a-under">Blog</a>
-                </li>
-                <li>
-                  <a href="contatos.html" class="links__header a-under">Contatos</a>
-                </li>
-          </ul>
-          <button class="barra__header">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-          <div class="dropdown__header">
-            <li>
-                <a href="sobrenos.html" class="links__header">Sobre Nós</a>
-            </li>
-            <li>
-                <a href="serviços.html" class="links__header">Serviços</a>
-            </li>
-            <li>
-                <a href="unidades.html" class="links__header">Unidades</a>
-            </li>
-            <li>
-                <a href="blog.html" class="links__header">Blog</a>
-            </li>
-            <li>
-              <a href="contatos.html" class="links__header">Contatos</a>
-            </li>
-          </div>
-        </div>
-    </header>
-    <script>
-        const barra__header = document.querySelector('.barra__header')
-        const dropdown__header = document.querySelector('.dropdown__header')
-
-        barra__header.onclick = function () {
-            dropdown__header.classList.toggle('open')
-        }
-    </script>
-    <!--Conteudo-->
-    <!-- CARROSSEL -->
-  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      
+<div class="main">
+  <div class="side">
+    <div class="pesquisa">
+      <input type="search" placeholder="Pesquisa" class="inputpesquisa" width="10%" height="10%">
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active"> <!--IMAGENS CARROSSEL-->
-        <img src="img/Home/Slide1.png" class="d-block w-100" alt="Serviços">
-      </div>
-      <div class="carousel-item">
-        <a href="adoção.html"><img src="img/Home/Slide2.png" class="d-block w-100" alt="..."></a>
-      </div>
-      <div class="carousel-item">
-        <a href="agendamento.html"><img src="img/Home/Slide3.png" class="d-block w-100" alt="..."></a>
-      </div>
-    </div> <!--BOTÕES CARROSSEL-->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Proximo</span>
-    </button>
+    <div class="info">
+      Ligue para 11-111111111 para saber mais sobre as adoções
+    </div>
   </div>
-
-       <div class="titulo-page">
-         <div class="titulo">Bem Vindo à <br><b>Inclusipet</b></div>
-         <center><div class="hr"></div></center>
-       </div>
-
-        <!--Sobre Nos-->
-        <div class="sobrenos">
-                  <div class="left">
-                    <div class="titulo titulo-sobrenos">Quem Somos</div>
-                    <div class="text-sobrenos">
-                      <p>Na <b>Inclusipet</b>, nós temos o privilégio de atender animais de todas as habilidades e necessidades, incluindo aqueles com necessidades especiais. Nosso compromisso é ir além.</p>
-                    </div>
-                    <div class="botao-sobrenos">
-                        <a class="btn btn-primary sn" id="botao" href="sobrenos.html" role="button">Sobre Nós</a>
-                        <a class="btn btn-outline-secondary servicos" id="botao-cinza" href="serviços.html" role="button">Serviços</a>
-                    </div>
-                  </div>
-                  <div class="right">
-                    <img src="img/Home/Gato.png" alt="Gato" class="gato">
-                  </div>
+  <div class="adocao">
+    <div class="linha">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <a href="animal.html"><img src="img/Adoção/Animal1.png" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="animal.html">Fonseca <img src="img/Adoção/Homem.png" alt=""></a></h5>
+            <p class="card-text"><small class="text-body-secondary"><img src="img/Adoção/Locação.png" alt="" class="localizacao">Av. Aguia de Haia<br>São Paulo SP</small></p>
+            <p class="card-text txt">Um cachorro de olhos marrons claros, de porte médio, velho, de pelagem curta, branca e com manchas pretas pelo seu corpo todo.</p>
+            <p class="card-botao"><a class="btn btn-primary botao" id="botao" href="animal.html" role="button">Ver Mais</a></p>
+          </div>
         </div>
-        <!--depoimentos de clientes-->
-        <div class="reviews">
-          <div class="titulo brancot titulo-reviews">Veja o que nossos<br> clientes dizem de nós</div>
-          <center><div class="hr brancoh"></div></center>
-          <div class="estatisticas">
-            <div class="est-left">
-              <span class="num-count" data-val="1000">+1.000</span>
-              <span><br>Pets Felizes</span>
-            </div>
-            <div class="est-right">
-              <span class="num-count" data-val="2500">+2.500</span>
-              <span><br> Atendimentos</span>
-            </div>
-          </div>
-          <div class="avaliacoes">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="card">
-                <div class="card-body">
-                  <img src="img/Home/quote.png" alt="quote">
-                  <p class="card-text">"A Inclusipet mudou a vida do meu cão! Com a atenção e expertise da equipe, ele agora desfruta de uma vida cheia de alegria e mobilidade"</p>
-                  <h5 class="card-title">Monica</h5>
-                  <small>Cliente</small>
-                  <div class="star">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="card">
-                <div class="card-body">
-                  <img src="img/Home/quote.png" alt="quote">
-                  <p class="card-text">"Minha gata encontrou amor e cuidados excepcionais na Inclusipet. Eles  a trataram como nenhum outro lugar a tinha tratado"</p>
-                  <h5 class="card-title">Maria</h5>
-                  <small>Cliente</small>
-                  <div class="star">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="card">
-                <div class="card-body">
-                  <img src="img/Home/quote.png" alt="quote">
-                  <p class="card-text">"Incrível! Meu  coelho cego recebeu tratamento de primeira classe no Inclusipet. Ele está mais feliz e saudável graças à equipe dedicada e suas inovações."</p>
-                  <h5 class="card-title">Benedito</h5>
-                  <small>Cliente</small>
-                  <div class="star">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                    <img src="img/Home/Estrela.png" alt="estrela">
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <a href="agendamento.html"type="button" class="btn btn-primary btn-lg" id="botao-branco">Agende uma visita!</a>
-          </div>
-        </div>     
       </div>
-
-        <!--Profissionais-->
-        <div class="profi">
-          <div class="titulo titulo-profi">Conheça nossos<br> profissionais!</div>
-          <center><div class="hr prof"></div></center>
-          <div class="profissionais">
-            <div class="profcard">
-              <img src="img/Home/Prof1.png" alt="profissional">
-              <div class="nome">Jorge</div>
-              <div class="span">Veterinário</div>
-            </div>
-            <div class="profcard">
-              <img src="img/Home/Prof2.png" alt="profissional">
-              <div class="nome">Ednaldo</div>
-              <div class="span">Veterinário</div>             
-            </div>
-            <div class="profcard">
-              <img src="img/Home/Prof3.png" alt="profissional">
-              <div class="nome">Márcia</div>
-              <div class="span">Veterinária</div>             
-            </div>
-            <div class="profcard">
-              <img src="img/Home/Prof4.png" alt="profissional">
-              <div class="nome">Júlia</div>
-              <div class="span">Atendimento</div>            
-            </div>
-            <div class="profcard">
-              <img src="img/Home/Prof5.png" alt="profissional">
-              <div class="nome">Maurício</div>
-              <div class="span">Atendimento</div>         
-            </div>
+      <div class="col">
+        <div class="card">
+          <a href="animal.html"><img src="img/Adoção/Animal8.png" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="animal.html">Afrodite <img src="img/Adoção/Mulher.png" alt=""></a></h5>
+            <p class="card-text"><small class="text-body-secondary"><img src="img/Adoção/Locação.png" alt="" class="localizacao">Av. Aguia de Haia<br>São Paulo SP</small></p>
+            <p class="card-text txt">Gata jovem de olhos azuis de pelagem dourada, nascida sem as pernas traseiras. Foi achada ainda filhote e levada para um centro de adoção. </p>
+            <p class="card-botao"><a class="btn btn-primary botao" id="botao" href="animal.html" role="button">Ver Mais</a></p>
           </div>
         </div>
-
-       <!--Ultimos Posts-->
-        <div class="lastposts">
-
-          <div class="titulo brancot"><a name="sobrenos">Últimos Posts</a></div>
-          <center><div class="hr brancoh"></div></center>
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="card">
-                <img src="img/Home/post1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="artigo.html">Desvendando Mitos sobre Animais Defi...</a></h5>
-                  <p class="card-text">A natureza é repleta de diversidade, e os animais também podem enfrentar desafios de saúde que os tornam diferentes...</p>
-                </div>
-              </div>
-
-
-
-              <div class="card">
-                <img src="img/Home/post2.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="artigo.html">Como Cuidar dos Dentes do Seu Pet</a></h5>
-                  <p class="card-text">Cuidar dos dentes do seu pet é essencial para a saúde bucal e geral do animal. Este artigo destaca a importância da higiene dental em...</p>
-                </div>
-              </div>
-
-
-
-              <div class="card">
-                <img src="img/Home/post3.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="artigo.html">Alergias em Animais de Estimação</a></h5>
-                  <p class="card-text">As alergias em animais de estimação são um problema comum que afeta a qualidade de vida dos animais e pode ser preocupante para...</p>
-                </div>
-              </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-          <a href="blog.html"type="button" class="btn btn-primary btn-lg" id="botao-branco">Ver Mais</a>
+      </div>
+      <div class="col">
+        <div class="card">
+          <a href="animal.html"><img src="img/Adoção/Animal9.png" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="animal.html">Totó <img src="img/Adoção/Homem.png" alt=""></a></h5>
+            <p class="card-text"><small class="text-body-secondary"><img src="img/Adoção/Locação.png" alt="" class="localizacao">Av. Aguia de Haia<br>São Paulo SP</small></p>
+            <p class="card-text txt">Cachorro adulto, marrom de patas brancas e de olhos castanhos. Após sofrer um acidente de carro lutou bastante pela sua vida e agora procura por um lar com muito amor e carinho.</p>
+            <p class="card-botao"><a class="btn btn-primary botao" id="botao" href="animal.html" role="button">Ver Mais</a></p>
           </div>
         </div>
-        <!--Fale Conosco-->
-        <div class="contato">
-            <div class="left">
-              <img src="img/Home/Cachorro.png" alt="Gato" class="cachorro">
-            </div>
-            <div class="right">
-              <div class="titulo titulo-contato">Fale Conosco</div>
-              <div class="text-contato">
-                <p>Tem alguma dúvida sobre nosso serviço?</p>
-                <p>Gostaria de dar uma sugestão?</p>
-                <p>Nos envie uma mensagem!</p>
-              </div>
-              <div class="botao-contato">
-                  <a class="btn btn-primary con" id="botao" href="contatos.html" role="button">Contatos</a>
-              </div>
-            </div>
+      </div>
+      </div>
+      </div>       
+      <div class="linha">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <a href="animal.html"><img src="img/Adoção/Animal7.png" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="animal.html">Bolinha <img src="img/Adoção/Mulher.png" alt=""></a></h5>
+            <p class="card-text"><small class="text-body-secondary"><img src="img/Adoção/Locação.png" alt="" class="localizacao">Av. Aguia de Haia<br>São Paulo SP</small></p>
+            <p class="card-text txt">Cadela de pequeno porte, com 12 anos de idade, de pelagem dourada e de olhos castanhos. Sofreu abuso dos seus donos anteriores e agora procura por uma casa que lhe proporcione bastante amor e carinho.</p>
+            <p class="card-botao"><a class="btn btn-primary botao" id="botao" href="animal.html" role="button">Ver Mais</a></p>
+          </div>
         </div>
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container container__footer">
-        <div class="section__footer">
-          <ul class="menu__footer">
-              <li>
-                <p class="titulo__footer">Páginas</p>
-              </li>
-              <li>
-                <a href="sobrenos.html" class="links__footer" >Sobre Nós</a>
-              </li>
-              <li>
-                <a href="serviços.html" class="links__footer" >Serviços</a>
-              </li>
-              <li>
-                <a href="unidades.html" class="links__footer" >Unidades</a>
-              </li>
-              <li">
-                <a href="blog.html" class="links__footer" >Blog</a>
-              </li>
-              <li>
-                <a href="contatos.html" class="links__footer" >Contato</a>
-              </li>
-            </ul>
+      </div>
+      <div class="col">
+        <div class="card">
+          <a href="animal.html"><img src="img/Adoção/Animal2.png" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="animal.html">Max <img src="img/Adoção/Homem.png" alt=""></a></h5>
+            <p class="card-text"><small class="text-body-secondary"><img src="img/Adoção/Locação.png" alt="" class="localizacao">Av. Aguia de Haia<br>São Paulo SP</small></p>
+            <p class="card-text txt">Um cachorro de porte médio, juvenil, de pelagem preta com manchas brancas no queixo, no peito e na barriga.</p>
+            <p class="card-botao"><a class="btn btn-primary botao" id="botao" href="animal.html" role="button">Ver Mais</a></p>
+          </div>
         </div>
-        <div class="section__footer section-logo__footer">
-          <a href="index.html" class="logo-wrapper__footer"><img src="img/Logo/InclusipetFooter.png" alt="Logo Inclusipet" class="logo__footer"></a>
+      </div>
+      <div class="col">
+        <div class="card">
+          <a href="animal.html"><img src="img/Adoção/Animal3.png" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="animal.html">Neném <img src="img/Adoção/Mulher.png" alt=""></a></h5>
+            <p class="card-text"><small class="text-body-secondary"><img src="img/Adoção/Locação.png" alt="" class="localizacao">Av. Aguia de Haia<br>São Paulo SP</small></p>
+            <p class="card-text txt">Cadela de porte médio, peluda, pelagem preta e que possui manchas brancas nas patas. Possui dificuldades em andar devido um acidente de carro.</p>
+            <p class="card-botao"><a class="btn btn-primary botao" id="botao" href="animal.html" role="button">Ver Mais</a></p>
+          </div>
         </div>
-        <div class="section__footer">
-          <ul class="menu__footer">
-              <li>
-                <p class="titulo__footer">Nossas <br>Redes</p>
-              </li>
-              <li>
-                <a class="links__footer"><img src="img/Contatos/Instagram.png" alt="Instagram" class="rede-social"> @inclusipet_</a>
-              </li>
-              <li>
-                <a class="links__footer"><img src="img/Contatos/twitter.png" alt="twitter" class="rede-social"> @Inclusipet_</a>
-              </li>
-              <li>
-                <a class="links__footer"><img src="img/Contatos/facebook.png" alt="Facebook" class="rede-social"> Inclusipet</a>
-              </li>
-            </ul>
+      </div>
+    </div>
+    </div>
+    <div class="linha">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <a href="animal.html"><img src="img/Adoção/Animal4.png" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="animal.html">Fofinha <img src="img/Adoção/Mulher.png" alt=""></a></h5>
+            <p class="card-text"><small class="text-body-secondary"><img src="img/Adoção/Locação.png" alt="" class="localizacao">Av. Aguia de Haia<br>São Paulo SP</small></p>
+            <p class="card-text txt">Gata jovem, de olhos azuis, branca com manchas marrons e pretas pelo seu corpo. Precisa de cuidado devido aos seus problemas cardiacos.</p>
+            <p class="card-botao"><a class="btn btn-primary botao" id="botao" href="animal.html" role="button">Ver Mais</a></p>
+          </div>
         </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <a href="animal.html"><img src="img/Adoção/Animal5.png" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="animal.html">Bebê <img src="img/Adoção/Homem.png" alt=""></a></h5>
+            <p class="card-text"><small class="text-body-secondary"><img src="img/Adoção/Locação.png" alt="" class="localizacao">Av. Aguia de Haia<br>São Paulo SP</small></p>
+            <p class="card-text txt">Calopsita jovem, amarelada e de bochechas vermelhas e muito agitada. </p>
+            <p class="card-botao"><a class="btn btn-primary botao" id="botao" href="animal.html" role="button">Ver Mais</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <a href="animal.html"><img src="img/Adoção/Animal6.png" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="animal.html">Georgina <img src="img/Adoção/Mulher.png" alt=""></a></h5>
+            <p class="card-text"><small class="text-body-secondary"><img src="img/Adoção/Locação.png" alt="" class="localizacao">Av. Aguia de Haia<br>São Paulo SP</small></p>
+            <p class="card-text txt">Gata jovem, de pelagem dourada e bem manhosa. Precisa de cuidado constante devido a problemas de sáude.</p>
+            <p class="card-botao"><a class="btn btn-primary botao" id="botao" href="animal.html" role="button">Ver Mais</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
-</footer>
-<footer class="bottom-footer">
-  <div class="container copyright">
-      ®2023 Inclusipet. Todos os direitos reservados.
-  </div>
-</footer>
-</body>
-</html>
+</div>

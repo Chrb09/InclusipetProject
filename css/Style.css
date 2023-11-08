@@ -120,7 +120,7 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.6rem;
+    font-size: var(--size-2x);
 }
 .menu__header{
     display: flex;
@@ -139,7 +139,7 @@ a{
     position: absolute;
     right: 0;
     top: 12.5rem;
-    font-size: 1.5rem;
+    font-size: var(--size-2x);
     z-index: 10;
     list-style: none;
     height: 0;
@@ -171,11 +171,11 @@ a{
     padding-bottom: 2rem;
     display: flex;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size:var(--size-2x);
     color: var(--white);
 }
 .titulo__footer{
-    font-size: 2.2rem;
+    font-size: var(--size-4x);
     font-weight: 700;
 }
 .section__footer{
@@ -210,11 +210,11 @@ a{
     z-index: 0;
 }
 .copyright{
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
     color: var(--purple);
     text-align: center;
-    font-size: 1.5rem;
+    font-size: var(--size-2x);
     font-weight: 700;
     text-decoration: underline;
 }
@@ -231,14 +231,14 @@ a{
     .container {
       max-width: 1024px;
     }
-    .container__header{
-        font-size: 1.4rem;
+    .container__header, .copyright{
+        font-size: var(--size-xl);
     }
     .logo__header{
         height: 3em;
     }
     .container__footer, .copyright{
-        font-size: 1.4rem;
+        font-size: var(--size-2x);
     }
   }
   
@@ -247,17 +247,17 @@ a{
     .container {
       max-width: 768px;
     }
-    .container__header, .copyright{
-        font-size: 1.1rem;
-    }
     .logo__header{
         height: 2.5em;
     }
+    .container__header, .copyright{
+        font-size: var(--size-lg);
+    }
     .container__footer{
-        font-size: 1.1rem;
+        font-size: var(--size-xl);
     }
     .titulo__footer{
-        font-size: 1.8rem;
+        font-size: var(--size-3x);
         font-weight: 700;
     }
     .section__footer{
@@ -315,6 +315,6 @@ a{
     }
     .dropdown__header{
         top: 11rem;
-        font-size: 1.3rem;
+        font-size: var(--size-xl);
     }
   }

@@ -11,7 +11,7 @@
 .titulo{
     color: var(--purple);
     text-align: center;
-    font-size: 4.5rem;
+    font-size: var(--size-7x);
     font-weight: 800;
     margin-bottom: 4.44rem;
 }
@@ -88,6 +88,7 @@
 }
 .botao-borda:hover{
     background-color: var(--gray);
+    color: var(--white);
 }
 .botao-borda a{
     color: var(--gray);
@@ -221,7 +222,7 @@
     color: var(--lgray);
     text-align: center;
     font-family: Inter;
-    font-size: 1.75rem;
+    font-size: var(--size-3x);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -294,17 +295,34 @@
     text-align: left;
     color: var(--purple);
     font-weight: 700;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 .cartao_texto{
     text-align: justify;
     font-size: var(--size-2x);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 /*Responsividade*/
 
 /* xl */
 @media (max-width: 1536px){
+    .titulo, .titulo__sobrenos, .titulo__contato, .titulo__reviews, .titulo__profissionais{
+        font-size: var(--size-6x);
+    }
+    .subtitulo-text__reviews{
+        font-size: var(--size-4x);
+    }
+    .texto__sobrenos, .texto__contato {
+        font-size: var(--size-3x);
+    }
     .botao__sobrenos button, .botao__contato button, .botao-solido-branco a{
-        font-size: 2.5rem;
+        font-size: var(--size-3x);
     }
     .cartao__ultimosposts{
         width: 23rem;
@@ -317,14 +335,11 @@
     .botao-borda, .botao-solido{
         border-width: 0.35rem;
     }
-    .titulo{
-        font-size: 4rem;
-    }
     .imagem__sobrenos{
-        width: 30rem;
+        width: 20rem;
     }
     .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
-        font-size: 2rem;
+        font-size: var(--size-2x);
     }
     .linha__reviews, .linha__ultimosposts{
         gap: 2rem;
@@ -336,49 +351,40 @@
         width: 19.3rem;
     }
     .cartao__titulo{
-        font-size: 1.7rem;
+        font-size: var(--size-2x);
     }
 }
 
 /* lg */
 @media (max-width: 1024px) {
-    .titulo{
-        font-size: 3.5rem;
-    }
-    .titulo__sobrenos {
-        font-size: 3rem;
-    }
-    .titulo__contato {
-        font-size: 3rem;
-    }
-    .texto__sobrenos {
-        text-indent: 1.5rem;
-        font-size: 1.5rem;
-    }
-    .texto__contato {
-        text-indent: 1.5rem;
-        font-size: 1.5rem;
-    }
     .imagem__sobrenos{
-        width: 20rem;
+        width: 15rem;
     }
     .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
-        font-size: 1.5rem;
+        font-size: var(--size-2x);
     }
-    
+    .titulo, .titulo__sobrenos, .titulo__contato, .titulo__reviews, .titulo__profissionais{
+        font-size: var(--size-5x);
+    }
+    .subtitulo-text__reviews{
+        font-size: var(--size-3x);
+    }
+    .texto__sobrenos, .texto__contato {
+        font-size: var(--size-2x);
+    }
     .left-container__sobrenos{
         gap: 2vh;
     }
     .cartao__reviews{
         padding-left: 0rem;
         padding-right: 0rem;
-        font-size: 1.2rem;
+        font-size: var(--size-2x);
+    }
+    .linha__reviews, .linha__ultimosposts{
+        gap: 1.2rem;
     }
     .cartao__info{
-        font-size: 1.7rem;
-    }
-    .titulo__reviews{
-        font-size: 3rem;
+        font-size: var(--size-3x);
     }
     .imagem__quote{
         width: 7rem;
@@ -386,17 +392,18 @@
     .cartao__ultimosposts{
         padding-left: 0rem;
         padding-right: 0rem;
-        font-size: 1.2rem;
+        font-size: var(--size-2x);
         width: 14rem;
+        gap: 0.5rem;
     }
     .cartao__imagem{
-        width: 14.3rem;
+        width: 14.1rem;
     }
     .cartao__titulo{
-        font-size: 1.5rem;
+        font-size: var(--size-xl);
     }
     .cartao_texto{
-        font-size: 1.2rem;
+        font-size: var(--size-lg);
     }
     .linha__reviews{
         gap: 1rem;
@@ -407,7 +414,15 @@
     .container__profissionais {
         gap: 5rem;
     }
-    
+    .profcard img{
+        width: 14rem;
+    }
+    .nome{
+        font-size: var(--size-3x);
+    }
+    .span{
+        font-size: var(--size-2x);
+    }
 }
 /* md */
 @media (max-width: 768px) {
@@ -418,7 +433,7 @@
         padding-bottom: 4rem;
     }
     .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
-        font-size: 2.5rem;
+        font-size: var(--size-3x);
     }
     .titulo__sobrenos{
         text-align: center;
@@ -430,7 +445,7 @@
         justify-content: center;
     }
     .imagem__sobrenos{
-        width: 25rem;
+        display: none;
     }
     .right-container__sobrenos{
         order: -1;
@@ -441,20 +456,17 @@
     .cartao__reviews, .cartao__ultimosposts{
         padding-left: 2rem;
         padding-right: 2rem;
-        font-size: 1.5rem;
+        font-size: var(--size-2x);
         width: 25rem;
     }
     .cartao__titulo{
-        font-size: 1.7rem;
+        font-size: var(--size-3x);
     }
     .cartao_texto{
-        font-size: 1.5rem;
+        font-size: var(--size-2x);
     }
     .cartao__imagem{
         width: 25.2rem;
-    }
-    .titulo__profissionais {
-        font-size: 3.5rem;
     }
     .texto__contato{
         text-align: center;
@@ -463,23 +475,24 @@
 /* sm */
 @media (max-width: 640px) {
     .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
-        font-size: 2rem;
+        font-size: var(--size-3x);
     }
     .d-block{
         height: 15rem;
         object-fit:cover;
     }
-    .titulo__reviews{
-        font-size: 2rem;
+    .texto__sobrenos, .texto__contato {
+        font-size: var(--size-xl);
+    }
+    .titulo, .titulo__sobrenos, .titulo__contato, .titulo__reviews, .titulo__profissionais{
+        font-size: var(--size-4x);
+        margin-bottom: 0.5rem;
     }
     .subtitulo__reviews{
         gap: 1rem;
     }
     .subtitulo-text__reviews{
-        font-size: 2rem;
-    }
-    .botao__reviews button{
-        font-size: 2em;
+        font-size: var(--size-3x);
     }
 }
 
@@ -488,9 +501,6 @@
     .imagem__sobrenos{
         width: 80vw;
     }
-    .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
-        font-size: 1.5rem;
-    }
     .subtitulo__reviews{
         flex-direction: column;
     }
@@ -498,13 +508,27 @@
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    .cartao__ultimospost{
-        width: 80vw;
+    .cartao__ultimosposts{
+        width: fit-content;
     }
     .cartao__imagem{
-        width: 80vw;
+        width: 100%;
     }
-    .titulo__profissionais {
-        font-size: 2.5rem;
+    .cartao__titulo{
+        font-size: var(--size-2x);
+    }
+    .cartao_texto{
+        font-size: var(--size-xl);
+    }
+    .cartao__reviews{
+        font-size: var(--size-xl);
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .titulo, .titulo__sobrenos, .titulo__contato, .titulo__reviews, .titulo__profissionais{
+        font-size: var(--size-3x);
+    }
+    .botao__sobrenos button , .botao__contato button, .botao-solido-branco a{
+        font-size: var(--size-2x);
     }
 }
