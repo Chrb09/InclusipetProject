@@ -7,8 +7,8 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [ ] Melhorar a responsividade
-- [ ] Limpar o código
+- [x] Melhorar a responsividade
+- [x] Limpar o código
 - [ ] Mudanças gerais
 - [ ] BackEnd
 
