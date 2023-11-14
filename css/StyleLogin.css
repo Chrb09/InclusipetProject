@@ -1,3 +1,37 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+.container__login {
+    display: flex;
+    flex-direction: row;
+    height: 100rem;
+}
+input {
+    background-color: var(--white);
+    border: solid 2px var(--purple);
+    border-radius: 0.9rem;
+    padding: 0.75rem;
+
+}
+.right-container, .left-container {
+    display: flex;
+    gap: 10rem;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.card {
+
+}
+.signin ins {
+    color: var(--purple);
+
+}
 /* xl */
 @media (max-width: 1536px) {
 }
