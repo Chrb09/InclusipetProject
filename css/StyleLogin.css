@@ -1,36 +1,62 @@
-body {
-    display: flex;
-    flex-direction: column;
-}
 .container__login {
-    display: flex;
-    flex-direction: row;
-    height: 100rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  gap: 30%;
 }
 input {
-    background-color: var(--white);
-    border: solid 2px var(--purple);
-    border-radius: 0.9rem;
-    padding: 0.75rem;
-
-}
-.right-container, .left-container {
-    display: flex;
-    gap: 10rem;
+  background-color: var(--white);
+  border: solid 2px var(--purple);
+  border-radius: 0.7em;
+  padding: 0.4rem 0.75rem;
 }
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.card {
-
+.left-container,
+.right-container {
+  width: 30%;
+}
+.form__login {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1em;
+}
+.form__row {
+  display: flex;
+  flex-direction: column;
+}
+.password {
+  align-self: flex-end;
+}
+.signin {
+  text-align: center;
+}
+ins {
+  font-size: var(--size-lg);
 }
 .signin ins {
-    color: var(--purple);
-
+  color: var(--purple);
+  font-size: var(--size-xl);
+}
+.imagem {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  /* transition: left ease-in-out 0.3s;
+  &:hover {
+    left: 0;
+  } */
+}
+.imagem img {
+  width: 100%;
+  height: 100%;
 }
 /* xl */
 @media (max-width: 1536px) {
