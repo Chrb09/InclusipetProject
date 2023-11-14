@@ -8,6 +8,9 @@
   margin-top: 3em;
   margin-bottom: 3em;
 }
+.carousel-mobile {
+  display: none;
+}
 /* Section > About us */
 .titulo__home {
   text-align: center;
@@ -348,6 +351,12 @@
   }
   .cartao__ultimosposts {
     width: 13.5rem;
+  }
+  .carousel-mobile {
+    display: block;
+  }
+  .carousel-desktop {
+    display: none;
   }
 }
 /* xs */
