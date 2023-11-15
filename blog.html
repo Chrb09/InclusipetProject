@@ -1,68 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/Style.css"> <!-- CSS EXTERNO GERAL -->
-    <link rel="stylesheet" href="css/StyleBlog.css"> <!-- CSS EXTERNO PAGINA -->
-    <link rel="icon" href="img/Logo/Inclusipet.ico"> <!-- ICON -->
+    <link rel="stylesheet" href="css/Style.css" />
+    <!-- CSS EXTERNO GERAL -->
+    <link rel="stylesheet" href="css/StyleBlog.css" />
+    <!-- CSS EXTERNO PAGINA -->
+    <link rel="icon" href="img/Logo/Inclusipet.ico" />
+    <!-- ICON -->
     <title>Blog</title>
-</head>
-<body>
-  <!-- HEADER-->
+  </head>
+  <body>
+    <!-- HEADER-->
     <header class="header">
-        <div class="container container__header">
-          <a href="index.html"><img src="img/Logo/Inclusipet.png" alt="Logo Inclusipet" class="logo__header"></a>
-          <ul class="menu__header">
-                <li>
-                    <a href="sobrenos.html" class="links__header a-under">Sobre Nós</a>
-                </li>
-                <li>
-                    <a href="serviços.html" class="links__header a-under">Serviços</a>
-                </li>
-                <li>
-                    <a href="unidades.html" class="links__header a-under">Unidades</a>
-                </li>
-                <li>
-                    <a href="blog.html" class="links__header a-under">Blog</a>
-                </li>
-                <li>
-                  <a href="contatos.html" class="links__header a-under">Contatos</a>
-                </li>
-          </ul>
-          <button class="barra__header">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-          <div class="dropdown__header">
-            <li>
-                <a href="sobrenos.html" class="links__header">Sobre Nós</a>
-            </li>
-            <li>
-                <a href="serviços.html" class="links__header">Serviços</a>
-            </li>
-            <li>
-                <a href="unidades.html" class="links__header">Unidades</a>
-            </li>
-            <li>
-                <a href="blog.html" class="links__header">Blog</a>
-            </li>
-            <li>
-              <a href="contatos.html" class="links__header">Contatos</a>
-            </li>
-          </div>
+      <div class="container container__header">
+        <a href="index.html">
+          <img
+            src="img/Logo/Inclusipet.png"
+            alt="Logo Inclusipet"
+            class="logo__header" />
+        </a>
+        <ul class="menu__header">
+          <li>
+            <a href="sobrenos.html" class="links__header a-under">Sobre Nós</a>
+          </li>
+          <li>
+            <a href="serviços.html" class="links__header a-under">Serviços</a>
+          </li>
+          <li>
+            <a href="unidades.html" class="links__header a-under">Unidades</a>
+          </li>
+          <li>
+            <a href="blog.html" class="links__header pagatual">Blog</a>
+          </li>
+          <li>
+            <a href="contatos.html" class="links__header a-under">Contatos</a>
+          </li>
+          <li>
+            <a href="login.html"
+              ><img
+                src="img/Contatos/Login.png"
+                alt="Login"
+                class="login__header"
+            /></a>
+          </li>
+        </ul>
+        <button class="barra__header">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+        <div class="dropdown__header">
+          <li>
+            <a href="sobrenos.html" class="links__header">Sobre Nós</a>
+          </li>
+          <li>
+            <a href="serviços.html" class="links__header">Serviços</a>
+          </li>
+          <li>
+            <a href="unidades.html" class="links__header">Unidades</a>
+          </li>
+          <li>
+            <a href="blog.html" class="links__header">Blog</a>
+          </li>
+          <li>
+            <a href="contatos.html" class="links__header">Contatos</a>
+          </li>
+          <li>
+            <div
+              class="botao-solido-branco"
+              onclick="location.href='login.html'"
+              type="button">
+              Cadastro
+            </div>
+          </li>
         </div>
+      </div>
     </header>
     <script>
-        const barra__header = document.querySelector('.barra__header')
-        const dropdown__header = document.querySelector('.dropdown__header')
+      const barra__header = document.querySelector(".barra__header");
+      const dropdown__header = document.querySelector(".dropdown__header");
 
-        barra__header.onclick = function () {
-            dropdown__header.classList.toggle('open')
-        }
+      barra__header.onclick = function () {
+        dropdown__header.classList.toggle("open");
+      };
     </script>
     <!-- BLOG -->
     <div class="container container__blog">
@@ -71,30 +105,32 @@
         <div class="linha__blog">
           <div class="cartao__blog">
             <a href="artigo.html">
-            <img src="img/Blog/Blog1.png" alt="" class="cartao__imagem">
+              <img src="img/Blog/Blog1.png" alt="" class="cartao__imagem" />
             </a>
             <a href="artigo.html">
-            <p class="cartao__titulo">
-              Desvendando Mitos sobre Animais Deficientes
-            </p>
+              <p class="cartao__titulo">
+                Desvendando Mitos sobre Animais Deficientes
+              </p>
             </a>
             <div class="cartao_texto">
               <p class="cartao__data">09 de Novembro de 2023</p>
-              A natureza é repleta de diversidade, e os animais também podem enfrentar desafios de saúde que os tornam diferentes.
+              A natureza é repleta de diversidade, e os animais também podem
+              enfrentar desafios de saúde que os tornam diferentes.
             </div>
           </div>
           <div class="cartao__blog">
             <a href="artigo.html">
-            <img src="img/Blog/Blog2.png" alt="" class="cartao__imagem">
-          </a>
+              <img src="img/Blog/Blog2.png" alt="" class="cartao__imagem" />
+            </a>
             <a href="artigo.html">
-            <p class="cartao__titulo">
-              A Importância de Combater a Violência Contra Animais
-            </p>
-          </a>
+              <p class="cartao__titulo">
+                A Importância de Combater a Violência Contra Animais
+              </p>
+            </a>
             <div class="cartao_texto">
               <p class="cartao__data">11 de Fevereiro de 2023</p>
-              A violência contra animais é uma questão preocupante que afeta não apenas os animais, mas também a sociedade como um todo.
+              A violência contra animais é uma questão preocupante que afeta não
+              apenas os animais, mas também a sociedade como um todo.
             </div>
           </div>
         </div>
@@ -102,97 +138,129 @@
         <div class="linha__blog">
           <div class="cartao__blog">
             <a href="artigo.html">
-            <img src="img/Blog/Blog3.png" alt="" class="cartao__imagem">
-          </a>
+              <img src="img/Blog/Blog3.png" alt="" class="cartao__imagem" />
+            </a>
             <a href="artigo.html">
-            <p class="cartao__titulo">
-              Alergias em Animais de Estimação
-            </p>
-          </a>
+              <p class="cartao__titulo">Alergias em Animais de Estimação</p>
+            </a>
             <div class="cartao_texto">
               <p class="cartao__data">09 de Outubro de 2023</p>
-              As alergias em animais de estimação são um problema comum que afeta a qualidade de vida dos animais e pode ser preocupante para os proprietários.
+              As alergias em animais de estimação são um problema comum que
+              afeta a qualidade de vida dos animais e pode ser preocupante para
+              os proprietários.
             </div>
           </div>
           <div class="cartao__blog">
             <a href="artigo.html">
-            <img src="img/Blog/Blog4.png" alt="" class="cartao__imagem">
-          </a>
+              <img src="img/Blog/Blog4.png" alt="" class="cartao__imagem" />
+            </a>
             <a href="artigo.html">
-            <p class="cartao__titulo">
-              Como Cuidar dos Dentes do Seu Pet
-            </p>
-          </a>
+              <p class="cartao__titulo">Como Cuidar dos Dentes do Seu Pet</p>
+            </a>
             <div class="cartao_texto">
               <p class="cartao__data">05 de Julho de 2023</p>
-              Cuidar dos dentes do seu pet é essencial para a saúde bucal e geral do animal. Este artigo destaca a importância da higiene dental em animais de estimação e oferece orientações práticas para os proprietários.
+              Cuidar dos dentes do seu pet é essencial para a saúde bucal e
+              geral do animal. Este artigo destaca a importância da higiene
+              dental em animais de estimação e oferece orientações práticas para
+              os proprietários.
             </div>
           </div>
         </div>
       </div>
       <div class="sidebar">
-        <div class="pesquisa__sidebar"><input type="search" placeholder="Pesquisa" class="input__pesquisa"></div>
+        <div class="pesquisa__sidebar">
+          <input type="search" placeholder="Pesquisa" class="input__pesquisa" />
+        </div>
         <div class="posts__sidebar">
-          <div class="titulo__sidebar">
-              Posts Recentes
-          </div>
-          <p><a href="artigo.html">Desvendando Mitos sobre Animais Deficientes</a></p>
-          <p><a href="artigo.html">A Importância de Combater a Violência Contra Animais</a></p>
+          <div class="titulo__sidebar">Posts Recentes</div>
+          <p>
+            <a href="artigo.html"
+              >Desvendando Mitos sobre Animais Deficientes</a
+            >
+          </p>
+          <p>
+            <a href="artigo.html"
+              >A Importância de Combater a Violência Contra Animais</a
+            >
+          </p>
           <p><a href="artigo.html">Alergias em Animais de Estimação</a></p>
           <p><a href="artigo.html">Como Cuidar dos Dentes do Seu Pet</a></p>
         </div>
       </div>
     </div>
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container container__footer">
-        <div class="section__footer">
-          <ul class="menu__footer">
-              <li>
-                <p class="titulo__footer">Páginas</p>
-              </li>
-              <li>
-                <a href="sobrenos.html" class="links__footer" >Sobre Nós</a>
-              </li>
-              <li>
-                <a href="serviços.html" class="links__footer" >Serviços</a>
-              </li>
-              <li>
-                <a href="unidades.html" class="links__footer" >Unidades</a>
-              </li>
-              <li">
-                <a href="blog.html" class="links__footer" >Blog</a>
-              </li>
-              <li>
-                <a href="contatos.html" class="links__footer" >Contato</a>
-              </li>
-            </ul>
-        </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container container__footer">
         <div class="section__footer section-logo__footer">
-          <a href="index.html" class="logo-wrapper__footer"><img src="img/Logo/InclusipetFooter.png" alt="Logo Inclusipet" class="logo__footer"></a>
+          <a href="index.html" class="logo-wrapper__footer"
+            ><img
+              src="img/Logo/Inclusipet.png"
+              alt="Logo Inclusipet"
+              class="logo__footer"
+          /></a>
+        </div>
+        <div class="section__footer section__footer-links">
+          <ul class="menu__footer">
+            <li>
+              <a href="sobrenos.html" class="links__footer a-under"
+                >Sobre Nós</a
+              >
+            </li>
+            <li>
+              <a href="serviços.html" class="links__footer a-under">Serviços</a>
+            </li>
+            <li>
+              <a href="unidades.html" class="links__footer a-under">Unidades</a>
+            </li>
+            <li>
+              <a href="blog.html" class="links__footer a-under">Blog</a>
+            </li>
+            <li>
+              <a href="contatos.html" class="links__footer a-under">Contato</a>
+            </li>
+          </ul>
         </div>
         <div class="section__footer">
           <ul class="menu__footer">
-              <li>
-                <p class="titulo__footer">Nossas <br>Redes</p>
-              </li>
-              <li>
-                <a class="links__footer"><img src="img/Contatos/Instagram.png" alt="Instagram" class="rede-social"> @inclusipet_</a>
-              </li>
-              <li>
-                <a class="links__footer"><img src="img/Contatos/twitter.png" alt="twitter" class="rede-social"> @Inclusipet_</a>
-              </li>
-              <li>
-                <a class="links__footer"><img src="img/Contatos/facebook.png" alt="Facebook" class="rede-social"> Inclusipet</a>
-              </li>
-            </ul>
+            <li>
+              <a
+                href="https://www.instagram.com/inclusipet/"
+                class="links__footer"
+                ><img
+                  src="img/Contatos/Instagram.png"
+                  alt="Instagram"
+                  class="rede-social"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/InclusiPet23?t=sUSZebJOD0wUFlcThrDaJw&s=09"
+                class="links__footer"
+                ><img
+                  src="img/Contatos/twitter.png"
+                  alt="twitter"
+                  class="rede-social"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/profile.php?id=61553182305622&mibextid=ZbWKwL"
+                class="links__footer"
+                ><img
+                  src="img/Contatos/facebook.png"
+                  alt="Facebook"
+                  class="rede-social"
+              /></a>
+            </li>
+          </ul>
         </div>
-  </div>
-</footer>
-<footer class="bottom-footer">
-  <div class="container copyright">
-      ®2023 Inclusipet. Todos os direitos reservados.
-  </div>
-</footer>
-</body>
+      </div>
+      <div class="container container__footer">
+        <div class="hr-footer"></div>
+      </div>
+      <div class="container container__footer">
+        ®2023 Inclusipet. Todos os direitos reservados.
+      </div>
+    </footer>
+  </body>
 </html>

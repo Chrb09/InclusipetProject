@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/Style.css" />
     <!-- CSS EXTERNO GERAL -->
@@ -20,12 +19,12 @@
     <!-- HEADER-->
     <header class="header">
       <div class="container container__header">
-        <a href="index.html"
-          ><img
+        <a href="index.html">
+          <img
             src="img/Logo/Inclusipet.png"
             alt="Logo Inclusipet"
-            class="logo__header"
-        /></a>
+            class="logo__header" />
+        </a>
         <ul class="menu__header">
           <li>
             <a href="sobrenos.html" class="links__header a-under">Sobre Nós</a>
@@ -40,7 +39,15 @@
             <a href="blog.html" class="links__header a-under">Blog</a>
           </li>
           <li>
-            <a href="contatos.html" class="links__header a-under">Contatos</a>
+            <a href="contatos.html" class="links__header pagatual">Contatos</a>
+          </li>
+          <li>
+            <a href="login.html"
+              ><img
+                src="img/Contatos/Login.png"
+                alt="Login"
+                class="login__header"
+            /></a>
           </li>
         </ul>
         <button class="barra__header">
@@ -49,13 +56,11 @@
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
-            stroke="currentColor"
-          >
+            stroke="currentColor">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
         <div class="dropdown__header">
@@ -74,6 +79,14 @@
           <li>
             <a href="contatos.html" class="links__header">Contatos</a>
           </li>
+          <li>
+            <div
+              class="botao-solido-branco"
+              onclick="location.href='login.html'"
+              type="button">
+              Cadastro
+            </div>
+          </li>
         </div>
       </div>
     </header>
@@ -85,125 +98,35 @@
         dropdown__header.classList.toggle("open");
       };
     </script>
-    <!--Conteudo-->
+
     <!-- CONTATOS -->
+    <div class="contatos">
+      <div class="container container__contatos">
+        <div class="message">
+          <div class="titulo">Envie uma mensagem</div>
+          <form action="" class="form__login">
+            <div class="form__row">
+              <label for="">Senha</label><br />
+              <input type="email" name="" id="" />
+            </div>
+            <div class="form__row">
+              <label for="">Email</label><br />
+              <input type="email" value="" />
+            </div>
+            <div class="form__row">
+              <label for="">Mensagem</label>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="7"
+                placeholder="Escreva sua mensagem"></textarea>
+            </div>
 
-    <div class="container">
-      <div class="grid">
-        <form action="" id="contact-form">
-          <div class="box-consulta">
-            <a href="agendamento.html"
-              ><img src="img/Contatos/Agendamento.png" alt="" class="boximg"
-            /></a>
-            <div class="box">
-              <span id="box"
-                ><a href="agendamento.html">Agendamento de Consulta</a></span
-              >
-              <small id="box-text"
-                ><a href="agendamento.html">Agende sua visita conosco</a></small
-              >
-            </div>
-          </div>
-          <div class="titulo-page">
-            <div class="titulo">
-              Envie uma Mensagem
-              <img id="email" src="img/Contatos/Mensagem.png" alt="Mensagem" />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label"
-              ><span>Seu nome</span></label
-            >
-            <input
-              type="text"
-              name="Texto"
-              class="form-control"
-              id="exampleInputEmail1"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label"
-              ><span>Seu número de telefone</span></label
-            >
-            <input
-              type="tel"
-              name="Telefone"
-              class="form-control"
-              id="exampleInputEmail1"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label"
-              ><span>Seu email</span></label
-            >
-            <input
-              type="email"
-              name="Email"
-              class="form-control"
-              id="exampleInputEmail1"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label"
-              ><span>Assunto</span></label
-            >
-            <input
-              type="text"
-              name="Assunto"
-              class="form-control"
-              id="exampleInputEmail1"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label"
-              ><span>Mensagem</span></label
-            >
-            <textarea class="form-control"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" id="botao">
-            <span id="button">Enviar</span>
-          </button>
-        </form>
-
-        <!-- INFORMAÇÕES -->
-        <div class="info">
-          <div class="box-info">
-            <a href="adoção.html"
-              ><img src="img/Contatos/Adoção.png" alt="" class="boximg"
-            /></a>
-            <div class="box">
-              <span id="box"><a href="adoção.html">Adote um animal</a></span>
-              <small id="box-text"
-                ><a href="adoção.html"
-                  >Encontre o seu próximo amor peludo.</a
-                ></small
-              >
-            </div>
-          </div>
-          <div class="titulo-page">
-            <div class="titulo">
-              Ligue Por Telefone
-              <img
-                id="telefon"
-                src="img/Contatos/telefone.png"
-                alt="Telefone"
-              />
-            </div>
-          </div>
-          <span id="telefone">(11) 11111-1111</span>
-          <span>Segunda a Sexta</span>
-          <small>8h às 21h</small>
-          <span>Sábados</span>
-          <small>8h às 18h</small>
-          <span
-            >Domingos <br />
-            & Feriados</span
-          >
-          <small>9h às 16h</small>
+            <button class="botao-solido" onclick=" " type="button">
+              Entrar
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -211,77 +134,74 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container container__footer">
-        <div class="section__footer">
-          <ul class="menu__footer">
-            <li>
-              <p class="titulo__footer">Páginas</p>
-            </li>
-            <li>
-              <a href="sobrenos.html" class="links__footer">Sobre Nós</a>
-            </li>
-            <li>
-              <a href="serviços.html" class="links__footer">Serviços</a>
-            </li>
-            <li>
-              <a href="unidades.html" class="links__footer">Unidades</a>
-            </li>
-            <li>
-              <a href="blog.html" class="links__footer">Blog</a>
-            </li>
-            <li>
-              <a href="contatos.html" class="links__footer">Contato</a>
-            </li>
-          </ul>
-        </div>
         <div class="section__footer section-logo__footer">
           <a href="index.html" class="logo-wrapper__footer"
             ><img
-              src="img/Logo/InclusipetFooter.png"
+              src="img/Logo/Inclusipet.png"
               alt="Logo Inclusipet"
               class="logo__footer"
           /></a>
         </div>
+        <div class="section__footer section__footer-links">
+          <ul class="menu__footer">
+            <li>
+              <a href="sobrenos.html" class="links__footer a-under"
+                >Sobre Nós</a
+              >
+            </li>
+            <li>
+              <a href="serviços.html" class="links__footer a-under">Serviços</a>
+            </li>
+            <li>
+              <a href="unidades.html" class="links__footer a-under">Unidades</a>
+            </li>
+            <li>
+              <a href="blog.html" class="links__footer a-under">Blog</a>
+            </li>
+            <li>
+              <a href="contatos.html" class="links__footer a-under">Contato</a>
+            </li>
+          </ul>
+        </div>
         <div class="section__footer">
           <ul class="menu__footer">
             <li>
-              <p class="titulo__footer">Nossas <br />Redes</p>
-            </li>
-            <li>
-              <a class="links__footer"
+              <a
+                href="https://www.instagram.com/inclusipet/"
+                class="links__footer"
                 ><img
                   src="img/Contatos/Instagram.png"
                   alt="Instagram"
                   class="rede-social"
-                />
-                @inclusipet_</a
-              >
+              /></a>
             </li>
             <li>
-              <a class="links__footer"
+              <a
+                href="https://twitter.com/InclusiPet23?t=sUSZebJOD0wUFlcThrDaJw&s=09"
+                class="links__footer"
                 ><img
                   src="img/Contatos/twitter.png"
                   alt="twitter"
                   class="rede-social"
-                />
-                @Inclusipet_</a
-              >
+              /></a>
             </li>
             <li>
-              <a class="links__footer"
+              <a
+                href="https://www.facebook.com/profile.php?id=61553182305622&mibextid=ZbWKwL"
+                class="links__footer"
                 ><img
                   src="img/Contatos/facebook.png"
                   alt="Facebook"
                   class="rede-social"
-                />
-                Inclusipet</a
-              >
+              /></a>
             </li>
           </ul>
         </div>
       </div>
-    </footer>
-    <footer class="bottom-footer">
-      <div class="container copyright">
+      <div class="container container__footer">
+        <div class="hr-footer"></div>
+      </div>
+      <div class="container container__footer">
         ®2023 Inclusipet. Todos os direitos reservados.
       </div>
     </footer>

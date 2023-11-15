@@ -1,204 +1,24 @@
 /****CONTATOS****/
-body {
-    font-family: Inter;
-}
-.titulo-page {
-    display: flex;
-    flex-flow: row wrap;
-    margin-bottom: 3rem;
-}
-.titulo{
-    color: var(--purple);
-    font-family: Inter;
-    font-size: 4.5rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-}
-.box-consulta, .box-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 9rem;
-    border-radius: 0.3125rem;
-    background-color: var(--white);
-    padding: 1rem;
-    box-shadow: 0px 8px 8px 3px rgba(0, 0, 0, 0.25);
-    margin: 6.06rem 0 5.37rem 0;
-    text-decoration: none;
-    width: fit-content;
-}
-.box {
-    margin-left: 0.79rem;
-    display: flex;
-    flex-direction: column;
-}
-#box a {
-    color: var(--purple);
-    text-decoration: none;
-}
-#box-text a {
-    color: var(--gray);
-    text-decoration: none;
-}
-#box {
-    color: var(--purple);
-    font-family: Inter;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-#box-text {
-    color: var(--gray);
-    font-family: Inter;
-    font-size: 1.625rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-#email {
-    width: 4.92644rem;
-    height: 4.18rem;
-    flex-shrink: 0;
-}
-#telefon {
-    width: 4.17925rem;
-    height: 4.187rem;
-    flex-shrink: 0;
-}
-.grid {
-    display: flex;
-    gap: 5rem;
-}
-.msg{
-    display: inline-block;
-    vertical-align: top;
-    width: 20%;
-    margin-right: 15%;
-    margin-left: 10%;
-}
-.fale{
-    display: inline-block; 
-}
-.form-control{
-    border-color: var(--purple);
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 3px;
-    width: 100%;
-}
-#exampleInputPassword1{
-    padding: 20%;
-}
-#botao {
-    display: inline-block;
-    padding: 12px 24px;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    background-color: var(--purple);
 
-    transition: 0.3s ease;
-}
-#botao:hover {
-    background-color: var(--purplehover); /*arrumar isso dps */
-}
-span, small {
-    color: var(--gray);
-}
-span {
-    font-family: Inter;
-    font-size: 1.60rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-#button {
-    color: var(--white);
-}
-/*  INFORMAÇÃO */
-.info {
-    display: flex;
-    flex-direction: column;
-}
-
-#telefone, small {
-    margin-bottom: 2rem;
-}
-#telefone {
-    color: var(--purple);
-    font-size: 3rem;
-}
-.info span {
-    font-size: 2.25rem;
-    width: fit-content;
-}
-small {
-    font-weight: 500;
-    font-size: 1.90rem;
-    width: fit-content;
-}
 /*Responsividade*/
 
 /* xl */
-@media (max-width: 1536px){
-    .titulo{
-        font-size: 3rem;
-    }
-    #box {
-        font-size: 1.5rem;
-    }
+@media (max-width: 1536px) {
 }
 @media (max-width: 1280px) {
+}
 
-  }
-  
-  /* lg */
-  @media (max-width: 1024px) {
+/* lg */
+@media (max-width: 1024px) {
+}
 
-  }
-  
-  /* md */
-  @media (max-width: 768px) {
-    .grid{
-        flex-direction: column;
-    }
-    .box-consulta, .box-info {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        width: 100%;
-        text-align: center;
-    }
-    .box{
-        align-items: center;
-    }
-    .info{
-        justify-content: center;
-        align-items: center;
-    }
-    .titulo{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-  }
-  
-  /* sm */
-  @media (max-width: 640px) {
-  }
-  /* xs */
-  @media (max-width: 475px) {
-    .box-consulta, .box-info{
-        width: 80%;
-        height:fit-content;
-        flex-direction: column;
-    }
-  }
+/* md */
+@media (max-width: 768px) {
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+/* xs */
+@media (max-width: 475px) {
+}

@@ -1,162 +1,99 @@
-/****AGENDAMENTO****/
+body {
+  background-image: url(../img/Agendamento/Fundo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
 .container__agendamento {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  margin-top: 5rem;
+  padding-right: 17rem;
+  padding-left: 17rem;
 }
-.titulo{
-    color: var(--purple);
-    text-align: center;
-    font-size: var(--size-7x);
-    font-weight: 800;
-    margin-top: 6.44rem;
+.form__agendamento {
+  background-color: var(--white);
+  border-radius: 1.5rem;
+  padding: 5rem 5rem;
+  display: flex;
+  flex-direction: column;
 }
-.subtitulo {
-    color: var(--purple);
-    font-size: var(--size-6x);
-    font-weight: 700;
-    margin-bottom: 3rem;    
+.section-agendamento {
+  display: flex;
+  flex-direction: column;
 }
-.section {
-    width: 75%;
+.form__agendamento strong {
+  margin-top: 2.5rem;
 }
-#margin {
-    margin-top: 7rem;
+.form__agendamento label {
+  margin-top: 1rem;
 }
-.margin {
-    margin-bottom: 7rem;
+.row {
+  display: flex;
+  justify-content: space-between;
 }
-.message {
-    border-color: var(--purple);
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 3px;
-    width: 100%;
+.row-section {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
 }
-.together-space {
-    margin-bottom: 3rem;
+.form__button {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
 }
-.hr {
-    border-top: 3px solid var(--purple);
-    border-radius: 5px;
-    width:75%;
-    margin: 6rem 0 6rem 0;
+.form__button .botao-solido {
+  width: 30%;
 }
-.box {
-    width: 100%;
-    flex-shrink: 0;
-    background: var(--white);
-    padding-bottom: 5rem;
-    border-radius: 2rem;
-    box-shadow: 0px 7px 7px 2px var(--shadow);
-}
-.ficha {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.form-control{
-    border-color: var(--purple);
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 3px;
-    width: 100%;
-    font-size: 1.7rem;
-}
-.together {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.together .mb-3{
-    width: 45%;
-}
-.together input {
-    width: 100%;
-}
-#botao {
-    display: inline-block;
-    padding: 12px 24px;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    background-color: var(--purple);
-    transition: 0.3s ease;
-}
-#botao:hover {
-    background-color: var(--purplehover); 
-}
-span, small {
-    color: var(--gray);
-}
-.span {
-    color: var(--gray);
-    text-align: center;
-    font-size: 2.625rem;
-    font-weight: 600;
-}
-span {
-    font-size: 2.4rem;
-    font-weight: 600;
-}
-#button {
-    color: var(--white);
-}
-.btn {
-    margin-bottom: 3rem;
-}
-/*Responsividade*/
-
 /* xl */
-@media (max-width: 1536px){
-
+@media (max-width: 1536px) {
 }
 @media (max-width: 1280px) {
-    .titulo{
-        font-size: var(--size-6x);
-        text-align: center;
-    }
-    .subtitulo{
-        font-size: var(--size-5x);
-        text-align: center;
-    }
+  .titulo {
+    font-size: var(--size-6x);
+    text-align: center;
+  }
+  .subtitulo {
+    font-size: var(--size-5x);
+    text-align: center;
+  }
 }
 
 /* lg */
 @media (max-width: 1024px) {
-
 }
 
 /* md */
 @media (max-width: 768px) {
   .box {
-      box-shadow: none;
+    box-shadow: none;
   }
 }
 
 /* sm */
 @media (max-width: 640px) {
-  .titulo, .subtitulo{
-      font-size: var(--size-4x);
+  .titulo,
+  .subtitulo {
+    font-size: var(--size-4x);
   }
-  #margin{
-      margin-top: 2rem;
+  #margin {
+    margin-top: 2rem;
   }
-  span{
-  font-size: var(--size-3x);
-  }
-  .span{
+  span {
     font-size: var(--size-3x);
-    }
+  }
+  .span {
+    font-size: var(--size-3x);
+  }
   .section {
-      width: 90%;
+    width: 90%;
   }
   .margin {
-      margin-bottom: 2rem;
+    margin-bottom: 2rem;
   }
 }
 /* xs */
 @media (max-width: 475px) {
-
 }

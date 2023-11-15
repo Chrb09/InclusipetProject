@@ -1,208 +1,355 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/Style.css"> <!-- CSS EXTERNO GERAL -->
-    <link rel="stylesheet" href="css/StyleSer.css"> <!-- CSS EXTERNO PAGINA -->
-    <link rel="icon" href="img/Logo/Inclusipet.ico"> <!-- ICON -->
+    <link rel="stylesheet" href="css/Style.css" />
+    <!-- CSS EXTERNO GERAL -->
+    <link rel="stylesheet" href="css/StyleSer.css" />
+    <!-- CSS EXTERNO PAGINA -->
+    <link rel="icon" href="img/Logo/Inclusipet.ico" />
+    <!-- ICON -->
     <title>Serviços</title>
-</head>
-<body>
-  <!-- HEADER-->
+  </head>
+  <body>
+    <!-- HEADER-->
     <header class="header">
-        <div class="container container__header">
-          <a href="index.html"><img src="img/Logo/Inclusipet.png" alt="Logo Inclusipet" class="logo__header"></a>
-          <ul class="menu__header">
-                <li>
-                    <a href="sobrenos.html" class="links__header a-under">Sobre Nós</a>
-                </li>
-                <li>
-                    <a href="serviços.html" class="links__header a-under">Serviços</a>
-                </li>
-                <li>
-                    <a href="unidades.html" class="links__header a-under">Unidades</a>
-                </li>
-                <li>
-                    <a href="blog.html" class="links__header a-under">Blog</a>
-                </li>
-                <li>
-                  <a href="contatos.html" class="links__header a-under">Contatos</a>
-                </li>
-          </ul>
-          <button class="barra__header">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-          <div class="dropdown__header">
-            <li>
-                <a href="sobrenos.html" class="links__header">Sobre Nós</a>
-            </li>
-            <li>
-                <a href="serviços.html" class="links__header">Serviços</a>
-            </li>
-            <li>
-                <a href="unidades.html" class="links__header">Unidades</a>
-            </li>
-            <li>
-                <a href="blog.html" class="links__header">Blog</a>
-            </li>
-            <li>
-              <a href="contatos.html" class="links__header">Contatos</a>
-            </li>
-          </div>
+      <div class="container container__header">
+        <a href="index.html">
+          <img
+            src="img/Logo/Inclusipet.png"
+            alt="Logo Inclusipet"
+            class="logo__header" />
+        </a>
+        <ul class="menu__header">
+          <li>
+            <a href="sobrenos.html" class="links__header a-under">Sobre Nós</a>
+          </li>
+          <li>
+            <a href="serviços.html" class="links__header pagatual">Serviços</a>
+          </li>
+          <li>
+            <a href="unidades.html" class="links__header a-under">Unidades</a>
+          </li>
+          <li>
+            <a href="blog.html" class="links__header a-under">Blog</a>
+          </li>
+          <li>
+            <a href="contatos.html" class="links__header a-under">Contatos</a>
+          </li>
+          <li>
+            <a href="login.html"
+              ><img
+                src="img/Contatos/Login.png"
+                alt="Login"
+                class="login__header"
+            /></a>
+          </li>
+        </ul>
+        <button class="barra__header">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+        <div class="dropdown__header">
+          <li>
+            <a href="sobrenos.html" class="links__header">Sobre Nós</a>
+          </li>
+          <li>
+            <a href="serviços.html" class="links__header">Serviços</a>
+          </li>
+          <li>
+            <a href="unidades.html" class="links__header">Unidades</a>
+          </li>
+          <li>
+            <a href="blog.html" class="links__header">Blog</a>
+          </li>
+          <li>
+            <a href="contatos.html" class="links__header">Contatos</a>
+          </li>
+          <li>
+            <div
+              class="botao-solido-branco"
+              onclick="location.href='login.html'"
+              type="button">
+              Cadastro
+            </div>
+          </li>
         </div>
+      </div>
     </header>
     <script>
-        const barra__header = document.querySelector('.barra__header')
-        const dropdown__header = document.querySelector('.dropdown__header')
+      const barra__header = document.querySelector(".barra__header");
+      const dropdown__header = document.querySelector(".dropdown__header");
 
-        barra__header.onclick = function () {
-            dropdown__header.classList.toggle('open')
-        }
+      barra__header.onclick = function () {
+        dropdown__header.classList.toggle("open");
+      };
     </script>
     <!--Conteudo-->
-      <!-- SERVIÇOS -->
+    <!-- SERVIÇOS -->
     <div class="servicos">
       <section class="servicos-top">
         <h1 class="titulo">Serviços</h1>
         <div class="servicos-box">
           <div class="box">
-            <div class="container-servicos-img"><img src="img/Serviços/pata.png" class="servicos-img" id="pata" alt="Pata"></div>
-            <h1 class="servicos-subtitle">Atendimento<br>Veterinário</h1>
+            <div class="container-servicos-img">
+              <img
+                src="img/Serviços/pata.png"
+                class="servicos-img"
+                id="pata"
+                alt="Pata" />
+            </div>
+            <h1 class="servicos-subtitle">Atendimento<br />Veterinário</h1>
             <div class="card-body">
-              <p class="card-text">Confie no nosso atendimento veterinário para cuidar da saúde e do bem-estar do seu pet.
-                 Profissionais dedicados e amorosos prontos para ajudar. Seu amigo merece o melhor cuidado!</p>
+              <p class="card-text">
+                Confie no nosso atendimento veterinário para cuidar da saúde e
+                do bem-estar do seu pet. Profissionais dedicados e amorosos
+                prontos para ajudar. Seu amigo merece o melhor cuidado!
+              </p>
             </div>
           </div>
           <div class="box">
-            <div class="container-servicos-img"><img src="img/Serviços/vacina.png" class="servicos-img" id="vacina" alt="Vacina"></div>
-            <h1 class="servicos-subtitle">Vacinação</h1> 
+            <div class="container-servicos-img">
+              <img
+                src="img/Serviços/vacina.png"
+                class="servicos-img"
+                id="vacina"
+                alt="Vacina" />
+            </div>
+            <h1 class="servicos-subtitle">Vacinação</h1>
             <div class="card-body">
-              <p class="card-text">Mantenha seu pet seguro e saudável com nossos serviços de vacinação.
-                 Imunização confiável e cuidado excepcional. Cuide do seu amigo com responsabilidade!</p>
+              <p class="card-text">
+                Mantenha seu pet seguro e saudável com nossos serviços de
+                vacinação. Imunização confiável e cuidado excepcional. Cuide do
+                seu amigo com responsabilidade!
+              </p>
             </div>
           </div>
           <div class="box">
-            <div class="container-servicos-img"><img src="img/Serviços/bisturi.png" class="servicos-img" id="bisturi" alt="Bisturi"></div>
-            <h1 class="servicos-subtitle">Cirurgias &<br> Procedimentos</h1>
+            <div class="container-servicos-img">
+              <img
+                src="img/Serviços/bisturi.png"
+                class="servicos-img"
+                id="bisturi"
+                alt="Bisturi" />
+            </div>
+            <h1 class="servicos-subtitle">
+              Cirurgias &<br />
+              Procedimentos
+            </h1>
             <div class="card-body">
-              <p class="card-text">Confie no nosso cuidado especializado para cirurgias e procedimentos veterinários. 
-                Cuidamos do seu pet com amor e excelência. Seu amigo peludo está em boas mãos!</p>
+              <p class="card-text">
+                Confie no nosso cuidado especializado para cirurgias e
+                procedimentos veterinários. Cuidamos do seu pet com amor e
+                excelência. Seu amigo peludo está em boas mãos!
+              </p>
             </div>
           </div>
         </div>
       </section>
       <section class="servicos-bottom">
-        <br>
-        <br>
+        <br />
+        <br />
         <center><div class="hr"></div></center>
         <h1 class="titulo" id="servicos-especialidades">Especialidades</h1>
         <div class="servicos-box">
           <div class="box">
-            <div class="container-servicos-img"><img src="img/Serviços/osso.png" class="servicos-img" alt="Osso"></div>
+            <div class="container-servicos-img">
+              <img
+                src="img/Serviços/osso.png"
+                class="servicos-img"
+                alt="Osso" />
+            </div>
             <h1 class="servicos-subtitle">Ortopedia</h1>
             <div class="card-body">
-              <p class="card-text">Dê ao seu pet o dom da mobilidade e do conforto com nossos serviços de ortopedia veterinária.
-                 Soluções avançadas para uma vida ativa e saudável.</p>
+              <p class="card-text">
+                Dê ao seu pet o dom da mobilidade e do conforto com nossos
+                serviços de ortopedia veterinária. Soluções avançadas para uma
+                vida ativa e saudável.
+              </p>
             </div>
           </div>
           <div class="box">
-            <div class="container-servicos-img"><img src="img/Serviços/muleta.png" class="servicos-img" id="muleta" alt="Muleta"></div>
-            <h1 class="servicos-subtitle">Fisioterapia e<br> Reabilitação</h1>
+            <div class="container-servicos-img">
+              <img
+                src="img/Serviços/muleta.png"
+                class="servicos-img"
+                id="muleta"
+                alt="Muleta" />
+            </div>
+            <h1 class="servicos-subtitle">
+              Fisioterapia e<br />
+              Reabilitação
+            </h1>
             <div class="card-body">
-              <p class="card-text">Recupere o sorriso e a vitalidade do seu pet com nossos serviços de fisioterapia e reabilitação.
-                 Cuidamos da saúde e do bem-estar com carinho e dedicação. Seu amigo merece uma vida plena!</p>
+              <p class="card-text">
+                Recupere o sorriso e a vitalidade do seu pet com nossos serviços
+                de fisioterapia e reabilitação. Cuidamos da saúde e do bem-estar
+                com carinho e dedicação. Seu amigo merece uma vida plena!
+              </p>
             </div>
           </div>
           <div class="box">
-            <div class="container-servicos-img"><img src="img/Serviços/acessibilidade.png" class="servicos-img" alt="Acessibilidade"></div>
-            <h1 class="servicos-subtitle">Próteses e<br> Órteses</h1>
+            <div class="container-servicos-img">
+              <img
+                src="img/Serviços/acessibilidade.png"
+                class="servicos-img"
+                alt="Acessibilidade" />
+            </div>
+            <h1 class="servicos-subtitle">
+              Próteses e<br />
+              Órteses
+            </h1>
             <div class="card-body">
-              <p class="card-text">Restaure a qualidade de vida do seu pet com nossas próteses e órteses personalizadas. 
-                Tecnologia e cuidado que fazem a diferença. Seu amigo merece uma segunda chance!</p>
+              <p class="card-text">
+                Restaure a qualidade de vida do seu pet com nossas próteses e
+                órteses personalizadas. Tecnologia e cuidado que fazem a
+                diferença. Seu amigo merece uma segunda chance!
+              </p>
             </div>
           </div>
           <div class="box">
-            <div class="container-servicos-img"><img src="img/Serviços/cerebro.png" class="servicos-img" alt="Cerebro"></div>
+            <div class="container-servicos-img">
+              <img
+                src="img/Serviços/cerebro.png"
+                class="servicos-img"
+                alt="Cerebro" />
+            </div>
             <h1 class="servicos-subtitle">Neurologia</h1>
             <div class="card-body">
-              <p class="card-text">Confie na nossa expertise em neurologia veterinária para cuidar do sistema nervoso do seu pet.
-                 Diagnóstico e tratamento precisos para uma vida mais saudável e feliz. Seu amigo merece o melhor cuidado!</p>
+              <p class="card-text">
+                Confie na nossa expertise em neurologia veterinária para cuidar
+                do sistema nervoso do seu pet. Diagnóstico e tratamento precisos
+                para uma vida mais saudável e feliz. Seu amigo merece o melhor
+                cuidado!
+              </p>
             </div>
           </div>
           <div class="box">
-            <div class="container-servicos-img"><img src="img/Serviços/cachorro.png" class="servicos-img" alt="Cachorro"></div>
-            <h1 class="servicos-subtitle">Terapia <br>Comportamental</h1>
+            <div class="container-servicos-img">
+              <img
+                src="img/Serviços/cachorro.png"
+                class="servicos-img"
+                alt="Cachorro" />
+            </div>
+            <h1 class="servicos-subtitle">Terapia <br />Comportamental</h1>
             <div class="card-body">
-              <p class="card-text">Mude a vida do seu pet com nossa terapia comportamental. 
-                Soluções personalizadas para um comportamento mais saudável e harmonioso. Seu amigo merece uma convivência feliz!</p>
+              <p class="card-text">
+                Mude a vida do seu pet com nossa terapia comportamental.
+                Soluções personalizadas para um comportamento mais saudável e
+                harmonioso. Seu amigo merece uma convivência feliz!
+              </p>
             </div>
           </div>
           <div class="box">
-            <div class="container-servicos-img"><img src="img/Serviços/caminhada.png" class="servicos-img" id="caminhada" alt="Caminhada"></div>
-            <h1 class="servicos-subtitle">Aconselhamento<br> para Proprietários</h1>
+            <div class="container-servicos-img">
+              <img
+                src="img/Serviços/caminhada.png"
+                class="servicos-img"
+                id="caminhada"
+                alt="Caminhada" />
+            </div>
+            <h1 class="servicos-subtitle">
+              Aconselhamento<br />
+              para Proprietários
+            </h1>
             <div class="card-body">
-              <p class="card-text">Oferecemos orientação especializada para proprietários de pets. 
-                Conte com nosso apoio para uma jornada feliz e saudável com seu amado companheiro. Seu amigo merece o melhor!</p>
+              <p class="card-text">
+                Oferecemos orientação especializada para proprietários de pets.
+                Conte com nosso apoio para uma jornada feliz e saudável com seu
+                amado companheiro. Seu amigo merece o melhor!
+              </p>
             </div>
           </div>
         </div>
       </section>
     </div>
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container container__footer">
-        <div class="section__footer">
-          <ul class="menu__footer">
-              <li>
-                <p class="titulo__footer">Páginas</p>
-              </li>
-              <li>
-                <a href="sobrenos.html" class="links__footer" >Sobre Nós</a>
-              </li>
-              <li>
-                <a href="serviços.html" class="links__footer" >Serviços</a>
-              </li>
-              <li>
-                <a href="unidades.html" class="links__footer" >Unidades</a>
-              </li>
-              <li">
-                <a href="blog.html" class="links__footer" >Blog</a>
-              </li>
-              <li>
-                <a href="contatos.html" class="links__footer" >Contato</a>
-              </li>
-            </ul>
-        </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container container__footer">
         <div class="section__footer section-logo__footer">
-          <a href="index.html" class="logo-wrapper__footer"><img src="img/Logo/InclusipetFooter.png" alt="Logo Inclusipet" class="logo__footer"></a>
+          <a href="index.html" class="logo-wrapper__footer"
+            ><img
+              src="img/Logo/Inclusipet.png"
+              alt="Logo Inclusipet"
+              class="logo__footer"
+          /></a>
+        </div>
+        <div class="section__footer section__footer-links">
+          <ul class="menu__footer">
+            <li>
+              <a href="sobrenos.html" class="links__footer a-under"
+                >Sobre Nós</a
+              >
+            </li>
+            <li>
+              <a href="serviços.html" class="links__footer a-under">Serviços</a>
+            </li>
+            <li>
+              <a href="unidades.html" class="links__footer a-under">Unidades</a>
+            </li>
+            <li>
+              <a href="blog.html" class="links__footer a-under">Blog</a>
+            </li>
+            <li>
+              <a href="contatos.html" class="links__footer a-under">Contato</a>
+            </li>
+          </ul>
         </div>
         <div class="section__footer">
           <ul class="menu__footer">
-              <li>
-                <p class="titulo__footer">Nossas <br>Redes</p>
-              </li>
-              <li>
-                <a class="links__footer"><img src="img/Contatos/Instagram.png" alt="Instagram" class="rede-social"> @inclusipet_</a>
-              </li>
-              <li>
-                <a class="links__footer"><img src="img/Contatos/twitter.png" alt="twitter" class="rede-social"> @Inclusipet_</a>
-              </li>
-              <li>
-                <a class="links__footer"><img src="img/Contatos/facebook.png" alt="Facebook" class="rede-social"> Inclusipet</a>
-              </li>
-            </ul>
+            <li>
+              <a
+                href="https://www.instagram.com/inclusipet/"
+                class="links__footer"
+                ><img
+                  src="img/Contatos/Instagram.png"
+                  alt="Instagram"
+                  class="rede-social"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/InclusiPet23?t=sUSZebJOD0wUFlcThrDaJw&s=09"
+                class="links__footer"
+                ><img
+                  src="img/Contatos/twitter.png"
+                  alt="twitter"
+                  class="rede-social"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/profile.php?id=61553182305622&mibextid=ZbWKwL"
+                class="links__footer"
+                ><img
+                  src="img/Contatos/facebook.png"
+                  alt="Facebook"
+                  class="rede-social"
+              /></a>
+            </li>
+          </ul>
         </div>
-  </div>
-</footer>
-<footer class="bottom-footer">
-  <div class="container copyright">
-      ®2023 Inclusipet. Todos os direitos reservados.
-  </div>
-</footer>
-</body>
+      </div>
+      <div class="container container__footer">
+        <div class="hr-footer"></div>
+      </div>
+      <div class="container container__footer">
+        ®2023 Inclusipet. Todos os direitos reservados.
+      </div>
+    </footer>
+  </body>
 </html>

@@ -1,7 +1,7 @@
 /****CSS GERAL****/
 /*VARIAVEL DE COR & FONTE*/
 :root {
-  --white: #fff;
+  --white: #fdfeff;
   --light-gray: #f3f3f3;
   --gray: #434343;
   --grayblack: #232323;
@@ -116,6 +116,13 @@ a {
   display: inline-block;
   position: relative;
 }
+input,
+textarea {
+  background-color: var(--white);
+  border: solid 2px var(--purple);
+  border-radius: 0.7em;
+  padding: 0.4rem 0.75rem;
+}
 .a-under::after {
   content: "";
   position: absolute;
@@ -131,6 +138,15 @@ a {
 .a-under:hover::after {
   transform: scaleX(1);
   transform-origin: center;
+}
+.pagatual::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--white);
 }
 .link {
   text-decoration: none;

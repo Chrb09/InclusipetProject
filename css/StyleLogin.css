@@ -6,12 +6,6 @@
   height: 85vh;
   gap: 30%;
 }
-input {
-  background-color: var(--white);
-  border: solid 2px var(--purple);
-  border-radius: 0.7em;
-  padding: 0.4rem 0.75rem;
-}
 .content {
   display: flex;
   flex-direction: column;
