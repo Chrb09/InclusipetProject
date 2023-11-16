@@ -123,6 +123,54 @@ textarea {
   border-radius: 0.7em;
   padding: 0.4rem 0.75rem;
 }
+select {
+  appearance: none;
+  outline: 10px red;
+  background-color: var(--white);
+  border: solid 2px var(--purple);
+  border-radius: 0.7em;
+  padding: 0.4rem 0.75rem;
+  box-shadow: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+option,
+optgroup {
+  border: none;
+  font-size: inherit;
+  font-family: Inter;
+  color: var(--grayblack);
+  border-color: var(--purple);
+}
+optgroup {
+  color: var(--purple);
+}
+.custom-select {
+  position: relative;
+}
+.custom-select::before,
+.custom-select::after {
+  --size: 0.3rem;
+  position: absolute;
+  content: "";
+  right: 1rem;
+  pointer-events: none;
+}
+
+.custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid var(--purple);
+  top: 40%;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid var(--purple);
+  top: 55%;
+}
 .a-under::after {
   content: "";
   position: absolute;

@@ -7,25 +7,25 @@ body {
 }
 .container__agendamento {
   margin-top: 5rem;
-  padding-right: 17rem;
-  padding-left: 17rem;
 }
 .form__agendamento {
   background-color: var(--white);
-  border-radius: 1.5rem;
-  padding: 5rem 5rem;
+  border-radius: 1.5em;
+  padding: 4em 5em;
   display: flex;
   flex-direction: column;
+  margin-right: 17%;
+  margin-left: 17%;
 }
 .section-agendamento {
   display: flex;
   flex-direction: column;
 }
 .form__agendamento strong {
-  margin-top: 2.5rem;
+  margin-top: 2em;
 }
 .form__agendamento label {
-  margin-top: 1rem;
+  margin-top: 1em;
 }
 .row {
   display: flex;
@@ -41,8 +41,8 @@ body {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 1.5em;
+  margin-top: 1.5em;
 }
 .form__button .botao-solido {
   width: 30%;
@@ -51,48 +51,28 @@ body {
 @media (max-width: 1536px) {
 }
 @media (max-width: 1280px) {
-  .titulo {
-    font-size: var(--size-6x);
-    text-align: center;
-  }
-  .subtitulo {
-    font-size: var(--size-5x);
-    text-align: center;
-  }
 }
 
 /* lg */
 @media (max-width: 1024px) {
+  .form__agendamento {
+    margin-right: 7%;
+    margin-left: 7%;
+    padding: 2.5em 3.5em;
+  }
 }
 
 /* md */
 @media (max-width: 768px) {
-  .box {
-    box-shadow: none;
+  .form__agendamento {
+    padding: 1em 2em;
+    margin-right: 0;
+    margin-left: 0;
   }
 }
 
 /* sm */
 @media (max-width: 640px) {
-  .titulo,
-  .subtitulo {
-    font-size: var(--size-4x);
-  }
-  #margin {
-    margin-top: 2rem;
-  }
-  span {
-    font-size: var(--size-3x);
-  }
-  .span {
-    font-size: var(--size-3x);
-  }
-  .section {
-    width: 90%;
-  }
-  .margin {
-    margin-bottom: 2rem;
-  }
 }
 /* xs */
 @media (max-width: 475px) {

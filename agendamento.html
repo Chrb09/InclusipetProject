@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/Style.css" />
     <!-- CSS EXTERNO GERAL -->
@@ -23,7 +24,8 @@
           <img
             src="img/Logo/Inclusipet.png"
             alt="Logo Inclusipet"
-            class="logo__header" />
+            class="logo__header"
+          />
         </a>
         <ul class="menu__header">
           <li>
@@ -56,11 +58,13 @@
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
-            stroke="currentColor">
+            stroke="currentColor"
+          >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
           </svg>
         </button>
         <div class="dropdown__header">
@@ -83,7 +87,8 @@
             <div
               class="botao-solido-branco"
               onclick="location.href='login.html'"
-              type="button">
+              type="button"
+            >
               Cadastro
             </div>
           </li>
@@ -103,18 +108,30 @@
     <!--AGENDAMENTO-->
     <div class="agendamento">
       <div class="container container__agendamento">
-        <form action="" class="form__agendamento">
+        <form action="" class="form__agendamento" id="form">
           <div class="titulo">Agende sua consulta</div>
           <div class="section-agendamento">
             <strong>Informações do dono</strong>
             <div class="row">
               <div class="row-section">
                 <label for="">Cep</label>
-                <input type="number" name="cep" id="cep" />
+                <input
+                  type="text"
+                  name="cep"
+                  id="cep"
+                  placeholder="00000-000"
+                />
               </div>
               <div class="row-section">
                 <label for="">Unidade desejada</label>
-                <input type="text" name="cep" id="cep" />
+                <div class="custom-select">
+                  <select name="unidade" id="unidade">
+                    <optgroup label="São Paulo"></optgroup>
+                    <option value="Guarulhos">Guarulhos</option>
+                    <option value="Vila Cisper">Vila Cisper</option>
+                    <option value="Artur Alvim">Artur Alvim</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -123,21 +140,36 @@
             <div class="row">
               <div class="row-section">
                 <label for="">Nome do animal</label>
-                <input type="text" name="" id="" />
+                <input type="text" name="nome" id="nome" />
               </div>
               <div class="row-section">
                 <label for="">Idade do animal</label>
-                <input type="number" name="" id="" maxlength="2" />
+                <input
+                  type="number"
+                  name="idade"
+                  id="idade"
+                  min="0"
+                  max="99"
+                  maxlength="2"
+                />
               </div>
             </div>
             <div class="row">
               <div class="row-section">
                 <label for="">Espécie</label>
-                <input type="text" name="" id="" />
+                <div class="custom-select">
+                  <select name="especies" id="especies">
+                    <optgroup label="Espécies"></optgroup>
+                    <option value="Cachorro">Canídeo</option>
+                    <option value="Felino">Felino</option>
+                    <option value="Ave">Ave</option>
+                    <option value="Reptil">Réptil</option>
+                  </select>
+                </div>
               </div>
               <div class="row-section">
                 <label for="">Raça</label>
-                <input type="text" name="" id="" />
+                <input type="text" name="raca" id="raca" />
               </div>
             </div>
           </div>
@@ -146,23 +178,24 @@
             <div class="row">
               <div class="row-section">
                 <label for="">Data desejada</label>
-                <input type="date" name="" id="" />
+                <input type="date" name="data" id="data" />
               </div>
               <div class="row-section">
                 <label for="">Horário</label>
-                <input type="datetime" name="" id="" />
+                <input type="time" name="hora" id="hora" />
               </div>
             </div>
             <label for="">Razão da visita</label>
             <textarea
               name=""
-              id=""
+              id="razao"
               cols="30"
               rows="7"
-              placeholder="Escreva sua mensagem"></textarea>
+              placeholder="Escreva sua mensagem..."
+            ></textarea>
           </div>
           <div class="form__button">
-            <button class="botao-solido" onclick=" " type="button">
+            <button class="botao-solido" onclick="alerta()" type="button">
               Enviar
             </button>
             Enviaremos a confirmação por Email ou SMS!
@@ -246,4 +279,20 @@
       </div>
     </footer>
   </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    // const = form = document.querySelector("#form");
+
+    function alerta() {
+      Swal.fire({
+        title: "Enviado com sucesso",
+        icon: "success",
+        confirmButtonColor: "#574dbd",
+      });
+    }
+    $("#cep").mask("00000-000");
+    $("#idade").mask("00");
+  </script>
 </html>
