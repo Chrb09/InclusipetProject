@@ -1,13 +1,14 @@
 /****CSS GERAL****/
 /*VARIAVEL DE COR & FONTE*/
 :root {
-  --white: #fdfeff;
+  --white: #ffffff;
   --light-gray: #f3f3f3;
   --gray: #434343;
   --grayblack: #232323;
   --shadow: #00000040;
   --purple: #574dbd;
   --purplehover: #403898;
+  --overlay: rgba(87, 77, 189, 0.25);
   --size-xxs: 0.5rem;
   --size-xs: 0.75rem;
   --size-sm: 0.875rem;

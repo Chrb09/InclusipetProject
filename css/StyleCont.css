@@ -1,5 +1,20 @@
-/****CONTATOS****/
-
+.tel img {
+  width: 2em;
+  height: 2em;
+}
+.container__contatos {
+  display: flex;
+  flex-direction: row;
+}
+.texto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.texto div {
+  display: flex;
+  flex-direction: column;
+}
 /*Responsividade*/
 
 /* xl */
