@@ -9,11 +9,15 @@
 }
 .texto__sobrenos {
   text-indent: 2em;
+  text-align: justify;
+  margin-left: 23%;
+  margin-right: 23%;
 }
 /* BOOTSTRAP */
 .text-time {
   margin-top: 5rem;
 }
+
 .container {
   flex-shrink: 0;
 }
@@ -186,8 +190,8 @@
     width: 100%;
   }
   .timeline-box img {
-    width: 30vmax;
-    height: 30vmax;
+    height: 20vh;
+    width: 20vh;
   }
   .one-of-two {
     display: flex;

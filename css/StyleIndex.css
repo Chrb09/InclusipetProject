@@ -21,9 +21,6 @@
 .titulo__home strong {
   font-weight: 800;
 }
-.sobrenos {
-  background-color: var(--light-gray);
-}
 .container__sobrenos {
   display: flex;
   gap: 12rem;
@@ -105,7 +102,6 @@
   padding-right: 1.5rem;
   gap: 1em;
   width: 25rem;
-  box-shadow: 0px 8px 8px 0px var(--shadow);
 }
 .cartao__info {
   display: flex;
@@ -160,7 +156,6 @@
   background-color: var(--white);
   border-radius: 1rem;
   width: 25rem;
-  box-shadow: 0px 8px 8px 0px var(--shadow);
 }
 .cartao__imagem {
   width: 100%;
@@ -177,7 +172,6 @@
   padding-left: 1.5rem;
 }
 .cartao__titulo {
-  color: var(--purple);
   font-weight: 700;
   overflow: hidden;
   display: -webkit-box;
