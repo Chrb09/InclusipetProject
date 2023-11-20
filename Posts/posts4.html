@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/Style.css" />
+    <!-- CSS EXTERNO GERAL -->
+    <link rel="stylesheet" href="../css/StylePost.css" />
+    <!-- CSS EXTERNO PAGINA -->
+    <link rel="icon" href="../img/Logo/Inclusipet.ico" />
+    <!-- ICON -->
+    <title>Alergias em Animais de Estimação</title>
+  </head>
+  <body>
+    <!-- HEADER-->
+    <header class="header">
+      <div class="container container__header">
+        <a href="../index.html">
+          <img
+            src="../img/Logo/Inclusipet.png"
+            alt="Logo Inclusipet"
+            class="logo__header"
+          />
+        </a>
+        <ul class="menu__header">
+          <li>
+            <a href="../sobrenos.html" class="links__header a-under"
+              >Sobre Nós</a
+            >
+          </li>
+          <li>
+            <a href="../serviços.html" class="links__header a-under"
+              >Serviços</a
+            >
+          </li>
+          <li>
+            <a href="../unidades.html" class="links__header a-under"
+              >Unidades</a
+            >
+          </li>
+          <li>
+            <a href="../blog.html" class="links__header pagatual">Blog</a>
+          </li>
+          <li>
+            <a href="../contatos.html" class="links__header a-under"
+              >Contatos</a
+            >
+          </li>
+          <li>
+            <a href="../login.html"
+              ><img
+                src="../img/Contatos/Login.png"
+                alt="Login"
+                class="login__header"
+            /></a>
+          </li>
+        </ul>
+        <button class="barra__header">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+        <div class="dropdown__header">
+          <li>
+            <a href="../sobrenos.html" class="links__header">Sobre Nós</a>
+          </li>
+          <li>
+            <a href="../serviços.html" class="links__header">Serviços</a>
+          </li>
+          <li>
+            <a href="../unidades.html" class="links__header">Unidades</a>
+          </li>
+          <li>
+            <a href="../blog.html" class="links__header">Blog</a>
+          </li>
+          <li>
+            <a href="../contatos.html" class="links__header">Contatos</a>
+          </li>
+          <li>
+            <div
+              class="botao-solido-branco"
+              onclick="location.href='login.html'"
+              type="button"
+            >
+              Cadastro
+            </div>
+          </li>
+        </div>
+      </div>
+    </header>
+    <script>
+      const barra__header = document.querySelector(".barra__header");
+      const dropdown__header = document.querySelector(".dropdown__header");
+
+      barra__header.onclick = function () {
+        dropdown__header.classList.toggle("open");
+      };
+    </script>
+    <!--Conteudo-->
+
+    <div class="container container__post">
+      <div class="container__titulo">
+        <a href="../blog.html" class="link"
+          >Blog
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="seta__link"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+          Cuidados
+        </a>
+        <div class="titulo titulo-pagina">
+          Como Cuidar dos<br />
+          Dentes do Seu Pet
+        </div>
+      </div>
+      <div class="img">
+        <img src="../img/Blog/Blog4.png" alt="Cachorro com alergia" />
+      </div>
+      <div class="content">
+        <div class="titulo">Introdução</div>
+        <p>
+          Cuidar dos dentes do seu pet é uma parte essencial da saúde geral do
+          animal. A saúde bucal adequada não só previne problemas dentários, mas
+          também promove o bem-estar geral do seu companheiro. Aqui estão
+          algumas dicas sobre como cuidar dos dentes do seu pet:
+        </p>
+
+        <div class="img">
+          <img
+            src="../img/Artigo/Blog 4.1.png"
+            alt="Cachorro com escova de dentes na boca"
+          />
+          <div class="side-bar">
+            <strong> Cachorro com escova de dentes na boca </strong>
+          </div>
+        </div>
+
+        <strong>1. Escovação Regular:</strong>
+        <p>
+          Assim como nós, os animais de estimação também se beneficiam da
+          escovação regular. Use uma escova de dentes e pasta de dentes
+          específicas para animais de estimação, pois as pastas para humanos
+          podem ser tóxicas para eles. Comece devagar, acostumando seu pet à
+          escovação gradualmente.
+        </p>
+
+        <strong>2. Alimentação Adequada:</strong>
+        <p>
+          Escolha uma dieta balanceada e nutritiva para o seu animal de
+          estimação. Existem alimentos formulados para promover a saúde bucal,
+          como biscoitos dentais e rações específicas que ajudam a reduzir o
+          acúmulo de placa.
+        </p>
+
+        <strong>3. Brinquedos Dentais:</strong>
+        <p>
+          Brinquedos mastigáveis e específicos para a saúde dental podem ser uma
+          ótima adição à rotina do seu pet. Eles ajudam a fortalecer os dentes,
+          massagear as gengivas e reduzir o acúmulo de placa.
+        </p>
+
+        <strong>4. Exames Dentários Regulares:</strong>
+        <p>
+          Agende exames dentários regulares com o veterinário. Profissionais
+          podem identificar problemas precocemente e realizar limpezas dentárias
+          profissionais quando necessário.
+        </p>
+
+        <strong>5. Supervisione o Consumo de Objetos Duros:</strong>
+        <p>
+          Evite dar a seu pet objetos muito duros, como ossos cozidos, que podem
+          quebrar os dentes. Além disso, fique atento a objetos pequenos que seu
+          animal possa roer e engolir acidentalmente.
+        </p>
+
+        <div class="img">
+          <img src="../img/Artigo/Blog 4.2.png" alt="Gato bocejando" />
+          <div class="side-bar">
+            <strong> Gato bocejando </strong>
+          </div>
+        </div>
+
+        <strong>6. Água Fresca:</strong>
+        <p>
+          Mantenha água fresca e limpa sempre disponível para o seu pet. A
+          hidratação adequada também contribui para a saúde bucal.
+        </p>
+
+        <strong>7. Evite Alimentos Humanos:</strong>
+        <p>
+          Evite dar alimentos humanos ao seu pet, especialmente aqueles ricos em
+          açúcares e amidos. Esses alimentos podem contribuir para o
+          desenvolvimento de cáries e outros problemas dentários.
+        </p>
+
+        <strong>8. Sinais de Problemas:</strong>
+        <p>
+          Esteja atento a sinais de problemas dentários, como mau hálito
+          persistente, gengivas vermelhas ou inflamadas, dificuldade ao comer e
+          perda de dentes. Se notar algum desses sinais, consulte o veterinário.
+        </p>
+
+        <strong>9. Introdução Gradual:</strong>
+        <p>
+          Se o seu pet não está acostumado à escovação, introduza-a
+          gradualmente. Comece com sessões curtas e recompense o animal para
+          associar a escovação a uma experiência positiva.
+        </p>
+
+        <strong>10. Consultas ao Veterinário:</strong>
+        <p>
+          Além de exames dentários regulares, consulte o veterinário sempre que
+          tiver dúvidas sobre a saúde bucal do seu pet. Eles podem fornecer
+          orientações específicas com base nas necessidades individuais do seu
+          animal.
+        </p>
+
+        <p>
+          Ao incorporar essas práticas simples na rotina de cuidados do seu pet,
+          você estará contribuindo significativamente para a manutenção de uma
+          boa saúde bucal, promovendo assim uma vida longa e saudável para o seu
+          companheiro peludo.
+        </p>
+        <div class="compartilhar">
+          <strong> Compartilhe o post </strong>
+          <div class="compartilha">
+            <div class="redes">
+              <img
+                class="rede"
+                src="../img/Artigo/"
+                alt="Copiar para área de trasnferência"
+                href=""
+              />
+              <img class="rede" src="../img/Contatos/Instagram.png"
+              alt="Instagram" href="https://www.instagram.com/inclusipet/"" />
+              <img
+                class="rede"
+                src="../img/Contatos/twitter.png"
+                alt="Twitter"
+                href="https://twitter.com/InclusiPet23?t=sUSZebJOD0wUFlcThrDaJw&s=09"
+              />
+              <img
+                class="rede"
+                src="../img/Contatos/facebook.png"
+                alt="Facebook"
+                href="https://www.facebook.com/profile.php?id=61553182305622&mibextid=ZbWKwL"
+              />
+            </div>
+            <div class="categorias">
+              <div class="categoria">Cuidados</div>
+              <div class="categoria">Qualquer Espécie</div>
+            </div>
+          </div>
+        </div>
+        <div class="hr"></div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container container__footer">
+        <div class="section__footer section-logo__footer">
+          <a href="../index.html" class="logo-wrapper__footer"
+            ><img
+              src="../img/Logo/Inclusipet.png"
+              alt="Logo Inclusipet"
+              class="logo__footer"
+          /></a>
+        </div>
+        <div class="section__footer section__footer-links">
+          <ul class="menu__footer">
+            <li>
+              <a href="../sobrenos.html" class="links__footer a-under"
+                >Sobre Nós</a
+              >
+            </li>
+            <li>
+              <a href="../serviços.html" class="links__footer a-under"
+                >Serviços</a
+              >
+            </li>
+            <li>
+              <a href="../unidades.html" class="links__footer a-under"
+                >Unidades</a
+              >
+            </li>
+            <li>
+              <a href="../blog.html" class="links__footer a-under">Blog</a>
+            </li>
+            <li>
+              <a href="../contatos.html" class="links__footer a-under"
+                >Contato</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="section__footer">
+          <ul class="menu__footer">
+            <li>
+              <a
+                href="https://www.instagram.com/inclusipet/"
+                class="links__footer"
+                ><img
+                  src="../img/Contatos/Instagram.png"
+                  alt="Instagram"
+                  class="rede-social"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/InclusiPet23?t=sUSZebJOD0wUFlcThrDaJw&s=09"
+                class="links__footer"
+                ><img
+                  src="../img/Contatos/twitter.png"
+                  alt="twitter"
+                  class="rede-social"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/profile.php?id=61553182305622&mibextid=ZbWKwL"
+                class="links__footer"
+                ><img
+                  src="../img/Contatos/facebook.png"
+                  alt="Facebook"
+                  class="rede-social"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container container__footer">
+        <div class="hr-footer"></div>
+      </div>
+      <div class="container container__footer">
+        ®2023 Inclusipet. Todos os direitos reservados.
+      </div>
+    </footer>
+  </body>
+</html>
