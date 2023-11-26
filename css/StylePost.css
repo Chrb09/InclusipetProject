@@ -6,8 +6,7 @@
 }
 .container__titulo,
 .content {
-  padding-left: 23rem;
-  padding-right: 23rem;
+  padding-inline: 23rem;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -19,21 +18,24 @@ p {
 small {
   color: var(--purple);
 }
-.img {
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
+.img_header {
+  max-width: 80%;
   margin-top: 3rem;
   margin-bottom: 5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  margin-inline: auto;
 }
-.img img {
+.img {
+  max-width: 100%;
+  margin-top: 3em;
+  margin-bottom: 5em;
+}
+.img > img,
+.img_header > img {
   aspect-ratio: 2 / 1;
   width: 100%;
   object-fit: cover;
   border-radius: 1rem;
+  margin-bottom: 1em;
 }
 .content .img {
   width: 100%;
@@ -48,17 +50,16 @@ small {
 .compartilha {
   margin-top: 1em;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-end;
-  align-self: stretch;
 }
 .redes {
   display: flex;
   gap: 0.5em;
 }
 .rede {
-  width: 36px;
-  height: 36px;
+  max-width: 36px;
+  aspect-ratio: 1 / 1;
   padding: 3px;
   background-color: var(--purple);
   border-radius: 1em;
@@ -69,11 +70,81 @@ small {
 }
 .categoria {
   color: var(--white);
-  padding: 0.4rem;
+  padding: 0.4em;
   background-color: var(--purple);
   border-radius: 0.6rem;
 }
 .img,
 .categoria {
   font-size: var(--size-base);
+}
+/* xl */
+@media (max-width: 1536px) {
+  .container__titulo,
+  .content {
+    padding-inline: 16rem;
+  }
+}
+@media (max-width: 1280px) {
+  .img,
+  .categoria {
+    font-size: var(--size-sm);
+  }
+  .rede {
+    padding: 2px;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .container__titulo,
+  .content {
+    padding-inline: 10rem;
+  }
+  .img,
+  .categoria {
+    font-size: var(--size-xs);
+  }
+  .rede {
+    max-width: 28px;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .container__titulo,
+  .content {
+    padding-inline: 6rem;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .img_header {
+    max-width: 100%;
+  }
+  .container__titulo,
+  .content {
+    padding-inline: 2rem;
+  }
+  .container__titulo,
+  .titulo {
+    text-align: center;
+    align-items: center;
+  }
+  .compartilhar,
+  .compartilha {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .container__titulo,
+  .content {
+    padding-inline: 1rem;
+  }
 }

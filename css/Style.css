@@ -277,11 +277,10 @@ strong {
 /*HEADER*/
 .container {
   max-width: 1536px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  border: solid 1px red;
+  /* border: solid 1px red; */
 }
 .header {
   width: 100%;
@@ -596,6 +595,10 @@ strong {
   .section__footer,
   .section__footer-links {
     width: 25rem;
+  }
+  .card-nav {
+    flex-direction: column;
+    text-align: center;
   }
 }
 

@@ -10,8 +10,10 @@
 .texto__sobrenos {
   text-indent: 2em;
   text-align: justify;
-  margin-left: 23%;
-  margin-right: 23%;
+  max-width: 70ch;
+  margin-inline: auto;
+  padding-left: 2ch;
+  padding-right: 2ch;
 }
 /* BOOTSTRAP */
 .text-time {
@@ -272,6 +274,9 @@
 
 /* md */
 @media (max-width: 768px) {
+  .texto__sobrenos {
+    max-width: 50ch;
+  }
 }
 
 /* sm */
