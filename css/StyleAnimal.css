@@ -1,0 +1,29 @@
+body {
+    background: linear-gradient(0deg, rgba(87, 77, 189, 0.50) 0%, rgba(87, 77, 189, 0.50) 100%), url(../img/Animal/Animal1/img5.png), lightgray 10% ;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+.container__pet {
+    background-color: var(--white);
+    border-radius: 15px;
+    margin-top: 5rem;
+    padding: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+.galeria, .info {
+    width: 48%;
+}
+.info > div {
+    margin-top: 1em;
+}
+.info strong{
+    margin-bottom: 1em;
+}
+.titulo {
+    text-align: left;
+}
+.quem, .contato, .detalhes {
+    display: flex;
+    flex-direction: column;
+}

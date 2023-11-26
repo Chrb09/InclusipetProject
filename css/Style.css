@@ -57,7 +57,9 @@ body {
   font-weight: 500;
   font-size: var(--size-xl);
 }
-
+img, picture, video, iframe{
+  max-width: 100%;
+}
 .botao-solido {
   background-color: var(--purple);
   color: var(--white);
@@ -136,11 +138,15 @@ button {
   cursor: pointer;
   color: inherit;
 }
-a {
+header a, footer a {
   text-decoration: none;
   color: var(--white);
   display: inline-block;
   position: relative;
+}
+a{
+  text-decoration: none;
+  color: inherit;
 }
 input,
 textarea {
@@ -240,6 +246,17 @@ optgroup {
 .seta__link {
   height: 1em;
   stroke-width: 0.2em;
+}
+.categorias {
+  display: flex;
+  gap: 0.5em;
+}
+.categoria {
+  color: var(--white);
+  padding: 0.4em;
+  background-color: var(--purple);
+  border-radius: 0.6rem;
+  font-size: var(--size-base);
 }
 
 .titulo {
@@ -392,6 +409,7 @@ strong {
 .logo__footer {
   height: 3.5em;
 }
+
 /* FONTES */
 
 /* xl */
@@ -439,6 +457,9 @@ strong {
   }
   .img__button-nav {
     height: 4rem;
+  }
+  .categoria {
+    font-size: var(--size-sm);
   }
 }
 
@@ -493,6 +514,9 @@ strong {
     border-top: 2px solid var(--white);
   }
   .link {
+    font-size: var(--size-xs);
+  }
+  .categoria {
     font-size: var(--size-xs);
   }
 }
@@ -599,6 +623,7 @@ strong {
   .card-nav {
     flex-direction: column;
     text-align: center;
+    padding: 0.7em;
   }
 }
 
