@@ -140,7 +140,7 @@
             <div class="row">
               <div class="row-section">
                 <label for="">Nome do animal</label>
-                <input type="text" name="nome" id="nome" />
+                <input type="text" name="nome" id="nome" autocomplete="off" />
               </div>
               <div class="row-section">
                 <label for="">Idade do animal</label>
@@ -151,6 +151,7 @@
                   min="0"
                   max="99"
                   maxlength="2"
+                  autocomplete="off"
                 />
               </div>
             </div>
@@ -169,7 +170,7 @@
               </div>
               <div class="row-section">
                 <label for="">Raça</label>
-                <input type="text" name="raca" id="raca" />
+                <input type="text" name="raca" id="raca" autocomplete="off" />
               </div>
             </div>
           </div>
@@ -178,11 +179,11 @@
             <div class="row">
               <div class="row-section">
                 <label for="">Data desejada</label>
-                <input type="date" name="data" id="data" />
+                <input type="date" name="data" id="data" required />
               </div>
               <div class="row-section">
                 <label for="">Horário</label>
-                <input type="time" name="hora" id="hora" />
+                <input type="time" name="hora" id="hora" required />
               </div>
             </div>
             <label for="">Razão da visita</label>
