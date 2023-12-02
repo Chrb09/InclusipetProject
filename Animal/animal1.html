@@ -90,7 +90,7 @@
           <li>
             <div
               class="botao-solido-branco"
-              onclick="location.href='login.html'"
+              onclick="location.href='../login.html'"
               type="button">
               Cadastro
             </div>
@@ -98,21 +98,104 @@
         </div>
       </div>
     </header>
-    <script>
-      const barra__header = document.querySelector(".barra__header");
-      const dropdown__header = document.querySelector(".dropdown__header");
 
-      barra__header.onclick = function () {
-        dropdown__header.classList.toggle("open");
-      };
-    </script>
     <!--Conteudo-->
     <div class="container container__pet">
       <div class="galeria">
-        <div class="imagem-grande">
-          <img src="../img/Animal/Animal1/Img1.png" alt="cachorro" />
+        <div class="imagem-grande-wrapper">
+          <img
+            src="../img/Animal/Animal1/Img1.png"
+            alt="cachorro"
+            class="imagem-grande" />
+          <img
+            src="../img/Animal/Animal1/Img2.png"
+            alt="cachorro"
+            class="imagem-grande" />
+          <img
+            src="../img/Animal/Animal1/Img3.png"
+            alt="cachorro"
+            class="imagem-grande" />
+          <img
+            src="../img/Animal/Animal1/Img4.png"
+            alt="cachorro"
+            class="imagem-grande" />
+          <img
+            src="../img/Animal/Animal1/Img5.png"
+            alt="cachorro"
+            class="imagem-grande" />
+        </div>
+        <div class="imagem-pequena-container">
+          <div class="imagem-pequena-wrapper" onclick="currentSlide(1)">
+            <img
+              src="/img/Animal/Animal1/Img1.png"
+              alt=""
+              class="imagem-pequena" />
+          </div>
+          <div class="imagem-pequena-wrapper" onclick="currentSlide(2)">
+            <img
+              src="/img/Animal/Animal1/Img2.png"
+              alt=""
+              class="imagem-pequena" />
+          </div>
+          <div class="imagem-pequena-wrapper" onclick="currentSlide(3)">
+            <img
+              src="/img/Animal/Animal1/Img3.png"
+              alt=""
+              class="imagem-pequena" />
+          </div>
+          <div class="imagem-pequena-wrapper" onclick="currentSlide(4)">
+            <img
+              src="/img/Animal/Animal1/Img4.png"
+              alt=""
+              class="imagem-pequena" />
+          </div>
+          <div class="imagem-pequena-wrapper" onclick="currentSlide(5)">
+            <img
+              src="/img/Animal/Animal1/Img5.png"
+              alt=""
+              class="imagem-pequena" />
+          </div>
         </div>
       </div>
+      <script>
+        const barra__header = document.querySelector(".barra__header");
+        const dropdown__header = document.querySelector(".dropdown__header");
+
+        barra__header.onclick = function () {
+          dropdown__header.classList.toggle("open");
+        };
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides((slideIndex += n));
+        }
+
+        function currentSlide(n) {
+          showSlides((slideIndex = n));
+        }
+
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("imagem-grande");
+          let dots = document.getElementsByClassName("imagem-pequena-wrapper");
+          if (n > slides.length) {
+            slideIndex = 1;
+          }
+          if (n < 1) {
+            slideIndex = slides.length;
+          }
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" atual", "");
+          }
+          slides[slideIndex - 1].style.display = "block";
+          dots[slideIndex - 1].className += " atual";
+        }
+      </script>
       <div class="info">
         <div class="titulo">Fonseca</div>
         <div class="caracteristicas">
@@ -138,139 +221,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="box">
-        <div class="galeria">
-          <div class="foco">
-            <img src="img/Animal/Grande1.png" alt="" />
-          </div>
-          <div class="foco">
-            <img src="img/Animal/Grande2.png" alt="" />
-          </div>
-          <div class="foco">
-            <img src="img/Animal/Grande3.png" alt="" />
-          </div>
-          <div class="foco">
-            <img src="img/Animal/Grande4.png" alt="" />
-          </div>
-          <div class="escolha">
-            <div class="imgescolha">
-              <img
-                src="img/Animal/Pequeno1.png"
-                class="demo cursor"
-                onclick="currentSlide(1)"
-              />
-            </div>
-            <div class="imgescolha">
-              <img
-                src="img/Animal/Pequeno2.png"
-                class="demo cursor"
-                onclick="currentSlide(2)"
-              />
-            </div>
-            <div class="imgescolha">
-              <img
-                src="img/Animal/Pequeno3.png"
-                class="demo cursor"
-                onclick="currentSlide(3)"
-              />
-            </div>
-            <div class="imgescolha">
-              <img
-                src="img/Animal/Pequeno4.png"
-                class="demo cursor"
-                onclick="currentSlide(4)"
-              />
-            </div>
-          </div>
-        </div>
-        <script>
-          let slideIndex = 1;
-          showSlides(slideIndex);
-
-          function plusSlides(n) {
-            showSlides((slideIndex += n));
-          }
-
-          function currentSlide(n) {
-            showSlides((slideIndex = n));
-          }
-
-          function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("foco");
-            let dots = document.getElementsByClassName("imgescolha");
-            let captionText = document.getElementById("caption");
-            if (n > slides.length) {
-              slideIndex = 1;
-            }
-            if (n < 1) {
-              slideIndex = slides.length;
-            }
-            for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-              dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-            captionText.innerHTML = dots[slideIndex - 1].alt;
-          }
-        </script>
-      
-        <div class="petficha">
-          <div class="titulo">Fonseca</div>
-          <div class="petinfo">
-            <div class="together">
-              <div class="coluna">
-                <span class="infotitle">Idade do pet</span>
-                <span class="infobody">15~</span>
-              </div>
-              <div class="coluna">
-                <span class="infotitle">Data de nascimento</span>
-                <span class="infobody">10/10/2008</span>
-              </div>
-            </div>
-            <div class="together">
-              <div class="coluna">
-                <span class="infotitle">Espécie</span>
-                <span class="infobody">Canino</span>
-              </div>
-              <div class="coluna">
-                <span class="infotitle">Raça</span>
-                <span class="infobody">Vira-Lata</span>
-              </div>
-            </div>
-            <div class="together">
-              <div class="coluna">
-                <span class="infotitle">Porte</span>
-                <span class="infobody">Médio</span>
-              </div>
-              <div class="coluna">
-                <span class="infotitle">Pelugem</span>
-                <span class="infobody">Preto & Branco</span>
-              </div>
-            </div>
-            <div class="together">
-              <div class="coluna">
-                <span class="infotitle">Castrado?</span>
-                <span class="infobody">Sim</span>
-              </div>
-              <div class="coluna">
-                <span class="infotitle">Deficiência?</span>
-                <span class="infobody">Não</span>
-              </div>
-            </div>
-            <div class="one">
-              <div class="coluna">
-                <span class="infotitle">Informações extras</span>
-                <span class="infobody">-</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    --></div>
+    </div>
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container container__footer">

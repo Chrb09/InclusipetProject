@@ -38,11 +38,10 @@
   line-height: calc(1em + 0.5rem);
 }
 html::-webkit-scrollbar {
-  width: 1vw;
+  width: 0.75vw;
 }
 html::-webkit-scrollbar-thumb {
   background-color: var(--purple);
-  border-radius: 1rem;
 }
 html::-webkit-scrollbar-thumb:hover {
   background-color: var(--purplehover);
@@ -56,8 +55,14 @@ body {
   color: var(--grayblack);
   font-weight: 500;
   font-size: var(--size-xl);
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 18.75rem;
 }
-img, picture, video, iframe{
+img,
+picture,
+video,
+iframe {
   max-width: 100%;
 }
 .botao-solido {
@@ -67,7 +72,7 @@ img, picture, video, iframe{
   font-size: var(--size-xl);
   padding: 0.7em 1.2em;
   border-radius: 0.7em;
-  transition: background-color, transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
   &:hover {
     transform: translate(0, -4px);
     background-color: var(--purplehover);
@@ -82,7 +87,7 @@ img, picture, video, iframe{
   border-width: 0.2em;
   border-color: var(--gray);
   border-radius: 0.7em;
-  transition: all 0.3s;
+  transition: color 0.3s, background-color 0.3s, transform 0.3s;
   &:hover {
     transform: translate(0, -4px);
     color: var(--white);
@@ -96,7 +101,7 @@ img, picture, video, iframe{
   font-size: var(--size-xl);
   padding: 0.7em 1.2em;
   border-radius: 0.7em;
-  transition: all 0.3s;
+  transition: color 0.3s, background-color 0.3s, transform 0.3s;
   &:hover {
     transform: translate(0, -4px);
     background-color: var(--purplehover);
@@ -127,6 +132,18 @@ img, picture, video, iframe{
 }
 .img__button-nav {
   height: 5rem;
+  &:hover {
+    -webkit-animation: shake 0.2s ease-in-out 0.1s infinite alternate;
+  }
+}
+@-webkit-keyframes shake {
+  from {
+    -webkit-transform: rotate(5deg);
+  }
+  to {
+    -webkit-transform: rotate(-5deg);
+    -webkit-transform-origin: center center;
+  }
 }
 button {
   display: inline-block;
@@ -138,13 +155,14 @@ button {
   cursor: pointer;
   color: inherit;
 }
-header a, footer a {
+header a,
+footer a {
   text-decoration: none;
   color: var(--white);
   display: inline-block;
   position: relative;
 }
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
@@ -249,6 +267,7 @@ optgroup {
 }
 .categorias {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5em;
 }
 .categoria {
@@ -297,7 +316,7 @@ strong {
   margin-inline: auto;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  /* border: solid 1px red; */
+  /* outline: solid 2px red; */
 }
 .header {
   width: 100%;
@@ -357,7 +376,8 @@ strong {
 /*FOOTER*/
 
 .footer {
-  position: relative;
+  position: absolute;
+  bottom: 0;
   width: 100%;
   margin-top: 5rem;
   background-color: var(--purple);
@@ -441,6 +461,7 @@ strong {
     font-size: var(--size-base);
   }
   body {
+    padding-bottom: 18rem;
     font-size: var(--size-base);
   }
   .logo__footer {
@@ -487,6 +508,7 @@ strong {
     padding: 0.3em 1.2em;
   }
   body {
+    padding-bottom: 13.5rem;
     font-size: var(--size-sm);
   }
   .logo__footer {
@@ -571,6 +593,7 @@ strong {
   }
   body {
     font-size: var(--size-base);
+    padding-bottom: 21.5rem;
   }
   .section__footer,
   .section__footer-links {
@@ -611,6 +634,7 @@ strong {
   }
   body {
     font-size: var(--size-sm);
+    padding-bottom: 19.5rem;
   }
   .menu__footer,
   .container__footer {
@@ -656,6 +680,7 @@ strong {
   }
   body {
     font-size: var(--size-xs);
+    padding-bottom: 17.5rem;
   }
   .titulo {
     font-size: var(--size-3x);

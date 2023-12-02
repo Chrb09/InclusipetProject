@@ -23,7 +23,7 @@
 }
 .container__sobrenos {
   display: flex;
-  gap: 12rem;
+  justify-content: space-evenly;
   padding-top: 3em;
   padding-bottom: 3em;
 }
@@ -39,19 +39,15 @@
   display: flex;
   gap: 1.5rem;
 }
-
-.imagem__sobrenos {
-  width: 30rem;
-}
 .left-container__sobrenos {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 2vh;
   justify-content: center;
+  gap: 2vh;
 }
 .right-container__sobrenos {
-  margin-left: auto;
-  margin-right: auto;
+  width: 30%;
   order: 0;
 }
 /* Reviews */
@@ -199,12 +195,15 @@
 }
 .container__contato {
   display: flex;
-  justify-content: center;
-  gap: 20rem;
+  justify-content: space-evenly;
   padding-top: 3em;
   padding-bottom: 3em;
 }
+.left-container__contato {
+  width: 30%;
+}
 .right-container__contato {
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 2vh;
@@ -321,7 +320,16 @@
     align-items: center;
     gap: 3rem;
   }
+  .left-container__contato,
+  .right-container__sobrenos {
+    display: none;
+  }
+  .right-container__contato,
+  .left-container__sobrenos {
+    width: 100%;
+  }
   .titulo__sobrenos,
+  .titulo__contato,
   .texto__contato {
     text-align: center;
     text-indent: 0px;
@@ -332,9 +340,6 @@
   .botao__contato,
   .botao__sobrenos {
     justify-content: center;
-  }
-  .imagem__sobrenos {
-    display: none;
   }
   .cartao__reviews {
     width: 15em;
@@ -361,14 +366,14 @@
   .subtitulo__reviews {
     gap: 1rem;
   }
+  .cartao__reviews,
+  .cartao__ultimosposts {
+    width: 90%;
+  }
   .subtitulo-text__reviews {
     font-size: var(--size-lg);
   }
   .titulo__home {
     font-size: var(--size-3x);
-  }
-  .cartao__nota {
-    display: flex;
-    justify-content: center;
   }
 }
