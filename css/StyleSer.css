@@ -23,6 +23,7 @@ strong {
 }
 .card-servicos {
   border-radius: 1rem;
+  background-color: var(--white);
   box-shadow: 0px 20px 24px -4px rgba(0, 0, 0, 0.1),
     0px 8px 8px -4px rgba(0, 0, 0, 0.05);
   display: flex;
