@@ -1,8 +1,8 @@
-.titulo{
+.titulo {
   text-align: left;
   margin-bottom: 1em;
 }
-.top{
+.top {
   margin-top: 5rem;
 }
 .bottom {
@@ -11,18 +11,21 @@
   gap: 2.5rem;
   margin-top: 2.5em;
 }
-.section-enviar, .section-telefone{
+.section-enviar,
+.section-telefone {
   width: 33rem;
 }
-.form__login, .content{
+.form__login,
+.content {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
-input:not(.check), textarea{
+input:not(.check),
+textarea {
   width: 100%;
 }
-.tel-icon{
+.tel-icon {
   height: 1em;
   aspect-ratio: 1 / 1;
 }
@@ -31,26 +34,19 @@ input:not(.check), textarea{
 
 /* xl */
 @media (max-width: 1536px) {
-  
 }
 @media (max-width: 1280px) {
   .bottom {
     gap: 1.5rem;
   }
-  .titulo{
-    text-align: center;
-  }
-  .section-enviar, .section-telefone{
+  .section-enviar,
+  .section-telefone {
     width: 27rem;
-  }
-  .section-telefone{
-    text-align: center;
   }
 }
 
 /* lg */
 @media (max-width: 1024px) {
-  
 }
 
 /* md */
@@ -59,7 +55,14 @@ input:not(.check), textarea{
     flex-direction: column;
     gap: 1rem;
   }
-  .section-enviar, .section-telefone {
+  .titulo {
+    text-align: center;
+  }
+  .section-telefone {
+    text-align: center;
+  }
+  .section-enviar,
+  .section-telefone {
     padding: 1.5em;
     justify-content: center;
     width: 100%;

@@ -10,7 +10,7 @@
   --purplehover: #403898;
   --overlay: rgba(87, 77, 189, 0.25);
   --size-xxs: 0.5rem;
-  --size-xs: 0.75rem;
+  --size-xs: 0.825rem;
   --size-sm: 0.875rem;
   --size-base: 1rem;
   --size-lg: 1.125rem;
@@ -680,7 +680,7 @@ strong {
   }
   body {
     font-size: var(--size-xs);
-    padding-bottom: 17.5rem;
+    padding-bottom: 19rem;
   }
   .titulo {
     font-size: var(--size-3x);

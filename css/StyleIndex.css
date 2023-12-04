@@ -31,7 +31,6 @@
   text-align: left;
 }
 .texto__sobrenos {
-  font-size: var(--size-xl);
   text-indent: 2rem;
   text-align: justify;
 }
@@ -225,9 +224,6 @@
   .imagem__sobrenos {
     width: 20rem;
   }
-  .texto__sobrenos {
-    font-size: var(--size-base);
-  }
   .profcard__texto,
   .cartao_texto {
     font-size: var(--size-sm);
@@ -251,9 +247,6 @@
   }
   .imagem__sobrenos {
     width: 15rem;
-  }
-  .texto__sobrenos {
-    font-size: var(--size-sm);
   }
   .profcard__texto,
   .cartao_texto {
@@ -281,9 +274,6 @@
 @media (max-width: 768px) {
   .titulo__home {
     font-size: var(--size-4x);
-  }
-  .texto__sobrenos {
-    font-size: var(--size-base);
   }
   .subtitulo-text__reviews {
     font-size: var(--size-2x);
