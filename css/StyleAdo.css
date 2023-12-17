@@ -10,7 +10,7 @@ strong {
   margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(calc(18em - (2em * 2)), 1fr));
-  gap: 2em;
+  gap: 1.5em;
 }
 .botao-solido {
   width: fit-content;
