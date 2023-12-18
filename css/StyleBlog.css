@@ -3,7 +3,7 @@
   text-align: left;
   margin-block: 5rem;
 }
-.container {
+.container-blog {
   padding-inline: 10rem;
 }
 .container__main {
@@ -69,7 +69,7 @@ b {
 
 /* xl */
 @media (max-width: 1536px) {
-  .container {
+  .container-blog {
     padding-inline: 2rem;
   }
 }
@@ -82,7 +82,7 @@ b {
   .titulo {
     margin-block: 3rem;
   }
-  .container {
+  .container-blog {
     padding-inline: 0rem;
   }
   .grid__blog {
@@ -106,7 +106,7 @@ b {
 
 /* sm */
 @media (max-width: 640px) {
-  .container {
+  .container-blog {
     padding-inline: 2rem;
   }
   .grid__blog {
