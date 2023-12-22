@@ -83,14 +83,19 @@ iframe {
   font-size: var(--size-xl);
   padding: 0.5em 1em;
   color: var(--gray);
+  fill: var(--gray);
   border-style: solid;
-  border-width: 0.2em;
+  border-width: 0.15em;
   border-color: var(--gray);
   border-radius: 0.7em;
-  transition: color 0.3s, background-color 0.3s, transform 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.3s, background-color 0.3s, transform 0.3s, fill 0.3s;
   &:hover {
     transform: translate(0, -4px);
     color: var(--white);
+    fill: var(--white);
     background-color: var(--gray);
   }
 }
@@ -196,31 +201,6 @@ optgroup {
 optgroup {
   color: var(--purple);
 }
-.custom-select {
-  position: relative;
-}
-.custom-select::before,
-.custom-select::after {
-  --size: 0.3rem;
-  position: absolute;
-  content: "";
-  right: 1rem;
-  pointer-events: none;
-}
-
-.custom-select::before {
-  border-left: var(--size) solid transparent;
-  border-right: var(--size) solid transparent;
-  border-bottom: var(--size) solid var(--purple);
-  top: 40%;
-}
-
-.custom-select::after {
-  border-left: var(--size) solid transparent;
-  border-right: var(--size) solid transparent;
-  border-top: var(--size) solid var(--purple);
-  top: 55%;
-}
 .a-under::after {
   content: "";
   position: absolute;
@@ -277,7 +257,6 @@ optgroup {
   border-radius: 0.6rem;
   font-size: var(--size-base);
 }
-
 .titulo {
   text-align: center;
   color: var(--purple);
@@ -309,6 +288,26 @@ strong {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+}
+.scroll-watcher {
+  height: 10px;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  background-color: var(--purplehover);
+  width: 100%;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  scale: 0 1;
+  transform-origin: left;
+  animation: scroll-watcher linear;
+  animation-timeline: scroll(y);
+}
+
+@keyframes scroll-watcher {
+  to {
+    scale: 1 1;
+  }
 }
 /*HEADER*/
 .container {
@@ -387,7 +386,7 @@ strong {
   padding-top: 3rem;
   padding-bottom: 2rem;
   flex-direction: column;
-  z-index: 1;
+  z-index: 10;
 }
 .container__footer {
   display: flex;

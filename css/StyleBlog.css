@@ -18,6 +18,8 @@ main {
 }
 aside ul {
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 aside li {
   list-style: none;
@@ -100,7 +102,12 @@ b {
   }
   aside {
     margin-bottom: 0.5rem;
-    width: 50%;
+    width: 100%;
+  }
+  aside ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 }
 
