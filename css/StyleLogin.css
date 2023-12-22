@@ -64,11 +64,12 @@ form p {
   z-index: 5;
 }
 .overlay-container {
-  background-image: url(/img/Login/Background.png);
+  background-image: url(../img/Login/Background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: absolute;
+  display: relative;
   top: 0;
   left: 50%;
   width: 50%;
