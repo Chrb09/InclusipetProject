@@ -104,6 +104,13 @@
   height: 3rem;
   gap: 1rem;
 }
+
+.cartao__info img {
+  border-radius: 15rem;
+  height: 3rem;
+  width: 3rem;
+}
+
 .cartao__avatar {
   height: 100%;
 }
