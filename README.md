@@ -1,4 +1,4 @@
-![Logo](https://github.com/Chrb09/Inclusipet-Ibm/blob/master/img/Logo/InclusipetGithub.jfif)
+![Logo](https://github.com/Chrb09/Inclusipet-Ibm/blob/master/img/Logo/InclusipetREADME.png)
 
 # **Inclusipet**
 
