@@ -101,7 +101,7 @@ Entre no diretório do projeto
 
 ## Autores
 
-<center>
+<div align=center>
   <table>
     <tr>
       <td align="center">
@@ -148,4 +148,4 @@ Entre no diretório do projeto
       </td>
     </tr>
   </table>
-<center>
+<div>
