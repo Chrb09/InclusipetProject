@@ -7,17 +7,17 @@
 # Sumário
 
 - [Sumário](#sumário)
-  - [🤔 Sobre o projeto](#🤔-sobre-o-projeto)
-  - [🐦 Diferencial](#🐦-diferencial)
-  - [📖 Funcionalidades](#📖-funcionalidades)
+  - [🤔 Sobre o projeto](#-sobre-o-projeto)
+  - [🐦 Diferencial](#-diferencial)
+  - [📖 Funcionalidades](#-funcionalidades)
     - [Páginas](#páginas)
-  - [✅ Tecnologias Utilizada](#✅-tecnologias-utilizadas)
-    - [Front end](#front-end)
-    - [Back end](#back-end)
+  - [✅ Tecnologias Utilizada](#-tecnologias-utilizadas)
+    - [Front end](#front-end-)
+    - [Back end](#back-end-)
     - [Framework ](#framework)
-  - [📁 Rodando Localmente](#📁-rodando-localmente)
-  - [💻 Roadmap](#💻-roadmap)
-  - [🐕 Contribuidores](#🐕-contribuidores)
+  - [📁 Rodando Localmente](#-rodando-localmente)
+  - [💻 Roadmap](#-roadmap)
+  - [🐕 Contribuidores](#-contribuidores)
 
 ## 🤔 Sobre o projeto
 
