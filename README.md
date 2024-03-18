@@ -1,6 +1,6 @@
 # ⚠️*ESTE É UM PROJETO EM DESENVOLVIMENTO*⚠️
 
-![Logo](https://raw.githubusercontent.com/Chrb09/Inclusipet-Project/89002379d76a59bdf084c218f5e5c149503583c7/img/Logo/InclusipetREADME.png)
+![Logo](https://raw.githubusercontent.com/Chrb09/Inclusipet-Project/master/img/Logo/InclusipetREADME.png)
 
 **Inclusipet** é um site desenvolvido durante 2 anos ( 2023 - 2024 ) com uma empresa parceira no curso de Desenvolvimento de Sistemas AMS da Etec da Zona Leste. [**Link do Github Pages**](https://chrb09.github.io/Inclusipet-Project/)
 
@@ -125,7 +125,7 @@ Sim, aqui estão:
 Clone o projeto
 
 ```bash
-  git clone https://https://github.com/Chrb09/Inclusipet-Project
+  git clone https://github.com/Chrb09/Inclusipet-Project
 ```
 
 Entre no diretório do projeto
