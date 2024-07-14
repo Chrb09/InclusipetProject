@@ -1,0 +1,86 @@
+body {
+  width: 100vw;
+  display: flex;
+  padding: 0;
+}
+.header-perfil {
+  color: var(--grayblack);
+  font-weight: 650;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: 2rem;
+}
+.linha,
+.linha-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.linha-links {
+  gap: 2rem;
+  color: var(--purple);
+}
+.linha a {
+  height: fit-content;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25%;
+  background-color: var(--light-gray);
+  padding-inline: 3rem;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.sidebar-button {
+  display: flex;
+  font-weight: 550;
+  padding-block: 0.8rem;
+  padding-inline: 1rem;
+  border-radius: 1rem;
+}
+.ativo {
+  background-color: var(--purple);
+  color: var(--white);
+  font-weight: 600;
+}
+.copyright-sidebar {
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--purple);
+}
+.main {
+  width: 100%;
+  padding-inline: 5rem;
+  padding-block: 2rem;
+}
+
+/*Responsividade*/
+/* xl */
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+/* lg */
+@media (max-width: 1024px) {
+}
+
+/* md */
+@media (max-width: 768px) {
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+
+/* xs */
+@media (max-width: 475px) {
+}

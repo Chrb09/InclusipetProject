@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../css/StyleGeral.css" />
+    <!-- CSS EXTERNO GERAL -->
+    <link rel="stylesheet" href="../../css/StyleAgendamento.css" />
+    <!-- CSS EXTERNO PAGINA -->
+    <link rel="icon" href="../../img/Outros/inclusipet.ico" />
+    <!-- ICON -->
+    <title>Agendamento</title>
+  </head>
+  <body>
+    <!-- HEADER-->
+    <header class="header">
+      <div class="container container__header">
+        <a href="../../index.html">
+          <img src="../../img/Outros/inclusipet.png" alt="Logo Inclusipet" class="logo__header" />
+        </a>
+        <ul class="menu__header">
+          <li>
+            <a href="../QuemSomos/quemsomos.html" class="links__header a-under">Quem Somos</a>
+          </li>
+          <li>
+            <a href="../Unidades/unidades.html" class="links__header a-under">Unidades</a>
+          </li>
+          <li>
+            <a href="../Blog/blog.html" class="links__header a-under">Blog</a>
+          </li>
+          <li>
+            <a href="../Adocao/adocao.html" class="links__header a-under">Adoção</a>
+          </li>
+          <li>
+            <a href="../Contato/contato.html" class="links__header a-under">Contato</a>
+          </li>
+          <li>
+            <a href="../Login/login.html"><img src="../../img/Login/login.png" alt="Login" class="login__header" /></a>
+          </li>
+        </ul>
+        <button class="barra__header">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+        <div class="dropdown__header">
+          <li>
+            <a href="../QuemSomos/quemsomos.html" class="links__header">Quem Somos</a>
+          </li>
+          <li>
+            <a href="../Unidades/unidades.html" class="links__header">Unidades</a>
+          </li>
+          <li>
+            <a href="../Blog/blog.html" class="links__header">Blog</a>
+          </li>
+          <li>
+            <a href="../Adocao/adocao.html" class="links__header">Adoção</a>
+          </li>
+          <li>
+            <a href="../Contato/contato.html" class="links__header">Contato</a>
+          </li>
+          <li>
+            <div class="botao-solido-branco" onclick="location.href='../Login/login.html'" type="button">Login</div>
+          </li>
+        </div>
+      </div>
+    </header>
+    <script src="../../js/dropdown_header.js"></script>
+    <!--Conteudo-->
+
+    <!--AGENDAMENTO-->
+    <div class="agendamento">
+      <div class="container container__agendamento">
+        <form action="" class="form__agendamento" id="form">
+          <div class="titulo">Agende sua consulta</div>
+          <div class="section-agendamento">
+            <strong>Informações do dono</strong>
+            <div class="row">
+              <div class="row-section">
+                <label for="">Cep</label>
+                <input type="text" name="cep" id="cep" placeholder="00000-000" />
+              </div>
+              <div class="row-section">
+                <label for="">Unidade desejada</label>
+                <div class="custom-select">
+                  <select name="unidade" id="unidade">
+                    <optgroup label="São Paulo"></optgroup>
+                    <option value="Guarulhos">Guarulhos</option>
+                    <option value="Vila Cisper">Vila Cisper</option>
+                    <option value="Artur Alvim">Artur Alvim</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-agendamento">
+            <strong>Informações do animal</strong>
+            <div class="row">
+              <div class="row-section">
+                <label for="">Nome do animal</label>
+                <input type="text" name="nome" id="nome" autocomplete="off" />
+              </div>
+              <div class="row-section">
+                <label for="">Idade do animal</label>
+                <input type="number" name="idade" id="idade" min="0" max="99" maxlength="2" autocomplete="off" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-section">
+                <label for="">Espécie</label>
+                <div class="custom-select">
+                  <select name="especies" id="especies">
+                    <optgroup label="Espécies"></optgroup>
+                    <option value="Cachorro">Canino</option>
+                    <option value="Felino">Felino</option>
+                    <option value="Ave">Ave</option>
+                    <option value="Reptil">Réptil</option>
+                    <option value="Reptil">Peixe</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row-section">
+                <label for="">Raça</label>
+                <input type="text" name="raca" id="raca" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+          <div class="section-agendamento">
+            <strong>Detalhes do agendamento</strong>
+            <div class="row">
+              <div class="row-section">
+                <label for="">Data desejada</label>
+                <input type="date" name="data" id="data" required />
+              </div>
+              <div class="row-section">
+                <label for="">Horário</label>
+                <input type="time" name="hora" id="hora" required />
+              </div>
+            </div>
+            <label for="">Razão da visita</label>
+            <textarea name="" id="razao" cols="30" rows="7" placeholder="Escreva sua mensagem..."></textarea>
+          </div>
+          <div class="form__button">
+            <button class="botao-solido" onclick="alerta()" type="button">Enviar</button>
+            Enviaremos a confirmação por Email ou SMS!
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container container__footer">
+        <div class="section__footer section-logo__footer">
+          <a href="../../index.html" class="logo-wrapper__footer"
+            ><img src="../../img/Outros/inclusipet.png" alt="Logo Inclusipet" class="logo__footer"
+          /></a>
+        </div>
+        <div class="section__footer section__footer-links">
+          <ul class="menu__footer">
+            <li>
+              <a href="../QuemSomos/quemsomos.html" class="links__footer a-under">Quem Somos</a>
+            </li>
+            <li>
+              <a href="../Unidades/unidades.html" class="links__footer a-under">Unidades</a>
+            </li>
+            <li>
+              <a href="../Blog/blog.html" class="links__footer a-under">Blog</a>
+            </li>
+            <li>
+              <a href="../Adocao/adocao.html" class="links__footer a-under">Adoção</a>
+            </li>
+            <li>
+              <a href="../Contato/contato.html" class="links__footer a-under">Contato</a>
+            </li>
+          </ul>
+        </div>
+        <div class="section__footer">
+          <ul class="menu__footer">
+            <li>
+              <a href="https://www.instagram.com/inclusipet/" class="links__footer"
+                ><img src="../../img/Contato/instagram.png" alt="Instagram" class="rede-social"
+              /></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/InclusiPet23?t=sUSZebJOD0wUFlcThrDaJw&s=09" class="links__footer"
+                ><img src="../../img/Contato/twitter.png" alt="twitter" class="rede-social"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/profile.php?id=61553182305622&mibextid=ZbWKwL" class="links__footer"
+                ><img src="../../img/Contato/facebook.png" alt="Facebook" class="rede-social"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container container__footer">
+        <div class="hr-footer"></div>
+      </div>
+      <div class="container container__footer">®2023 Inclusipet. Todos os direitos reservados.</div>
+    </footer>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    // const = form = document.querySelector("#form");
+
+    function alerta() {
+      Swal.fire({
+        title: "Enviado com sucesso",
+        icon: "success",
+        confirmButtonColor: "#574dbd",
+      });
+    }
+    $("#cep").mask("00000-000");
+    $("#idade").mask("00");
+  </script>
+</html>
