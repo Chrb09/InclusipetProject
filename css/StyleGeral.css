@@ -248,10 +248,8 @@ strong {
   border-top: 5px solid var(--purple);
   border-radius: 5px;
   width: 75%;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-block: 2.5rem;
+  margin-inline: auto;
 }
 .hr-branco {
   border-top: 5px solid var(--white);
@@ -491,8 +489,7 @@ strong {
     gap: 1rem;
   }
   .hr {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-block: 1.5rem;
     border-top: 2px solid var(--purple);
   }
   .hr-branco,
@@ -545,8 +542,6 @@ strong {
     padding: 0.5em 1.2em;
   }
   .hr {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
     border-top: 3px solid var(--purple);
   }
   .hr-branco {
