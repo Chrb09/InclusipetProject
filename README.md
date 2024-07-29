@@ -2,7 +2,7 @@
 
 ![Logo](https://raw.githubusercontent.com/Chrb09/Inclusipet-Project/master/img/Logo/InclusipetREADME.png)
 
-**Inclusipet** é um site desenvolvido durante 2 anos ( 2023 - 2024 ) com uma empresa parceira no curso de Desenvolvimento de Sistemas AMS da Etec da Zona Leste. [**Link do Github Pages**](https://chrb09.github.io/Inclusipet-Project/)
+**Inclusipet** é um site desenvolvido durante 2 anos ( 2023 - 2024 ) com uma empresa parceira no curso de Desenvolvimento de Sistemas AMS da Etec da Zona Leste. [**Link do Github Pages**](https://chrb09.github.io/InclusipetProject/)
 
 # Sumário
 
