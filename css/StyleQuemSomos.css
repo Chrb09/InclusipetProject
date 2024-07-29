@@ -1,0 +1,157 @@
+b {
+  font-size: 1.5em;
+}
+
+.main {
+  font-size: 0.9em;
+  width: 100vw;
+  display: flex;
+  padding: 0;
+}
+
+.hr {
+  width: 90%;
+  margin-block: 0.5rem;
+}
+.content {
+  max-width: 1152px;
+  padding-block: 3em;
+  padding-inline: 1em;
+  /*outline: red 1px solid;*/
+}
+body {
+  padding: 0;
+}
+.footer {
+  margin-top: 0;
+  position: relative;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20em;
+  background-color: var(--light-gray);
+  padding-inline: 1.4em;
+  padding-top: 5em;
+  padding-bottom: 2rem;
+  min-height: 75rem;
+  height: 100vh;
+}
+.sidebarfake {
+  width: 20em;
+}
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.section-nav-mobile {
+  display: none;
+}
+.sidebar-button {
+  display: flex;
+  font-weight: 550;
+  padding-block: 0.8em;
+  padding-inline: 1em;
+  border-radius: 1em;
+  text-align: left;
+}
+.ativo {
+  background-color: var(--purple);
+  color: var(--white);
+  font-weight: 600;
+}
+.titulo {
+  text-align: left;
+}
+/*Responsividade*/
+/* xl */
+@media (max-width: 1536px) {
+  .content {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .sidebar {
+    min-height: 60rem;
+  }
+  .content {
+    max-width: 768px;
+  }
+}
+/* lg */
+@media (max-width: 1024px) {
+  .sidebar {
+    min-height: 55rem;
+  }
+  .content {
+    max-width: 550px;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .sidebar,
+  .sidebarfake {
+    display: none;
+  }
+  .section-nav-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 2em;
+  }
+  .nav-mobile {
+    flex-direction: row;
+    font-size: 1.25em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4%;
+  }
+  .sidebar-button {
+    min-width: 48%;
+  }
+  body {
+    padding-bottom: 21.5rem;
+  }
+  .footer {
+    margin-top: 2rem;
+    position: absolute;
+  }
+  b {
+    color: var(--purple);
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  body {
+    padding-bottom: 19.5rem;
+  }
+  .content {
+    max-width: 475px;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .sidebar-button {
+    min-width: 100%;
+  }
+  body {
+    padding-bottom: 19rem;
+  }
+  .content {
+    width: 100%;
+    padding-inline: 3em;
+  }
+}
