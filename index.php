@@ -7,10 +7,10 @@
     
     <!-- CSS EXTERNO GERAL -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/StyleGeral.css" />
+    <link rel="stylesheet" href="assets/css/StyleGeral.css" />
 
     <!-- CSS EXTERNO PAGINA -->
-    <link rel="stylesheet" href="css/StyleIndex.css" />
+    <link rel="stylesheet" href="assets/css/StyleIndex.css" />
 
     <!-- ICON -->
     <link rel="icon" href="img/Outros/inclusipet.ico" />
