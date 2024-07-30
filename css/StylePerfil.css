@@ -15,7 +15,6 @@ b {
   max-width: 1152px;
   margin-left: 0rem;
   padding-inline: 0;
-  outline: red 1px solid;
 }
 .login__header:hover {
   transform: translate(0, 0);
@@ -89,25 +88,25 @@ b {
   text-align: left;
 }
 /* UI */
-.usuario{
+.usuario {
   display: flex;
   flex-direction: row;
 }
-.info_usuario{
+.info_usuario {
   margin-top: 5%;
-  margin-left:5% ;
-  flex-direction:column
+  margin-left: 5%;
+  flex-direction: column;
 }
-.foto_usuario_conteudo{
+.foto_usuario_conteudo {
   height: 200px;
   margin-top: 5%;
 }
-p{
+p {
   font-weight: bold;
 }
 .editar-button {
   display: flex;
-  background-color: #574DBD;
+  background-color: #574dbd;
   color: #ffffff;
   font-weight: 550;
   padding-block: 0.1em;
@@ -115,11 +114,10 @@ p{
   border-radius: 1em;
   line-height: 2.5;
 }
-.card-{
+.card- {
   margin-right: 3%;
-  
 }
-.card-txt{
+.card-txt {
   font-size: 18px;
   margin-top: 15px;
   display: flex;
@@ -127,19 +125,18 @@ p{
   justify-content: center;
   /* grid-area: 1 / 1 / 1/ 1; */
 }
-p{
+p {
   margin-bottom: 0%;
 }
-b{
+b {
   color: black;
 }
 .acoes {
-  margin-top:  5%;
+  margin-top: 5%;
   display: flex;
   justify-content: flex-start;
-  
 }
-img{
+img {
   margin-right: 30px;
 }
 /*Responsividade*/
