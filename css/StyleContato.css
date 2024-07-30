@@ -26,8 +26,6 @@ textarea {
   aspect-ratio: 1 / 1;
 }
 
-/*Responsividade*/
-
 /* xl */
 @media (max-width: 1536px) {
 }

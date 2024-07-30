@@ -163,7 +163,6 @@ select {
   cursor: pointer;
   width: 100%;
 }
-
 option,
 optgroup {
   border: none;
@@ -275,12 +274,12 @@ strong {
   animation: scroll-watcher linear;
   animation-timeline: scroll(y);
 }
-
 @keyframes scroll-watcher {
   to {
     scale: 1 1;
   }
 }
+
 /*HEADER*/
 .container {
   max-width: 1536px;
@@ -344,8 +343,7 @@ strong {
   height: 20rem;
 }
 
-/*FOOTER*/
-
+/* FOOTER */
 .footer {
   position: absolute;
   bottom: 0;
@@ -400,8 +398,6 @@ strong {
 .logo__footer {
   height: 3.5em;
 }
-
-/* FONTES */
 
 /* xl */
 @media (max-width: 1536px) {

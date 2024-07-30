@@ -1,3 +1,4 @@
+/* MEUS PETS */
 b {
   font-size: 0.9em;
   font-weight: 700;
@@ -69,4 +70,14 @@ b {
 
 /* xs */
 @media (max-width: 475px) {
+}
+
+/* CADASTRAR PET */
+.form__row {
+  display: flex;
+  gap: 2rem;
+} 
+.foto_pet {
+  height: 150px;
+  margin-block: 3%;
 }
