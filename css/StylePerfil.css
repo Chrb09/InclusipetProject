@@ -86,6 +86,60 @@ b {
 .titulo {
   text-align: left;
 }
+/* UI */
+.usuario{
+  display: flex;
+  flex-direction: row;
+}
+.info_usuario{
+  margin-top: 5%;
+  margin-left:5% ;
+  flex-direction:column
+}
+.foto_usuario_conteudo{
+  height: 200px;
+  margin-top: 5%;
+}
+p{
+  font-weight: bold;
+}
+.editar-button {
+  display: flex;
+  background-color: #574DBD;
+  color: #ffffff;
+  font-weight: 550;
+  padding-block: 0.1em;
+  padding-inline: 1.2em;
+  border-radius: 1em;
+  line-height: 2.5;
+}
+.card-{
+  margin-right: 3%;
+  
+}
+.card-txt{
+  font-size: 18px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* grid-area: 1 / 1 / 1/ 1; */
+}
+p{
+  margin-bottom: 0%;
+}
+b{
+  color: black;
+}
+.acoes {
+  margin-top:  5%;
+  display: flex;
+  justify-content: flex-start;
+  
+}
+img{
+  margin-right: 30px;
+}
 /*Responsividade*/
 /* xl */
 @media (max-width: 1536px) {
