@@ -1,19 +1,6 @@
-/* UI */
-.usuario {
-  display: flex;
-  flex-direction: row;
-}
-.info_usuario {
-  margin-top: 5%;
-  margin-left: 5%;
-  flex-direction: column;
-}
-.foto_usuario_conteudo {
-  height: 200px;
-  margin-top: 5%;
-}
-p {
-  font-weight: bold;
+b {
+  font-size: 0.9em;
+  font-weight: 700;
 }
 .editar-button {
   display: flex;
@@ -31,30 +18,38 @@ p {
   gap: 0.5em;
   width: fit-content;
 }
-.card- {
-  margin-right: 3%;
+.img-menor,
+.novo-pet {
+  border-radius: 100rem;
+  aspect-ratio: 1 / 1;
+  height: 7rem;
+  object-fit: cover;
 }
-.card-txt {
-  font-size: 18px;
-  margin-top: 15px;
+.novo-pet {
+  height: 3rem;
+}
+.button-pet {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.content-pet {
+  display: flex;
+}
+.dados-pet,
+.meus-pets {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* grid-area: 1 / 1 / 1/ 1; */
+  gap: 2em;
 }
-p {
-  margin-bottom: 0%;
+.dados-pet {
+  width: 60%;
 }
-b {
-  color: black;
+.meus-pets {
+  width: 40%;
 }
-.acoes {
-  margin-top: 5%;
-  display: flex;
-  justify-content: flex-start;
-}
-/*Responsividade*/
-/* xl */
 @media (max-width: 1536px) {
 }
 
