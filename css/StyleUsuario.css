@@ -86,6 +86,7 @@ b {
 }
 .titulo {
   text-align: left;
+  width: 100%;
 }
 @media (max-width: 1536px) {
   .linha-links {
