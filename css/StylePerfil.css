@@ -10,10 +10,12 @@ b {
   color: var(--purple);
   font-size: 1.5em;
 }
+.content,
 .container {
   max-width: 1152px;
   margin-left: 0rem;
   padding-inline: 0;
+  outline: red 1px solid;
 }
 .login__header:hover {
   transform: translate(0, 0);
@@ -149,12 +151,14 @@ img{
   .login__name {
     display: none;
   }
+  .content,
   .container {
     max-width: 960px;
   }
 }
 
 @media (max-width: 1280px) {
+  .content,
   .container {
     max-width: 768px;
   }
@@ -164,6 +168,7 @@ img{
 }
 /* lg */
 @media (max-width: 1024px) {
+  .content,
   .container {
     max-width: 550px;
   }
