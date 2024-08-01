@@ -28,15 +28,18 @@ b {
   padding-block: 2rem;
   margin-bottom: 2em;
 }
-
+.header-perfil a,
+.header-mobile a {
+  height: fit-content;
+}
 .linha,
 .linha-links {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.1em;
+  font-size: 1.05em;
 }
 .linha-links {
-  gap: 2rem;
   color: var(--purple);
 }
 .linha a {
@@ -119,6 +122,9 @@ b {
 
   .logo__header {
     height: 3em;
+  }
+  .linha-links {
+    gap: 0.7em;
   }
 }
 

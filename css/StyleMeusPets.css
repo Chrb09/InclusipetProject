@@ -1,6 +1,6 @@
 /* MEUS PETS */
 b {
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: 700;
 }
 .editar-button {
@@ -135,7 +135,7 @@ b {
 .form__row {
   display: flex;
   gap: 2rem;
-} 
+}
 .foto_pet {
   height: 150px;
   margin-block: 3%;
