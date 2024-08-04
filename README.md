@@ -1,8 +1,6 @@
-# ⚠️*ESTE É UM PROJETO EM DESENVOLVIMENTO*⚠️
-
 ![Logo](https://raw.githubusercontent.com/Chrb09/Inclusipet-Project/master/img/Logo/InclusipetREADME.png)
 
-**Inclusipet** é um site desenvolvido durante 2 anos ( 2023 - 2024 ) com uma empresa parceira no curso de Desenvolvimento de Sistemas AMS da Etec da Zona Leste. [**Link do Github Pages**](https://chrb09.github.io/Inclusipet-Project/)
+**Inclusipet** é um site desenvolvido para um projeto que dura 2 anos ( 2023 - 2024 ) com uma empresa parceira no curso de Desenvolvimento de Sistemas AMS da Etec da Zona Leste. [**Link do Github Pages**](https://chrb09.github.io/InclusipetProject/)
 
 # Sumário
 
@@ -34,43 +32,6 @@ O diferencial da **Inclusipet** é o seu foco em animais que necessitam de cuida
 ## 📖 Funcionalidades
 
 Algumas das funcionalidade incluem um sistema de login e cadastro que pode guardar informações e preferencias do usuário que facilitam o uso do sistema de agendamento, além de permitir funcionalidades como acompanhar o progresso de exames e consultas, também temos um sistema de adoção que pode criar um anuncio com informações sobre o pet que precisa de um novo lar.
-
-### Páginas
-
-- Home
-- Sobre Nós
-- Serviços
-- Unidades
-
-- <details>
-    <summary> Blog </summary>
-
-  - Post1
-  - Post2
-  - Post3
-  - Post4
-  - Post5
-
-  </details>
-
-- Contatos
-- Login
-- Agendamento
-
-- <details>
-    <summary> Adoção </summary>
-
-  - Animal1
-  - Animal2
-  - Animal3
-  - Animal4
-  - Animal5
-  - Animal6
-  - Animal7
-  - Animal8
-  - Animal9
-
-  </details>
 
 <br>
 
@@ -105,18 +66,15 @@ O projeto Inclusipet é um projeto interdisciplinar e contra-turno do curso de d
 
 ### **Qual o motivo da criação desse projeto?**
 
-O projeto foi criado com o intuito de simular uma interação entre cliente e desenvolvedor para os alunos do curso, preparando-os para o mercado de trabalho, sendo esse o intuito da instituição Etec ZL,
+O projeto foi criado com o intuito de simular uma interação entre cliente e desenvolvedor para os alunos do curso, preparando-os para o mercado de trabalho, sendo esse o intuito da instituição Etec ZL.
 
 ### **O Design do site foi criado com qual ferramenta?**
 
 O site foi criado utilizando [ **Figma**](https://www.figma.com/file/L4PJEj1teaiU0Gs0vkBkwf/Figma-Inclusipet-Oficial?type=design&node-id=0-1&mode=design&t=fGISzfXShJrtB8nw-0).
 
-### **Possui redes sociais?**
+### **O BackEnd Está pronto?**
 
-Sim, aqui estão:
-[**Instagram**](https://www.instagram.com/inclusipet/),
-[**Twitter**](https://twitter.com/InclusiPet23?t=sUSZebJOD0wUFlcThrDaJw&s=09),
-[**Facebook**](https://www.facebook.com/profile.php?id=61553182305622&mibextid=ZbWKwL)
+Não, ele ainda está em desenvolvimento.
 
 <br>
 
@@ -125,13 +83,13 @@ Sim, aqui estão:
 Clone o projeto
 
 ```bash
-  git clone https://github.com/Chrb09/Inclusipet-Project
+  git clone https://github.com/Chrb09/InclusipetProject
 ```
 
 Entre no diretório do projeto
 
 ```bash
-  cd Inclusipet-Project
+  cd InclusipetProject
 ```
 
 <br>

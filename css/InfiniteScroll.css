@@ -5,7 +5,7 @@
   position: relative;
   height: 17rem;
   overflow: hidden;
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
 }
 
 @keyframes scrollLeft {
@@ -17,17 +17,14 @@
 .scroll-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   background-color: var(--white);
   border-radius: 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 1.5rem;
   gap: 1em;
   width: 27rem;
   height: 17rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   position: absolute;
   left: max(calc(22rem * 4), 100%);
   animation-name: scrollLeft;
@@ -74,4 +71,28 @@
 }
 .scroll-card-avatar {
   height: 100%;
+}
+
+@media (max-width: 1024px) {
+  @keyframes scrollLeft {
+    to {
+      left: -22rem;
+    }
+  }
+  .scroll-wrapper {
+    height: 16rem;
+  }
+  .scroll-card {
+    width: 22rem;
+    height: 16rem;
+    font-size: 1rem;
+    left: max(calc(18rem * 4), 100%);
+  }
+}
+
+@media (max-width: 475px) {
+  .scroll-card {
+    gap: 1.2em;
+    font-size: 0.85rem;
+  }
 }
