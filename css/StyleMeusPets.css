@@ -159,11 +159,26 @@ b {
 }
 
 /* CADASTRAR PET */
-.form__row {
-  display: flex;
-  gap: 2rem;
-}
 .foto_pet {
   height: 150px;
   margin-block: 3%;
+}
+form {
+    font-size: 1.35em;
+}
+.grid_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 50px;
+}
+.grid_left { grid-area: 1 / 1 / 2 / 2; }
+.grid_right { grid-area: 1 / 2 / 2 / 3; }
+
+.radio-group {
+  display: flex;
+  align-items: start;
+}
+.grid_left > input,
+.grid_right > input {
+  width: 100%;
 }
