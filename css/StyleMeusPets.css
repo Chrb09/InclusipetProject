@@ -3,22 +3,7 @@ b {
   font-size: 0.8em;
   font-weight: 700;
 }
-.editar-button {
-  display: flex;
-  background-color: var(--purple);
-  color: var(--white);
-  font-weight: 600;
-  font-size: 1.15em;
-  padding-block: 0.1em;
-  padding-left: 0.6em;
-  padding-right: 1.2em;
-  border-radius: 0.75em;
-  line-height: 2.5;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5em;
-  width: fit-content;
-}
+
 .img-menor,
 .novo-pet {
   border-radius: 100rem;
@@ -159,26 +144,11 @@ b {
 }
 
 /* CADASTRAR PET */
+.form__row {
+  display: flex;
+  gap: 2rem;
+}
 .foto_pet {
   height: 150px;
   margin-block: 3%;
-}
-form {
-    font-size: 1.35em;
-}
-.grid_container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 50px;
-}
-.grid_left { grid-area: 1 / 1 / 2 / 2; }
-.grid_right { grid-area: 1 / 2 / 2 / 3; }
-
-.radio-group {
-  display: flex;
-  align-items: start;
-}
-.grid_left > input,
-.grid_right > input {
-  width: 100%;
 }

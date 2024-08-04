@@ -91,6 +91,16 @@ b {
   text-align: left;
   width: 100%;
 }
+.editar-button {
+  font-size: 1.15em;
+  padding-block: 0.1em;
+  padding-left: 0.6em;
+  padding-right: 1.2em;
+  border-radius: 0.75em;
+  line-height: 2.5;
+  gap: 0.5em;
+  width: fit-content;
+}
 @media (max-width: 1536px) {
   .linha-links {
     gap: 1.5rem;
