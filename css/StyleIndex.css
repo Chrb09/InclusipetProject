@@ -52,10 +52,7 @@
 /* Reviews */
 .reviews {
   background-color: var(--purple);
-}
-.container__reviews {
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-block: 3em;
 }
 .titulo__reviews {
   color: var(--white);
@@ -84,38 +81,6 @@
   text-align: center;
   margin-top: 3.5rem;
   margin-bottom: 3.5rem;
-}
-.cartao__reviews {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--white);
-  border-radius: 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  gap: 1em;
-  width: 25rem;
-}
-.cartao__info {
-  display: flex;
-  align-items: center;
-  height: 3rem;
-  gap: 1rem;
-}
-
-.cartao__info img {
-  border-radius: 15rem;
-  height: 3rem;
-  width: 3rem;
-}
-
-.cartao__avatar {
-  height: 100%;
-}
-.cartao__estrela {
-  width: 1.5rem;
 }
 /* Profissionais */
 .profissionais {
@@ -265,13 +230,6 @@
   .linha__card {
     gap: 1rem;
   }
-  .cartao__quote {
-    font-size: var(--size-xs);
-  }
-  .cartao__reviews {
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
-  }
   .cartao__conteudo {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -288,15 +246,9 @@
   .linha__card {
     flex-wrap: wrap;
   }
-  .cartao__reviews {
-    width: 15rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
   .cartao__ultimosposts {
     width: 15rem;
   }
-  .cartao__quote,
   .profcard__texto {
     font-size: var(--size-sm);
   }
@@ -338,13 +290,6 @@
   .botao__sobrenos {
     justify-content: center;
   }
-  .cartao__reviews {
-    width: 15em;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
   .cartao__ultimosposts {
     width: 13.5rem;
   }
@@ -363,7 +308,6 @@
   .subtitulo__reviews {
     gap: 1rem;
   }
-  .cartao__reviews,
   .cartao__ultimosposts {
     width: 90%;
   }

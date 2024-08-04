@@ -1,0 +1,77 @@
+.scroll-wrapper {
+  width: 90%;
+  max-width: 1536px;
+  margin-inline: auto;
+  position: relative;
+  height: 17rem;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+}
+
+@keyframes scrollLeft {
+  to {
+    left: -27rem;
+  }
+}
+
+.scroll-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--white);
+  border-radius: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  gap: 1em;
+  width: 27rem;
+  height: 17rem;
+  font-size: 1.2rem;
+  position: absolute;
+  left: max(calc(22rem * 4), 100%);
+  animation-name: scrollLeft;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.scroll-card1 {
+  animation-delay: calc(30s / 4 * (4 - 1) * -1);
+}
+
+.scroll-card2 {
+  animation-delay: calc(30s / 4 * (4 - 2) * -1);
+}
+
+.scroll-card3 {
+  animation-delay: calc(30s / 4 * (4 - 3) * -1);
+}
+
+.scroll-card4 {
+  animation-delay: calc(30s / 4 * (4 - 4) * -1);
+}
+
+.scroll-card-quote {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.scroll-card-estrela {
+  width: 1.5rem;
+}
+.scroll-card-info {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  gap: 1rem;
+}
+.scroll-card-info img {
+  border-radius: 15rem;
+  height: 3rem;
+  width: 3rem;
+}
+.scroll-card-avatar {
+  height: 100%;
+}

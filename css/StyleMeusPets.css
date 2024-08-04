@@ -63,7 +63,7 @@ b {
   font-size: 2.25em;
   font-weight: 700;
   gap: 0.5em;
-  padding-right: 4rem;
+  padding-inline: 2rem;
 }
 .cadastrar-pet {
   font-size: 0.9em;
@@ -93,10 +93,26 @@ b {
   font-size: 1.5em;
   text-align: right;
 }
+.linha-info p:first-child {
+  font-weight: 700;
+}
 @media (max-width: 1536px) {
 }
 
 @media (max-width: 1280px) {
+  .dados-pet .content-pet {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .content-pet .img-pet {
+    padding-inline: 1rem;
+    margin-bottom: 1em;
+  }
+  .info-meus-pets {
+    width: 65%;
+  }
 }
 /* lg */
 @media (max-width: 1024px) {
@@ -112,7 +128,10 @@ b {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 3rem;
+    gap: 2rem;
+  }
+  .content-pet .img-pet {
+    margin-bottom: 0px;
   }
   .dados-pet,
   .meus-pets {
@@ -120,6 +139,9 @@ b {
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+  .button-pet {
+    width: 50%;
   }
 }
 
@@ -129,6 +151,11 @@ b {
 
 /* xs */
 @media (max-width: 475px) {
+  .info-meus-pets,
+  .button-pet,
+  .img-pet {
+    width: 75%;
+  }
 }
 
 /* CADASTRAR PET */
