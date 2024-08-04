@@ -159,26 +159,33 @@ b {
 }
 
 /* CADASTRAR PET */
-.foto_pet {
-  height: 150px;
-  margin-block: 3%;
-}
-form {
-    font-size: 1.35em;
-}
-.grid_container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 50px;
-}
-.grid_left { grid-area: 1 / 1 / 2 / 2; }
-.grid_right { grid-area: 1 / 2 / 2 / 3; }
+.foto {
+  font-size: 2.25em;
+  font-weight: 700;
 
-.radio-group {
+  margin-block: 3%;
   display: flex;
-  align-items: start;
+  align-items: center;
+  gap: 1rem;
 }
-.grid_left > input,
-.grid_right > input {
-  width: 100%;
+.mudar {
+  z-index: 2;
+  height: 50px;
+  position: absolute;
+  left: 22.5%;
+  bottom: 56%;
+}
+.foto_pet {
+  position: relative;
+  z-index: 1;
+  height: 150px;
+}
+.form__cadastrar_pet {
+  font-size: 1.35em;
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+.left div, .right div {
+  padding-bottom: 1em; 
 }

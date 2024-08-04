@@ -88,53 +88,97 @@
         <div class="titulo">Cadastrar Pet</div>
         
         <div class="cadastrar_pet">
-          <img src="../../img/Outros/inclusipet.ico" alt="Foto do pet" class="foto_pet" />
+          <div class="foto">
+            <div>
+              <img src="../../img/Perfil/foto-pet.png" alt="Foto do pet" class="foto_pet" />
+              <img src="../../img/Perfil/editar.png" alt="" class="mudar">
+            </div>
+            Nome do pet
+          </div>
 
           <form action="" class="form__cadastrar_pet">
-            <div class="grid_container">
-
-              <div class="grid_left">
-                  <label for="">Nome</label><br />
-                  <input type="text" name="" id="" />
-
-                  <label for="">Raça</label><br />
-                  <input type="text" value="" />
-
-                  <label for="">Data de Nascimento</label><br />
-                  <input type="date" value="" max="" min="1900-01-01" />
-                  <div class="data_aproximada"> <input type="checkbox" name="" id="" class="check" /> </div>
-
-                <div class="div4">
-                  <label for="">Peso (kg)</label><br />
-                  <input type="number" value="" />
-                </div>
+            <div class="left">
+              <div>
+                <label for="">Nome</label><br />
+                <input type="text" name="" id="" />
               </div>
 
-              <div class="grid_right">
-                <label for="">Espécie</label><br />
-                <select id="" name="" size="1">
-                  <option value="cachorro">Cachorro</option>
-                  <option value="gato">Gato</option>
-                  <option value="passaro">Pássaro</option>
-                </select>
-  
-                <div class="radio-group">
-                  <label for="">Sexo</label><br />
-                  <input type="radio" name="" id="" class="radio" />
-                  <input type="radio" name="" id="" class="radio" />
-                </div>
-              
-                <label for="">Data Aproximada</label><br />
-                <input type="date" value="" disabled />
-  
-                <label for="">Castrado?</label><br />
-                <div class="radio-group">
-                  <input type="radio" name=""" id="" class="radio" />
-                  <input type="radio" name="" id="" class="radio" />
-                </div>
+              <div>
+                <label for="">Raça</label><br />
+                <input type="text" name="" id="" />
               </div>
 
+              <div>
+                <label for="">Data de Nascimento</label><br />
+                <input type="date" value="" max="" min="1900-01-01" />
+                <div class="data_aproximada"> <input type="checkbox" name="" id="" class="check" /> </div>
+              </div>
+
+              <div>
+                <label for="">Peso (kg)</label><br />
+                <input type="number" value="" />
+              </div>
             </div>
+            
+            <div class="right">
+                <div>
+                  <label for="">Espécie</label><br />
+                  <select id="" name="" size="1">
+                    <option value="cachorro">Cachorro</option>
+                    <option value="gato">Gato</option>
+                    <option value="passaro">Pássaro</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="">Sexo</label><br />
+                  <div class="radio-group">
+                    <input type="radio" name="" id="" class="radio" />
+                    <input type="radio" name="" id="" class="radio" />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="">Data Aproximada</label><br />
+                  <input type="date" value="" disabled />
+                </div>
+
+                <div>
+                  <div class="radio-group">
+                    <input type="radio" name=""" id="" class="radio" />
+                    <input type="radio" name="" id="" class="radio" />
+                  </div>
+                </div>
+            </div>
+            <!-- 
+              <label for="">Nome</label><br />
+              <input type="text" name="" id="" />
+
+              
+
+              
+
+            <div class="div4">
+              
+            </div>
+          </div>
+
+          <div class="grid_right">
+            
+
+            <div class="radio-group">
+              <label for="">Sexo</label><br />
+              <input type="radio" name="" id="" class="radio" />
+              <input type="radio" name="" id="" class="radio" />
+            </div>
+          
+            
+
+            <label for="">Castrado?</label><br />
+            
+          </div>
+            -->
+
             <button class="botao-borda" onclick="location.href='meuspets.html'" type="button">Voltar</button>
             <button class="botao-solido" onclick="alert('Enviado com sucesso!')" type="button">Enviar</button>
           </form>
