@@ -1,3 +1,60 @@
+.titulo {
+  /*Titulo da página*/
+  margin-bottom: 3rem;
+}
+
+img.animal {
+  width: 300px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+div.item {
+  /*Div que mostra um animal para adoção*/
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+div.descricao {
+  /*Div com a descrição do animal*/
+  margin-left: 1.5rem;
+  width: 27rem;
+}
+
+h5.titulo_item {
+  /*Nome do animal*/
+  color: #574dbd;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+p.descricao {
+  /*Descrição do animal e do local onde ele está*/
+  font-size: 1.3rem;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-left: 1rem;
+}
+
+/*Div do adotado que fica ao lado da descrição*/
+.adotado {
+  background-color: #4cb062;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1.15em;
+  padding-block: 0.1em;
+  padding-left: 0.6em;
+  padding-right: 1.2em;
+  border-radius: 0.75em;
+  line-height: 2.5;
+  width: fit-content;
+}
+
 @media (max-width: 1536px) {
 }
 
