@@ -272,6 +272,9 @@ input[type="checkbox"]:focus {
 input[type="date"]::-webkit-calendar-picker-indicator {
   background-image: url("../img/Outros/calendario.png");
 }
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background-image: url("../img/Outros/relogio.png");
+}
 optgroup {
   color: var(--purple);
 }

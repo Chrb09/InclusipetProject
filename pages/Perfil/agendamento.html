@@ -84,8 +84,90 @@
           </div>
         </div>
 
-        <!-- Conteudo principal -->
-        <div class="titulo">Agendamento</div>
+        <!-- Começo do conteúdo principal -->
+        <div class="titulo">Agendamento de consulta do pet</div>
+
+        <div class="pets">
+          <span>Selecione o pet que deseja agendar uma consulta</span>
+          <div class="meus-pets">
+            <button class="button-pet selecionado" type="button">
+                <img src="../../img/Adocao/Animal1/img1.png" alt="" class="img-menor" /> Fonseca
+            </button>
+  
+            <button class="button-pet" type="button">
+                <img src="../../img/Adocao/Animal3/img1.png" alt="" class="img-menor" />Neném
+            </button>
+  
+            <button class="button-pet" type="button">
+              <img src="../../img/Adocao/Animal4/img1.png" alt="" class="img-menor" />Max
+            </button>
+          </div>
+          <button class="button-pet button-cadastrar" onclick="location.href='cadastraranimal.html'" type="button">
+            <img src="../../img/Perfil/adicionar.png" alt="" class="img-menor novo-pet" />
+            <div class="cadastrar-pet">Cadastrar Novo Pet</div>
+          </button>
+        </div>
+        
+        <form action="" class="form__agendar_pet">
+          <div class="form-input">
+            <label for="">Unidade</label><br />
+            <div class="custom-select">
+              <select id="" name="" size="1">
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+                <option value="passaro">Pássaro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <label for="">Serviço</label><br />
+            <div class="custom-select">
+              <select id="" name="" size="1">
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+                <option value="passaro">Pássaro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <label for="">Especialidade</label><br />
+            <div class="custom-select">
+              <select id="" name="" size="1">
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+                <option value="passaro">Pássaro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <label for="">Profissional</label><br />
+            <div class="custom-select">
+              <select id="" name="" size="1">
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+                <option value="passaro">Pássaro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <label for="">Data desejada para consulta</label><br />
+            <input type="date" value="" max="" min="1900-01-01" />
+          </div>
+
+          <div class="form-input">
+            <label for="">Horário desejado para consulta</label><br />
+            <input type="time" value="" max="" min="1900-01-01" />
+          </div>
+
+          <div class="button-wrapper">
+            <button class="botao botao-solido" onclick="alert('Enviado com sucesso!')" type="button">Continuar</button>
+          </div>
+        </form>
+        <!-- Fim do conteúdo principal -->
       </div>
     </div>
   </body>

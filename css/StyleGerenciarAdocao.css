@@ -77,12 +77,16 @@ p.descricao {
 }
 
 /* ANÚNCIO DE ADOÇÃO */
-
+span {
+  font-size: 1.2em;
+  font-weight: 600;
+}
 .top {
   margin-block: 3%;
 }
 .fotos {
   height: 150px;
+  margin-block: 1%;
 
   display: flex;
   align-items: center;
