@@ -71,12 +71,16 @@ iframe {
   color: var(--white);
   font-weight: 600;
   font-size: var(--size-xl);
+  border-style: solid;
+  border-color: var(--purple);
+  border-width: 0.15rem;
   padding: 0.7em 1.2em;
   border-radius: 0.7em;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
   &:hover {
     transform: translate(0, -4px);
     background-color: var(--purplehover);
+    border-color: var(--purplehover);
   }
 }
 .botao-borda {
@@ -86,7 +90,7 @@ iframe {
   color: var(--gray);
   fill: var(--gray);
   border-style: solid;
-  border-width: 0.15em;
+  border-width: 0.15rem;
   border-color: var(--gray);
   border-radius: 0.7em;
   display: flex;
@@ -154,7 +158,6 @@ textarea {
 }
 select {
   appearance: none;
-  outline: 10px red;
   background-color: var(--white);
   border: solid 2px var(--purple);
   border-radius: 0.7em;
@@ -163,13 +166,110 @@ select {
   cursor: pointer;
   width: 100%;
 }
+.custom-select {
+  /* ... */
+  position: relative;
+}
+.custom-select::before,
+.custom-select::after {
+  --size: 0.4rem;
+  position: absolute;
+  content: "";
+  right: 1rem;
+  pointer-events: none;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid var(--purple);
+  top: 43%;
+}
+
 option,
 optgroup {
-  border: none;
   font-size: inherit;
   font-family: Inter;
   color: var(--grayblack);
   border-color: var(--purple);
+  border-radius: 0;
+}
+input:focus,
+select:focus {
+  outline: none !important;
+  border-color: var(--purplehover);
+  box-shadow: 0 0 4px var(--purplehover);
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--purple);
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(0.75);
+}
+
+input[type="radio"]:focus {
+  border-color: none;
+  box-shadow: none;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border-radius: 0.2em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 0.1em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--purple);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+  border-color: none;
+  box-shadow: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-image: url("../img/Outros/calendario.png");
 }
 optgroup {
   color: var(--purple);
