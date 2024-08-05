@@ -75,3 +75,69 @@ p.descricao {
 /* xs */
 @media (max-width: 475px) {
 }
+
+/* ANÚNCIO DE ADOÇÃO */
+
+.top {
+  margin-block: 3%;
+}
+.fotos {
+  height: 150px;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.form__anunciar_pet {
+  font-size: 1.35em;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4%;
+}
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+}
+.form-input {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  margin-bottom: 1em;
+}
+.form-input br {
+  display: none;
+}
+.button-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.radio-group {
+  padding: 0.5rem 0rem;
+  display: flex;
+  gap: 1em;
+}
+.radio-div {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+.button-wrapper .botao {
+  padding: 0.3em 1em;
+  width: 10rem;
+}
+.desativado label {
+  color: #919191;
+}
+.desativado input {
+  color: #f3f3f3;
+  background-color: #f3f3f3;
+  border-color: #ada4dd;
+}

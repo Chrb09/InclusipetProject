@@ -195,7 +195,8 @@ optgroup {
   border-radius: 0;
 }
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: none !important;
   border-color: var(--purplehover);
   box-shadow: 0 0 4px var(--purplehover);
