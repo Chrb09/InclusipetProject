@@ -104,6 +104,41 @@
   margin-bottom: 3.5rem;
 }
 /* ONGS */
+div.botoes_doacao{/*Aqueles botões de escolher ong, informe-se e faça uma doação*/
+  display: flex;
+  justify-content: center;
+}
+
+div.ajudar{/*Cada uma das opções dentro da div botoes_doacao*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+div.informe{
+  margin: 0rem 3rem;
+}
+
+p.ajudar{ /*Texto de cada opção da div botoes-doacao*/
+  color: var(--purple);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+div.ong{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+div.linha{
+  background-color: var(--purple);
+  width: 10rem;
+  height: 1rem;
+}
 
 /*ULTIMOS POSTS*/
 

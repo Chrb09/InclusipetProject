@@ -19,7 +19,12 @@
 .text-time {
   margin-top: 5rem;
 }
-
+.sidebar {
+  height: auto;
+}
+.titulo {
+  text-align: center;
+}
 .container {
   flex-shrink: 0;
 }
