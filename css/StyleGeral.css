@@ -36,6 +36,7 @@
   margin: 0;
   padding: 0;
   line-height: calc(1em + 0.5rem);
+  font-family: "inter";
 }
 /* 
 html::-webkit-scrollbar {
@@ -52,7 +53,6 @@ html::-webkit-scrollbar-track {
 }*/
 body {
   overflow-x: hidden;
-  font-family: "inter";
   color: var(--grayblack);
   font-weight: 500;
   font-size: var(--size-xl);

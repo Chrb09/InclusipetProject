@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
     <link rel="stylesheet" href="css/StyleGeral.css" />
     <!-- CSS EXTERNO GERAL -->
+    <link rel="stylesheet" href="css/swiper.css" />
     <link rel="stylesheet" href="css/StyleIndex.css" />
     <link rel="stylesheet" href="css/InfiniteScroll.css" />
+
+    <script src="js/swiper.js"></script>
     <!-- CSS EXTERNO PAGINA -->
     <link rel="icon" href="img/Outros/inclusipet.ico" />
     <!-- ICON -->
@@ -76,117 +78,24 @@
     </header>
     <script src="js/dropdown_header.js"></script>
     <!-- CARROSSEL -->
-    <div id="carouselExampleAutoplaying" class="carousel slide carousel-desktop" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
+    <div class="swiper swiper-index">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide index-slide1"></div>
+        <div class="swiper-slide index-slide2"></div>
+        <div class="swiper-slide index-slide3"></div>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <!--IMAGENS CARROSSEL-->
-          <img src="img/Index/slide1.png" class="d-block w-100" alt="Serviços" />
-        </div>
-        <div class="carousel-item">
-          <img src="img/Index/slide2.png" class="d-block w-100" alt="Adoção" />
-        </div>
-        <div class="carousel-item">
-          <img src="img/Index/slide3.png" class="d-block w-100" alt="Agendamento" />
-        </div>
-      </div>
-      <!--BOTÕES CARROSSEL-->
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Proximo</span>
-      </button>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
     </div>
 
-    <div id="carouselExampleAutoplaying" class="carousel slide carousel-mobile" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <!--IMAGENS CARROSSEL-->
-          <img src="img/Index/slide1_mobile.png" class="d-block w-100" alt="Serviços" />
-        </div>
-        <div class="carousel-item">
-          <img src="img/Index/slide2_mobile.png" class="d-block w-100" alt="Adoção" />
-        </div>
-        <div class="carousel-item">
-          <img src="img/Index/slide3_mobile.png" class="d-block w-100" alt="Agendamento" />
-        </div>
-      </div>
-      <!--BOTÕES CARROSSEL-->
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Próximo</span>
-      </button>
-    </div>
     <!--Hero-->
     <div class="hero">
       <div class="container container-hero">
@@ -292,6 +201,99 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </a>
+        </div>
+      </div>
+      <div class="swiper swiper_hero">
+        <div class="swiper-wrapper">
+          <div class="card-hero swiper-slide">
+            <a href="pages/Login/login.html">
+              <img src="img/Index/agendamento.png" alt="" />
+              <div class="titulo-card-hero">
+                Agende sua <br />
+                <b>Visita Conosco</b>
+              </div>
+            </a>
+            <p>Cadastre o seu pet e faça um agendamento direto do conforto de sua casa!</p>
+            <a href="pages/Login/login.html" class="link"
+              >Acessar
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="seta__link"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="card-hero swiper-slide">
+            <a href="pages/QuemSomos/quemsomos.html">
+              <img src="img/Index/sobre_nos.png" alt="" />
+              <div class="titulo-card-hero">
+                Quem <br />
+                <b>Somos</b>
+              </div>
+            </a>
+            <p>Fique mais confortavel sabendo que seu pet ficará em nossas mãos</p>
+            <a href="pages/QuemSomos/quemsomos.html" class="link"
+              >Acessar
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="seta__link"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </a>
+          </div>
+          <div class="card-hero swiper-slide">
+            <a href="pages/Adocao/adocao.html">
+              <img src="img/Index/adocao.png" alt="" />
+              <div class="titulo-card-hero">
+                Adote um <br />
+                <b>Animalzinho</b>
+              </div>
+            </a>
+            <p>Encontre e adote um animal que está precisando de um novo lar.</p>
+            <a href="pages/Adocao/adocao.html" class="link"
+              >Acessar
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="seta__link"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </a>
+          </div>
+          <div class="card-hero swiper-slide">
+            <a href="pages/Contato/contato.html">
+              <img src="img/Index/contato.png" alt="" />
+              <div class="titulo-card-hero">
+                Envie uma<br />
+                <b>Mensagem</b>
+              </div>
+            </a>
+            <p>Precisa de ajuda com algo? Quer enviar um feedback? Mande uma mensagem!</p>
+            <a href="pages/Contato/contato.html" class="link"
+              >Acessar
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="seta__link"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -432,47 +434,81 @@
       <div class="container">
         <div class="titulo">Faça uma doação <br />para nossa causa!</div>
 
-        <div class="hr hr-roxo"> </div>
+        <div class="hr hr-roxo"></div>
 
+        <div class="botoes_doacao">
+          <!--Aqueles botões de escolher ong, informe-se e faça uma doação-->
 
-        <div class="botoes_doacao"><!--Aqueles botões de escolher ong, informe-se e faça uma doação-->
-
-          <div class="ajudar"> <!--Escolha uma ONG--> 
-            <img src="img/Index/maos.png" alt="Mãos com um conração no meio">
+          <div class="ajudar">
+            <!--Escolha uma ONG-->
+            <img src="img/Index/maos.png" alt="Mãos com um conração no meio" />
             <p class="ajudar">Escolha uma ONG</p>
           </div>
 
-          <div class="ajudar informe"> <!--Informe-se-->
-            <img src="img/Index/info.png" alt="Informações">
+          <div class="ajudar informe">
+            <!--Informe-se-->
+            <img src="img/Index/info.png" alt="Informações" />
             <p class="ajudar">Informe-se</p>
           </div>
 
-          <div class="ajudar"> <!--Faça uma doação-->
-            <img src="img/Index/cartao-de-credito.png" alt="Carteira com artão saindo dela">
+          <div class="ajudar">
+            <!--Faça uma doação-->
+            <img src="img/Index/cartao-de-credito.png" alt="Carteira com artão saindo dela" />
             <p class="ajudar">Faça uma doação</p>
           </div>
-
         </div>
 
-
         <div class="ong">
-          
-          <div class="img_ong">
-            <img src="img/Index/ongs/amigos-sao-francisco.png" alt="Ong Amigos São Francisco">
-            <img src="img/Index/ongs/cao-sem-dono.png" alt="Ong Amigos São Francisco">
-            <img src="img/Index/ongs/cao-sem-fome.png" alt="Ong Amigos São Francisco">
-            <img src="img/Index/ongs/criatil.png" alt="Ong Amigos São Francisco">
-            <img src="img/Index/ongs/doacoes-rs.png" alt="Ong Amigos São Francisco">
-          </div>
-          
-          <div class="img_ong">
-            <img src="img/Index/ongs/empatia.png" alt="Ong Amigos São Francisco">
-            <img src="img/Index/ongs/moradores-de-rua.png" alt="Ong Amigos São Francisco">
-            <img src="img/Index/ongs/quatro-patinhas.png" alt="Ong Amigos São Francisco">
-            <img src="img/Index/ongs/vanessa-mesquita.png" alt="Ong Amigos São Francisco">
-            <img src="img/Index/ongs/viva-bicho.png" alt="Ong Amigos São Francisco">
-          </div>
-    
+          <a href="https://amigosdesaofrancisco.com.br">
+            <img src="img/Index/ongs/amigos-sao-francisco.png" alt="Ong Amigos São Francisco"
+          /></a>
+          <a href="https://www.caosemdono.com.br"
+            ><img src="img/Index/ongs/cao-sem-dono.png" alt="Ong Cão Sem Dono"
+          /></a>
+          <a href="https://projetocaosemfome.com"
+            ><img src="img/Index/ongs/cao-sem-fome.png" alt="Projeto Cão Sem Fome"
+          /></a>
+          <a href="https://www.instagram.com/empatatia/?hl=pt-br"
+            ><img src="img/Index/ongs/empatia.png" alt="Ong Empatia"
+          /></a>
+          <a href="https://www.moradoresderuaeseuscaes.com.br"
+            ><img src="img/Index/ongs/moradores-de-rua.png" alt="Ong Moradores De Rua e Seus Cães"
+          /></a>
+          <a href="https://www.quatropatinhas.com.br/4Patinhas/"
+            ><img src="img/Index/ongs/quatro-patinhas.png" alt="Associação Quatro Patinhas"
+          /></a>
+          <a href="https://www.instagram.com/institutopetvan/"
+            ><img src="img/Index/ongs/vanessa-mesquita.png" alt="Vanessa Mesquita"
+          /></a>
+          <a href="http://ongvivabicho.com.br"><img src="img/Index/ongs/viva-bicho.png" alt="Ong Viva Bicho" /></a>
+        </div>
+      </div>
+      <div class="swiper swiper_ong">
+        <div class="swiper-wrapper">
+          <a href="https://amigosdesaofrancisco.com.br" class="swiper-slide">
+            <img src="img/Index/ongs/amigos-sao-francisco.png" alt="Ong Amigos São Francisco"
+          /></a>
+          <a href="https://www.caosemdono.com.br" class="swiper-slide"
+            ><img src="img/Index/ongs/cao-sem-dono.png" alt="Ong Cão Sem Dono"
+          /></a>
+          <a href="https://projetocaosemfome.com" class="swiper-slide"
+            ><img src="img/Index/ongs/cao-sem-fome.png" alt="Projeto Cão Sem Fome"
+          /></a>
+          <a href="https://www.instagram.com/empatatia/?hl=pt-br" class="swiper-slide"
+            ><img src="img/Index/ongs/empatia.png" alt="Ong Empatia"
+          /></a>
+          <a href="https://www.moradoresderuaeseuscaes.com.br" class="swiper-slide"
+            ><img src="img/Index/ongs/moradores-de-rua.png" alt="Ong Moradores De Rua e Seus Cães"
+          /></a>
+          <a href="https://www.quatropatinhas.com.br/4Patinhas/" class="swiper-slide"
+            ><img src="img/Index/ongs/quatro-patinhas.png" alt="Associação Quatro Patinhas"
+          /></a>
+          <a href="https://www.instagram.com/institutopetvan/" class="swiper-slide"
+            ><img src="img/Index/ongs/vanessa-mesquita.png" alt="Vanessa Mesquita"
+          /></a>
+          <a href="http://ongvivabicho.com.br" class="swiper-slide"
+            ><img src="img/Index/ongs/viva-bicho.png" alt="Ong Viva Bicho"
+          /></a>
         </div>
       </div>
     </div>
@@ -552,6 +588,79 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="swiper swiper_blog">
+        <div class="swiper-wrapper">
+          <div class="cartao__ultimosposts swiper-slide">
+            <img src="img/Blog/Post1/blog1.png" alt="" class="cartao__imagem" />
+            <div class="cartao__conteudo">
+              <div class="cartao__titulo">Desvendando Mitos sobre Animais Deficientes</div>
+              <div class="cartao_texto">
+                A natureza é repleta de diversidade, e os animais também podem enfrentar desafios de saúde que os tornam
+                diferentes
+              </div>
+              <a href="pages/Blog/post1.html" class="link"
+                >Ler Mais
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="seta__link"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="cartao__ultimosposts swiper-slide">
+            <img src="img/Blog/Post4/Blog4.png" alt="" class="cartao__imagem" />
+            <div class="cartao__conteudo">
+              <div class="cartao__titulo">Como Cuidar dos Dentes do Seu Pet</div>
+              <div class="cartao_texto">
+                Cuidar dos dentes do seu pet é uma parte essencial da saúde geral do animal. A saúde bucal adequada não
+                só previne problemas dentários, mas também promove o bem-estar geral do seu companheiro. Aqui estão
+                algumas dicas sobre como cuidar dos dentes do seu pet:
+              </div>
+              <a href="pages/Blog/post4.html" class="link"
+                >Ler Mais
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="seta__link"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="cartao__ultimosposts swiper-slide">
+            <img src="img/Blog/Post2/blog2.png" alt="" class="cartao__imagem" />
+            <div class="cartao__conteudo">
+              <div class="cartao__titulo">A importância de combater a Violência contra os</div>
+              <div class="cartao_texto">
+                A relação entre seres humanos e animais transcende barreiras, refletindo uma interconexão que molda a
+                própria essência de nossa sociedade. No entanto, mesmo diante desse elo intrínseco, a violência
+              </div>
+              <a href="pages/Blog/post2.html" class="link"
+                >Ler Mais
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="seta__link"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container container__ultimosposts">
         <div class="botao__reviews">
           <button class="botao-solido-branco" onclick="location.href='pages/Blog/blog.html'" type="button">
             Acessar Blog
@@ -564,8 +673,76 @@
       <div class="container">
         <div class="titulo">FAQ</div>
         <div class="hr"></div>
+        <div class="details">
+          <div class="summary">Quais são os serviços especializados que vocês oferecem para animais deficientes?</div>
+          <p>
+            Oferecemos fisioterapia, próteses personalizadas, cadeiras de rodas, terapia ocupacional, acupuntura e
+            tratamentos de reabilitação para ajudar na mobilidade e na qualidade de vida dos animais deficientes.
+          </p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="var(--purple)"
+            class="arrow_faq"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+        <div class="details">
+          <div class="summary">Vocês aceitam animais de todas as deficiências?</div>
+          <p>
+            Sim, aceitamos animais com qualquer tipo de deficiência, incluindo deficiências físicas, neurológicas e
+            sensoriais. Nosso objetivo é fornecer cuidados personalizados para atender às necessidades específicas de
+            cada animal.
+          </p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="var(--purple)"
+            class="arrow_faq"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+        <div class="details">
+          <div class="summary">Qual é a experiência e qualificação da equipe em lidar com animais deficientes?</div>
+          <p>
+            Nossa equipe é composta por veterinários e especialistas altamente qualificados e com ampla experiência em
+            cuidados com animais deficientes. Todos os membros passam por treinamentos contínuos para se manterem
+            atualizados com as melhores práticas e tecnologias disponíveis.
+          </p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="var(--purple)"
+            class="arrow_faq"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
+        <div class="details">
+          <div class="summary">Como a clínica lida com emergências médicas?</div>
+          <p>
+            Algumas unidades são preparadas para lidar com emergências médicas 24 horas por dia, 7 dias por semana.
+            Nossos veterinários treinados em emergências estarão sempre disponíveis para atender animais deficientes em
+            situações críticas.
+          </p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="var(--purple)"
+            class="arrow_faq"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </div>
       </div>
     </div>
+    <script src="js/faq.js"></script>
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container container__footer">
@@ -619,4 +796,5 @@
       <div class="container container__footer">®2023 Inclusipet. Todos os direitos reservados.</div>
     </footer>
   </body>
+  <script src="js/carrossel.js"></script>
 </html>

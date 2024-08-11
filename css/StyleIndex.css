@@ -1,16 +1,38 @@
 /****SOBRE NÓS****/
 
 /*CARROSSEL*/
-.carousel-item a {
-  display: block;
+.swiper {
+  --swiper-theme-color: var(--purple);
 }
+.swiper-index {
+  --swiper-theme-color: var(--white);
+  --swiper-navigation-size: 2em;
+  --swiper-navigation-sides-offset: 4em;
+  --swiper-pagination-bottom: 2em;
+  --swiper-pagination-bullet-width: 2.5em;
+  --swiper-pagination-bullet-height: 0.2em;
+  --swiper-pagination-bullet-inactive-color: var(--white);
+  --swiper-pagination-bullet-border-radius: 0px;
+  width: 100%;
+  aspect-ratio: 3.2 / 1;
+}
+
+.index-slide1 {
+  background-image: url("../img/Index/slide1.png");
+  background-size: contain;
+}
+.index-slide2 {
+  background-image: url("../img/Index/slide2.png");
+  background-size: contain;
+}
+.index-slide3 {
+  background-image: url("../img/Index/slide3.png");
+  background-size: contain;
+}
+
 .container__titulo {
   margin-block: 3em;
 }
-.carousel-mobile {
-  display: none;
-}
-
 .hero,
 .ONGs,
 .reviews,
@@ -44,6 +66,9 @@
   display: flex;
   padding-inline: 2rem;
   gap: 4%;
+}
+.swiper_hero {
+  display: none;
 }
 .texto-hero,
 .img-hero {
@@ -104,42 +129,51 @@
   margin-bottom: 3.5rem;
 }
 /* ONGS */
-div.botoes_doacao{/*Aqueles botões de escolher ong, informe-se e faça uma doação*/
+.botoes_doacao {
+  /*Aqueles botões de escolher ong, informe-se e faça uma doação*/
   display: flex;
+  gap: 3rem;
   justify-content: center;
+  margin-bottom: 1em;
 }
-
-div.ajudar{/*Cada uma das opções dentro da div botoes_doacao*/
+.botoes_doacao img {
+  width: 3.5em;
+}
+.ajudar {
+  /*Cada uma das opções dentro da div botoes_doacao*/
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-}
-
-div.informe{
-  margin: 0rem 3rem;
-}
-
-p.ajudar{ /*Texto de cada opção da div botoes-doacao*/
+  gap: 1em;
   color: var(--purple);
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1em;
 }
-
-div.ong{
-  display: flex;
-  flex-direction: column;
+.swiper_ong {
+  display: none;
+}
+.ong {
+  margin-inline: auto;
+  display: grid;
+  max-width: 50em;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px), 1fr));
   align-items: center;
-  margin-top: 4rem;
+  justify-items: center;
+  text-align: center;
 }
 
-div.linha{
-  background-color: var(--purple);
-  width: 10rem;
-  height: 1rem;
+.ong img {
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: rotate(3deg);
+  }
 }
-
+.ong a {
+  width: fit-content;
+}
 /*ULTIMOS POSTS*/
 
 .cartao__ultimosposts {
@@ -177,8 +211,51 @@ div.linha{
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
+.swiper_blog {
+  display: none;
+}
 /*FAQ*/
 
+.details {
+  margin-inline: auto;
+  width: 80%;
+  padding-right: 5rem;
+  position: relative;
+  margin-bottom: 1.5em;
+  user-select: none;
+  cursor: pointer;
+}
+.summary {
+  font-weight: 700;
+  font-size: 1.2em;
+  padding-bottom: 1em;
+}
+.details p {
+  max-height: 0;
+  transition: max-height 0.3s linear;
+  overflow: hidden;
+}
+.arrow_faq {
+  aspect-ratio: 1/1;
+  width: 3rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  stroke-width: 2px;
+  transition: transform 0.3s;
+}
+.open_faq .summary {
+  padding-bottom: 1.5em;
+}
+
+.open_faq p {
+  max-height: 5.5rem;
+}
+
+.open_faq .arrow_faq {
+  transform: rotate(-90deg);
+}
 /*Responsividade*/
 
 /* xl */
@@ -218,12 +295,36 @@ div.linha{
     gap: 1rem;
   }
   .cartao__conteudo {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .ong {
+    max-width: 60em;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px), 1fr));
+  }
+  .details {
+    padding-right: 3rem;
+  }
+  .arrow_faq {
+    width: 2rem;
   }
 }
 /* md */
 @media (max-width: 768px) {
+  .swiper-index {
+    width: 100%;
+    aspect-ratio: 1.4 / 1;
+  }
+  .index-slide1 {
+    background-image: url("../img/Index/slide1_mobile.png");
+  }
+  .index-slide2 {
+    background-image: url("../img/Index/slide2_mobile.png");
+  }
+  .index-slide3 {
+    background-image: url("../img/Index/slide3_mobile.png");
+  }
+
   .container-hero {
     flex-direction: column-reverse;
     align-items: center;
@@ -249,21 +350,34 @@ div.linha{
     font-size: var(--size-2x);
   }
   .linha__card {
-    flex-wrap: wrap;
+    display: none;
   }
-  .cartao__ultimosposts {
-    width: 15rem;
+  .swiper_blog {
+    display: block;
+    padding-inline: 2rem;
   }
   .botao__reviews {
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  .profcard {
-    width: 50%;
+  .open_faq p {
+    max-height: 10rem;
   }
 }
 /* sm */
 @media (max-width: 640px) {
+  .linha-hero {
+    display: none;
+  }
+  .swiper_hero {
+    margin-top: 2rem;
+    display: block;
+    padding-inline: 2rem;
+  }
+  .card-hero p {
+    height: 4rem;
+  }
+
   .hero,
   .ONGs,
   .reviews,
@@ -274,11 +388,12 @@ div.linha{
   .cartao__ultimosposts {
     width: 13.5rem;
   }
-  .carousel-mobile {
-    display: block;
+  .botoes_doacao {
+    gap: 1.5rem;
+    text-align: center;
   }
-  .carousel-desktop {
-    display: none;
+  .details {
+    width: 95%;
   }
 }
 /* xs */
@@ -292,14 +407,13 @@ div.linha{
   .linha-hero {
     gap: 1em;
   }
-  .card-hero {
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0;
-    width: 100%;
+  .ong {
+    display: none;
   }
-  .card-hero a {
-    text-align: center;
+  .swiper_ong {
+    display: block;
+    padding-inline: 2rem;
+    height: 25rem;
   }
   .subtitulo__reviews {
     gap: 1rem;
@@ -309,5 +423,8 @@ div.linha{
   }
   .subtitulo-text__reviews {
     font-size: var(--size-lg);
+  }
+  .open_faq p {
+    max-height: 20rem;
   }
 }

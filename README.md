@@ -50,7 +50,7 @@ Algumas das funcionalidade incluem um sistema de login e cadastro que pode guard
 
 ### Framework:
 
-![BOOTSTRAP](https://img.shields.io/badge/Bootstrap-574DBD?style=for-the-badge&logo=bootstrap&logoColor=white)
+![SWIPERJS](https://img.shields.io/badge/Swiper.JS-574DBD?style=for-the-badge&logo=swiper&logoColor=white)
 
 <br>
 
