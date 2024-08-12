@@ -8,7 +8,6 @@
   - [🤔 Sobre o projeto](#-sobre-o-projeto)
   - [🐦 Diferencial](#-diferencial)
   - [📖 Funcionalidades](#-funcionalidades)
-    - [Páginas](#páginas)
   - [✅ Tecnologias Utilizada](#-tecnologias-utilizadas)
     - [Front end](#front-end-)
     - [Back end](#back-end-)
