@@ -65,6 +65,7 @@ picture,
 video,
 iframe {
   max-width: 100%;
+  border-width: 0;
 }
 .botao-solido {
   background-color: var(--purple);
@@ -156,6 +157,7 @@ textarea {
   border: solid 2px var(--purple);
   border-radius: 0.7em;
   padding: 0.4rem 0.75rem;
+  font-size: 0.9em;
 }
 select {
   appearance: none;
