@@ -26,120 +26,121 @@ th {
   color: var(--purple);
   font-size: 1.2em;
   padding-bottom: 0.3em;
+  text-transform: capitalize;
 }
 th:nth-child(1) {
-  width: 25%;
+  width: 250px;
 }
 th:nth-child(2) {
-  width: 22%;
+  width: 230px;
 }
 th:nth-child(3) {
-  width: 18%;
+  width: 200px;
 }
 th:nth-child(4) {
-  width: 22%;
+  width: 300px;
 }
 th:nth-child(5) {
-  width: 13%;
+  width: 115px;
 }
 .card img {
   height: 100%;
 }
 .info {
   text-align: left;
-  width: 100%;
+  width: 925px;
+}
+.table-wrapper {
+  padding-block: 1em;
+  max-width: 100%;
+  overflow-x: auto;
 }
 @media (max-width: 1536px) {
-  .cards-cont {
-    flex-shrink: 1;
-  }
-  .conteu {
-    flex-shrink: 1;
-  }
-  .cont {
-    flex-shrink: 1;
-  }
-  .card {
-    flex-shrink: 1;
-  }
-  .meio {
-    padding-right: 10px;
+  .info {
+    width: 845px;
   }
 }
 
 @media (max-width: 1280px) {
+  th:nth-child(1) {
+    width: 200px;
+  }
+  th:nth-child(2) {
+    width: 200px;
+  }
+  th:nth-child(3) {
+    width: 150px;
+  }
+  th:nth-child(4) {
+    width: 200px;
+  }
+  th:nth-child(5) {
+    width: 75px;
+  }
+  .info {
+    width: 625px;
+  }
 }
 /* lg */
 @media (max-width: 1024px) {
-  @media (max-width: 1024px) {
-    .card {
-      flex-direction: column;
-      justify-content: center;
-      padding: 1em;
-      width: 100%;
-    }
-    .conteu {
-      width: 100%;
-    }
-
-    .cont {
-      flex-direction: column;
-      width: 100%;
-    }
-    .txt {
-      font-size: var(--size-base);
-    }
-
-    .txt,
-    .info {
-      width: 100%;
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .meio {
-      padding-right: 0;
-      text-align: center;
-    }
-
-    .txt p,
-    .info p {
-      text-align: left;
-    }
+  .card {
+    flex-direction: column;
   }
 }
 
 /* md */
 @media (max-width: 768px) {
+  th {
+    display: none;
+  }
+  td {
+    display: grid;
+    grid-template-columns: 17ch auto;
+    padding: 0.5rem 1rem;
+  }
+  td::before {
+    color: var(--purple);
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  td:nth-of-type(1)::before {
+    content: "Nome: ";
+  }
+  td:nth-of-type(2)::before {
+    content: "Especialidade: ";
+  }
+  td:nth-of-type(3)::before {
+    content: "Unidade: ";
+  }
+  td:nth-of-type(4)::before {
+    content: "Anos de Atuação: ";
+  }
+  td:nth-of-type(5)::before {
+    content: "Nota: ";
+  }
   .card {
-    display: flex;
-    flex-direction: column;
+    width: 80%;
+  }
+  .card img {
+    width: 50%;
+  }
+  .info {
+    width: 100%;
   }
 }
 
 /* sm */
-@media (max-width: 650px) {
-  .cont {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .txt {
-    font-size: var(--size-base);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .info {
-    font-size: var(--size-sm);
-    display: flex;
-    flex-direction: column;
-    padding-top: 0;
-    gap: 10px;
+@media (max-width: 640px) {
+  .card img {
+    width: 75%;
   }
 }
 
 /* xs */
 @media (max-width: 475px) {
+  .card {
+    width: 100%;
+    padding-inline: 0.25em;
+  }
 }

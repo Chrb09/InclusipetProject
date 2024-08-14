@@ -75,8 +75,8 @@ iframe {
   border-style: solid;
   border-color: var(--purple);
   border-width: 0.15rem;
-  padding: 0.7em 1.2em;
-  border-radius: 0.7em;
+  padding: 0.6em 1.1em;
+  border-radius: 0.8em;
   transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
   &:hover {
     transform: translate(0, -4px);
@@ -93,7 +93,7 @@ iframe {
   border-style: solid;
   border-width: 0.15rem;
   border-color: var(--gray);
-  border-radius: 0.7em;
+  border-radius: 0.8em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,8 +110,8 @@ iframe {
   color: var(--purple);
   font-weight: 700;
   font-size: var(--size-xl);
-  padding: 0.7em 1.2em;
-  border-radius: 0.7em;
+  padding: 0.6em 1.1em;
+  border-radius: 0.8em;
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
   &:hover {
     transform: translate(0, -4px);
@@ -372,7 +372,7 @@ strong {
   position: fixed;
   bottom: 0;
   z-index: 1000;
-  background-color: var(--purplehover);
+  background-color: var(--purple);
   width: 100%;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -383,7 +383,7 @@ strong {
 }
 @keyframes scroll-watcher {
   to {
-    scale: 1 1;
+    scale: 1.2 1;
   }
 }
 

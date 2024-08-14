@@ -290,4 +290,8 @@
 
 /* xs */
 @media (max-width: 475px) {
+  .texto__sobrenos {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

@@ -14,23 +14,6 @@
 p {
   font-weight: bold;
 }
-.editar-button {
-  display: flex;
-  background-color: var(--purple);
-  color: var(--white);
-  margin-top: 20px;
-  font-weight: 600;
-  font-size: 1.15em;
-  padding-block: 0.1em;
-  padding-left: 0.6em;
-  padding-right: 1.2em;
-  border-radius: 0.75em;
-  line-height: 2.5;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5em;
-  width: fit-content;
-}
 .card- {
   margin-right: 3%;
   display: flex;

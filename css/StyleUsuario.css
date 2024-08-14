@@ -155,14 +155,23 @@ body {
   width: 100%;
 }
 .editar-button {
-  font-size: 1.15em;
   padding-block: 0.1em;
-  padding-left: 0.6em;
-  padding-right: 1.2em;
+  padding-left: 1em;
+  padding-right: 1.4em;
   border-radius: 0.75em;
   line-height: 2.5;
   gap: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
+}
+.botao-borda,
+.botao-solido {
+  font-size: 1.15em;
+}
+.editar-button img {
+  height: 1.4em;
 }
 @media (min-width: 1536px) {
   .container-usuario {
