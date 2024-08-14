@@ -15,8 +15,11 @@
   </head>
   <body>
     <!-- PERFIL -->
-    <div class="sidebar">
+    <div class="container-usuario">
+      <div class="sidebar">
+        <div class="sidebar-background"></div>
       <div class="sidebar-nav">
+        <b>Área do Usuario</b>
         <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">Perfil</button>
         <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">Meus Pets</button>
         <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
@@ -67,21 +70,41 @@
 
       <div class="content">
         <div class="section-nav-mobile">
-          <b>Área do Usuario</b>
-          <div class="nav-mobile">
-            <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">Perfil</button>
-            <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">Meus Pets</button>
-            <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
-              Meus Agendamentos
-            </button>
-            <button class="sidebar-button ativo" onclick="location.href='resultadosexames.html'" type="button">
-              Resultados Exames
-            </button>
-            <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
-              Gerenciar Adoção
-            </button>
+          <div class="details open_faq">
+            <div class="summary">Área do Usuario</div>
+            <div class="wrapper-faq">
+              <div class="colapse">
+                <div class="nav-mobile">
+                  <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">
+                    Perfil
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">
+                    Meus Pets
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
+                    Meus Agendamentos
+                  </button>
+                  <button class="sidebar-button ativo" onclick="location.href='resultadosexames.html'" type="button">
+                    Resultados Exames
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
+                    Gerenciar Adoção
+                  </button>
+                </div>
+              </div>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="var(--purple)"
+              class="arrow_faq"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
           </div>
         </div>
+        <script src="../../js/nav_mobile.js"></script>
         <div class="titulo">Resultados Exames</div>
         <!--CODIGO DA PAGINA AQUI-->
         <div class="tabEx">
@@ -190,5 +213,6 @@
       </div>
       </div>
     </div>
+  </div>
   </body>
 </html>

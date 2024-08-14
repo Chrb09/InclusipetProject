@@ -1,13 +1,12 @@
-.titulo{
+.titulo {
   padding-bottom: 5%;
 }
-.conteudo{
+.conteudo {
   display: flex;
-  max-width: none;    
+  max-width: none;
   gap: 20px;
-
 }
-.Agendamen{
+.Agendamen {
   background-color: white;
   font-weight: 700;
   padding: 0.5em 1em;
@@ -21,7 +20,7 @@
   padding-bottom: 0%;
   flex-direction: column;
 }
-.fonseca{
+.fonseca {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -33,11 +32,11 @@
   font-weight: bold;
   font-size: 30px;
 }
-.fonsequinha{
+.fonsequinha {
   width: 80px;
   height: 80px;
 }
-.certo{
+.certo {
   background-color: green;
   color: var(--white);
   border-style: solid;
@@ -47,7 +46,7 @@
   border-radius: 0.9em;
   height: fit-content;
 }
-.cancelado{
+.cancelado {
   background-color: red;
   font-size: var(--size-sm);
   color: var(--white);
@@ -58,17 +57,16 @@
   border-radius: 0.9em;
   height: fit-content;
 }
-.txt{
+.txt {
   padding-left: 7%;
-
 }
-.btns{
+.btns {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 .botao-borda,
-.botao-solido{
+.botao-solido {
   height: 40px;
   padding-top: 0;
   padding-bottom: 0;
@@ -97,19 +95,15 @@
 
 /* AGENDAR CONSULTA */
 
-b {
-    font-size: 0.8em;
-    font-weight: 700;
-}
 span {
-    font-size: 1.2em;
-    font-weight: 600;
+  font-size: 1.2em;
+  font-weight: 600;
 }
 .selecionado img {
-    border: 0.5rem solid var(--purple);
+  border: 0.5rem solid var(--purple);
 }
 .selecionado {
-    color: var(--purple)
+  color: var(--purple);
 }
 .img-menor,
 .novo-pet {
@@ -142,14 +136,14 @@ span {
   display: flex;
   flex-direction: row;
 }
-.button-cadastrar img{
+.button-cadastrar img {
   height: 3rem;
 }
 .cadastrar-pet {
   font-size: 0.9em;
   font-weight: 700;
   color: var(--purple);
-} 
+}
 .form__agendar_pet {
   font-size: 1.35em;
   width: 80%;
@@ -162,44 +156,44 @@ input[type="text"],
 input[type="date"],
 input[type="number"],
 select {
-width: 100%;
+  width: 100%;
 }
 .form-input {
-width: 48%;
-display: flex;
-flex-direction: column;
-gap: 0.35em;
-margin-bottom: 1em;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  margin-bottom: 1em;
 }
 .form-input br {
-display: none;
+  display: none;
 }
 .button-wrapper {
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 .radio-group {
-padding: 0.5rem 0rem;
-display: flex;
-gap: 1em;
+  padding: 0.5rem 0rem;
+  display: flex;
+  gap: 1em;
 }
 .radio-div {
-display: flex;
-gap: 0.5em;
-align-items: center;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
 }
 .button-wrapper .botao {
-padding: 0.3em 1em;
-width: 10rem;
+  padding: 0.3em 1em;
+  width: 10rem;
 }
 .desativado label {
-color: #919191;
+  color: #919191;
 }
 .desativado input {
-color: #f3f3f3;
-background-color: #f3f3f3;
-border-color: #ada4dd;
+  color: #f3f3f3;
+  background-color: #f3f3f3;
+  border-color: #ada4dd;
 }

@@ -1,9 +1,4 @@
 /* MEUS PETS */
-b {
-  font-size: 0.8em;
-  font-weight: 700;
-}
-
 .img-menor,
 .novo-pet {
   border-radius: 100rem;
@@ -32,12 +27,18 @@ b {
   width: 100%;
   gap: 4%;
 }
-.dados-pet,
+.dados-pet {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 58%;
+}
+
 .meus-pets {
   display: flex;
   flex-direction: column;
   gap: 2em;
-  width: 48%;
+  width: 38%;
 }
 .img-pet {
   width: 48%;
@@ -67,11 +68,6 @@ b {
   flex-direction: column;
   gap: 0.1em;
   width: 48%;
-}
-b {
-  color: var(--gray-black);
-  font-size: 1.5em;
-  font-weight: 800;
 }
 .linha-info p {
   color: var(--gray-black);

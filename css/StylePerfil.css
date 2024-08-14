@@ -6,7 +6,6 @@
 .info_usuario {
   margin-top: 5%;
   margin-left: 5%;
- 
 }
 .foto_usuario_conteudo {
   height: 200px;
@@ -37,7 +36,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 1
+  flex-shrink: 1;
 }
 .card-txt {
   font-size: 18px;
@@ -50,15 +49,10 @@ p {
 p {
   margin-bottom: 0%;
 }
-b {
-  color: black;
-  font-size: 18px;
-}
 .acoes {
   margin-top: 5%;
   display: flex;
   justify-content: flex-start;
-  
 }
 /*Responsividade*/
 /* xl */
@@ -69,69 +63,67 @@ b {
 }
 /* lg */
 @media (max-width: 1024px) {
-  .card-{
+  .card- {
     flex-shrink: 1;
     width: 100%;
   }
-  .card-txt{
+  .card-txt {
     flex-shrink: 1;
   }
 }
 
 /* md */
 @media (max-width: 768px) {
-  .card-{
+  .card- {
     flex-shrink: 1;
-   
   }
-  .card-txt{
+  .card-txt {
     flex-shrink: 1;
   }
 }
 
 /* sm */
 @media (max-width: 640px) {
-  .editar-button{
-   width: 85px;
-   font-size: 12px;
+  .editar-button {
+    width: 85px;
+    font-size: 12px;
   }
-  .card-{
+  .card- {
     flex-shrink: 1;
-    
   }
-  .card-txt{
+  .card-txt {
     flex-shrink: 1;
   }
 }
 
 /* xs */
 @media (max-width: 475px) {
-  .usuario{
+  .usuario {
     flex-direction: row;
     padding-bottom: 10%;
   }
-  .foto_usuario_conteudo{
+  .foto_usuario_conteudo {
     height: 2%;
     width: 100px;
   }
-  .editar-button img{
+  .editar-button img {
     height: 30px;
     width: 30px;
   }
-  .card-{
+  .card- {
     flex-shrink: 1;
     height: 90px;
   }
-  .card-txt{
+  .card-txt {
     flex-shrink: 1;
     font-size: 12px;
   }
-  b{
+  b {
     font-size: 12px;
   }
 }
-@media (max-width: 325px){
-  .foto_usuario_conteudo{
+@media (max-width: 325px) {
+  .foto_usuario_conteudo {
     height: 2%;
     width: 80px;
   }

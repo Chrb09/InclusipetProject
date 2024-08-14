@@ -231,11 +231,18 @@
   font-size: 1.2em;
   padding-bottom: 1em;
 }
-.details p {
-  max-height: 0;
-  transition: max-height 0.3s linear;
+.wrapper-faq {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+.wrapper-faq p {
   overflow: hidden;
 }
+.open_faq .wrapper-faq {
+  grid-template-rows: 1fr;
+}
+
 .arrow_faq {
   aspect-ratio: 1/1;
   width: 3rem;
@@ -247,10 +254,6 @@
 }
 .open_faq .summary {
   padding-bottom: 1.5em;
-}
-
-.open_faq p {
-  max-height: 5.5rem;
 }
 
 .open_faq .arrow_faq {
@@ -360,9 +363,6 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  .open_faq p {
-    max-height: 10rem;
-  }
 }
 /* sm */
 @media (max-width: 640px) {
@@ -423,8 +423,5 @@
   }
   .subtitulo-text__reviews {
     font-size: var(--size-lg);
-  }
-  .open_faq p {
-    max-height: 20rem;
   }
 }

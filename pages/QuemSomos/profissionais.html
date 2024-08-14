@@ -114,130 +114,176 @@
       </div>
       <div class="content">
         <div class="section-nav-mobile">
-          <b>Quem Somos</b>
-          <div class="nav-mobile">
-            <button class="sidebar-button" onclick="location.href='quemsomos.html'" type="button">Sobre Nós</button>
-            <button class="sidebar-button ativo" onclick="location.href='profissionais.html'" type="button">
-              Nossos Profissionais
-            </button>
+          <div class="details open_faq">
+            <div class="summary">Quem Somos</div>
+            <div class="wrapper-faq">
+              <div class="colapse">
+                <div class="nav-mobile">
+                  <button class="sidebar-button" onclick="location.href='quemsomos.html'" type="button">
+                    Sobre Nós
+                  </button>
+                  <button class="sidebar-button ativo" onclick="location.href='profissionais.html'" type="button">
+                    Nossos Profissionais
+                  </button>
+                </div>
+              </div>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="var(--purple)"
+              class="arrow_faq"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
           </div>
-          <b>Serviços</b>
-          <div class="nav-mobile">
-            <button class="sidebar-button" onclick="location.href='atendvet.html'" type="button">
-              Atendimento Veterinário
-            </button>
-            <button class="sidebar-button" onclick="location.href='cirurproced.html'" type="button">
-              Cirurgias & Procedimentos
-            </button>
-            <button class="sidebar-button" onclick="location.href='vacinacao.html'" type="button">Vacinação</button>
+          <div class="details">
+            <div class="summary">Serviços</div>
+            <div class="wrapper-faq">
+              <div class="colapse">
+                <div class="nav-mobile">
+                  <button class="sidebar-button" onclick="location.href='atendvet.html'" type="button">
+                    Atendimento Veterinário
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='cirurproced.html'" type="button">
+                    Cirurgias & Procedimentos
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='vacinacao.html'" type="button">
+                    Vacinação
+                  </button>
+                </div>
+              </div>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="var(--purple)"
+              class="arrow_faq"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
           </div>
-          <b>Especialidades</b>
-          <div class="nav-mobile">
-            <button class="sidebar-button" onclick="location.href='ortopedia.html'" type="button">Ortopedia</button>
-            <button class="sidebar-button" onclick="location.href='fisioterapia.html'" type="button">
-              Fisioterapia & Reabilitação
-            </button>
-            <button class="sidebar-button" onclick="location.href='proteses.html'" type="button">
-              Próteses & Órteses
-            </button>
-            <button class="sidebar-button" onclick="location.href='neurologia.html'" type="button">Neurologia</button>
-            <button class="sidebar-button" onclick="location.href='terapia.html'" type="button">
-              Terapia Comportamental
-            </button>
-            <button class="sidebar-button" onclick="location.href='aconselhamento.html'" type="button">
-              Aconselhamento para Donos
-            </button>
+          <div class="details">
+            <div class="summary">Especialidades</div>
+            <div class="wrapper-faq">
+              <div class="colapse">
+                <div class="nav-mobile">
+                  <button class="sidebar-button" onclick="location.href='ortopedia.html'" type="button">
+                    Ortopedia
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='fisioterapia.html'" type="button">
+                    Fisioterapia & Reabilitação
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='proteses.html'" type="button">
+                    Próteses & Órteses
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='neurologia.html'" type="button">
+                    Neurologia
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='terapia.html'" type="button">
+                    Terapia Comportamental
+                  </button>
+                  <button class="sidebar-button" onclick="location.href='aconselhamento.html'" type="button">
+                    Aconselhamento para Donos
+                  </button>
+                </div>
+              </div>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="var(--purple)"
+              class="arrow_faq"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
           </div>
         </div>
+        <script src="../../js/nav_mobile.js"></script>
         <div class="titulo">Nossos Profissionais</div>
         <!--CODIGO DA PAGINA AQUI-->
-        <div class="cards-cont">
+        <div class="card-container">
           <div class="card">
-            <img src="../../img/QuemSomos/klein.png" alt="" />
-            <div class="conteu">
-              <div class="cont">
-                <div class="txt">
-                  <p class="meio">Nome</p>
-                  <p>Especialidade</p>
-                  <p>Unidade</p>
-                  <p>Anos de atuação</p>
-                  <p>Nota</p>
-                </div>
-                <div class="info">
-                  <p class="meio">Klein Figueiredo</p>
-                  <p>Neurologia</p>
-                  <p>Artur Alvim</p>
-                  <p>10 Anos</p>
-                  <p>4,5 Estrelas</p>
-                </div>
-              </div>
-            </div>
+            <img src="../../img/QuemSomos/prof1.png" alt="" />
+            <table class="info">
+              <tr>
+                <th>Nome</th>
+                <th>Especialidade</th>
+                <th>Unidade</th>
+                <th>Anos de atuação</th>
+                <th>Nota</th>
+              </tr>
+              <tr>
+                <td>Klein Figueiredo</td>
+                <td>Nêurologia</td>
+                <td>Artur Alvim</td>
+                <td>10 Anos</td>
+                <td>4,5 Estrelas</td>
+              </tr>
+            </table>
           </div>
 
           <div class="card">
-            <img src="../../img/QuemSomos/sarah.png" alt="" />
-            <div class="conteu">
-              <div class="cont">
-                <div class="txt">
-                  <p class="meio">Nome</p>
-                  <p>Especialidade</p>
-                  <p>Unidade</p>
-                  <p>Anos de atuação</p>
-                  <p>Nota</p>
-                </div>
-                <div class="info">
-                  <p class="meio">Sarah Siqueira</p>
-                  <p>Fisioterapia</p>
-                  <p>Artur Alvim</p>
-                  <p>2 Anos</p>
-                  <p>4,9 Estrelas</p>
-                </div>
-              </div>
-            </div>
+            <img src="../../img/QuemSomos/prof2.png" alt="" />
+            <table class="info">
+              <tr>
+                <th>Nome</th>
+                <th>Especialidade</th>
+                <th>Unidade</th>
+                <th>Anos de atuação</th>
+                <th>Nota</th>
+              </tr>
+              <tr>
+                <td>Sarah Siqueira</td>
+                <td>Fisioterapia</td>
+                <td>Artur Alvim</td>
+                <td>2 Anos</td>
+                <td>4,9 Estrelas</td>
+              </tr>
+            </table>
           </div>
 
           <div class="card">
-            <img src="../../img/QuemSomos/miguel.png" alt="" />
-            <div class="conteu">
-              <div class="cont">
-                <div class="txt">
-                  <p class="meio">Nome</p>
-                  <p>Especialidade</p>
-                  <p>Unidade</p>
-                  <p>Anos de atuação</p>
-                  <p>Nota</p>
-                </div>
-                <div class="info">
-                  <p class="meio">Miguel Souza</p>
-                  <p>Cirugião</p>
-                  <p>Artur Alvim</p>
-                  <p>5 Anos</p>
-                  <p>5,0 Estrelas</p>
-                </div>
-              </div>
-            </div>
+            <img src="../../img/QuemSomos/prof3.png" alt="" />
+            <table class="info">
+              <tr>
+                <th>Nome</th>
+                <th>Especialidade</th>
+                <th>Unidade</th>
+                <th>Anos de atuação</th>
+                <th>Nota</th>
+              </tr>
+              <tr>
+                <td>Miguel YuYuHakusho Roxildo</td>
+                <td>Cirurgião</td>
+                <td>Artur Alvim</td>
+                <td>5 Anos</td>
+                <td>5,0 Estrelas</td>
+              </tr>
+            </table>
           </div>
 
           <div class="card">
-            <img src="../../img/QuemSomos/antonia.png" alt="" />
-            <div class="conteu">
-              <div class="cont">
-                <div class="txt">
-                  <p class="meio">Nome</p>
-                  <p>Especialidade</p>
-                  <p>Unidade</p>
-                  <p>Anos de atuação</p>
-                  <p>Nota</p>
-                </div>
-                <div class="info">
-                  <p class="">Antonia Santos</p>
-                  <p>Clínico</p>
-                  <p>Artur Alvim</p>
-                  <p>9 Anos</p>
-                  <p>4,1 Estrelas</p>
-                </div>
-              </div>
-            </div>
+            <img src="../../img/QuemSomos/prof4.png" alt="" />
+            <table class="info">
+              <tr>
+                <th>Nome</th>
+                <th>Especialidade</th>
+                <th>Unidade</th>
+                <th>Anos de atuação</th>
+                <th>Nota</th>
+              </tr>
+              <tr>
+                <td>Antonia Shouko dos Santos</td>
+                <td>Clínico</td>
+                <td>Artur Alvim</td>
+                <td>9 Anos</td>
+                <td>4,1 Estrelas</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

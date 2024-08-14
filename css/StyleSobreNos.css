@@ -23,12 +23,7 @@
 .container {
   flex-shrink: 0;
 }
-.hr {
-  border-top: 3px solid var(--purple);
-  border-radius: 5px;
-  width: 75%;
-  margin: 1.5rem 0 4.5rem 0;
-}
+
 .span {
   color: var(--purple);
   font-weight: 750;
