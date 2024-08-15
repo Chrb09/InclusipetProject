@@ -1,99 +1,9 @@
 /* MEUS PETS */
-.img-menor,
-.novo-pet {
-  border-radius: 100rem;
-  aspect-ratio: 1 / 1;
-  height: 5em;
-  object-fit: cover;
-}
-.img-maior {
-  border-radius: 100rem;
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  object-fit: cover;
-}
-.novo-pet {
-  height: 3em;
-}
-.button-pet {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  font-size: 1.5em;
-  font-weight: 700;
-}
-.content-pet {
-  display: flex;
-  width: 100%;
-  gap: 4%;
-}
-.dados-pet {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  width: 58%;
-}
 
-.meus-pets {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  width: 38%;
-}
-.img-pet {
-  width: 48%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.25em;
-  font-weight: 700;
-  gap: 0.5em;
-  padding-inline: 2rem;
-}
-.cadastrar-pet {
-  font-size: 0.9em;
-  font-weight: 700;
-  color: var(--purple);
-}
-.dados-pet {
-  align-items: center;
-}
-.linha-info {
-  display: flex;
-  justify-content: space-between;
-}
-.info-meus-pets {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1em;
-  width: 48%;
-}
-.linha-info p {
-  color: var(--gray-black);
-  font-size: 1.5em;
-  text-align: right;
-}
-.linha-info p:first-child {
-  font-weight: 700;
-}
 @media (max-width: 1536px) {
 }
 
 @media (max-width: 1280px) {
-  .dados-pet .content-pet {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .content-pet .img-pet {
-    padding-inline: 1rem;
-    margin-bottom: 1em;
-  }
-  .info-meus-pets {
-    width: 65%;
-  }
 }
 /* lg */
 @media (max-width: 1024px) {
@@ -101,29 +11,6 @@
 
 /* md */
 @media (max-width: 768px) {
-  .titulo {
-    text-align: center;
-  }
-  .content-pet {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 2rem;
-  }
-  .content-pet .img-pet {
-    margin-bottom: 0px;
-  }
-  .dados-pet,
-  .meus-pets {
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .button-pet {
-    width: 50%;
-  }
 }
 
 /* sm */
@@ -132,43 +19,47 @@
 
 /* xs */
 @media (max-width: 475px) {
-  .info-meus-pets,
-  .button-pet,
-  .img-pet {
-    width: 75%;
-  }
 }
 
 /* CADASTRAR PET */
 .foto {
-  font-size: 2.25em;
-  font-weight: 700;
-
   margin-block: 3%;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
+.foto p {
+  font-size: 1.75em;
+  font-weight: 700;
+}
 .mudar {
   z-index: 2;
-  height: 50px;
+  height: 40%;
+  aspect-ratio: 1 / 1;
+  display: flex;
   position: absolute;
   right: 0;
   bottom: 0;
+  padding: 0.6em;
+  background-color: var(--purple);
+  border-radius: 100%;
 }
 .foto_pet {
   z-index: 1;
-  height: 150px;
+  border-radius: 100%;
 }
 .foto-wrapper {
   position: relative;
+  width: 6.5em;
+  aspect-ratio: 1 / 1;
 }
+
 .form__cadastrar_pet {
-  font-size: 1.35em;
   width: 80%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 4%;
 }
 input[type="text"],
@@ -194,6 +85,9 @@ select {
   justify-content: center;
   gap: 2rem;
 }
+.button-wrapper button {
+  width: 10rem;
+}
 .radio-group {
   padding: 0.5rem 0rem;
   display: flex;
@@ -204,10 +98,6 @@ select {
   gap: 0.5em;
   align-items: center;
 }
-.button-wrapper .botao {
-  padding: 0.3em 1em;
-  width: 10rem;
-}
 .desativado label {
   color: #919191;
 }
@@ -215,4 +105,40 @@ select {
   color: #f3f3f3;
   background-color: #f3f3f3;
   border-color: #ada4dd;
+}
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+/* lg */
+@media (max-width: 1024px) {
+  .form__cadastrar_pet {
+    width: 100%;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .foto {
+    margin-inline: auto;
+    width: 80%;
+  }
+  .form-input {
+    width: 80%;
+    font-size: 1.2em;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .form-input,
+  .foto {
+    width: 100%;
+  }
 }

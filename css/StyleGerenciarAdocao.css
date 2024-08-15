@@ -40,8 +40,8 @@
 .botoes {
   display: flex;
   flex-direction: column;
+  align-items: start;
   gap: 0.75rem;
-  width: 30%;
 }
 .botao-borda {
   width: fit-content;
@@ -49,8 +49,6 @@
 
 /*Div do adotado que fica ao lado da descrição*/
 .adotado {
-  background-color: #4cb062;
-  color: var(--white);
   font-weight: 600;
   font-size: 1em;
   padding-block: 0.6em;
@@ -63,11 +61,21 @@
   gap: 0.5em;
   line-height: 2.5;
   width: fit-content;
+  outline: #4cb062 3px solid;
+}
+.adotado:has(input[type="checkbox"]:checked) {
+  background-color: red;
+  background-color: #4cb062;
+  color: var(--white);
 }
 .adotado input[type="checkbox"] {
   border-color: #4cb062;
+  border-width: 3px;
+  cursor: pointer;
+  border-radius: 0.5em;
 }
 .adotado input[type="checkbox"]::before {
+  border-radius: 0.5em;
   box-shadow: inset 1em 1em #4cb062;
 }
 
@@ -145,7 +153,6 @@ span {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 4%;
 }
 input[type="text"],
@@ -171,6 +178,9 @@ select {
   justify-content: center;
   gap: 2rem;
 }
+.button-wrapper button {
+  width: 10rem;
+}
 .radio-group {
   padding: 0.5rem 0rem;
   display: flex;
@@ -188,4 +198,48 @@ select {
   color: #f3f3f3;
   background-color: #f3f3f3;
   border-color: #ada4dd;
+}
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+/* lg */
+@media (max-width: 1024px) {
+  .form__anunciar_pet {
+    width: 100%;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .top {
+    margin-inline: auto;
+    width: 80%;
+  }
+  .fotos {
+    flex-wrap: wrap;
+    gap: 3%;
+  }
+  .fotos img {
+    width: 30%;
+    margin-bottom: 3%;
+  }
+  .form-input {
+    width: 80%;
+    font-size: 1.2em;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .form-input,
+  .top {
+    width: 100%;
+  }
 }

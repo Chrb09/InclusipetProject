@@ -119,7 +119,7 @@ iframe {
 .botao-borda,
 .botao-solido,
 .botao-solido-branco {
-  font-size: 1.125rem;
+  font-size: inherit;
 }
 
 @-webkit-keyframes shake {
@@ -161,6 +161,9 @@ textarea {
   padding: 0.4rem 0.75rem;
   font-size: 0.9em;
 }
+textarea {
+  resize: none;
+}
 select {
   appearance: none;
   background-color: var(--white);
@@ -170,6 +173,7 @@ select {
   box-shadow: none;
   cursor: pointer;
   width: 100%;
+  font-size: 0.9em;
 }
 .custom-select {
   /* ... */
