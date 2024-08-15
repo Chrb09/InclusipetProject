@@ -59,6 +59,7 @@ body {
   position: relative;
   min-height: 100vh;
   padding-bottom: 18.75rem;
+  overflow-y: scroll;
 }
 img,
 picture,

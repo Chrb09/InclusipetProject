@@ -22,106 +22,6 @@
 }
 
 /* CADASTRAR PET */
-.foto {
-  margin-block: 3%;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.foto p {
-  font-size: 1.75em;
-  font-weight: 700;
-}
-.mudar {
-  z-index: 2;
-  height: 40%;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding: 0.6em;
-  background-color: var(--purple);
-  border-radius: 100%;
-}
-.foto_pet {
-  z-index: 1;
-  border-radius: 100%;
-}
-.foto-wrapper {
-  position: relative;
-  width: 6.5em;
-  aspect-ratio: 1 / 1;
-}
-
-.form__cadastrar_pet {
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4%;
-}
-input[type="text"],
-input[type="date"],
-input[type="number"],
-select {
-  width: 100%;
-}
-.form-input {
-  width: 48%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35em;
-  margin-bottom: 1em;
-}
-.form-input br {
-  display: none;
-}
-.button-wrapper {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-.button-wrapper button {
-  width: 10rem;
-}
-.radio-group {
-  padding: 0.5rem 0rem;
-  display: flex;
-  gap: 1em;
-}
-.radio-div {
-  display: flex;
-  gap: 0.5em;
-  align-items: center;
-}
-.desativado label {
-  color: #919191;
-}
-.desativado input {
-  color: #f3f3f3;
-  background-color: #f3f3f3;
-  border-color: #ada4dd;
-}
-
-@media (max-width: 1536px) {
-}
-
-@media (max-width: 1280px) {
-}
-/* lg */
-@media (max-width: 1024px) {
-  .form__cadastrar_pet {
-    width: 100%;
-  }
-}
-
-/* md */
-@media (max-width: 768px) {
-}
 
 /* sm */
 @media (max-width: 640px) {
@@ -129,15 +29,10 @@ select {
     margin-inline: auto;
     width: 80%;
   }
-  .form-input {
-    width: 80%;
-    font-size: 1.2em;
-  }
 }
 
 /* xs */
 @media (max-width: 475px) {
-  .form-input,
   .foto {
     width: 100%;
   }

@@ -20,15 +20,31 @@
         <div class="sidebar-background"></div>
         <div class="sidebar-nav">
           <b>Área do Usuario</b>
-          <button class="sidebar-button ativo" onclick="location.href='perfil.html'" type="button">Perfil</button>
-          <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">Meus Pets</button>
-          <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
+          <button class="sidebar-button ativo" onclick="location.href='perfil.html'" type="button">
+            Perfil
+          </button>
+          <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">
+            Meus Pets
+          </button>
+          <button
+            class="sidebar-button"
+            onclick="location.href='meusagendamentos.html'"
+            type="button"
+          >
             Meus Agendamentos
           </button>
-          <button class="sidebar-button" onclick="location.href='resultadosexames.html'" type="button">
+          <button
+            class="sidebar-button"
+            onclick="location.href='resultadosexames.html'"
+            type="button"
+          >
             Resultados Exames
           </button>
-          <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
+          <button
+            class="sidebar-button"
+            onclick="location.href='gerenciaradocao.html'"
+            type="button"
+          >
             Gerenciar Adoção
           </button>
         </div>
@@ -75,19 +91,39 @@
               <div class="wrapper-faq">
                 <div class="colapse">
                   <div class="nav-mobile">
-                    <button class="sidebar-button ativo" onclick="location.href='perfil.html'" type="button">
+                    <button
+                      class="sidebar-button ativo"
+                      onclick="location.href='perfil.html'"
+                      type="button"
+                    >
                       Perfil
                     </button>
-                    <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='meuspets.html'"
+                      type="button"
+                    >
                       Meus Pets
                     </button>
-                    <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='meusagendamentos.html'"
+                      type="button"
+                    >
                       Meus Agendamentos
                     </button>
-                    <button class="sidebar-button" onclick="location.href='resultadosexames.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='resultadosexames.html'"
+                      type="button"
+                    >
                       Resultados Exames
                     </button>
-                    <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='gerenciaradocao.html'"
+                      type="button"
+                    >
                       Gerenciar Adoção
                     </button>
                   </div>
@@ -100,7 +136,11 @@
                 stroke="var(--purple)"
                 class="arrow_faq"
               >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
               </svg>
             </div>
           </div>
@@ -109,23 +149,116 @@
           <!-- Conteudo principal -->
           <div class="titulo">Perfil</div>
 
-          <div class="usuario">
-            <img
-              src="../../img/Perfil/foto_usuario.png"
-              alt="Foto de perfil do Usuario"
-              class="foto_usuario_conteudo"
-            />
+          <div class="usuario usuario-edit" id="usuario">
+            <div class="foto-edit">
+              <div class="foto-edit-wrapper">
+                <img
+                  src="../../img/Perfil/foto_usuario.png"
+                  alt="Foto do pet"
+                  class="foto-edit-img"
+                />
+                <div class="edit">
+                  <img src="../../img/Perfil/editar.png" alt="" />
+                </div>
+              </div>
+            </div>
             <div class="info_usuario">
-              <p>Nome do Usuario:</p>
-              <p>Data Nascimento:</p>
-              <p>Email:</p>
-              <p>Telefone:</p>
-              <p>CEP/CPF:</p>
+              <table class="info-table">
+                <tr>
+                  <th>Nome Completo:</th>
+                  <td>Miguel Yudi Baba</td>
+                </tr>
+                <tr>
+                  <th>Data Nascimento:</th>
+                  <td>11/04/2004</td>
+                </tr>
+                <tr>
+                  <th>Email:</th>
+                  <td>hatsunemikulover@gmail.com</td>
+                </tr>
+                <tr>
+                  <th>Telefone:</th>
+                  <td>+11 91234-5678</td>
+                </tr>
+                <tr>
+                  <th>CEP/CPF:</th>
+                  <td>69093-809 / 252.910.260-06</td>
+                </tr>
+              </table>
 
-              <button class="botao-solido editar-button" onclick="" type="button">
+              <button class="botao-solido editar-button" onclick="usuarioedit()" type="button">
                 <img src="../../img/Perfil/Editar.png" alt="" />Editar
               </button>
             </div>
+            <form action="" class="form__cadastro">
+              <div class="form-input">
+                <label for="sign-up-name">Nome Completo</label>
+                <input
+                  name="sign-up-name "
+                  placeholder="Seu Nome..."
+                  type="text"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-input">
+                <label for="sign-up-date">Data de Nascimento</label>
+                <input name="sign-up-date " type="date" required autocomplete="off" />
+              </div>
+              <div class="form-input">
+                <label for="sign-up-email">Email</label>
+                <input
+                  name="sign-up-email "
+                  placeholder="Seu email..."
+                  type="email"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-input">
+                <label for="sign-up-tel">Telefone</label>
+                <input
+                  name="sign-up-tel"
+                  id="sign-up-tel"
+                  placeholder="(00)00000-0000"
+                  type="text"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-input desativado">
+                <label for="sign-up-cep">CEP</label>
+                <input
+                  name="sign-up-cep"
+                  id="sign-up-cep"
+                  placeholder="00000-000"
+                  type="text"
+                  disabled
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-input desativado">
+                <label for="sign-up-cpf">CPF</label>
+                <input
+                  name="sign-up-cpf"
+                  id="sign-up-cpf"
+                  placeholder="000.000.000-00"
+                  type="text"
+                  disabled
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-input"></div>
+              <div class="form-msg">Para alterar seu CEP ou CPF entre em contato.</div>
+              <div class="button-wrapper-form">
+                <button class="botao botao-borda" onclick="usuarioedit()" type="button">
+                  Voltar
+                </button>
+                <button class="botao botao-solido" onclick="usuarioedit()" type="button">
+                  Salvar
+                </button>
+              </div>
+            </form>
           </div>
 
           <div class="acoes">
@@ -133,21 +266,21 @@
               <a href="agendamento.html"><img src="../../img/Perfil/agendar.png" alt="" /></a>
               <div class="card-txt">
                 <p>Agendar</p>
-                <p><b>Consulta</b></p>
+                <strong>Consulta</strong>
               </div>
             </div>
             <div class="card-">
               <a href="anuncioadocao.html"><img src="../../img/Perfil/anunciar.png" alt="" /></a>
               <div class="card-txt">
                 <p>Criar anuncio de</p>
-                <p><b>Adoção</b></p>
+                <strong>Adoção</strong>
               </div>
             </div>
             <div class="card-">
               <a href="cadastraranimal.html"><img src="../../img/Perfil/cadastrar.png" alt="" /></a>
               <div class="card-txt">
                 <p>Cadastrar</p>
-                <p><b>Animal</b></p>
+                <strong>Animal</strong>
               </div>
             </div>
           </div>
@@ -155,4 +288,8 @@
       </div>
     </div>
   </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../js/perfil.js"></script>
 </html>

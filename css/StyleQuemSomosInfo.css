@@ -13,3 +13,10 @@
     margin-left:auto;
     margin-right:auto;
 }
+
+@media (max-width: 640px) {
+
+    .text-main{
+        width: 95%;
+    }
+}

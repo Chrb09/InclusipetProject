@@ -2,18 +2,9 @@
 .usuario {
   display: flex;
   flex-direction: row;
+  gap: 5%;
 }
-.info_usuario {
-  margin-top: 5%;
-  margin-left: 5%;
-}
-.foto_usuario_conteudo {
-  height: 200px;
-  margin-top: 5%;
-}
-p {
-  font-weight: bold;
-}
+
 .card- {
   margin-right: 3%;
   display: flex;
@@ -29,14 +20,42 @@ p {
   justify-content: center;
   flex-shrink: 1;
 }
-p {
-  margin-bottom: 0%;
-}
 .acoes {
   margin-top: 5%;
   display: flex;
   justify-content: flex-start;
 }
+strong {
+  color: var(--grayblack);
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.foto-edit-wrapper {
+  width: 10em;
+}
+.edit {
+  height: 30%;
+  padding: 0.6em;
+  display: none;
+}
+.form-msg {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.form__cadastro {
+  display: none;
+}
+.usuario-edit .form__cadastro {
+  display: flex;
+}
+.usuario-edit .info_usuario {
+  display: none;
+}
+.usuario-edit .edit {
+  display: block;
+}
+
 /*Responsividade*/
 /* xl */
 @media (max-width: 1536px) {

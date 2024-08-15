@@ -167,6 +167,103 @@ body {
 .editar-button img {
   width: 18%;
 }
+
+.foto-edit {
+  margin-block: 3%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.foto-edit p {
+  font-size: 1.75em;
+  font-weight: 700;
+}
+.edit {
+  z-index: 2;
+  height: 40%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.6em;
+  background-color: var(--purple);
+  border-radius: 100%;
+}
+.foto-edit-img {
+  z-index: 1;
+  border-radius: 100%;
+}
+.foto-edit-wrapper {
+  position: relative;
+  width: 6.5em;
+  aspect-ratio: 1 / 1;
+}
+
+
+.form__cadastro {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4%;
+}
+.form__cadastro input[type="text"],
+.form__cadastro input[type="date"],
+.form__cadastro input[type="number"],
+.form__cadastro select {
+  width: 100%;
+}
+.form-input {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  margin-bottom: 1em;
+}
+.form-input br {
+  display: none;
+}
+.button-wrapper-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.button-wrapper-form button {
+  width: 10rem;
+}
+.radio-group {
+  padding: 0.5rem 0rem;
+  display: flex;
+  gap: 1em;
+}
+.radio-div {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+.desativado label {
+  color: #919191;
+}
+.desativado input {
+  color: #f3f3f3;
+  background-color: #f3f3f3;
+  border-color: #ada4dd;
+}
+.info-table{
+  width: 100%;
+  border-spacing: 0.5em;
+}
+.info-table th{
+  text-align: left;
+  
+}
+.info-table td{
+  text-align: right;
+}
 @media (min-width: 1536px) {
   .container-usuario {
     max-width: 1536px;
@@ -179,7 +276,7 @@ body {
   .sidebar-background {
     width: 100vw;
     left: unset;
-    right: calc(50vw + 29rem);
+    right: 0;
   }
 }
 
@@ -217,6 +314,9 @@ body {
   }
   .linha-links {
     gap: 0.7em;
+  }
+  .form__cadastro {
+    width: 100%;
   }
 }
 
@@ -280,6 +380,10 @@ body {
   .login__name {
     display: none;
   }
+  .form-input {
+    width: 80%;
+    font-size: 1.2em;
+  }
 }
 
 /* xs */
@@ -295,5 +399,8 @@ body {
   .container {
     width: 100%;
     padding-inline: 3em;
+  }
+  .form-input{
+    width: 100%;
   }
 }
