@@ -1,6 +1,3 @@
-* {
-  font-size: 0.95em;
-}
 b {
   color: var(--purple);
   font-size: 1.5em;
@@ -11,7 +8,7 @@ body {
 .content,
 .container {
   max-width: 1152px;
-  margin-inline: auto;
+  margin-left: 0;
   padding-block: 3em;
   padding-inline: 1em;
 }
@@ -24,8 +21,8 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-size: 0.9em;
   padding-block: 2rem;
-  margin-bottom: 2em;
 }
 .header-perfil a,
 .header-mobile a {
@@ -71,7 +68,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  width: 18em;
+  width: 16em;
   z-index: -1;
 }
 .sidebar-nav {
@@ -155,9 +152,7 @@ body {
   width: 100%;
 }
 .editar-button {
-  padding-block: 0.1em;
-  padding-left: 1em;
-  padding-right: 1.4em;
+  padding: 0;
   border-radius: 0.75em;
   line-height: 2.5;
   gap: 0.5em;
@@ -165,13 +160,11 @@ body {
   justify-content: center;
   align-items: center;
   width: fit-content;
+  height: 2.4em;
 }
-.botao-borda,
-.botao-solido {
-  font-size: 1.15em;
-}
+
 .editar-button img {
-  height: 1.4em;
+  width: 20%;
 }
 @media (min-width: 1536px) {
   .container-usuario {
@@ -185,7 +178,7 @@ body {
   .sidebar-background {
     width: 100vw;
     left: unset;
-    right: calc(50vw + 32rem);
+    right: calc(50vw + 29rem);
   }
 }
 

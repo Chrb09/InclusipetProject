@@ -14,8 +14,9 @@
   background-color: var(--white);
   border: solid 0.15rem var(--purple);
   border-radius: 1.5em;
+  font-size: 0.9em;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-direction: row;
   padding-block: 1em;
   padding-inline: 1.5em;
@@ -41,14 +42,14 @@ th:nth-child(4) {
   width: 300px;
 }
 th:nth-child(5) {
-  width: 115px;
+  width: 125px;
 }
 .card img {
   height: 100%;
 }
 .info {
   text-align: left;
-  width: 925px;
+  width: 910px;
 }
 .table-wrapper {
   padding-block: 1em;

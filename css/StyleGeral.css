@@ -71,7 +71,6 @@ iframe {
   background-color: var(--purple);
   color: var(--white);
   font-weight: 600;
-  font-size: var(--size-xl);
   border-style: solid;
   border-color: var(--purple);
   border-width: 0.15rem;
@@ -86,7 +85,6 @@ iframe {
 }
 .botao-borda {
   font-weight: 700;
-  font-size: var(--size-xl);
   padding: 0.5em 1em;
   color: var(--gray);
   fill: var(--gray);
@@ -109,7 +107,6 @@ iframe {
   background-color: var(--white);
   color: var(--purple);
   font-weight: 700;
-  font-size: var(--size-xl);
   padding: 0.6em 1.1em;
   border-radius: 0.8em;
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
@@ -118,6 +115,11 @@ iframe {
     background-color: var(--purplehover);
     color: var(--white);
   }
+}
+.botao-borda,
+.botao-solido,
+.botao-solido-branco {
+  font-size: 1.125rem;
 }
 
 @-webkit-keyframes shake {
@@ -530,11 +532,6 @@ strong {
   .titulo {
     font-size: var(--size-4x);
   }
-  .botao-solido,
-  .botao-borda,
-  .botao-solido-branco {
-    font-size: var(--size-base);
-  }
   body {
     padding-bottom: 18rem;
     font-size: var(--size-base);
@@ -566,12 +563,6 @@ strong {
   }
   .titulo {
     font-size: var(--size-2x);
-  }
-  .botao-solido,
-  .botao-borda,
-  .botao-solido-branco {
-    font-size: var(--size-xs);
-    padding: 0.3em 1.2em;
   }
   body {
     padding-bottom: 13.5rem;
@@ -635,11 +626,6 @@ strong {
   }
   .titulo {
     font-size: var(--size-4x);
-  }
-  .botao-solido,
-  .botao-borda {
-    font-size: var(--size-base);
-    padding: 0.3em 1.2em;
   }
   .botao-solido-branco {
     font-size: var(--size-lg);

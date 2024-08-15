@@ -4,7 +4,8 @@
 }
 
 .animal {
-  width: 20rem;
+  width: 18rem;
+  object-fit: cover;
   aspect-ratio: 3 / 2;
   border-radius: 1em;
 }
@@ -15,16 +16,15 @@
   align-items: center;
   margin-bottom: 2rem;
   width: 100%;
-  gap: 2rem;
+  gap: 1em;
 }
 
 .descricao-pet {
   /*Div com a descrição do animal*/
   width: 50%;
-  font-size: 1.1em;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.3em;
 }
 .decricao {
   width: 100%;
@@ -34,7 +34,7 @@
   /*Nome do animal*/
   color: #574dbd;
   font-weight: bold;
-  font-size: 2.2em;
+  font-size: 1.8em;
 }
 
 .botoes {
@@ -52,7 +52,7 @@
   background-color: #4cb062;
   color: var(--white);
   font-weight: 600;
-  font-size: 1.25em;
+  font-size: 1em;
   padding-block: 0.6em;
   padding-left: 0.8em;
   padding-right: 1.2em;
@@ -64,10 +64,10 @@
   line-height: 2.5;
   width: fit-content;
 }
-input[type="checkbox"] {
+.adotado input[type="checkbox"] {
   border-color: #4cb062;
 }
-input[type="checkbox"]::before {
+.adotado input[type="checkbox"]::before {
   box-shadow: inset 1em 1em #4cb062;
 }
 
@@ -130,15 +130,16 @@ span {
   margin-block: 3%;
 }
 .fotos {
-  height: 150px;
   margin-block: 1%;
 
   display: flex;
   align-items: center;
   gap: 1rem;
 }
+.fotos img {
+  width: 15%;
+}
 .form__anunciar_pet {
-  font-size: 1.35em;
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -179,10 +180,6 @@ select {
   display: flex;
   gap: 0.5em;
   align-items: center;
-}
-.button-wrapper .botao {
-  padding: 0.3em 1em;
-  width: 10rem;
 }
 .desativado label {
   color: #919191;

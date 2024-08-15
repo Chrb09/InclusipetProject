@@ -3,7 +3,6 @@ b {
 }
 
 .main {
-  font-size: 0.9em;
   width: 100vw;
   display: flex;
   padding: 0;
@@ -77,6 +76,7 @@ body {
   font-weight: 600;
 }
 .details {
+  font-size: 0.9em;
   margin-inline: auto;
   width: 100%;
   position: relative;
@@ -104,7 +104,7 @@ body {
 .arrow_faq {
   pointer-events: none;
   aspect-ratio: 1/1;
-  width: 2.5rem;
+  width: 2rem;
   position: absolute;
   right: 0;
   top: 0;
@@ -136,7 +136,7 @@ body {
   .sidebar-background {
     width: 100vw;
     left: unset;
-    right: calc(50vw + 28rem);
+    right: calc(50vw + 26rem);
   }
 }
 
