@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/StyleGeral.css" />
+    <!-- CSS EXTERNO GERAL -->
+    <link rel="stylesheet" href="../../css/StyleUsuario.css" />
+    <link rel="stylesheet" href="../../css/StyleMeusAgendamentos.css" />
+    <!-- CSS EXTERNO PAGINA -->
+    <link rel="icon" href="../../img/Outros/inclusipet.ico" />
+    <!-- ICON -->
+    <title>Resumo Agendamento</title>
+  </head>
+  <body>
+    <!-- PERFIL -->
+    <div class="container-usuario">
+      <div class="sidebar">
+        <div class="sidebar-background"></div>
+        <div class="sidebar-nav">
+          <b>Área do Usuario</b>
+          <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">
+            Perfil
+          </button>
+          <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">
+            Meus Pets
+          </button>
+          <button
+            class="sidebar-button ativo"
+            onclick="location.href='meusagendamentos.html'"
+            type="button"
+          >
+            Meus Agendamentos
+          </button>
+          <button
+            class="sidebar-button"
+            onclick="location.href='resultadosexames.html'"
+            type="button"
+          >
+            Resultados Exames
+          </button>
+          <button
+            class="sidebar-button"
+            onclick="location.href='gerenciaradocao.html'"
+            type="button"
+          >
+            Gerenciar Adoção
+          </button>
+        </div>
+        <div class="copyright-sidebar">®2023 Inclusipet. Todos os direitos reservados.</div>
+      </div>
+
+      <div class="main">
+        <div class="container header-perfil header-pc">
+          <a href="../../index.html">
+            <img src="../../img/Perfil/inclusipet.png" alt="Logo Inclusipet" class="logo__header" />
+          </a>
+          <div class="linha">
+            <div class="linha-links">
+              <a href="../QuemSomos/quemsomos.html" class="links__header a-under">Quem Somos</a>
+              <a href="../Unidades/unidades.html" class="links__header a-under">Unidades</a>
+              <a href="../Blog/blog.html" class="links__header a-under">Blog</a>
+              <a href="../Adocao/adocao.html" class="links__header a-under">Adoção</a>
+              <a href="../Contato/contato.html" class="links__header a-under">Contato</a>
+            </div>
+            |
+            <div class="linha">
+              <img src="../../img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
+              <a href="perfil.html" class="login__name">Nome do Usuario</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="container header-perfil header-mobile">
+          <a a href="../../index.html">
+            <img src="../../img/Perfil/inclusipet.png" alt="Logo Inclusipet" class="logo__header" />
+          </a>
+          <div class="linha">
+            <div class="linha">
+              <img src="../../img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
+              <a href="perfil.html" class="login__name">Nome do Usuario</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="section-nav-mobile">
+            <div class="details open_faq">
+              <div class="summary">Área do Usuario</div>
+              <div class="wrapper-faq">
+                <div class="colapse">
+                  <div class="nav-mobile">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='perfil.html'"
+                      type="button"
+                    >
+                      Perfil
+                    </button>
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='meuspets.html'"
+                      type="button"
+                    >
+                      Meus Pets
+                    </button>
+                    <button
+                      class="sidebar-button ativo"
+                      onclick="location.href='meusagendamentos.html'"
+                      type="button"
+                    >
+                      Meus Agendamentos
+                    </button>
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='resultadosexames.html'"
+                      type="button"
+                    >
+                      Resultados Exames
+                    </button>
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='gerenciaradocao.html'"
+                      type="button"
+                    >
+                      Gerenciar Adoção
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="var(--purple)"
+                class="arrow_faq"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </div>
+          </div>
+          <script src="../../js/nav_mobile.js"></script>
+          <div class="titulo">Resumo agendamento</div>
+          <div class="pet-info">
+            <div class="pet-info-wrapper">
+              <div class="pet-info-img">
+                <img src="../../img/Adocao/Animal1/img1.png" alt="" />
+                <strong>Fonseca</strong>
+
+                <div class="table-row">
+                  <b>Serviço Agendado</b>
+                  <table class="info-table">
+                    <tr>
+                      <th>Consulta:</th>
+                      <td>R$ 0,01</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="pet-info-container">
+                <b>Detalhes</b>
+                <div class="table-row">
+                  <table class="info-table">
+                    <tr>
+                      <th>Pedido:</th>
+                      <td><b>34012</b></td>
+                    </tr>
+                    <tr>
+                      <th>Unidade:</th>
+                      <td>Artur Alvim</td>
+                    </tr>
+                    <tr>
+                      <th>Serviço:</th>
+                      <td>Exame</td>
+                    </tr>
+                    <tr>
+                      <th>Especialidade:</th>
+                      <td>Clínico Geral</td>
+                    </tr>
+                    <tr>
+                      <th>Profissional:</th>
+                      <td>Mônica Machado</td>
+                    </tr>
+                    <tr>
+                      <th>Data consulta:</th>
+                      <td>24/04/2024</td>
+                    </tr>
+                    <tr>
+                      <th>Hora Consulta:</th>
+                      <td>11:20</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="button-wrapper-form">
+              <button
+                class="botao botao-borda"
+                onclick="location.href='agendamento.html'"
+                type="button"
+              >
+                Voltar
+              </button>
+              <button
+                class="botao botao-solido"
+                onclick="location.href='meusagendamentos.html'"
+                type="button"
+              >
+                Concluir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,195 @@
+.top {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-block: 1.75em;
+}
+.top img {
+  width: 15%;
+}
+.top .custom-select {
+  width: 100%;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 20%;
+}
+.form-group input {
+  width: 100%;
+}
+.card-container {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.card {
+  background-color: var(--white);
+  border: solid 0.15rem var(--purple);
+  border-radius: 1.5em;
+  font-size: 0.9em;
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  padding-block: 0.5em;
+  padding-inline: 1.5em;
+  align-items: center;
+  width: 100%;
+}
+th {
+  color: var(--purple);
+  padding-bottom: 0.3em;
+  text-transform: capitalize;
+}
+th:nth-child(1) {
+  width: 100px;
+}
+th:nth-child(2) {
+  width: 150px;
+}
+th:nth-child(3) {
+  width: 150px;
+}
+th:nth-child(4) {
+  width: 200px;
+}
+th:nth-child(5) {
+  width: 100px;
+}
+td {
+  vertical-align: top;
+}
+.card img {
+  height: 100%;
+}
+
+.info {
+  text-align: left;
+}
+.table-wrapper {
+  padding-block: 1em;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.card .arrow_faq {
+  top: 1em;
+}
+.card .open_faq .arrow_faq {
+  transform: rotate(90deg);
+}
+.card .summary {
+  font-weight: inherit;
+  font-size: 1em;
+  color: inherit;
+  padding-bottom: 0;
+  cursor: pointer;
+}
+.card .open_faq .summary {
+  padding-bottom: 0em;
+}
+.card .open_faq {
+  padding-bottom: 1em;
+}
+.card strong {
+  width: 13ch;
+  flex-shrink: 0;
+}
+.card p {
+  display: flex;
+  width: 80%;
+}
+.card .colapse {
+  display: flex;
+  justify-content: space-between;
+}
+.card .botao-borda {
+  cursor: pointer;
+  height: fit-content;
+}
+.card .botao-borda:hover {
+  transform: translate(0, 0);
+}
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
+  .top img {
+    width: 20%;
+  }
+  .form-group {
+    width: 25%;
+  }
+}
+
+@media (max-width: 768px) {
+  .top img {
+    display: none;
+  }
+  .form-group {
+    width: 30%;
+    font-size: 1.2em;
+  }
+  .card strong {
+    width: fit-content;
+    margin-right: 1em;
+    flex-shrink: 1;
+  }
+  .card .botao-borda {
+    width: 9em;
+  }
+  th {
+    display: none;
+  }
+  td {
+    display: grid;
+    grid-template-columns: 17ch auto;
+    padding-block: 0.5em;
+  }
+  td::before {
+    color: var(--purple);
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  td:nth-of-type(1)::before {
+    content: "Pedido: ";
+  }
+  td:nth-of-type(2)::before {
+    content: "Data/Horario: ";
+  }
+  td:nth-of-type(3)::before {
+    content: "Exames: ";
+  }
+  td:nth-of-type(4)::before {
+    content: "Profissional: ";
+  }
+  td:nth-of-type(5)::before {
+    content: "Unidade: ";
+  }
+  .card .colapse,
+  .card .colapse p {
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+  }
+}
+
+@media (max-width: 640px) {
+}
+
+@media (max-width: 475px) {
+  .top {
+    flex-direction: column;
+  }
+  .form-group {
+    width: 80%;
+  }
+}

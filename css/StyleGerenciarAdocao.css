@@ -1,0 +1,157 @@
+.titulo {
+  /*Titulo da página*/
+  margin-bottom: 3rem;
+}
+
+.animal {
+  width: 18rem;
+  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  border-radius: 1em;
+}
+
+.item {
+  /*Div que mostra um animal para adoção*/
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  gap: 1em;
+}
+
+.descricao-pet {
+  /*Div com a descrição do animal*/
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+.decricao {
+  width: 100%;
+}
+
+.titulo_item {
+  /*Nome do animal*/
+  color: #574dbd;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 0.75rem;
+}
+.botao-borda {
+  width: fit-content;
+}
+
+/*Div do adotado que fica ao lado da descrição*/
+.adotado {
+  font-weight: 600;
+  padding-block: 0.55em;
+  padding-left: 0.8em;
+  padding-right: 1.2em;
+  border-radius: 0.75em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  width: fit-content;
+  background-color: var(--green);
+  color: var(--white);
+  border: var(--green) 3px solid;
+}
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+  .animal {
+    width: 15rem;
+  }
+}
+/* lg */
+@media (max-width: 1024px) {
+  .animal {
+    width: 10rem;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .item {
+    /*Div que mostra um animal para adoção*/
+    flex-direction: column;
+  }
+  .animal {
+    width: 25rem;
+  }
+  .item > div {
+    width: 60%;
+  }
+  .botoes {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .animal {
+    width: 20rem;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .item > div {
+    width: 85%;
+  }
+  .animal {
+    width: 80%;
+  }
+}
+
+/* ANÚNCIO DE ADOÇÃO */
+span {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.top {
+  margin-block: 3%;
+}
+.fotos {
+  margin-block: 1%;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.fotos img {
+  width: 15%;
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .top {
+    margin-inline: auto;
+    width: 80%;
+  }
+  .fotos {
+    flex-wrap: wrap;
+    gap: 3%;
+  }
+  .fotos img {
+    width: 30%;
+    margin-bottom: 3%;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .top {
+    width: 100%;
+  }
+}

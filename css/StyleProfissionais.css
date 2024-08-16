@@ -1,0 +1,147 @@
+.card-container {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.titulo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.card {
+  background-color: var(--white);
+  border: solid 0.15rem var(--purple);
+  border-radius: 1.5em;
+  font-size: 0.9em;
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  padding-block: 1em;
+  padding-inline: 1.5em;
+  align-items: center;
+  width: 100%;
+}
+th {
+  color: var(--purple);
+  font-size: 1.2em;
+  padding-bottom: 0.3em;
+  text-transform: capitalize;
+}
+th:nth-child(1) {
+  width: 250px;
+}
+th:nth-child(2) {
+  width: 230px;
+}
+th:nth-child(3) {
+  width: 200px;
+}
+th:nth-child(4) {
+  width: 300px;
+}
+th:nth-child(5) {
+  width: 125px;
+}
+.card img {
+  height: 100%;
+}
+.info {
+  text-align: left;
+  width: 910px;
+}
+.table-wrapper {
+  padding-block: 1em;
+  max-width: 100%;
+  overflow-x: auto;
+}
+@media (max-width: 1536px) {
+  .info {
+    width: 845px;
+  }
+}
+
+@media (max-width: 1280px) {
+  th:nth-child(1) {
+    width: 200px;
+  }
+  th:nth-child(2) {
+    width: 200px;
+  }
+  th:nth-child(3) {
+    width: 150px;
+  }
+  th:nth-child(4) {
+    width: 200px;
+  }
+  th:nth-child(5) {
+    width: 75px;
+  }
+  .info {
+    width: 625px;
+  }
+}
+/* lg */
+@media (max-width: 1024px) {
+  .card {
+    flex-direction: column;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  th {
+    display: none;
+  }
+  td {
+    display: grid;
+    grid-template-columns: 17ch auto;
+    padding: 0.5rem 1rem;
+  }
+  td::before {
+    color: var(--purple);
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  td:nth-of-type(1)::before {
+    content: "Nome: ";
+  }
+  td:nth-of-type(2)::before {
+    content: "Especialidade: ";
+  }
+  td:nth-of-type(3)::before {
+    content: "Unidade: ";
+  }
+  td:nth-of-type(4)::before {
+    content: "Anos de Atuação: ";
+  }
+  td:nth-of-type(5)::before {
+    content: "Nota: ";
+  }
+  .card {
+    width: 80%;
+  }
+  .card img {
+    width: 50%;
+  }
+  .info {
+    width: 100%;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .card img {
+    width: 75%;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .card {
+    width: 100%;
+    padding-inline: 0.25em;
+  }
+}

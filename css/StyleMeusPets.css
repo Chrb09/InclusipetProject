@@ -1,0 +1,162 @@
+/* MEUS PETS */
+.selecionado img {
+  border: 0.3em solid var(--purple);
+}
+.selecionado {
+  color: var(--purple);
+}
+.img-menor,
+.novo-pet {
+  border-radius: 100rem;
+  aspect-ratio: 1 / 1;
+  height: 5em;
+  object-fit: cover;
+}
+
+.pets {
+  margin-block: 3%;
+  font-size: 1.2em;
+}
+.meus-pets {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block: 2%;
+  gap: 1em;
+  width: 100%;
+}
+.button-pet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  font-weight: 700;
+}
+.button-cadastrar {
+  flex-direction: row;
+}
+.button-cadastrar img {
+  height: 2em;
+  transition: transform 0.3s;
+}
+.button-cadastrar:hover img {
+  transform: translate(0, -3px);
+}
+.cadastrar-pet {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--purple);
+}
+.pet-info {
+  display: flex;
+  gap: 5%;
+}
+.pet-info-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75em;
+}
+.pet-info-img strong {
+  color: var(--grayblack);
+  font-size: 1.5em;
+}
+.pet-info-img img {
+  aspect-ratio: 1 / 1;
+  width: 10em;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.pet-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  width: 65%;
+}
+.pet-info-container b {
+  font-size: 1em;
+}
+.table-row {
+  display: flex;
+  gap: 1em;
+}
+.button-row {
+  display: flex;
+  gap: 1em;
+}
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+/* lg */
+@media (max-width: 1024px) {
+}
+
+/* md */
+@media (max-width: 768px) {
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .titulo {
+    text-align: center;
+  }
+  .pets {
+    width: 80%;
+    margin-inline: auto;
+    font-size: 1.5em;
+    display: flex;
+
+    flex-direction: column-reverse;
+  }
+  .pet-info {
+    justify-content: center;
+    font-size: 1.15em;
+  }
+  .pet-info-container {
+    gap: 1.25em;
+    width: 80%;
+  }
+  .pet-info-container b {
+    display: none;
+  }
+  .button-row {
+    justify-content: center;
+  }
+  .pet-info-img {
+    display: none;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .pets,
+  .pet-info-container {
+    width: 100%;
+  }
+  .meus-pets {
+    gap: 0.5em;
+  }
+  .table-row {
+    gap: 0rem;
+    flex-direction: column;
+  }
+}
+
+/* CADASTRAR PET */
+
+/* sm */
+@media (max-width: 640px) {
+  .foto {
+    margin-inline: auto;
+    width: 80%;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .foto {
+    width: 100%;
+  }
+}

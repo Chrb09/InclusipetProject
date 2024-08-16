@@ -1,0 +1,110 @@
+/* UI */
+.usuario {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
+
+.nav-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: filter 0.3s;
+  &:hover {
+    filter: brightness(80%);
+  }
+}
+.nav-perfil img {
+  width: 7em;
+}
+.acoes {
+  display: flex;
+  gap: 2em;
+}
+.card-txt {
+  margin-top: 0.5em;
+}
+strong {
+  color: var(--grayblack);
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.foto-edit-wrapper {
+  width: 10em;
+}
+.edit {
+  height: 30%;
+  padding: 0.6em;
+  display: none;
+}
+.info_usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+.form-msg {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.form__cadastro {
+  display: none;
+}
+.usuario-edit .form__cadastro {
+  display: flex;
+}
+.usuario-edit .info_usuario {
+  display: none;
+}
+.usuario-edit .edit {
+  display: block;
+}
+
+/*Responsividade*/
+/* xl */
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+/* lg */
+@media (max-width: 1024px) {
+}
+
+/* md */
+@media (max-width: 768px) {
+  .titulo {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .usuario {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .foto-edit-wrapper {
+    width: 15em;
+  }
+  .edit {
+    padding: 0.9em;
+  }
+  .info_usuario {
+    flex-direction: column-reverse;
+    gap: 1.5em;
+    align-items: center;
+  }
+  .acoes {
+    justify-content: center;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+
+/* xs */
+@media (max-width: 475px) {
+}
+@media (max-width: 325px) {
+}

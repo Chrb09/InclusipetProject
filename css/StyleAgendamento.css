@@ -1,0 +1,98 @@
+body {
+  background-image: url(../img/Agendamento/Fundo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.container__agendamento {
+  margin-top: 5rem;
+}
+.form__agendamento {
+  background-color: var(--white);
+  border-radius: 1.5em;
+  padding: 4em 5em;
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  max-width: 65rem;
+}
+.section-agendamento {
+  display: flex;
+  flex-direction: column;
+}
+.form__agendamento strong {
+  margin-top: 2em;
+}
+.form__agendamento label {
+  margin-top: 1em;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.row-section {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+.form__button {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+.form__button .botao-solido {
+  width: 30%;
+}
+.desativado label {
+  color: #919191;
+}
+.desativado input {
+  background-color: #f3f3f3;
+  border-color: #ada4dd;
+}
+/* xl */
+@media (max-width: 1536px) {
+}
+@media (max-width: 1280px) {
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .form__agendamento {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 2.5em 3.5em;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .form__agendamento {
+    padding-top: 5rem;
+    padding-inline: 2em;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .form__agendamento {
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 0;
+  }
+
+  .container__agendamento {
+    margin-top: 0;
+    padding-inline: 0;
+  }
+  body {
+    background: none;
+  }
+}
+/* xs */
+@media (max-width: 475px) {
+}

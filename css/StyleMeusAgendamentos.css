@@ -1,0 +1,278 @@
+.conteudo {
+  display: grid;
+  padding-block: 2rem;
+  width: 100%;
+  padding-right: 7em;
+  grid-template-columns: repeat(auto-fit, minmax(calc(25em - (2em * 2)), 1fr));
+  gap: 2.5em;
+}
+.card-agendamento {
+  background-color: white;
+  padding: 1em;
+  border-style: solid;
+  border-width: 0.15rem;
+  border-color: var(--purple);
+  border-radius: 0.7em;
+  gap: 0.75em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.animal {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+.animal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+.animal-wrapper p {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.animal-wrapper img {
+  width: 6em;
+}
+.status {
+  background-color: var(--green);
+  color: var(--white);
+  border-style: solid;
+  border-color: var(--green);
+  font-size: 0.9em;
+  border-width: 0.15rem;
+  padding: 0.2em 1em;
+  border-radius: 0.9em;
+  height: fit-content;
+}
+.cancelado {
+  --green: var(--red);
+}
+.txt {
+  padding-left: 7%;
+}
+.card-agendamento .button-wrapper-form {
+  gap: 0.5em;
+  width: 70%;
+}
+.card-agendamento .button-wrapper-form button {
+  width: 100%;
+}
+.card-agendamento .botao-solido {
+  --purple: var(--red);
+  --purplehover: var(--redhover);
+}
+@media (max-width: 1536px) {
+  .conteudo {
+    padding-right: 0em;
+  }
+}
+
+@media (max-width: 1280px) {
+}
+/* lg */
+@media (max-width: 1024px) {
+  .conteudo {
+    padding-right: 10em;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .titulo {
+    text-align: center;
+  }
+  .conteudo {
+    padding-inline: 5em;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .conteudo {
+    padding-inline: 0em;
+  }
+}
+
+/* AGENDAR CONSULTA */
+
+.selecionado img {
+  border: 0.3em solid var(--purple);
+}
+.selecionado {
+  color: var(--purple);
+}
+.img-menor,
+.novo-pet {
+  border-radius: 100rem;
+  aspect-ratio: 1 / 1;
+  height: 5em;
+  object-fit: cover;
+}
+
+.pets {
+  margin-block: 3%;
+}
+.meus-pets {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block: 2%;
+  gap: 1em;
+  width: 100%;
+  font-size: 1.2em;
+}
+.button-pet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  font-weight: 700;
+}
+.button-cadastrar {
+  flex-direction: row;
+}
+.button-cadastrar img {
+  height: 2em;
+  transition: transform 0.3s;
+}
+.button-cadastrar:hover img {
+  transform: translate(0, -3px);
+}
+.cadastrar-pet {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--purple);
+}
+/* sm */
+@media (max-width: 640px) {
+  .pets {
+    width: 80%;
+    margin-inline: auto;
+  }
+  .meus-pets {
+    font-size: 1.5em;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .pets {
+    width: 100%;
+  }
+  .form-input {
+    width: 100%;
+  }
+}
+.pet-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 70%;
+}
+.pet-info-wrapper {
+  display: flex;
+  gap: 5%;
+  margin-top: 1.5em;
+}
+.pet-info-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75em;
+  width: 35%;
+}
+.pet-info-img strong {
+  color: var(--grayblack);
+  font-size: 1.5em;
+}
+.pet-info-img img {
+  aspect-ratio: 1 / 1;
+  width: 8em;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.pet-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  width: 65%;
+}
+.pet-info b {
+  font-size: 1em;
+}
+.table-row {
+  display: flex;
+  gap: 1em;
+  width: 100%;
+}
+.button-row {
+  display: flex;
+  gap: 1em;
+}
+.pet-info-img .table-row {
+  flex-direction: column;
+}
+.pet-info .info-table {
+  border-spacing: 0.4em;
+}
+.pet-info-img .info-table {
+  border-spacing: 0;
+}
+.pet-info th {
+  font-weight: 600;
+}
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+/* lg */
+@media (max-width: 1024px) {
+  .pet-info {
+    width: 85%;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .pet-info {
+    margin-inline: auto;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .pet-info-img,
+  .pet-info-container {
+    width: 80%;
+  }
+  .pet-info-img img {
+    width: 14em;
+  }
+  .pet-info-img strong {
+    font-size: 2em;
+  }
+  .pet-info-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .pet-info-img,
+  .pet-info-container {
+    width: 100%;
+  }
+}
