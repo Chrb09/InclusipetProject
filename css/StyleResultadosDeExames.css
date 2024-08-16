@@ -1,264 +1,146 @@
+.tabEx {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
 
-  
-  .tabEx {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 3%;
-    margin-bottom: 3%;
-  }
-  
-  .tabEx img.pet-img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-  }
-  
-  .form-inline {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .form-group label {
-    font-size: var(--size-lg);
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-control {
-    padding: 5px;
-    width: 200px;
-    cursor: pointer;
-    background-color: var(--white);
+.tabEx img.pet-img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.form-inline {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-group label {
+  font-size: var(--size-lg);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  padding: 5px;
+  width: 200px;
+  cursor: pointer;
+  background-color: var(--white);
   border: solid 2px var(--purple);
   border-radius: 0.7em;
   padding: 0.4rem 0.75rem;
-
-  }
+}
+.card-container {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 .card {
-    background-color: white;
-    fill: var(--purple);
-    border-style: solid;
-    border-width: 0.15rem;
-    border-color: var(--purple);
-    border-radius: 1.5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 95%;
-    margin-bottom: 3%;
+  background-color: var(--white);
+  border: solid 0.15rem var(--purple);
+  border-radius: 1.5em;
+  font-size: 0.9em;
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  padding-block: 0.5em;
+  padding-inline: 1.5em;
+  align-items: center;
+  width: 100%;
 }
-.cont{
-  padding-right: 20%;
+th {
+  color: var(--purple);
+  padding-bottom: 0.3em;
+  text-transform: capitalize;
 }
-.txt {
-    font-weight: 700;
-    font-size: var(--size-xl);
-    padding: 0.5em 1em;
-    color: var(--purple);
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box; 
+th:nth-child(1) {
+  width: 100px;
+}
+th:nth-child(2) {
+  width: 150px;
+}
+th:nth-child(3) {
+  width: 150px;
+}
+th:nth-child(4) {
+  width: 200px;
+}
+th:nth-child(5) {
+  width: 100px;
+}
+td {
+  vertical-align: top;
+}
+.card img {
+  height: 100%;
 }
 
 .info {
-    display: flex;
-    justify-content: space-between;
-    font-size: var(--size-sm);
-    padding: 0em 1.5em;
-    gap: 60px;
-    width: 100%;
-    box-sizing: border-box;
+  text-align: left;
 }
-.meio{
-  padding-left: 100px;
+.table-wrapper {
+  padding-block: 1em;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
-.card-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: var(--size-base);
-    padding: 0em 1em;
-    color: var(--purple);
-    width: 100%;
-    box-sizing: border-box; 
- 
+.card .arrow_faq {
+  top: 1em;
 }
-.infoAd {
-  padding-right: 5px;
-  padding-bottom: 20px;
-  white-space: nowrap;
+.card .open_faq .arrow_faq {
+  transform: rotate(90deg);
 }
-.txt-card{
-  font-family: "inter";
-  color: var(--grayblack);
-  font-weight: 500;
-  font-size: var(--size-sm);
-  align-items: center;
-  padding-left: 0;
-} 
-.botao-borda{
-  font-size: var(--size-sm);
-  box-sizing: border-box;
-  padding: 0.5em 1.5em;
-  white-space: nowrap;
+.card .summary {
+  font-weight: inherit;
+  font-size: 1em;
+  color: inherit;
+  padding-bottom: 0;
+  cursor: pointer;
 }
-@media (max-width: 1034px) {
-  .cont {
-    display: flex;
-    flex-shrink: 1;
-    flex-direction: column;
-    width: 100%;
-    padding-right: 0;
-    gap: 10px;
-  }
-  .txt {
-    font-size: var(--size-lg);
-  }
-  .info {
-    font-size: var(--size-base);
-    gap: 40px;
-  }
-  .meio {
-    padding-left: 50px;
-  }
+.card .open_faq .summary {
+  padding-bottom: 0em;
+}
+.card strong {
+  width: 20ch;
+  flex-shrink: 0;
+}
+.card p {
+  display: flex;
+  width: 80%;
+}
+.card .colapse {
+  display: flex;
+  justify-content: space-between;
+}
+.card .botao-borda:hover {
+  transform: translate(0, 0);
+}
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
 }
 
 @media (max-width: 768px) {
-  .content{
-    padding: 0;
-  } 
-  .tabEx{
-    justify-content: flex-start;
-  }
-  .form-inline{
-    flex-direction: column;
-    padding-left: 50px;
-  }
-  .txt {
-    font-size: var(--size-base);
-  }
-
-  .info {
-    font-size: var(--size-sm);
-    gap: 20px;
-  }
-
-  .meio {
-    padding-left: 0;
-    flex-shrink: 1;
-  }
-
-  .card-content {
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: var(--size-sm);
-  }
-
-  .botao-borda {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 10px;
-  }
 }
 
-@media (max-width: 565px) {
-  .form-inline{
-    padding-left: 0;
-  }
-  
-  .txt {
-    font-size: var(--size-sm);
-  }
-
-  .info {
-    font-size: var(--size-xs);
-    gap: 10px;
-  }
-
-  .meio {
-    padding-left: 0;
-    flex-shrink: 1;
-  }
-
-  .txt-card {
-    font-size: var(--size-xs);
-  }
-
-  .card-content {
-    font-size: var(--size-xs);
-    padding: 0.5em 1em;
-  }
-
-  .botao-borda {
-    font-size: var(--size-xs);
-  }
+@media (max-width: 640px) {
 }
 
-
-  @media (max-width: 475px) {
-    .txt {
-      font-size: var(--size-xs);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px; 
-    }
-  
-    .info {
-      font-size: var(--size-xs);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px; 
-    }
-  
-    .meio {
-      padding-left: 0;
-      flex-shrink: 1;
-    }
-  
-    .txt-card, .card-content, .botao-borda {
-      font-size: var(--size-xs);
-    }
-  
-    .cont {
-      display: flex;
-      flex-direction: row;
-      gap: 10px; 
-      padding: 10px;
-    }
-  
-    .tabEx img.pet-img {
-      width: 80px;
-      height: 80px;
-    }
-  
-    .tabEx {
-      flex-direction: column;
-    }
-  
-    label, input {
-      font-size: var(--size-base);
-    }
-  
-    .infoAd {
-      padding: 0;
-    }
-  
-    .cont .txt, .cont .info {
-      margin-bottom: 0.5rem;
-      padding: 0;
-    }
-  }
+@media (max-width: 475px) {
+}

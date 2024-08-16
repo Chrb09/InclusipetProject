@@ -20,31 +20,15 @@
         <div class="sidebar-background"></div>
         <div class="sidebar-nav">
           <b>Área do Usuario</b>
-          <button class="sidebar-button ativo" onclick="location.href='perfil.html'" type="button">
-            Perfil
-          </button>
-          <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">
-            Meus Pets
-          </button>
-          <button
-            class="sidebar-button"
-            onclick="location.href='meusagendamentos.html'"
-            type="button"
-          >
+          <button class="sidebar-button ativo" onclick="location.href='perfil.html'" type="button">Perfil</button>
+          <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">Meus Pets</button>
+          <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
             Meus Agendamentos
           </button>
-          <button
-            class="sidebar-button"
-            onclick="location.href='resultadosexames.html'"
-            type="button"
-          >
+          <button class="sidebar-button" onclick="location.href='resultadosexames.html'" type="button">
             Resultados Exames
           </button>
-          <button
-            class="sidebar-button"
-            onclick="location.href='gerenciaradocao.html'"
-            type="button"
-          >
+          <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
             Gerenciar Adoção
           </button>
         </div>
@@ -91,39 +75,19 @@
               <div class="wrapper-faq">
                 <div class="colapse">
                   <div class="nav-mobile">
-                    <button
-                      class="sidebar-button ativo"
-                      onclick="location.href='perfil.html'"
-                      type="button"
-                    >
+                    <button class="sidebar-button ativo" onclick="location.href='perfil.html'" type="button">
                       Perfil
                     </button>
-                    <button
-                      class="sidebar-button"
-                      onclick="location.href='meuspets.html'"
-                      type="button"
-                    >
+                    <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">
                       Meus Pets
                     </button>
-                    <button
-                      class="sidebar-button"
-                      onclick="location.href='meusagendamentos.html'"
-                      type="button"
-                    >
+                    <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
                       Meus Agendamentos
                     </button>
-                    <button
-                      class="sidebar-button"
-                      onclick="location.href='resultadosexames.html'"
-                      type="button"
-                    >
+                    <button class="sidebar-button" onclick="location.href='resultadosexames.html'" type="button">
                       Resultados Exames
                     </button>
-                    <button
-                      class="sidebar-button"
-                      onclick="location.href='gerenciaradocao.html'"
-                      type="button"
-                    >
+                    <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
                       Gerenciar Adoção
                     </button>
                   </div>
@@ -136,11 +100,7 @@
                 stroke="var(--purple)"
                 class="arrow_faq"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
             </div>
           </div>
@@ -149,16 +109,12 @@
           <!-- Conteudo principal -->
           <div class="titulo">Perfil</div>
 
-          <div class="usuario usuario-edit" id="usuario">
+          <div class="usuario" id="usuario">
             <div class="foto-edit">
               <div class="foto-edit-wrapper">
-                <img
-                  src="../../img/Perfil/foto_usuario.png"
-                  alt="Foto do pet"
-                  class="foto-edit-img"
-                />
+                <img src="../../img/Perfil/foto_usuario.png" alt="Foto do pet" class="foto-edit-img" />
                 <div class="edit">
-                  <img src="../../img/Perfil/editar.png" alt="" />
+                  <img src="../../img/Perfil/editar_icon.png" alt="" />
                 </div>
               </div>
             </div>
@@ -187,19 +143,13 @@
               </table>
 
               <button class="botao-solido editar-button" onclick="usuarioedit()" type="button">
-                <img src="../../img/Perfil/Editar.png" alt="" />Editar
+                <img src="../../img/Perfil/editar_icon.png" alt="" />Editar
               </button>
             </div>
             <form action="" class="form__cadastro">
               <div class="form-input">
                 <label for="sign-up-name">Nome Completo</label>
-                <input
-                  name="sign-up-name "
-                  placeholder="Seu Nome..."
-                  type="text"
-                  required
-                  autocomplete="off"
-                />
+                <input name="sign-up-name " placeholder="Seu Nome..." type="text" required autocomplete="off" />
               </div>
               <div class="form-input">
                 <label for="sign-up-date">Data de Nascimento</label>
@@ -207,13 +157,7 @@
               </div>
               <div class="form-input">
                 <label for="sign-up-email">Email</label>
-                <input
-                  name="sign-up-email "
-                  placeholder="Seu email..."
-                  type="email"
-                  required
-                  autocomplete="off"
-                />
+                <input name="sign-up-email " placeholder="Seu email..." type="email" required autocomplete="off" />
               </div>
               <div class="form-input">
                 <label for="sign-up-tel">Telefone</label>
@@ -251,38 +195,35 @@
               <div class="form-input"></div>
               <div class="form-msg">Para alterar seu CEP ou CPF entre em contato.</div>
               <div class="button-wrapper-form">
-                <button class="botao botao-borda" onclick="usuarioedit()" type="button">
-                  Voltar
-                </button>
-                <button class="botao botao-solido" onclick="usuarioedit()" type="button">
-                  Salvar
-                </button>
+                <button class="botao botao-borda" onclick="usuarioedit()" type="button">Voltar</button>
+                <button class="botao botao-solido" onclick="usuarioedit()" type="button">Salvar</button>
               </div>
             </form>
           </div>
-
+          <br />
+          <br />
           <div class="acoes">
-            <div class="card-">
-              <a href="agendamento.html"><img src="../../img/Perfil/agendar.png" alt="" /></a>
+            <a class="nav-perfil" href="agendamento.html"
+              ><img src="../../img/Perfil/agendar.png" alt="" />
               <div class="card-txt">
                 <p>Agendar</p>
                 <strong>Consulta</strong>
               </div>
-            </div>
-            <div class="card-">
-              <a href="anuncioadocao.html"><img src="../../img/Perfil/anunciar.png" alt="" /></a>
+            </a>
+            <a class="nav-perfil" href="anuncioadocao.html"
+              ><img src="../../img/Perfil/anunciar.png" alt="" />
               <div class="card-txt">
                 <p>Criar anuncio de</p>
                 <strong>Adoção</strong>
               </div>
-            </div>
-            <div class="card-">
-              <a href="cadastraranimal.html"><img src="../../img/Perfil/cadastrar.png" alt="" /></a>
+            </a>
+            <a class="nav-perfil" href="cadastraranimal.html"
+              ><img src="../../img/Perfil/cadastrar.png" alt="" />
               <div class="card-txt">
                 <p>Cadastrar</p>
                 <strong>Animal</strong>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

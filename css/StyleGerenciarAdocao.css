@@ -40,7 +40,7 @@
 .botoes {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: end;
   gap: 0.75rem;
 }
 .botao-borda {
@@ -50,8 +50,7 @@
 /*Div do adotado que fica ao lado da descrição*/
 .adotado {
   font-weight: 600;
-  font-size: 1em;
-  padding-block: 0.6em;
+  padding-block: 0.55em;
   padding-left: 0.8em;
   padding-right: 1.2em;
   border-radius: 0.75em;
@@ -59,24 +58,10 @@
   align-items: center;
   justify-content: center;
   gap: 0.5em;
-  line-height: 2.5;
   width: fit-content;
-  outline: #4cb062 3px solid;
-}
-.adotado:has(input[type="checkbox"]:checked) {
-  background-color: red;
-  background-color: #4cb062;
+  background-color: var(--green);
   color: var(--white);
-}
-.adotado input[type="checkbox"] {
-  border-color: #4cb062;
-  border-width: 3px;
-  cursor: pointer;
-  border-radius: 0.5em;
-}
-.adotado input[type="checkbox"]::before {
-  border-radius: 0.5em;
-  box-shadow: inset 1em 1em #4cb062;
+  border: var(--green) 3px solid;
 }
 
 @media (max-width: 1536px) {
@@ -147,7 +132,6 @@ span {
 .fotos img {
   width: 15%;
 }
-
 
 /* sm */
 @media (max-width: 640px) {

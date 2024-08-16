@@ -5,25 +5,25 @@
   gap: 5%;
 }
 
-.card- {
-  margin-right: 3%;
+.nav-perfil {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 1;
+  text-align: center;
+  transition: filter 0.3s;
+  &:hover {
+    filter: brightness(80%);
+  }
 }
-.card-txt {
-  font-size: 18px;
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 1;
+.nav-perfil img {
+  width: 7em;
 }
 .acoes {
-  margin-top: 5%;
   display: flex;
-  justify-content: flex-start;
+  gap: 2em;
+}
+.card-txt {
+  margin-top: 0.5em;
 }
 strong {
   color: var(--grayblack);
@@ -37,6 +37,11 @@ strong {
   height: 30%;
   padding: 0.6em;
   display: none;
+}
+.info_usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
 }
 .form-msg {
   width: 100%;
@@ -65,68 +70,41 @@ strong {
 }
 /* lg */
 @media (max-width: 1024px) {
-  .card- {
-    flex-shrink: 1;
-    width: 100%;
-  }
-  .card-txt {
-    flex-shrink: 1;
-  }
 }
 
 /* md */
 @media (max-width: 768px) {
-  .card- {
-    flex-shrink: 1;
+  .titulo {
+    text-align: center;
+    margin-bottom: 1rem;
   }
-  .card-txt {
-    flex-shrink: 1;
+  .usuario {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .foto-edit-wrapper {
+    width: 15em;
+  }
+  .edit {
+    padding: 0.9em;
+  }
+  .info_usuario {
+    flex-direction: column-reverse;
+    gap: 1.5em;
+    align-items: center;
+  }
+  .acoes {
+    justify-content: center;
   }
 }
 
 /* sm */
 @media (max-width: 640px) {
-  .editar-button {
-    width: 85px;
-    font-size: 12px;
-  }
-  .card- {
-    flex-shrink: 1;
-  }
-  .card-txt {
-    flex-shrink: 1;
-  }
 }
 
 /* xs */
 @media (max-width: 475px) {
-  .usuario {
-    flex-direction: row;
-    padding-bottom: 10%;
-  }
-  .foto_usuario_conteudo {
-    height: 2%;
-    width: 100px;
-  }
-  .editar-button img {
-    height: 30px;
-    width: 30px;
-  }
-  .card- {
-    flex-shrink: 1;
-    height: 90px;
-  }
-  .card-txt {
-    flex-shrink: 1;
-    font-size: 12px;
-  }
-  b {
-    font-size: 12px;
-  }
 }
 @media (max-width: 325px) {
-  .foto_usuario_conteudo {
-    height: 2%;
-    width: 80px;
-  }
 }

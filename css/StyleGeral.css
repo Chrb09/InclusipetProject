@@ -9,6 +9,10 @@
   --purple: #574dbd;
   --purplehover: #403898;
   --overlay: rgba(87, 77, 189, 0.25);
+  --green: #4cb062;
+  --greenhover: #38884a;
+  --red: #ff4848;
+  --redhover: #c73131;
   --size-xxs: 0.5rem;
   --size-xs: 0.825rem;
   --size-sm: 0.875rem;
@@ -75,7 +79,7 @@ iframe {
   border-style: solid;
   border-color: var(--purple);
   border-width: 0.15rem;
-  padding: 0.6em 1.1em;
+  padding: 0.4em 0.9em;
   border-radius: 0.8em;
   transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
   &:hover {
@@ -86,7 +90,7 @@ iframe {
 }
 .botao-borda {
   font-weight: 700;
-  padding: 0.5em 1em;
+  padding: 0.4em 0.9em;
   color: var(--gray);
   fill: var(--gray);
   border-style: solid;
@@ -117,10 +121,27 @@ iframe {
     color: var(--white);
   }
 }
-.botao-borda,
-.botao-solido,
-.botao-solido-branco {
-  font-size: inherit;
+.desativado {
+  filter: contrast(0.3) grayscale(20%) brightness(1.5);
+  user-select: none;
+}
+
+.desativado .botao-solido,
+.desativado .botao-borda {
+  cursor: default;
+  user-select: none;
+}
+.desativado .botao-borda:hover {
+  transform: translate(0, 0);
+  color: var(--gray);
+  fill: var(--gray);
+  border-color: var(--gray);
+  background-color: var(--white);
+}
+.desativado .botao-solido:hover {
+  transform: translate(0, 0);
+  background-color: var(--purple);
+  border-color: var(--purple);
 }
 
 @-webkit-keyframes shake {
@@ -176,6 +197,10 @@ select {
   width: 100%;
   font-size: 0.9em;
 }
+label {
+  color: var(--grayblack);
+}
+
 .custom-select {
   /* ... */
   position: relative;

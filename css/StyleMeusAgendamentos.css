@@ -2,87 +2,96 @@
   padding-bottom: 5%;
 }
 .conteudo {
-  display: flex;
-  max-width: none;
-  gap: 20px;
+  display: grid;
+  width: 100%;
+  padding-right: 7em;
+  grid-template-columns: repeat(auto-fit, minmax(calc(25em - (2em * 2)), 1fr));
+  gap: 2.5em;
 }
-.Agendamen {
+.card-agendamento {
   background-color: white;
-  font-weight: 700;
-  padding: 0.5em 1em;
+  padding: 1em;
   border-style: solid;
   border-width: 0.15rem;
   border-color: var(--purple);
   border-radius: 0.7em;
+  gap: 0.75em;
   display: flex;
-  height: 350px;
-  width: 380px;
-  padding-bottom: 0%;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.fonseca {
+.animal {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding-bottom: 3%;
-  padding-top: 3%;
   align-items: center;
 }
-.fonseca p {
-  font-weight: bold;
-  font-size: 30px;
+.animal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
 }
-.fonsequinha {
-  width: 80px;
-  height: 80px;
+.animal-wrapper p {
+  font-size: 1.5em;
+  font-weight: 700;
 }
-.certo {
-  background-color: green;
+.animal-wrapper img {
+  width: 6em;
+}
+.status {
+  background-color: var(--green);
   color: var(--white);
   border-style: solid;
-  border-color: green;
+  border-color: var(--green);
+  font-size: 0.9em;
   border-width: 0.15rem;
   padding: 0.2em 1em;
   border-radius: 0.9em;
   height: fit-content;
 }
 .cancelado {
-  background-color: red;
-  font-size: var(--size-sm);
-  color: var(--white);
-  border-style: solid;
-  border-color: red;
-  border-width: 0.15rem;
-  padding: 0.2em 1em;
-  border-radius: 0.9em;
-  height: fit-content;
+  --green: var(--red);
 }
 .txt {
   padding-left: 7%;
 }
-.btns {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+.card-agendamento .button-wrapper-form {
+  gap: 0.5em;
+  width: 70%;
 }
-.botao-borda,
-.botao-solido {
-  height: 40px;
-  padding-top: 0;
-  padding-bottom: 0;
+.card-agendamento .button-wrapper-form button {
+  width: 100%;
 }
-
+.card-agendamento .botao-solido {
+  --purple: var(--red);
+  --purplehover: var(--redhover);
+}
 @media (max-width: 1536px) {
+  .conteudo {
+    padding-right: 0em;
+  }
 }
 
 @media (max-width: 1280px) {
 }
 /* lg */
 @media (max-width: 1024px) {
+  .conteudo {
+    padding-right: 10em;
+  }
 }
 
 /* md */
 @media (max-width: 768px) {
+  .titulo {
+    text-align: center;
+  }
+  .conteudo {
+    padding-inline: 5em;
+  }
 }
 
 /* sm */
@@ -91,6 +100,9 @@
 
 /* xs */
 @media (max-width: 475px) {
+  .conteudo {
+    padding-inline: 0em;
+  }
 }
 
 /* AGENDAR CONSULTA */
