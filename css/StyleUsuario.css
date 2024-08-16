@@ -9,7 +9,7 @@ body {
 .container {
   max-width: 1152px;
   margin-left: 0;
-  padding-block: 3em;
+  padding-block: 1em;
   padding-inline: 1em;
 }
 .login__header:hover {
@@ -257,6 +257,11 @@ body {
 .info-table td {
   text-align: right;
 }
+.botao-solido,
+.botao-borda,
+.editar-button {
+  font-size: 18px;
+}
 @media (min-width: 1536px) {
   .container-usuario {
     max-width: 1536px;
@@ -293,6 +298,11 @@ body {
   }
   .main {
     padding-inline: 1.5em;
+  }
+  .botao-solido,
+  .botao-borda,
+  .editar-button {
+    font-size: 14px;
   }
 }
 /* lg */
@@ -358,6 +368,11 @@ body {
     display: block;
     font-size: 1.3em;
   }
+  .botao-solido,
+  .botao-borda,
+  .editar-button {
+    font-size: 16px;
+  }
 }
 
 /* sm */
@@ -377,6 +392,11 @@ body {
     width: 80%;
     font-size: 1.2em;
   }
+  .botao-solido,
+  .botao-borda,
+  .editar-button {
+    font-size: 18px;
+  }
 }
 
 /* xs */
@@ -395,5 +415,10 @@ body {
   }
   .form-input {
     width: 100%;
+  }
+  .botao-solido,
+  .botao-borda,
+  .editar-button {
+    font-size: 16px;
   }
 }

@@ -20,15 +20,35 @@
         <div class="sidebar-background"></div>
         <div class="sidebar-nav">
           <b>Área do Usuario</b>
-          <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">Perfil</button>
-          <button class="sidebar-button ativo" onclick="location.href='meuspets.html'" type="button">Meus Pets</button>
-          <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
+          <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">
+            Perfil
+          </button>
+          <button
+            class="sidebar-button ativo"
+            onclick="location.href='meuspets.html'"
+            type="button"
+          >
+            Meus Pets
+          </button>
+          <button
+            class="sidebar-button"
+            onclick="location.href='meusagendamentos.html'"
+            type="button"
+          >
             Meus Agendamentos
           </button>
-          <button class="sidebar-button" onclick="location.href='resultadosexames.html'" type="button">
+          <button
+            class="sidebar-button"
+            onclick="location.href='resultadosexames.html'"
+            type="button"
+          >
             Resultados Exames
           </button>
-          <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
+          <button
+            class="sidebar-button"
+            onclick="location.href='gerenciaradocao.html'"
+            type="button"
+          >
             Gerenciar Adoção
           </button>
         </div>
@@ -75,17 +95,39 @@
               <div class="wrapper-faq">
                 <div class="colapse">
                   <div class="nav-mobile">
-                    <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">Perfil</button>
-                    <button class="sidebar-button ativo" onclick="location.href='meuspets.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='perfil.html'"
+                      type="button"
+                    >
+                      Perfil
+                    </button>
+                    <button
+                      class="sidebar-button ativo"
+                      onclick="location.href='meuspets.html'"
+                      type="button"
+                    >
                       Meus Pets
                     </button>
-                    <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='meusagendamentos.html'"
+                      type="button"
+                    >
                       Meus Agendamentos
                     </button>
-                    <button class="sidebar-button" onclick="location.href='resultadosexames.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='resultadosexames.html'"
+                      type="button"
+                    >
                       Resultados Exames
                     </button>
-                    <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='gerenciaradocao.html'"
+                      type="button"
+                    >
                       Gerenciar Adoção
                     </button>
                   </div>
@@ -98,12 +140,102 @@
                 stroke="var(--purple)"
                 class="arrow_faq"
               >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
               </svg>
             </div>
           </div>
           <script src="../../js/nav_mobile.js"></script>
-          <!-- PÁGINA -->
+          <div class="titulo">Meus Pets</div>
+          <div class="pets">
+            <div class="meus-pets">
+              <button class="button-pet selecionado" type="button">
+                <img src="../../img/Adocao/Animal1/img1.png" alt="" class="img-menor" /> Fonseca
+              </button>
+
+              <button class="button-pet" type="button">
+                <img src="../../img/Adocao/Animal3/img1.png" alt="" class="img-menor" />Neném
+              </button>
+
+              <button class="button-pet" type="button">
+                <img src="../../img/Adocao/Animal4/img1.png" alt="" class="img-menor" />Max
+              </button>
+            </div>
+            <button
+              class="button-pet button-cadastrar"
+              onclick="location.href='cadastraranimal.html'"
+              type="button"
+            >
+              <img src="../../img/Perfil/adicionar.png" alt="" class="img-menor novo-pet" />
+              <div class="cadastrar-pet">Cadastrar Novo Pet</div>
+            </button>
+          </div>
+          <div class="pet-info">
+            <div class="pet-info-img">
+              <img src="../../img/Adocao/Animal1/img1.png" alt="" />
+              <strong>Fonseca</strong>
+            </div>
+            <div class="pet-info-container">
+              <b>Detalhes</b>
+              <div class="table-row">
+                <table class="info-table">
+                  <tr>
+                    <th>Espécie:</th>
+                    <td>Canino</td>
+                  </tr>
+                  <tr>
+                    <th>raça:</th>
+                    <td>Vira-Lata</td>
+                  </tr>
+                  <tr>
+                    <th>Sexo:</th>
+                    <td>Macho</td>
+                  </tr>
+                  <tr>
+                    <th>Data Nasc:</th>
+                    <td>-</td>
+                  </tr>
+                </table>
+                <table class="info-table">
+                  <tr>
+                    <th>Data Aprox:</th>
+                    <td>2008</td>
+                  </tr>
+                  <tr>
+                    <th>Porte:</th>
+                    <td>Grande</td>
+                  </tr>
+                  <tr>
+                    <th>Castrado?/</th>
+                    <td>Sim</td>
+                  </tr>
+                  <tr>
+                    <th>Peso:</th>
+                    <td>8 KG</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="button-row">
+                <button
+                  class="botao-solido"
+                  onclick="location.href='agendamento.html'"
+                  type="button"
+                >
+                  Agendar Consulta
+                </button>
+                <button
+                  class="botao-solido editar-button"
+                  onclick="location.href='cadastraranimal.html'"
+                  type="button"
+                >
+                  <img src="../../img/Perfil/editar_icon.png" alt="" />Editar
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

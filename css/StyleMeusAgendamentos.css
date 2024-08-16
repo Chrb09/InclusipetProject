@@ -1,8 +1,6 @@
-.titulo {
-  padding-bottom: 5%;
-}
 .conteudo {
   display: grid;
+  padding-block: 2rem;
   width: 100%;
   padding-right: 7em;
   grid-template-columns: repeat(auto-fit, minmax(calc(25em - (2em * 2)), 1fr));
@@ -120,17 +118,17 @@
   height: 5em;
   object-fit: cover;
 }
-.novo-pet {
-  height: 3em;
-}
+
 .pets {
   margin-block: 3%;
 }
 .meus-pets {
   display: flex;
+  flex-wrap: wrap;
   margin-block: 2%;
   gap: 1em;
   width: 100%;
+  font-size: 1.2em;
 }
 .button-pet {
   display: flex;
@@ -144,6 +142,10 @@
 }
 .button-cadastrar img {
   height: 2em;
+  transition: transform 0.3s;
+}
+.button-cadastrar:hover img {
+  transform: translate(0, -3px);
 }
 .cadastrar-pet {
   font-size: 0.9em;
@@ -155,13 +157,122 @@
   .pets {
     width: 80%;
     margin-inline: auto;
-    font-size: 1.2em;
+  }
+  .meus-pets {
+    font-size: 1.5em;
   }
 }
 
 /* xs */
 @media (max-width: 475px) {
+  .pets {
+    width: 100%;
+  }
   .form-input {
+    width: 100%;
+  }
+}
+.pet-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 70%;
+}
+.pet-info-wrapper {
+  display: flex;
+  gap: 5%;
+  margin-top: 1.5em;
+}
+.pet-info-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75em;
+  width: 35%;
+}
+.pet-info-img strong {
+  color: var(--grayblack);
+  font-size: 1.5em;
+}
+.pet-info-img img {
+  aspect-ratio: 1 / 1;
+  width: 8em;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.pet-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  width: 65%;
+}
+.pet-info b {
+  font-size: 1em;
+}
+.table-row {
+  display: flex;
+  gap: 1em;
+  width: 100%;
+}
+.button-row {
+  display: flex;
+  gap: 1em;
+}
+.pet-info-img .table-row {
+  flex-direction: column;
+}
+.pet-info .info-table {
+  border-spacing: 0.4em;
+}
+.pet-info-img .info-table {
+  border-spacing: 0;
+}
+.pet-info th {
+  font-weight: 600;
+}
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+/* lg */
+@media (max-width: 1024px) {
+  .pet-info {
+    width: 85%;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .pet-info {
+    margin-inline: auto;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .pet-info-img,
+  .pet-info-container {
+    width: 80%;
+  }
+  .pet-info-img img {
+    width: 14em;
+  }
+  .pet-info-img strong {
+    font-size: 2em;
+  }
+  .pet-info-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .pet-info-img,
+  .pet-info-container {
     width: 100%;
   }
 }

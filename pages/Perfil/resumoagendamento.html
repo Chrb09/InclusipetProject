@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="stylesheet" href="../../css/StyleGeral.css" />
     <!-- CSS EXTERNO GERAL -->
     <link rel="stylesheet" href="../../css/StyleUsuario.css" />
@@ -10,7 +11,7 @@
     <!-- CSS EXTERNO PAGINA -->
     <link rel="icon" href="../../img/Outros/inclusipet.ico" />
     <!-- ICON -->
-    <title>Agendamento</title>
+    <title>Resumo Agendamento</title>
   </head>
   <body>
     <!-- PERFIL -->
@@ -19,14 +20,14 @@
         <div class="sidebar-background"></div>
         <div class="sidebar-nav">
           <b>Área do Usuario</b>
-          <button class="sidebar-button ativo" onclick="location.href='perfil.html'" type="button">
+          <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">
             Perfil
           </button>
           <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">
             Meus Pets
           </button>
           <button
-            class="sidebar-button"
+            class="sidebar-button ativo"
             onclick="location.href='meusagendamentos.html'"
             type="button"
           >
@@ -144,101 +145,76 @@
             </div>
           </div>
           <script src="../../js/nav_mobile.js"></script>
+          <div class="titulo">Resumo agendamento</div>
+          <div class="pet-info">
+            <div class="pet-info-wrapper">
+              <div class="pet-info-img">
+                <img src="../../img/Adocao/Animal1/img1.png" alt="" />
+                <strong>Fonseca</strong>
 
-          <!-- Começo do conteúdo principal -->
-          <div class="titulo">Agendamento de consulta do pet</div>
-
-          <div class="pets">
-            <span>Selecione o pet que deseja agendar uma consulta</span>
-            <div class="meus-pets">
-              <button class="button-pet selecionado" type="button">
-                <img src="../../img/Adocao/Animal1/img1.png" alt="" class="img-menor" /> Fonseca
-              </button>
-
-              <button class="button-pet" type="button">
-                <img src="../../img/Adocao/Animal3/img1.png" alt="" class="img-menor" />Neném
-              </button>
-
-              <button class="button-pet" type="button">
-                <img src="../../img/Adocao/Animal4/img1.png" alt="" class="img-menor" />Max
-              </button>
-            </div>
-            <button
-              class="button-pet button-cadastrar"
-              onclick="location.href='cadastraranimal.html'"
-              type="button"
-            >
-              <img src="../../img/Perfil/adicionar.png" alt="" class="img-menor novo-pet" />
-              <div class="cadastrar-pet">Cadastrar Novo Pet</div>
-            </button>
-          </div>
-
-          <form action="" class="form__cadastro">
-            <div class="form-input">
-              <label for="">Unidade</label><br />
-              <div class="custom-select">
-                <select id="" name="" size="1">
-                  <option value="cachorro">Cachorro</option>
-                  <option value="gato">Gato</option>
-                  <option value="passaro">Pássaro</option>
-                </select>
+                <div class="table-row">
+                  <b>Serviço Agendado</b>
+                  <table class="info-table">
+                    <tr>
+                      <th>Consulta:</th>
+                      <td>R$ 0,01</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="pet-info-container">
+                <b>Detalhes</b>
+                <div class="table-row">
+                  <table class="info-table">
+                    <tr>
+                      <th>Pedido:</th>
+                      <td><b>34012</b></td>
+                    </tr>
+                    <tr>
+                      <th>Unidade:</th>
+                      <td>Artur Alvim</td>
+                    </tr>
+                    <tr>
+                      <th>Serviço:</th>
+                      <td>Exame</td>
+                    </tr>
+                    <tr>
+                      <th>Especialidade:</th>
+                      <td>Clínico Geral</td>
+                    </tr>
+                    <tr>
+                      <th>Profissional:</th>
+                      <td>Mônica Machado</td>
+                    </tr>
+                    <tr>
+                      <th>Data consulta:</th>
+                      <td>24/04/2024</td>
+                    </tr>
+                    <tr>
+                      <th>Hora Consulta:</th>
+                      <td>11:20</td>
+                    </tr>
+                  </table>
+                </div>
               </div>
             </div>
-
-            <div class="form-input">
-              <label for="">Serviço</label><br />
-              <div class="custom-select">
-                <select id="" name="" size="1">
-                  <option value="cachorro">Cachorro</option>
-                  <option value="gato">Gato</option>
-                  <option value="passaro">Pássaro</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-input">
-              <label for="">Especialidade</label><br />
-              <div class="custom-select">
-                <select id="" name="" size="1">
-                  <option value="cachorro">Cachorro</option>
-                  <option value="gato">Gato</option>
-                  <option value="passaro">Pássaro</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-input">
-              <label for="">Profissional</label><br />
-              <div class="custom-select">
-                <select id="" name="" size="1">
-                  <option value="cachorro">Cachorro</option>
-                  <option value="gato">Gato</option>
-                  <option value="passaro">Pássaro</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-input">
-              <label for="">Data desejada para consulta</label><br />
-              <input type="date" value="" max="" min="1900-01-01" />
-            </div>
-
-            <div class="form-input">
-              <label for="">Horário desejado para consulta</label><br />
-              <input type="time" value="" max="" min="1900-01-01" />
-            </div>
-
             <div class="button-wrapper-form">
               <button
-                class="botao botao-solido"
-                onclick="location.href='resumoagendamento.html'"
+                class="botao botao-borda"
+                onclick="location.href='agendamento.html'"
                 type="button"
               >
-                Continuar
+                Voltar
+              </button>
+              <button
+                class="botao botao-solido"
+                onclick="location.href='meusagendamentos.html'"
+                type="button"
+              >
+                Concluir
               </button>
             </div>
-          </form>
-          <!-- Fim do conteúdo principal -->
+          </div>
         </div>
       </div>
     </div>

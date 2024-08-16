@@ -1,43 +1,23 @@
-.tabEx {
+.top {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-top: 3%;
-  margin-bottom: 3%;
+  gap: 1em;
+  margin-block: 1.75em;
 }
-
-.tabEx img.pet-img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
+.top img {
+  width: 15%;
 }
-
-.form-inline {
-  display: flex;
-  gap: 20px;
+.top .custom-select {
+  width: 100%;
 }
-
 .form-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 20%;
 }
-
-.form-group label {
-  font-size: var(--size-lg);
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-control {
-  padding: 5px;
-  width: 200px;
-  cursor: pointer;
-  background-color: var(--white);
-  border: solid 2px var(--purple);
-  border-radius: 0.7em;
-  padding: 0.4rem 0.75rem;
+.form-group input {
+  width: 100%;
 }
 .card-container {
   display: flex;
@@ -112,8 +92,11 @@ td {
 .card .open_faq .summary {
   padding-bottom: 0em;
 }
+.card .open_faq {
+  padding-bottom: 1em;
+}
 .card strong {
-  width: 20ch;
+  width: 13ch;
   flex-shrink: 0;
 }
 .card p {
@@ -123,6 +106,10 @@ td {
 .card .colapse {
   display: flex;
   justify-content: space-between;
+}
+.card .botao-borda {
+  cursor: pointer;
+  height: fit-content;
 }
 .card .botao-borda:hover {
   transform: translate(0, 0);
@@ -134,13 +121,75 @@ td {
 }
 
 @media (max-width: 1024px) {
+  .top img {
+    width: 20%;
+  }
+  .form-group {
+    width: 25%;
+  }
 }
 
 @media (max-width: 768px) {
+  .top img {
+    display: none;
+  }
+  .form-group {
+    width: 30%;
+    font-size: 1.2em;
+  }
+  .card strong {
+    width: fit-content;
+    margin-right: 1em;
+    flex-shrink: 1;
+  }
+  .card .botao-borda {
+    width: 9em;
+  }
+  th {
+    display: none;
+  }
+  td {
+    display: grid;
+    grid-template-columns: 17ch auto;
+    padding-block: 0.5em;
+  }
+  td::before {
+    color: var(--purple);
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  td:nth-of-type(1)::before {
+    content: "Pedido: ";
+  }
+  td:nth-of-type(2)::before {
+    content: "Data/Horario: ";
+  }
+  td:nth-of-type(3)::before {
+    content: "Exames: ";
+  }
+  td:nth-of-type(4)::before {
+    content: "Profissional: ";
+  }
+  td:nth-of-type(5)::before {
+    content: "Unidade: ";
+  }
+  .card .colapse,
+  .card .colapse p {
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+  }
 }
 
 @media (max-width: 640px) {
 }
 
 @media (max-width: 475px) {
+  .top {
+    flex-direction: column;
+  }
+  .form-group {
+    width: 80%;
+  }
 }

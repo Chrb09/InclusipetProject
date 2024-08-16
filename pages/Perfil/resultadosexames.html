@@ -20,15 +20,31 @@
         <div class="sidebar-background"></div>
         <div class="sidebar-nav">
           <b>Área do Usuario</b>
-          <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">Perfil</button>
-          <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">Meus Pets</button>
-          <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
+          <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">
+            Perfil
+          </button>
+          <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">
+            Meus Pets
+          </button>
+          <button
+            class="sidebar-button"
+            onclick="location.href='meusagendamentos.html'"
+            type="button"
+          >
             Meus Agendamentos
           </button>
-          <button class="sidebar-button ativo" onclick="location.href='resultadosexames.html'" type="button">
+          <button
+            class="sidebar-button ativo"
+            onclick="location.href='resultadosexames.html'"
+            type="button"
+          >
             Resultados Exames
           </button>
-          <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
+          <button
+            class="sidebar-button"
+            onclick="location.href='gerenciaradocao.html'"
+            type="button"
+          >
             Gerenciar Adoção
           </button>
         </div>
@@ -75,17 +91,39 @@
               <div class="wrapper-faq">
                 <div class="colapse">
                   <div class="nav-mobile">
-                    <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">Perfil</button>
-                    <button class="sidebar-button" onclick="location.href='meuspets.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='perfil.html'"
+                      type="button"
+                    >
+                      Perfil
+                    </button>
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='meuspets.html'"
+                      type="button"
+                    >
                       Meus Pets
                     </button>
-                    <button class="sidebar-button" onclick="location.href='meusagendamentos.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='meusagendamentos.html'"
+                      type="button"
+                    >
                       Meus Agendamentos
                     </button>
-                    <button class="sidebar-button ativo" onclick="location.href='resultadosexames.html'" type="button">
+                    <button
+                      class="sidebar-button ativo"
+                      onclick="location.href='resultadosexames.html'"
+                      type="button"
+                    >
                       Resultados Exames
                     </button>
-                    <button class="sidebar-button" onclick="location.href='gerenciaradocao.html'" type="button">
+                    <button
+                      class="sidebar-button"
+                      onclick="location.href='gerenciaradocao.html'"
+                      type="button"
+                    >
                       Gerenciar Adoção
                     </button>
                   </div>
@@ -98,41 +136,45 @@
                 stroke="var(--purple)"
                 class="arrow_faq"
               >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
               </svg>
             </div>
           </div>
           <script src="../../js/nav_mobile.js"></script>
           <div class="titulo">Resultado de Exames</div>
           <!--CODIGO DA PAGINA AQUI-->
-          <div class="tabEx">
+          <div class="top">
             <img src="../../img/Perfil/fonseca.png" alt="Foto do Pet" class="pet-img" />
-            <form class="form-inline">
-              <div class="form-group">
-                <label for="pet">Pet:</label>
-                <div>
-                  <select id="pet" name="pet" class="form-control">
-                    <option value="fonseca">Fonseca</option>
-                    <option value="max">Max</option>
-                    <option value="nenem">Neném</option>
-                  </select>
-                </div>
+            <div class="form-group">
+              <label for="pet">Pet:</label>
+              <div class="custom-select">
+                <select id="pet" name="pet">
+                  <option value="fonseca">Fonseca</option>
+                  <option value="max">Max</option>
+                  <option value="nenem">Neném</option>
+                </select>
               </div>
+            </div>
 
-              <div class="form-group">
-                <label for="data">A Partir de:</label>
-                <input type="date" id="data" name="data" class="form-control" />
-              </div>
+            <div class="form-group">
+              <label for="data">A Partir de:</label>
+              <input type="date" id="data" name="data" />
+            </div>
 
-              <div class="form-group">
-                <label for="tipo">Tipo de Exame:</label>
-                <select id="tipo" name="tipo" class="form-control">
+            <div class="form-group">
+              <label for="tipo">Tipo de Exame:</label>
+              <div class="custom-select">
+                <select id="tipo" name="tipo">
                   <option value="check-up">Check-Up</option>
                   <option value="check-up">Raio-x</option>
                   <option value="check-up">Radiografia</option>
                 </select>
               </div>
-            </form>
+            </div>
           </div>
 
           <div class="card-container">
@@ -164,9 +206,9 @@
                 <div class="wrapper-faq">
                   <div class="colapse">
                     <p>
-                      <strong>Informações Adicionais:</strong>
-                      Check-Up completo realizado, incluindo análises de sangue, urina e fezes e uma avaliação física
-                      geral.
+                      <strong>Info Adicionais:</strong>
+                      Check-Up completo realizado, incluindo análises de sangue, urina e fezes e uma
+                      avaliação física geral.
                     </p>
                     <div class="botao-borda">Baixar PDF</div>
                   </div>
@@ -178,7 +220,11 @@
                   stroke="var(--purple)"
                   class="arrow_faq"
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
                 </svg>
               </div>
             </div>
@@ -211,9 +257,9 @@
                 <div class="wrapper-faq">
                   <div class="colapse">
                     <p>
-                      <strong>Informações Adicionais:</strong>
-                      Check-Up completo realizado, incluindo análises de sangue, urina e fezes e uma avaliação física
-                      geral.
+                      <strong>Info Adicionais:</strong>
+                      Check-Up completo realizado, incluindo análises de sangue, urina e fezes e uma
+                      avaliação física geral.
                     </p>
                     <div class="botao-borda">Baixar PDF</div>
                   </div>
@@ -225,7 +271,11 @@
                   stroke="var(--purple)"
                   class="arrow_faq"
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
                 </svg>
               </div>
             </div>
@@ -258,9 +308,9 @@
                 <div class="wrapper-faq">
                   <div class="colapse">
                     <p>
-                      <strong>Informações Adicionais:</strong>
-                      Check-Up completo realizado, incluindo análises de sangue, urina e fezes e uma avaliação física
-                      geral.
+                      <strong>Info Adicionais:</strong>
+                      Check-Up completo realizado, incluindo análises de sangue, urina e fezes e uma
+                      avaliação física geral.
                     </p>
                     <div class="botao-borda">Baixar PDF</div>
                   </div>
@@ -272,7 +322,11 @@
                   stroke="var(--purple)"
                   class="arrow_faq"
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
                 </svg>
               </div>
             </div>
