@@ -2,7 +2,7 @@
   --green: #4cb062;
 }
 .fechado {
-  --green: #ff4848;
+--green: var(--red);
 }
 .container__unidades {
   display: flex;
@@ -44,12 +44,12 @@
   gap: 0.5rem;
 }
 .texto-subtitulo {
-  color: var(--clr-green);
+  color: var(--green);
 }
 .status {
   width: 0.75em;
   height: 0.75em;
-  background-color: var(--clr-green);
+  background-color: var(--green);
   border-radius: 10rem;
 }
 
