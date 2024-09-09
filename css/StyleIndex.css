@@ -156,7 +156,7 @@
 .ong {
   margin-inline: auto;
   display: grid;
-  max-width: 50em;
+  max-width: 60em;
   grid-template-columns: repeat(auto-fit, minmax(min(250px), 1fr));
   align-items: center;
   justify-items: center;

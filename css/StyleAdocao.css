@@ -9,7 +9,7 @@ strong {
   padding-inline: 8em;
   margin-top: 3rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(calc(18em - (2em * 2)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(calc(20em - (2em * 2)), 1fr));
   gap: 1.5em;
 }
 .botao-solido {
