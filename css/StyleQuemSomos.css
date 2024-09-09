@@ -136,7 +136,7 @@ body {
   .sidebar-background {
     width: 100vw;
     left: unset;
-    right: calc(50vw + 26rem);
+    right: calc(50vw + 28rem);
   }
 }
 

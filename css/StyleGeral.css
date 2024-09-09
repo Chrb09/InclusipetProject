@@ -13,21 +13,21 @@
   --greenhover: #38884a;
   --red: #ff4848;
   --redhover: #c73131;
-  --size-xxs: 0.5rem;
-  --size-xs: 0.825rem;
-  --size-sm: 0.875rem;
-  --size-base: 1rem;
-  --size-lg: 1.125rem;
-  --size-xl: 1.25rem;
-  --size-2x: 1.5rem;
-  --size-3x: 1.875rem;
-  --size-4x: 2.25rem;
-  --size-5x: 3rem;
-  --size-6x: 3.5rem;
-  --size-7x: 4.5rem;
-  --size-8x: 6rem;
-  --size-9x: 8rem;
-  --size-10x: 10rem;
+  --size-xxs: 0.45rem;
+  --size-xs: 0.7425rem;
+  --size-sm: 0.7875rem;
+  --size-base: 0.9rem;
+  --size-lg: 1.0125rem;
+  --size-xl: 1.125rem;
+  --size-2x: 1.35rem;
+  --size-3x: 1.6875rem;
+  --size-4x: 2.025rem;
+  --size-5x: 2.7rem;
+  --size-6x: 3.15rem;
+  --size-7x: 4.05rem;
+  --size-8x: 5.4rem;
+  --size-9x: 7.2rem;
+  --size-10x: 9rem;
 }
 @font-face {
   font-family: Inter;
@@ -162,7 +162,7 @@ button {
   background: none;
   cursor: pointer;
   color: inherit;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 header a,
 footer a {
@@ -181,7 +181,7 @@ textarea {
   border: solid 2px var(--purple);
   border-radius: 0.7em;
   padding: 0.4rem 0.75rem;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 textarea {
   resize: none;
@@ -195,7 +195,7 @@ select {
   box-shadow: none;
   cursor: pointer;
   width: 100%;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 label {
   color: var(--grayblack);
@@ -465,7 +465,7 @@ strong {
 .dropdown__header {
   position: absolute;
   right: 0;
-  top: 10.5rem;
+  top: 10rem;
   font-size: var(--size-xl);
   z-index: 10;
   list-style: none;
