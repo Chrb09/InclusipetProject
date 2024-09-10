@@ -18,7 +18,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "contato";
-  include_once('../../components/header.php');
+  include('../../components/header.php');
   ?>
   <!-- CONTATO -->
 
@@ -78,7 +78,7 @@
 
   <!-- FOOTER -->
   <?php
-  include_once('../../components/footer.php');
+  include('../../components/footer.php');
   ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

@@ -19,18 +19,18 @@
   <!-- HEADER-->
   <?php
   $activePage = "quemsomos";
-  include_once('../../components/header.php');
+  include('../../components/header.php');
   ?>
   <!--Conteudo-->
 
   <div class="main">
     <?php
     $sidebarActive = "fisioterapia";
-    include_once('../../components/sidebarquemsomos.php');
+    include('../../components/sidebarquemsomos.php');
     ?>
     <div class="content">
       <?php
-      include_once('../../components/navmobilequemsomos.php');
+      include('../../components/navmobilequemsomos.php');
       ?>
       <div class="imagem"><img src="../../assets/img/QuemSomos/CachorroFisioterapia.png" /></div>
       <div class="titulo">Fisioterapia & Reabilitação</div>
@@ -53,7 +53,7 @@
   </div>
   <!-- FOOTER -->
   <?php
-  include_once('../../components/footer.php');
+  include('../../components/footer.php');
   ?>
 </body>
 

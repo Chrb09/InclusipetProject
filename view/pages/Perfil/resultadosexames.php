@@ -20,14 +20,14 @@
   <div class="container-usuario">
     <?php
     $sidebarActive = "exames";
-    include_once('../../components/sidebarperfil.php');
+    include('../../components/sidebarperfil.php');
     ?>
     <div class="main">
-      <?php include_once('../../components/headerperfil.php'); ?>
+      <?php include('../../components/headerperfil.php'); ?>
 
       <div class="content">
 
-        <?php include_once('../../components/navmobileperfil.php'); ?>
+        <?php include('../../components/navmobileperfil.php'); ?>
         <div class="titulo">Resultado de Exames</div>
         <!--CODIGO DA PAGINA AQUI-->
         <div class="top">

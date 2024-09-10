@@ -14,9 +14,9 @@
       </div>
     </div>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="var(--purple)" class="arrow_faq">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-  </svg>
+  <?php
+  include('../../assets/svg/arrow_faq.php');
+  ?>
 </div>
 <div class="details <?php if ($sidebarActive == 'atendimento' || $sidebarActive == 'cirurgia' || $sidebarActive == 'vacinacao')
   echo ' open_faq'; ?>">
@@ -37,9 +37,9 @@
       </div>
     </div>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="var(--purple)" class="arrow_faq">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-  </svg>
+  <?php
+  include('../../assets/svg/arrow_faq.php');
+  ?>
 </div>
 <div class="details <?php if ($sidebarActive == 'ortopedia' || $sidebarActive == 'fisioterapia' || $sidebarActive == 'proteses' || $sidebarActive == 'neurologia' || $sidebarActive == 'terapia' || $sidebarActive == 'aconselhamento')
   echo ' open_faq'; ?>">
@@ -70,9 +70,9 @@
       </div>
     </div>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="var(--purple)" class="arrow_faq">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-  </svg>
+  <?php
+  include('../../assets/svg/arrow_faq.php');
+  ?>
 </div>
 </div>
 <script src="../../assets/js/nav_mobile.js"></script>

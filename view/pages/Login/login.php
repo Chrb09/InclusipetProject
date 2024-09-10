@@ -16,7 +16,7 @@
 
 <body>
   <!-- HEADER-->
-  <?php include_once('../../components/header.php'); ?>
+  <?php include('../../components/header.php'); ?>
 
   <!-- LOGIN -->
   <div class="container-login" id="container-login">

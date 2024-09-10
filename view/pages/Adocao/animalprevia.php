@@ -31,7 +31,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "adocao";
-  include_once('../../components/header.php');
+  include('../../components/header.php');
   ?>
 
   <!--Conteudo-->
@@ -93,7 +93,7 @@
   </div>
   <!-- FOOTER -->
   <?php
-  include_once('../../components/footer.php');
+  include('../../components/footer.php');
   ?>
 </body>
 

@@ -18,7 +18,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "adocao";
-  include_once('../../components/header.php');
+  include('../../components/header.php');
   ?>
   <!--Conteúdo-->
   <div class="container container__adocao">
@@ -169,7 +169,7 @@
 
   <!-- FOOTER -->
   <?php
-  include_once('../../components/footer.php');
+  include('../../components/footer.php');
   ?>
 </body>
 

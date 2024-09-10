@@ -18,17 +18,16 @@
   <!-- HEADER-->
   <?php
   $activePage = "blog";
-  include_once('../../components/header.php');
+  include('../../components/header.php');
   ?>
   <!--Conteudo-->
   <div class="scroll-watcher"></div>
   <div class="container container__post">
     <div class="container__titulo">
       <a href="blog.php" class="link">Blog
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-          class="seta__link">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
+        <?php
+        include('../../assets/svg/seta_link.php');
+        ?>
         Cuidados
       </a>
       <div class="titulo titulo-pagina">
@@ -140,7 +139,7 @@
 
   <!-- FOOTER -->
   <?php
-  include_once('../../components/footer.php');
+  include('../../components/footer.php');
   ?>
 </body>
 

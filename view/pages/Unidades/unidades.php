@@ -18,7 +18,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "unidades";
-  include_once('../../components/header.php');
+  include('../../components/header.php');
   ?>
   <!--Conteudo-->
   <div class="container container__unidades">
@@ -80,7 +80,7 @@
   </div>
   <!-- FOOTER -->
   <?php
-  include_once('../../components/footer.php');
+  include('../../components/footer.php');
   ?>
 </body>
 <script>

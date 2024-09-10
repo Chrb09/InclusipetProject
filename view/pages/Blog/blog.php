@@ -18,7 +18,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "blog";
-  include_once('../../components/header.php');
+  include('../../components/header.php');
   ?>
   <!-- BLOG -->
   <div class="container container-blog container__heading">
@@ -66,10 +66,9 @@
             diferentes do padrão. No entanto, muitas ideias erradas cercam os animais deficientes
           </div>
           <a href="post1.php" class="link">Ler Mais
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="seta__link">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
+            <?php
+            include('../../assets/svg/seta_link.php');
+            ?>
           </a>
         </div>
       </div>
@@ -89,10 +88,9 @@
               fenômeno.
             </div>
             <a href="post2.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -110,10 +108,9 @@
               cuidado possível aos seus companheiros peludos.
             </div>
             <a href="post3.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -131,10 +128,9 @@
               algumas dicas sobre como cuidar dos dentes do seu pet
             </div>
             <a href="post4.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -153,10 +149,9 @@
               contribuindo para a saúde geral da comunidade animal.
             </div>
             <a href="post5.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -165,7 +160,7 @@
   </div>
   <!-- FOOTER -->
   <?php
-  include_once('../../components/footer.php');
+  include('../../components/footer.php');
   ?>
 </body>
 

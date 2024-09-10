@@ -20,14 +20,14 @@
   <div class="container-usuario">
     <?php
     $sidebarActive = "pets";
-    include_once('../../components/sidebarperfil.php');
+    include('../../components/sidebarperfil.php');
     ?>
     <div class="main">
-      <?php include_once('../../components/headerperfil.php'); ?>
+      <?php include('../../components/headerperfil.php'); ?>
 
       <div class="content">
 
-        <?php include_once('../../components/navmobileperfil.php'); ?>
+        <?php include('../../components/navmobileperfil.php'); ?>
         <!-- Começo do conteúdo principal -->
         <div class="titulo">Cadastrar Pet</div>
 

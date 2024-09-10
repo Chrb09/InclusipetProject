@@ -20,7 +20,7 @@
 
 <body>
   <!-- HEADER-->
-  <?php include_once('../../components/header.php'); ?>
+  <?php include('../../components/header.php'); ?>
   <!-- CARROSSEL -->
   <div class="swiper swiper-index">
     <!-- Additional required wrapper -->
@@ -135,10 +135,9 @@
           </a>
           <p>Cadastre o seu pet e faça um agendamento direto do conforto de sua casa!</p>
           <a href="../Login/login.php" class="link">Acessar
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="seta__link">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
+            <?php
+            include('../../assets/svg/seta_link.php');
+            ?>
           </a>
         </div>
 
@@ -152,10 +151,9 @@
           </a>
           <p>Fique mais confortavel sabendo que seu pet ficará em nossas mãos</p>
           <a href="../QuemSomos/quemsomos.php" class="link">Acessar
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="seta__link">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
+            <?php
+            include('../../assets/svg/seta_link.php');
+            ?>
           </a>
         </div>
         <div class="card-hero swiper-slide">
@@ -168,10 +166,9 @@
           </a>
           <p>Encontre e adote um animal que está precisando de um novo lar.</p>
           <a href="../Adocao/adocao.php" class="link">Acessar
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="seta__link">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
+            <?php
+            include('../../assets/svg/seta_link.php');
+            ?>
           </a>
         </div>
         <div class="card-hero swiper-slide">
@@ -184,10 +181,9 @@
           </a>
           <p>Precisa de ajuda com algo? Quer enviar um feedback? Mande uma mensagem!</p>
           <a href="../Contato/contato.php" class="link">Acessar
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="seta__link">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
+            <?php
+            include('../../assets/svg/seta_link.php');
+            ?>
           </a>
         </div>
       </div>
@@ -391,10 +387,9 @@
               diferentes
             </div>
             <a href="../Blog/post1.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -408,10 +403,9 @@
               algumas dicas sobre como cuidar dos dentes do seu pet:
             </div>
             <a href="../Blog/post4.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -424,10 +418,9 @@
               própria essência de nossa sociedade. No entanto, mesmo diante desse elo intrínseco, a violência
             </div>
             <a href="../Blog/post2.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -444,10 +437,9 @@
               diferentes
             </div>
             <a href="../Blog/post1.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -461,10 +453,9 @@
               algumas dicas sobre como cuidar dos dentes do seu pet:
             </div>
             <a href="../Blog/post4.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -477,10 +468,9 @@
               própria essência de nossa sociedade. No entanto, mesmo diante desse elo intrínseco, a violência
             </div>
             <a href="../Blog/post2.php" class="link">Ler Mais
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                class="seta__link">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
             </a>
           </div>
         </div>
@@ -507,10 +497,9 @@
             tratamentos de reabilitação para ajudar na mobilidade e na qualidade de vida dos animais deficientes.
           </p>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="var(--purple)"
-          class="arrow_faq">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
+        <?php
+        include('../../assets/svg/arrow_faq.php');
+        ?>
       </div>
       <div class="details">
         <div class="summary">Vocês aceitam animais de todas as deficiências?</div>
@@ -521,10 +510,9 @@
             cada animal.
           </p>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="var(--purple)"
-          class="arrow_faq">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
+        <?php
+        include('../../assets/svg/arrow_faq.php');
+        ?>
       </div>
       <div class="details">
         <div class="summary">Qual é a experiência e qualificação da equipe em lidar com animais deficientes?</div>
@@ -535,10 +523,9 @@
             atualizados com as melhores práticas e tecnologias disponíveis.
           </p>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="var(--purple)"
-          class="arrow_faq">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
+        <?php
+        include('../../assets/svg/arrow_faq.php');
+        ?>
       </div>
       <div class="details">
         <div class="summary">Como a clínica lida com emergências médicas?</div>
@@ -549,17 +536,16 @@
             em situações críticas.
           </p>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="var(--purple)"
-          class="arrow_faq">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
+        <?php
+        include('../../assets/svg/arrow_faq.php');
+        ?>
       </div>
     </div>
   </div>
   <script src="../../assets/js/faq.js"></script>
   <!-- FOOTER -->
   <?php
-  include_once('../../components/footer.php');
+  include('../../components/footer.php');
   ?>
   <script src="../../assets/js/carrossel.js"></script>
 
