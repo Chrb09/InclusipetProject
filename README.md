@@ -65,10 +65,10 @@ Inicie os serviços Apache & MySQL do XAMPP
 
 ![alt text](view/assets/img/Outros/xampp.png)
 
-Abra o phpMyAdmin no diretorio ROOT e importe o banco de dados em:
+Abra o phpMyAdmin no diretorio ROOT e importe o banco de dados 'bd_inclusipet.sql' em:
 
 ```bash
-C:\xampp\htdocs\InclusipetProject\controller\bd_inclusipet.sql
+C:\xampp\htdocs\InclusipetProject\controller
 ```
 
 Digite o URL do projeto em sua barra de pesquisa
