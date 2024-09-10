@@ -14,8 +14,8 @@
     - [Biblioteca ](#biblioteca-)
     - [Framework ](#framework-)
   - [📁 Rodando o Projeto](#-rodando-o-projeto)
-  - [💻 Roadmap](#-roadmap)
   - [❓ FAQ](#-FAQ)
+  - [💻 Roadmap](#-roadmap)
   - [🐕 Contribuidores](#-contribuidores)
 
 ## 🤔 Sobre a Inclusipet
@@ -45,7 +45,7 @@ Algumas das funcionalidade incluem um sistema de login e cadastro do tutor do pe
 
 ![JQUERY](https://img.shields.io/badge/JQuery-574DBD?style=for-the-badge&logo=jquery&logoColor=white)
 
-### Framework:
+### Framework: <br>
 
 ![SWIPERJS](https://img.shields.io/badge/Swiper.JS-574DBD?style=for-the-badge&logo=swiper&logoColor=white)
 <br>
