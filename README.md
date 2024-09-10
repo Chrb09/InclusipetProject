@@ -1,37 +1,31 @@
 ![Logo](https://raw.githubusercontent.com/Chrb09/InclusipetProject/master/img/Outros/inclusipetREADME.png)
 
-**Inclusipet** é um site desenvolvido para um projeto que dura 2 anos ( 2023 - 2024 ) com uma empresa parceira no curso de Desenvolvimento de Sistemas AMS da Etec da Zona Leste. [**Link do Github Pages**](https://chrb09.github.io/InclusipetProject/)
+**Inclusipet** é um site desenvolvido para um projeto que dura 2 anos ( 2023 - 2024 ) com uma empresa parceira no curso de Desenvolvimento de Sistemas AMS da Etec da Zona Leste.
+[**Link do Github Pages**](https://chrb09.github.io/InclusipetProject/)
 
 # Sumário
 
 - [Sumário](#sumário)
-  - [🤔 Sobre o projeto](#-sobre-o-projeto)
-  - [🐦 Diferencial](#-diferencial)
-  - [📖 Funcionalidades](#-funcionalidades)
+  - [🤔 Sobre a Inclusipet](#-sobre-a-Inclusipet)
+  - [📖 Funcionalidades do Sistema](#-funcionalidades-do-sistema)
   - [✅ Tecnologias Utilizada](#-tecnologias-utilizadas)
     - [Front end](#front-end-)
     - [Back end](#back-end-)
-    - [Framework ](#framework)
-  - [📁 Rodando Localmente](#-rodando-localmente)
+    - [Biblioteca ](#biblioteca-)
+    - [Framework ](#framework-)
+  - [📁 Rodando o Projeto](#-rodando-o-projeto)
+  - [❓ FAQ](#-FAQ)
   - [💻 Roadmap](#-roadmap)
   - [🐕 Contribuidores](#-contribuidores)
 
-## 🤔 Sobre o projeto
-
-É um portal dedicado ao cuidado, inclusão e amor pelos animais de estimação. Oferecendo recursos como dicas de cuidados, informações sobre adoção responsável e serviços veterinários, promovendo uma comunidade online para amantes de animais de todas as origens.
-
-<br>
-
-## 🐦 Diferencial
+## 🤔 Sobre a Inclusipet
 
 O diferencial da **Inclusipet** é o seu foco em animais que necessitam de cuidados especiais sendo construído com esse foque em mente tendo funcionalidades especializadas para o tratamento de tais, focando no atendimento online para praticidade dos donos.
-
 <br>
 
-## 📖 Funcionalidades
+## 📖 Funcionalidades do sistema
 
-Algumas das funcionalidade incluem um sistema de login e cadastro que pode guardar informações e preferencias do usuário que facilitam o uso do sistema de agendamento, além de permitir funcionalidades como acompanhar o progresso de exames e consultas, também temos um sistema de adoção que pode criar um anuncio com informações sobre o pet que precisa de um novo lar.
-
+Algumas das funcionalidade incluem um sistema de login e cadastro do tutor do pet e do funcionario que podem guardar informações do usuário que permitem o uso do sistema de agendamento e cadastro de pet, além de permitir funcionalidades como acompanhar o progresso de exames e consultas, também temos um sistema de adoção que pode criar um anuncio com informações sobre o pet que precisa de um novo lar, tudo com conexão para o banco de dados usando PHP e MySQl (MariaDB).
 <br>
 
 ## ✅ Tecnologias utilizadas
@@ -47,11 +41,41 @@ Algumas das funcionalidade incluem um sistema de login e cadastro que pode guard
 ![PHP](https://img.shields.io/badge/PHP-574DBD?style=for-the-badge&logo=php&logoColor=white)
 ![MYSQL](https://img.shields.io/badge/MySQL-574DBD?style=for-the-badge&logo=mysql&logoColor=white)
 
-### Framework:
+### Biblioteca: <br>
+
+![JQUERY](https://img.shields.io/badge/JQuery-574DBD?style=for-the-badge&logo=jquery&logoColor=white)
+
+### Framework: <br>
 
 ![SWIPERJS](https://img.shields.io/badge/Swiper.JS-574DBD?style=for-the-badge&logo=swiper&logoColor=white)
-
 <br>
+
+## 📁 Rodando o projeto
+
+Clone o repositorio localmente
+
+```bash
+  # Entre na sua pasta htdocs no local de instalação de seu XAMPP
+  cd C:/xampp/htdocs
+  # Clone o repositorio
+  git clone https://github.com/Chrb09/InclusipetProject
+```
+
+Inicie os serviços Apache & MySQL do XAMPP
+
+![alt text](view/assets/img/Outros/xampp.png)
+
+Abra o phpMyAdmin no diretorio ROOT e importe o banco de dados em:
+
+```bash
+C:\xampp\htdocs\InclusipetProject\controller\bd_inclusipet.sql
+```
+
+Digite o URL do projeto em sua barra de pesquisa
+
+```bash
+http://localhost/inclusipetProject/view/pages/index/index.php
+```
 
 ## ❓ FAQ
 
@@ -74,23 +98,6 @@ O site foi criado utilizando [ **Figma**](https://www.figma.com/file/L4PJEj1teai
 ### **O BackEnd Está pronto?**
 
 Não, ele ainda está em desenvolvimento.
-
-<br>
-
-## 📁 Rodando localmente
-
-Clone o projeto
-
-```bash
-  git clone https://github.com/Chrb09/InclusipetProject
-```
-
-Entre no diretório do projeto
-
-```bash
-  cd InclusipetProject
-```
-
 <br>
 
 ## 💻 Roadmap
@@ -101,7 +108,7 @@ Entre no diretório do projeto
 
 - Melhorar o suporte de navegadores
 
-- Otimizar o código
+- Otimzar o código
 
 <br>
 
