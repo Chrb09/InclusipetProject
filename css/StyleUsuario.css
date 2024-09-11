@@ -163,7 +163,7 @@ body {
 }
 
 .editar-button img {
-  width: 18%;
+  width: 16%;
 }
 
 .foto-edit {
@@ -224,6 +224,10 @@ body {
   gap: 0.35em;
   margin-bottom: 1em;
 }
+.form-input input:not([type="checkbox"]):not([type="radio"]) {
+  width: 100%;
+}
+
 .form-input br {
   display: none;
 }
@@ -256,11 +260,6 @@ body {
 }
 .info-table td {
   text-align: right;
-}
-.botao-solido,
-.botao-borda,
-.editar-button {
-  font-size: 18px;
 }
 @media (min-width: 1536px) {
   .container-usuario {
@@ -298,11 +297,6 @@ body {
   }
   .main {
     padding-inline: 1.5em;
-  }
-  .botao-solido,
-  .botao-borda,
-  .editar-button {
-    font-size: 14px;
   }
 }
 /* lg */
@@ -368,11 +362,6 @@ body {
     display: block;
     font-size: 1.3em;
   }
-  .botao-solido,
-  .botao-borda,
-  .editar-button {
-    font-size: 16px;
-  }
 }
 
 /* sm */
@@ -392,11 +381,6 @@ body {
     width: 80%;
     font-size: 1.2em;
   }
-  .botao-solido,
-  .botao-borda,
-  .editar-button {
-    font-size: 18px;
-  }
 }
 
 /* xs */
@@ -415,10 +399,5 @@ body {
   }
   .form-input {
     width: 100%;
-  }
-  .botao-solido,
-  .botao-borda,
-  .editar-button {
-    font-size: 16px;
   }
 }

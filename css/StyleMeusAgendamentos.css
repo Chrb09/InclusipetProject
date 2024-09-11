@@ -148,7 +148,6 @@
   transform: translate(0, -3px);
 }
 .cadastrar-pet {
-  font-size: 0.9em;
   font-weight: 700;
   color: var(--purple);
 }

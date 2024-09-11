@@ -744,7 +744,6 @@ strong {
     justify-content: center;
   }
   body {
-    font-size: var(--size-xs);
     padding-bottom: 19rem;
   }
   .titulo {
