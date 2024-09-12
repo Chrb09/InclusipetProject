@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08/09/2024 às 23:55
+-- Tempo de geração: 12/09/2024 às 14:15
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -55,12 +55,13 @@ CREATE TABLE `agendamento` (
   `CodVeterinario` int(11) NOT NULL,
   `CodAnimal` int(11) NOT NULL,
   `CodCliente` int(11) NOT NULL,
-  `Unidade` varchar(30) NOT NULL,
+  `CodUnidade` int(11) NOT NULL,
   `Servico` varchar(30) NOT NULL,
   `Data` date NOT NULL,
   `Hora` time NOT NULL,
   `Info` varchar(200) DEFAULT NULL,
-  `Resultado` varchar(1) DEFAULT NULL
+  `Resultado` varchar(1) DEFAULT NULL,
+  `CodServico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -145,6 +146,33 @@ CREATE TABLE `raca` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `servico`
+--
+
+CREATE TABLE `servico` (
+  `CodServico` int(11) NOT NULL,
+  `Descricao` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `unidade`
+--
+
+CREATE TABLE `unidade` (
+  `CodUnidade` int(11) NOT NULL,
+  `Nome` varchar(35) NOT NULL,
+  `Endereco` varchar(50) NOT NULL,
+  `Bairro` varchar(50) NOT NULL,
+  `Telefone` varchar(15) NOT NULL,
+  `HorarioInicial` time DEFAULT NULL,
+  `HorarioFinal` time DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `veterinario`
 --
 
@@ -156,7 +184,8 @@ CREATE TABLE `veterinario` (
   `RG` varchar(12) NOT NULL,
   `CPF` varchar(14) NOT NULL,
   `Telefone` varchar(15) NOT NULL,
-  `CEP` varchar(9) NOT NULL
+  `CEP` varchar(9) NOT NULL,
+  `CodUnidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -178,7 +207,9 @@ ALTER TABLE `agendamento`
   ADD PRIMARY KEY (`CodAgendamento`),
   ADD KEY `CodAnimalAgendamento` (`CodAnimal`),
   ADD KEY `CodClienteAgendamento` (`CodCliente`),
-  ADD KEY `CodVeterinarioAgendamento` (`CodVeterinario`);
+  ADD KEY `CodVeterinarioAgendamento` (`CodVeterinario`),
+  ADD KEY `CodUnidadeAgendamento` (`CodUnidade`),
+  ADD KEY `CodServicoAgendamento` (`CodServico`);
 
 --
 -- Índices de tabela `animal`
@@ -220,13 +251,26 @@ ALTER TABLE `raca`
   ADD KEY `CodEspecieRaca` (`CodEspecie`);
 
 --
+-- Índices de tabela `servico`
+--
+ALTER TABLE `servico`
+  ADD PRIMARY KEY (`CodServico`);
+
+--
+-- Índices de tabela `unidade`
+--
+ALTER TABLE `unidade`
+  ADD PRIMARY KEY (`CodUnidade`);
+
+--
 -- Índices de tabela `veterinario`
 --
 ALTER TABLE `veterinario`
   ADD PRIMARY KEY (`CodVeterinario`),
   ADD UNIQUE KEY `RG` (`RG`),
   ADD UNIQUE KEY `CPF` (`CPF`),
-  ADD KEY `CodCargoVeterinario` (`CodCargo`);
+  ADD KEY `CodCargoVeterinario` (`CodCargo`),
+  ADD KEY `CodUnidadeVeterinario` (`CodUnidade`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -275,6 +319,18 @@ ALTER TABLE `raca`
   MODIFY `CodRaca` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `servico`
+--
+ALTER TABLE `servico`
+  MODIFY `CodServico` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `unidade`
+--
+ALTER TABLE `unidade`
+  MODIFY `CodUnidade` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `veterinario`
 --
 ALTER TABLE `veterinario`
@@ -297,6 +353,8 @@ ALTER TABLE `adocao`
 ALTER TABLE `agendamento`
   ADD CONSTRAINT `CodAnimalAgendamento` FOREIGN KEY (`CodAnimal`) REFERENCES `animal` (`CodAnimal`) ON UPDATE NO ACTION,
   ADD CONSTRAINT `CodClienteAgendamento` FOREIGN KEY (`CodCliente`) REFERENCES `cliente` (`CodCliente`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodServicoAgendamento` FOREIGN KEY (`CodServico`) REFERENCES `servico` (`CodServico`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodUnidadeAgendamento` FOREIGN KEY (`CodUnidade`) REFERENCES `unidade` (`CodUnidade`) ON UPDATE NO ACTION,
   ADD CONSTRAINT `CodVeterinarioAgendamento` FOREIGN KEY (`CodVeterinario`) REFERENCES `veterinario` (`CodVeterinario`) ON UPDATE NO ACTION;
 
 --
@@ -321,7 +379,8 @@ ALTER TABLE `raca`
 -- Restrições para tabelas `veterinario`
 --
 ALTER TABLE `veterinario`
-  ADD CONSTRAINT `CodCargoVeterinario` FOREIGN KEY (`CodCargo`) REFERENCES `cargo` (`CodCargo`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `CodCargoVeterinario` FOREIGN KEY (`CodCargo`) REFERENCES `cargo` (`CodCargo`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodUnidadeVeterinario` FOREIGN KEY (`CodUnidade`) REFERENCES `unidade` (`CodUnidade`) ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
