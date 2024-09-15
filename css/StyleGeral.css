@@ -454,6 +454,9 @@ strong {
   height: 3.8rem;
 }
 .login__header {
+  border-radius: 100%;
+}
+.login__header {
   transition: transform 0.3s;
   &:hover {
     transform: translate(0, -4px);

@@ -167,10 +167,10 @@ body {
 }
 
 .foto-edit {
-  margin-block: 3%;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 .foto-edit p {
   font-size: 1.75em;
@@ -196,6 +196,7 @@ body {
 .foto-edit-img {
   z-index: 1;
   border-radius: 100%;
+  width: 100%;
 }
 .foto-edit-wrapper {
   position: relative;
