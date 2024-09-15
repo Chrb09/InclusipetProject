@@ -5,16 +5,15 @@ body {
   position: static;
   margin-top: 0;
 }
-ins {
-  font-size: 0.75em;
-  text-align: right;
-}
 #signUp,
-#signIn {
+#signIn,
+ins {
   color: var(--purple);
   text-decoration: underline;
   cursor: pointer;
+  text-align: center;
 }
+
 .svggoogle {
   fill: inherit;
   height: 1.25em;
@@ -22,13 +21,15 @@ ins {
 .container-login {
   position: relative;
   overflow: hidden;
+  overflow-y: auto;
   width: 100%;
-  min-height: 95vh;
+  min-height: calc(100vh - 6rem);
 }
 .form-container {
+  padding-block: 3rem;
   position: absolute;
   top: 0;
-  height: 100%;
+  min-height: calc(100vh - 6rem);
   transition: transform 0.6s ease-in-out, opacity 0.7s cubic-bezier(1, -0.19, 0.06, 1.16);
   display: flex;
   flex-direction: column;
@@ -79,12 +80,16 @@ form {
   opacity: 1;
   z-index: 5;
 }
+.header {
+  position: sticky;
+  z-index: 20;
+}
 .overlay-container {
   background-image: url(../img/Login/Background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: absolute;
+  position: fixed;
   display: relative;
   top: 0;
   left: 50%;
@@ -110,7 +115,6 @@ form {
 .container-login.right-panel-active .overlay {
   transform: translateX(50%);
 }
-
 /* md */
 
 /* xl */
@@ -145,7 +149,6 @@ form {
   .form-container {
     position: absolute;
     top: 0;
-    height: 100%;
     transition: transform 0.6s ease-in-out, opacity 0.7s ease;
   }
   .container-login.right-panel-active .sign-in-container {
@@ -158,9 +161,6 @@ form {
     width: 100%;
     opacity: 0;
     z-index: 1;
-  }
-  .container-login {
-    min-height: 80vh;
   }
   .container-login.right-panel-active .sign-up-container {
     transform: translateX(0);

@@ -54,7 +54,7 @@
                 Editar
               </button>
 
-              <div class="adotado">Adotado?</div>
+              <button class="botao-borda">Adotado</button>
             </div>
           </div>
           <!--Fim item-->
@@ -78,7 +78,7 @@
                 Editar
               </button>
 
-              <div class="adotado">Adotado?</div>
+              <button class="botao-borda">Adotado</button>
             </div>
           </div>
           <!--Fim item-->
@@ -97,7 +97,12 @@
               </p>
             </div>
             <div class="botoes">
-              <div class="adotado-ativo adotado">Adotado?</div>
+              <button class="botao-solido editar-button">
+                <img src="../../assets/img/Perfil/editar_icon.png" alt="Editar" class="editar" />
+                Editar
+              </button>
+
+              <button class="botao-borda">Adotado</button>
             </div>
           </div>
           <!--Fim item-->

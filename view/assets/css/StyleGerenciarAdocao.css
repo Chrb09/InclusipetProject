@@ -40,7 +40,6 @@
 .botoes {
   display: flex;
   flex-direction: column;
-  align-items: end;
   gap: 0.75rem;
 }
 .botao-borda {
@@ -49,19 +48,15 @@
 
 /*Div do adotado que fica ao lado da descrição*/
 .adotado {
-  font-weight: 600;
-  padding-block: 0.55em;
-  padding-left: 0.8em;
-  padding-right: 1.2em;
-  border-radius: 0.75em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  width: fit-content;
   background-color: var(--green);
   color: var(--white);
-  border: var(--green) 3px solid;
+  font-weight: 600;
+  border-style: solid;
+  border-color: var(--green);
+  border-width: 0.15rem;
+  padding: 0.4em 0.9em;
+  border-radius: 0.8em;
+  transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
 }
 
 @media (max-width: 1536px) {

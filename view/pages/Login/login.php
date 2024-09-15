@@ -72,7 +72,6 @@
           <input name="log-in-email" type="email" required autocomplete="on" />
           <label for="log-in-password">Senha</label>
           <input name="log-in-password" type="password" required autocomplete="on" />
-          <ins><a href="#">Esqueceu sua senha?</a></ins>
           <button class="botao-solido" onclick="location.href='../Perfil/perfil.php'" type="button">Entre</button>
           <button class="botao-borda" onclick="" type="button">
             <svg id="Layer_1" style="enable-background: new 0 0 56.6934 56.6934" version="1.1"
@@ -87,6 +86,7 @@
             Ainda não possui uma conta?
             <a class="" id="signUp">Cadastre-se</a>
           </p>
+          <ins><a href="../Funcionario/login.php">Login Funcionario</a></ins>
         </div>
       </form>
     </div>

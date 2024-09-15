@@ -454,6 +454,9 @@ strong {
   height: 3.8rem;
 }
 .login__header {
+  border-radius: 100%;
+}
+.login__header {
   transition: transform 0.3s;
   &:hover {
     transform: translate(0, -4px);
@@ -744,7 +747,6 @@ strong {
     justify-content: center;
   }
   body {
-    font-size: var(--size-xs);
     padding-bottom: 19rem;
   }
   .titulo {

@@ -40,6 +40,7 @@
                 <img src="../../assets/img/Perfil/editar_icon.png" alt="" />
               </div>
             </div>
+            <ins><a href="">Alterar Senha</a></ins>
           </div>
           <div class="info_usuario">
             <table class="info-table">
@@ -65,9 +66,14 @@
               </tr>
             </table>
 
-            <button class="botao-solido editar-button" onclick="usuarioedit()" type="button">
-              <img src="../../assets/img/Perfil/editar_icon.png" alt="" />Editar
-            </button>
+            <div class="linha">
+              <button class="botao-solido editar-button" onclick="usuarioedit()" type="button">
+                <img src="../../assets/img/Perfil/editar_icon.png" alt="" />Editar
+              </button>
+              <button class="botao-solido sair-button" onclick="" type="button">
+                <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
+              </button>
+            </div>
           </div>
           <form action="" class="form__cadastro">
             <div class="form-input">
