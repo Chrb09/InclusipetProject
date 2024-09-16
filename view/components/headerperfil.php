@@ -12,8 +12,14 @@
     </div>
     |
     <div class="linha">
-      <img src="../../assets/img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
-      <a href="perfil.php" class="login__name">Nome do Usuario</a>
+      <?php if ($user == 0) {
+        echo '<img src="../../assets/img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
+      <a href="perfil.php" class="login__name">Nome do Usuario</a>';
+      } elseif ($user == 1) {
+        echo '<img src="../../assets/img/QuemSomos/prof3.png" alt="Login" class="login__header" />
+        <a href="perfil.php" class="login__name">Nome do Funcionario</a>';
+      }
+      ?>
     </div>
   </div>
 </div>
@@ -24,8 +30,14 @@
   </a>
   <div class="linha">
     <div class="linha">
-      <img src="../../assets/img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
-      <a href="perfil.php" class="login__name">Nome do Usuario</a>
+      <?php if ($user == 0) {
+        echo '<img src="../../assets/img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
+      <a href="perfil.php" class="login__name">Nome do Usuario</a>';
+      } elseif ($user == 1) {
+        echo '<img src="../../assets/img/QuemSomos/prof3.png" alt="Login" class="login__header" />
+        <a href="perfil.php" class="login__name">Nome do Funcionario</a>';
+      }
+      ?>
     </div>
   </div>
 </div>

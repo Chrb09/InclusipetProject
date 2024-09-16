@@ -19,6 +19,7 @@
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
+    $user = 0;
     $sidebarActive = "adocao";
     include('../../components/sidebarperfil.php');
     ?>
