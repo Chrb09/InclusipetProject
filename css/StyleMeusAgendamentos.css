@@ -53,6 +53,9 @@
 .cancelado {
   --green: var(--red);
 }
+.pendente {
+  --green: var(--yellow);
+}
 .txt {
   padding-left: 7%;
 }

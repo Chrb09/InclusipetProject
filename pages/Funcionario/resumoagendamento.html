@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="../../css/StyleGeral.css" />
     <!-- CSS EXTERNO GERAL -->
     <link rel="stylesheet" href="../../css/StyleUsuario.css" />
-    <link rel="stylesheet" href="../../css/StylePerfil.css" />
+    <link rel="stylesheet" href="../../css/StyleMeusAgendamentos.css" />
     <!-- CSS EXTERNO PAGINA -->
     <link rel="icon" href="../../img/Outros/inclusipet.ico" />
+    <style></style>
     <!-- ICON -->
-    <title>Cadastrar Funcionario</title>
+    <title>Resumo Agendamento</title>
   </head>
   <body>
     <!-- PERFIL -->
@@ -21,11 +22,13 @@
         <div class="sidebar-nav">
           <b>Área do Funcionario</b>
           <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">Perfil</button>
-          <button class="sidebar-button" onclick="location.href='agendamentos.html'" type="button">Agendamentos</button>
+          <button class="sidebar-button ativo" onclick="location.href='agendamentos.html'" type="button">
+            Agendamentos
+          </button>
           <button class="sidebar-button" onclick="location.href='aprovaradocao.html'" type="button">
             Aprovar Adoção
           </button>
-          <button class="sidebar-button ativo" onclick="location.href='cadastrarfuncionario.html'" type="button">
+          <button class="sidebar-button" onclick="location.href='cadastrarfuncionario.html'" type="button">
             Cadastrar Funcionario
           </button>
           <button class="sidebar-button" onclick="location.href='funcoesdotutor.html'" type="button">
@@ -76,16 +79,13 @@
                 <div class="colapse">
                   <div class="nav-mobile">
                     <button class="sidebar-button" onclick="location.href='perfil.html'" type="button">Perfil</button>
-                    <button class="sidebar-button" onclick="location.href='agendamentos.html'" type="button">
+                    <button class="sidebar-button ativo" onclick="location.href='agendamentos.html'" type="button">
                       Agendamentos
                     </button>
                     <button class="sidebar-button" onclick="location.href='aprovaradocao.html'" type="button">
                       Aprovar Adoção
                     </button>
-                    <button
-                      class="sidebar-button ativo"
-                      onclick="location.href='cadastrarfuncionario.html'"
-                      type="button">
+                    <button class="sidebar-button" onclick="location.href='cadastrarfuncionario.html'" type="button">
                       Cadastrar Funcionario
                     </button>
                     <button class="sidebar-button" onclick="location.href='funcoesdotutor.html'" type="button">
@@ -107,7 +107,7 @@
           <script src="../../js/nav_mobile.js"></script>
 
           <!-- Conteudo principal -->
-          <div class="titulo">Cadastrar Funcionario</div>
+          <div class="titulo">Detalhes Agendamento</div>
         </div>
       </div>
     </div>

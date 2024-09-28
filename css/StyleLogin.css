@@ -1,10 +1,6 @@
 body {
   padding: 0;
 }
-.footer {
-  position: static;
-  margin-top: 0;
-}
 #signUp,
 #signIn,
 ins {
@@ -88,7 +84,7 @@ form {
   background-image: url(../img/Login/Background.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: right;
   position: fixed;
   display: relative;
   top: 0;
