@@ -1,7 +1,7 @@
 <?php
 
   require_once("../models/Cliente.php");
-  require_once("../models/Message.php");
+  require_once("../models/Mensagem.php");
 
   class ClienteDAO implements ClienteDAOInterface {
     private $conn;
@@ -11,7 +11,7 @@
     public function __construct(PDO $conn, $url) {
       $this->conn = $conn;
       $this->url = $url;
-      $this->message = new Message($url);
+      $this->message = new Mensagem($url);
     }
 
     public function buildClient($data) {
