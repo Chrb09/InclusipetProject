@@ -23,7 +23,8 @@
     <div class="form-container sign-up-container">
 
     <!-- CADASTRO -->
-      <form action="#" id="sign-up-form" method="POST">
+      <form action="<?= $BASE_URL ?>auth_process.php" id="sign-up-form" method="POST"> <!-- TODO Arrumar a URL -->
+      <input type="hidden" name="type" value="register"> <!-- register do autenticacao cadastro -->
         <div class="form-content cadastrar1">
           <div class="titulo">Cadastrar-se</div>
           
@@ -85,7 +86,8 @@
 
     <!-- LOGIN -->
     <div class="form-container sign-in-container">
-      <form action="#" method="POST">
+      <form action="<?= $BASE_URL ?>auth_process.php" method="POST">
+      <input type="hidden" name="type" value="login">   <!-- register do autenticacao login -->
         <div class="form-content">
           <div class="titulo">Entrar</div>
           <label for="log-in-email">Email</label>
