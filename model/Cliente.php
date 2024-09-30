@@ -1,10 +1,6 @@
 <?php
 
-include_once 'Conexao.php';
-
-    // ===== Atributos =====
-class Cliente
-{
+class Cliente {
     private $CodCliente; // PK
     private $Nome;
     private $DataNasc;
@@ -13,11 +9,9 @@ class Cliente
     private $CPF;
     private $Email; 
     private $Senha; 
-    private $conn;
+    public  $token;
 
     // ===== Getters & Setters =====
-
-    // CodCliente
     public function getCodCliente() {
         return $this->CodCliente;
     }
@@ -26,7 +20,6 @@ class Cliente
         $this->CodCliente = $iCodCliente;
     }
 
-    // Nome
     public function getNome() {
         return $this->Nome;
     }
@@ -35,7 +28,6 @@ class Cliente
         $this->Nome = $iNome;
     }
 
-    // DataNasc
     public function getDataNasc() {
         return $this->DataNasc;
     }
@@ -44,7 +36,6 @@ class Cliente
         $this->DataNasc = $iDataNasc;
     }
 
-    // Telefone
     public function getTelefone() {
         return $this->Telefone;
     }
@@ -53,25 +44,15 @@ class Cliente
         $this->Telefone = $iTelefone;
     }
 
-    // CEP
+    // O CEP e o CPF não podem ser mudados
     public function getCEP() {
         return $this->CEP;
     }
 
-    public function setCEP($iCEP) {
-        $this->CEP = $iCEP;
-    }
-
-    // CPF
     public function getCPF() {
         return $this->CPF;
     }
 
-    public function setCPF($iCPF) {
-        $this->CPF = $iCPF;
-    }
-
-    // Email
     public function getEmail() {
         return $this->Email;
     }
@@ -80,7 +61,6 @@ class Cliente
         $this->Email = $iEmail;
     }
 
-    // Senha
     public function getSenha() {
         return $this->Senha;
     }
@@ -88,24 +68,31 @@ class Cliente
     public function setSenha($iSenha) {
         $this->Senha = $iSenha;
     }
-
-
-    // ===== Métodos =====
-    function create() {
-        // TODO
+    
+    // Gera um Token aleatório de 100 caracteres hexadecimais
+    public function generateToken() {
+      return bin2hex(random_bytes(50));
+    }
+    
+    // Gera o hash da senha recebida como parâmetro
+    public function generateSenha($Senha) {
+      return password_hash($Senha, PASSWORD_DEFAULT);
     }
 
-    function read() {
-        // TODO
-    }
-
-    public function update() {
-        // TODO
-    }
-
-    public function delete() {
-        // TODO
-    }
+    /* public function imageGenerateName() { return bin2hex(random_bytes(60)) . ".jpg"; } */
 }
 
-?>
+interface ClienteDAOInterface {
+    public function buildCliente($data);
+    public function create(Cliente $cliente, $authCliente = false);
+    public function update(Cliente $cliente, $redirect = true);
+    public function verifyToken($protected = false);
+    public function setTokenToSession($token, $redirect = true);
+    public function authenticateCliente($Email, $Senha);
+    public function findByEmail($Email);
+    public function findByCodCliente($CodCliente);
+    public function findByToken($token);
+    public function destroyToken();
+    public function changePassword(Cliente $cliente);
+}
+
