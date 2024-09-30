@@ -1,7 +1,6 @@
 <?php
 
-class Message {
-
+class Mensagem {
   private $url;
 
   public function __construct($url) {
@@ -27,10 +26,7 @@ class Message {
         "type" => $_SESSION["type"]
       ];
     } 
-    else {
-      return false;
-    }
-
+    else { return false; }
   }
 
   public function clearMessage() {
