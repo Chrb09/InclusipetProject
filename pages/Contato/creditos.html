@@ -5,13 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="../../css/StyleGeral.css" />
-    <!-- CSS EXTERNO GERAL -->
-    <link rel="stylesheet" href="../../css/StyleContato.css" />
     <!-- CSS EXTERNO PAGINA -->
     <link rel="icon" href="../../img/Outros/inclusipet.ico" />
     <!-- ICON -->
-    <title>Contatos</title>
+    <title>Créditos</title>
   </head>
+  <style>
+    .titulo {
+      margin-bottom: 1em;
+    }
+    .container-main {
+      text-align: center;
+      padding-block: 3rem;
+    }
+    .grid-creditos {
+      margin-bottom: 2em;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1em;
+    }
+    ins {
+      color: var(--purple);
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+    .dev img {
+      width: 10rem;
+      border-radius: 1rem;
+    }
+    .dev {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75em;
+      text-align: center;
+      max-width: 13em;
+    }
+  </style>
   <body>
     <!-- HEADER-->
     <header class="header">
@@ -74,64 +105,47 @@
     <script src="../../js/dropdown_header.js"></script>
 
     <!-- CONTATOS -->
-
-    <div class="container bottom">
-      <div class="section-enviar">
-        <div class="titulo">
-          Envie uma <br />
-          mensagem
+    <div class="container container-main">
+      <div class="titulo">Devenvolvedores</div>
+      <div class="grid-creditos">
+        <div class="dev">
+          <img src="https://avatars.githubusercontent.com/u/138123400?v=4" alt="" />
+          <div class="dev-info">
+            <ins><a href="https://github.com/Amanda093">Amanda</a></ins>
+            <p>Código, Design, Conteúdo, Documentação</p>
+          </div>
         </div>
-        <form action="" class="form__login">
-          <div class="form__row">
-            <label for="">Nome</label><br />
-            <input type="text" name="" id="" />
+        <div class="dev">
+          <img src="https://avatars.githubusercontent.com/u/133404301?v=4" alt="" />
+          <div class="dev-info">
+            <ins><a href="https://github.com/Beatriz02020">Beatriz</a></ins>
+            <p>Código, Conteúdo, Documentação, Responsividade</p>
           </div>
-          <div class="form__row">
-            <label for="">Email</label><br />
-            <input type="email" value="" />
-          </div>
-          <div class="form__row">
-            <label for="">Mensagem</label><br />
-            <textarea name="" id="" cols="30" rows="5" placeholder="Escreva sua mensagem aqui..."></textarea>
-          </div>
-          <div class="form__row linha">
-            <input type="checkbox" name="" id="" class="check" />
-            <label for=""
-              >Eu aceito os
-              <strong
-                ><a href="creditos.html"><ins>termos</ins></a></strong
-              >
-            </label>
-          </div>
-          <button class="botao-solido" onclick="alerta()" type="button">Enviar</button>
-        </form>
-      </div>
-      <div class="section-telefone">
-        <div class="titulo">
-          Ligue por <br />
-          telefone
         </div>
-        <div class="content">
-          <div class="telefone">
-            <img src="../../img/Contato/telefone.png" alt="" class="tel-icon" />
-            <strong>+(55) 11 90000-0000</strong>
+        <div class="dev">
+          <img src="https://avatars.githubusercontent.com/u/142687809?v=4" alt="" />
+          <div class="dev-info">
+            <ins><a href="https://github.com/BernardoVxexra">Bernardo</a></ins>
+            <p>Código, Conteúdo, Documentação</p>
           </div>
-          <div>
-            <b>Segunda a sexta</b>
-            <p>8h às 21h</p>
+        </div>
+        <div class="dev">
+          <img src="https://avatars.githubusercontent.com/u/132484542?v=4" alt="" />
+          <div class="dev-info">
+            <ins><a href="https://github.com/Chrb09">Carlos</a></ins>
+            <p>Código, Design, Conteúdo, Documentação, Responsividade, App</p>
           </div>
-          <div>
-            <b>Sábados</b>
-            <p>8h às 18h</p>
-          </div>
-          <div>
-            <b>Domingos & Feriados</b>
-            <p>9h às 16h</p>
+        </div>
+        <div class="dev">
+          <img src="https://avatars.githubusercontent.com/u/133404091?v=4" alt="" />
+          <div class="dev-info">
+            <ins><a href="https://github.com/GiovannaAdantas">Giovanna</a></ins>
+            <p>Design, Conteúdo, Documentação</p>
           </div>
         </div>
       </div>
+      <button class="botao-solido" onclick="location.href='contato.html'" type="button">Voltar</button>
     </div>
-
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container container__footer">
@@ -185,16 +199,4 @@
       <div class="container container__footer">®2024 Inclusipet. Todos os direitos reservados.</div>
     </footer>
   </body>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    function alerta() {
-      Swal.fire({
-        title: "Enviado com sucesso",
-        icon: "success",
-        confirmButtonColor: "#574dbd",
-      });
-    }
-  </script>
 </html>
