@@ -58,7 +58,7 @@
         <div class="cartao__content">
           <div class="categorias">
             <div class="categoria">Acessibilidade</div>
-            5 Min
+            Leitura em 5min
           </div>
           <b>Desvendando Mitos sobre Animais Deficientes</b>
           <div class="cartao_texto">
@@ -78,7 +78,7 @@
           <div class="cartao__content">
             <div class="categorias">
               <div class="categoria">Conscientização</div>
-              5 Min
+              Leitura em 5min
             </div>
             <b>A Importância de Combater a Violência Animals</b>
             <div class="cartao_texto">
@@ -99,7 +99,7 @@
           <div class="cartao__content">
             <div class="categorias">
               <div class="categoria">Cuidados</div>
-              5 Min
+              Leitura em 5min
             </div>
             <b>Alergias em Animais de Estimação</b>
             <div class="cartao_texto">
@@ -119,7 +119,7 @@
           <div class="cartao__content">
             <div class="categorias">
               <div class="categoria">Cuidados</div>
-              5 Min
+              Leitura em 5min
             </div>
             <b>Como Cuidar dos Dentes do Seu Pet</b>
             <div class="cartao_texto">
@@ -139,7 +139,7 @@
           <div class="cartao__content">
             <div class="categorias">
               <div class="categoria">Conscientização</div>
-              5 Min
+              Leitura em 5min
             </div>
             <b>A Importância das Vacinas para a Saúde dos Animais</b>
             <div class="cartao_texto">

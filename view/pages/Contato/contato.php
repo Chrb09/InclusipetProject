@@ -44,7 +44,7 @@
         <div class="form__row linha">
           <input type="checkbox" name="" id="" class="check" />
           <label for="">Eu aceito os
-            <strong><a href=""><ins>termos</ins></a></strong>
+            <strong><a href="creditos.php"><ins>termos</ins></a></strong>
           </label>
         </div>
         <button class="botao-solido" onclick="alerta()" type="button">Enviar</button>

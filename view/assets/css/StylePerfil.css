@@ -9,6 +9,7 @@
 .nav-perfil {
   display: flex;
   flex-direction: column;
+  width: 8em;
   align-items: center;
   text-align: center;
   transition: filter 0.3s;
@@ -72,10 +73,11 @@ strong {
   --purple: var(--red);
   --purplehover: var(--redhover);
   display: flex;
+  align-items: center;
   gap: 0.25em;
 }
 .sair-button img {
-  height: 1.2em;
+  height: 1.3em;
 }
 /*Responsividade*/
 /* xl */
@@ -121,6 +123,9 @@ strong {
 
 /* xs */
 @media (max-width: 475px) {
+  .acoes {
+    gap: 0.75em;
+  }
 }
 @media (max-width: 325px) {
 }

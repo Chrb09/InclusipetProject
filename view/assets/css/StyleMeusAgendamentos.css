@@ -53,6 +53,9 @@
 .cancelado {
   --green: var(--red);
 }
+.pendente {
+  --green: var(--yellow);
+}
 .txt {
   padding-left: 7%;
 }
@@ -148,7 +151,6 @@
   transform: translate(0, -3px);
 }
 .cadastrar-pet {
-  font-size: 0.9em;
   font-weight: 700;
   color: var(--purple);
 }
