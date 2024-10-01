@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="../../assets/css/StyleMeusAgendamentos.css" />
   <!-- CSS EXTERNO PAGINA -->
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
-  <style></style>
   <!-- ICON -->
   <title>Resumo Agendamento</title>
   <style>
