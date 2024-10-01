@@ -30,7 +30,7 @@ O diferencial da **Inclusipet** é o seu foco em animais que necessitam de cuida
 
 ## 📖 Funcionalidades
 
-Algumas das funcionalidade incluem um sistema de login e cadastro que pode guardar informações e preferencias do usuário que facilitam o uso do sistema de agendamento, além de permitir funcionalidades como acompanhar o progresso de exames e consultas, também temos um sistema de adoção que pode criar um anuncio com informações sobre o pet que precisa de um novo lar.
+Algumas das funcionalidade incluem um sistema de login e cadastro que pode guardar informações e preferencias do usuário que facilitam o uso do sistema de agendamento, além de permitir funcionalidades como acompanhar o progresso de exames e consultas, também temos um sistema de adoção que pode criar um anúncio com informações sobre o pet que precisa de um novo lar.
 
 <br>
 
