@@ -12,7 +12,7 @@
   <!-- CSS EXTERNO PAGINA -->
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
-  <title>Perfil</title>
+  <title>Funções do Tutor</title>
 </head>
 
 <body>
@@ -30,6 +30,8 @@
         <?php include('../../components/navmobilevet.php'); ?>
         <!-- Conteudo principal -->
         <div class="titulo">Funções do tutor</div>
+        <br />
+        <a href="cadastrartutor.php" class="link">Cadastrar Tutor</a>
       </div>
     </div>
   </div>

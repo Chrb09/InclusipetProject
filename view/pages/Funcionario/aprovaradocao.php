@@ -12,7 +12,7 @@
   <!-- CSS EXTERNO PAGINA -->
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
-  <title>Perfil</title>
+  <title>Aprovar Adoção</title>
 </head>
 
 <body>

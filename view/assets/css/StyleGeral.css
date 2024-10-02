@@ -11,6 +11,8 @@
   --overlay: rgba(87, 77, 189, 0.25);
   --green: #4cb062;
   --greenhover: #38884a;
+  --yellow: #ffb800;
+  --yellowhover: #f59f00;
   --red: #ff4848;
   --redhover: #c73131;
   --size-xxs: 0.45rem;
@@ -229,7 +231,7 @@ optgroup {
   border-color: var(--purple);
   border-radius: 0;
 }
-input:focus,
+input:not([type="file"]):focus,
 select:focus,
 textarea:focus {
   outline: none !important;
@@ -309,6 +311,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 input[type="time"]::-webkit-calendar-picker-indicator {
   background-image: url("../img/Outros/relogio.png");
+}
+input[type="file"] {
+  font-family: inherit;
+  border: none;
+  padding-inline: 0;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: var(--gray);
+}
+input[type="file"]::file-selector-button {
+  cursor: pointer;
+  color: var(--gray);
+  background-color: var(--white);
+  font-family: inherit;
+  background: none;
+  border: none;
+  border-color: var(--gray);
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 0.15em;
+  padding-block: 0.35em;
+  padding-inline: 0.5em;
+  font-weight: 600;
+  transition: color 0.3s, background-color 0.3s;
+}
+input[type="file"]::file-selector-button:hover {
+  color: var(--white);
+  background-color: var(--gray);
 }
 optgroup {
   color: var(--purple);

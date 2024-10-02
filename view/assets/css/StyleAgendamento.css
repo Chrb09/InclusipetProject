@@ -47,13 +47,7 @@ body {
 .form__button .botao-solido {
   width: 30%;
 }
-.desativado label {
-  color: #919191;
-}
-.desativado input {
-  background-color: #f3f3f3;
-  border-color: #ada4dd;
-}
+
 /* xl */
 @media (max-width: 1536px) {
 }

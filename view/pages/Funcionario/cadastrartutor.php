@@ -12,7 +12,7 @@
   <!-- CSS EXTERNO PAGINA -->
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
-  <title>Cadastrar Funcionario</title>
+  <title>Cadastrar Tutor</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
   <div class="container-usuario">
     <?php
     $user = 1;
-    $sidebarActive = "funcionario";
+    $sidebarActive = "tutor";
     include('../../components/sidebarvet.php');
     ?>
     <div class="main">
@@ -29,7 +29,7 @@
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>
         <!-- Conteudo principal -->
-        <div class="titulo">Cadastrar Funcionario</div>
+        <div class="titulo">Cadastrar Tutor</div>
       </div>
     </div>
   </div>

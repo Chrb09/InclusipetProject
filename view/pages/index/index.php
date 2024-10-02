@@ -44,7 +44,7 @@
   <div class="hero">
     <div class="container container-hero">
       <div class="texto-hero">
-        <b>Especialista em animais com deficiencia</b>
+        <b>Especialista em animais com deficiência</b>
         <div class="titulo titulo-hero">Clínica Inclusipet</div>
         <p>
           Oferecemos cuidados personalizados e adaptados para garantir que todos os animais, independentemente de suas
@@ -280,14 +280,14 @@
             src="../../assets/img/Index/estrela.png" alt="Estrela" class="scroll-card-estrela" />
         </div>
         <div class="scroll-card-quote">
-          "A Inclusipet mudou a vida do meu cão! Com a atenção e expertise da equipe, ele agora desfruta de uma vida
-          cheia de alegria e mobilidade"
+          "Graças à Inclusipet, minha gata ganhou uma nova chance! A equipe foi extremamente cuidadosa e dedicada,
+          proporcionando a ela o tratamento ideal para uma vida mais saudável e ativa."
         </div>
         <div class="scroll-card-info">
-          <img src="../../assets/img/Index/avatar_quote.png" alt="" class="scroll-card-avatar" />
+          <img src="../../assets/img/Index/avatar_quote4.png" alt="" class="scroll-card-avatar" />
 
           <div>
-            <strong> Mônica<br /> </strong>
+            <strong> Justine<br /> </strong>
             Cliente
           </div>
         </div>

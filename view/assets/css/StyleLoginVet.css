@@ -1,0 +1,69 @@
+form {
+  width: 35rem;
+  background-color: var(--white);
+  padding-inline: 2.5em;
+  padding-block: 3.5em;
+  border-radius: 1rem;
+}
+ins {
+  color: var(--purple);
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: center;
+}
+.container-login {
+  width: 100%;
+  min-height: 80vh;
+  padding-block: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-content {
+  width: 100%;
+  gap: 0.7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body {
+  background-image: url(../img/Login/Background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+}
+
+@media (max-width: 1536px) {
+  form {
+    width: 32rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  form {
+    width: 26rem;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  form {
+    width: 22rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background: none;
+  }
+}
+/* sm */
+@media (max-width: 640px) {
+}
+/* xs */
+@media (max-width: 475px) {
+  form {
+    width: 80%;
+  }
+}

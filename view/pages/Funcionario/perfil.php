@@ -84,13 +84,13 @@
         <div class="acoes">
           <a class="nav-perfil" href="agendamentos.php"><img src="../../assets/img/Perfil/agendar.png" alt="" />
             <div class="card-txt">
-              <p>Calendario</p>
+              <p>Calendário</p>
               <strong>Agendamentos</strong>
             </div>
           </a>
           <a class="nav-perfil" href="aprovaradocao.php"><img src="../../assets/img/Perfil/anunciar.png" alt="" />
             <div class="card-txt">
-              <p>Aprovar Anuncio</p>
+              <p>Aprovar anúncio</p>
               <strong>de Adoção</strong>
             </div>
           </a>
@@ -98,7 +98,7 @@
               alt="" />
             <div class="card-txt">
               <p>Cadastrar</p>
-              <strong>Funcionario</strong>
+              <strong>Funcionário</strong>
             </div>
           </a>
         </div>

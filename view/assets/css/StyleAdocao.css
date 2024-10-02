@@ -5,6 +5,13 @@
 strong {
   font-size: var(--size-2x);
 }
+.cartao-transp a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .grid__adocao {
   padding-inline: 8em;
   margin-top: 3rem;
@@ -29,7 +36,7 @@ p {
   padding-block: 1em;
 }
 .cartao__imagem {
-  width: 100%;
+  width: 90%;
   aspect-ratio: 5 / 4;
   border-radius: 1rem;
   object-fit: cover;

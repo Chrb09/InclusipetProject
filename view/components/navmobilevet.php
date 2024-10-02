@@ -1,6 +1,6 @@
 <div class="section-nav-mobile">
   <div class="details open_faq">
-    <div class="summary">Área do Funcionario</div>
+    <div class="summary">Área do Funcionário</div>
     <div class="wrapper-faq">
       <div class="colapse">
         <div class="nav-mobile">
@@ -14,11 +14,11 @@
             echo ' ativo'; ?>" onclick="location.href='aprovaradocao.php'" type="button">Aprovar Adoção</button>
           <button class="sidebar-button <?php if ($sidebarActive == 'funcionario')
             echo ' ativo'; ?>" onclick="location.href='cadastrarfuncionario.php'" type="button">
-            Cadastrar Funcionario
+            Cadastrar Funcionário
           </button>
           <button class="sidebar-button <?php if ($sidebarActive == 'tutor')
             echo ' ativo'; ?>" onclick="location.href='funcoesdotutor.php'" type="button">
-            Funçoes do tutor
+            Funções do tutor
           </button>
         </div>
       </div>

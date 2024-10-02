@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="../../assets/css/StyleGeral.css" />
   <!-- CSS EXTERNO GERAL -->
-  <link rel="stylesheet" href="../../assets/css/StyleLogin.css" />
+  <link rel="stylesheet" href="../../assets/css/StyleLoginVet.css" />
   <!-- CSS EXTERNO PAGINA -->
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
@@ -38,7 +38,8 @@
           <a href="../Contato/contato.php" class="links__header a-under">Contato</a>
         </li>
         <li>
-          <a href="../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login" class="login__header" /></a>
+          <a href="../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login"
+              class="login__header" /></a>
         </li>
       </ul>
       <button class="barra__header">
@@ -72,31 +73,22 @@
   <script src="../../assets/js/dropdown_header.js"></script>
 
   <!-- LOGIN -->
-  <div class="container-login" id="container-login">
-    <div class="form-container sign-up-container">
-      <form action="#" id="sign-up-form" class="">placeholder</form>
-    </div>
-    <div class="form-container sign-in-container">
-      <form action="#">
-        <div class="form-content">
-          <div class="titulo">Sistema do Veterinario</div>
-          <label for="log-in-email">Código de acesso</label>
-          <input name="log-in-email" type="text" required autocomplete="on" />
-          <label for="log-in-password">Senha</label>
-          <input name="log-in-password" type="password" required autocomplete="on" />
-          <button class="botao-solido" onclick="location.href='perfil.php'" type="button">Entre</button>
-          <ins><a href="../Login/login.php">Login Usuario</a></ins>
-        </div>
-      </form>
-    </div>
-    <div class="overlay-container">
-      <div class="overlay"></div>
-    </div>
+  <div class="container-login">
+    <form class="container-form" action="#">
+      <div class="form-content">
+        <div class="titulo">Sistema do Veterinario</div>
+        <label for="log-in-email">Código de acesso</label>
+        <input name="log-in-email" type="text" required autocomplete="on" />
+        <label for="log-in-password">Senha</label>
+        <input name="log-in-password" type="password" required autocomplete="on" />
+        <button class="botao-solido" onclick="location.href='perfil.php'" type="button">Entre</button>
+        <ins><a href="../Login/login.html">Login Usuario</a></ins>
+      </div>
+    </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="../../assets/js/login_slider.js"></script>
 </body>
 
 </html>
