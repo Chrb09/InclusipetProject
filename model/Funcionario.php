@@ -24,16 +24,16 @@ class Funcionario {
 }
 
 interface FuncionarioDAOInterface {
-  public function buildFuncionario($data);
-  public function create(Funcionario $funcionario, $authFuncionario = false);
-  public function update(Funcionario $funcionario, $redirect = true);
-  public function verifyToken($protected = false);
-  public function setTokenToSession($token, $redirect = true);
-  public function authenticateFuncionario($CodFuncionario, $senha);
-  public function findByCodFuncionario($CodFuncionario);
-  public function findById($CodFuncionario);
-  public function findByToken($token);
-  public function destroyToken();
-  public function changeSenha(Funcionario $funcionario);
+  public function buildFuncionario($data);                       // TODO Construir um objeto funcionário a partir de um objeto 
+  public function create(Funcionario $funcionario, $authFuncionario = false); //Cria um novo funcionário no sistema
+  public function update(Funcionario $funcionario, $redirect = true);         //Atualiza as informações de um funcionário existente 
+  public function verifyToken($protected = false);                   // Verifica a validade de um token de autenticação
+  public function setTokenToSession($token, $redirect = true);      //Armazena um token de autenticação na sessão do usuário.
+  public function authenticateFuncionario($CodFuncionario, $senha); // Autenticar um funcionário utilizando seu código e senha
+  public function findByCodFuncionario($CodFuncionario);    // Vai buscar um funcionário com base no seu código
+  public function findById($CodFuncionario);                // Buscar um funcionário com base no seu ID ou código
+  public function findByToken($token);                      //Buscar um funcionário com base no seu token de autenticação
+  public function destroyToken();                           // Destruir/excluir um token de autenticação atual
+  public function changeSenha(Funcionario $funcionario);    //Alterar a senha de um funcionário
 
 }
