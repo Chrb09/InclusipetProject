@@ -24,7 +24,8 @@
 
     <!-- CADASTRO -->
       <form action="<?= $BASE_URL ?>auth_process.php" id="sign-up-form" method="POST"> <!-- TODO Arrumar a URL -->
-      <input type="hidden" name="type" value="register"> <!-- register do autenticacao cadastro -->
+      <input type="hidden" name="type" value="register_client"> <!-- register do autenticacao cadastro -->
+
         <div class="form-content cadastrar1">
           <div class="titulo">Cadastrar-se</div>
           
@@ -84,10 +85,10 @@
       </form>
     </div>
 
-    <!-- LOGIN -->
+    <!-- LOGIN DO CLIENTE -->
     <div class="form-container sign-in-container">
       <form action="<?= $BASE_URL ?>auth_process.php" method="POST">
-      <input type="hidden" name="type" value="login">   <!-- register do autenticacao login -->
+      <input type="hidden" name="type" value="login_client">   <!-- register do autenticacao login -->
         <div class="form-content">
           <div class="titulo">Entrar</div>
           <label for="log-in-email">Email</label>
@@ -108,7 +109,7 @@
             Ainda não possui uma conta?
             <a class="" id="signUp">Cadastre-se</a>
           </p>
-          <ins><a href="../Funcionario/login.php">Login Funcionario</a></ins>
+          <ins><a href="../Funcionario/login.php">Login Funcionario</a></ins> <!-- Leva para o LOGIN do funcionario -->
         </div>
       </form>
     </div>
