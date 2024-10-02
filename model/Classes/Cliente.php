@@ -9,7 +9,8 @@
     public $CPF;
     public $Email;
     public $Senha;
-    public $token; // TODO adicionar no banco de dados
+    public $Imagem;
+    public $Token; 
 
     public function getFullName($nome) {
       return $cliente -> Nome; 
@@ -19,26 +20,27 @@
       return bin2hex(random_bytes(50));
     }
     
-    public function generatePassword($senha) {
-      return senha_hash($senha, PASSWORD_DEFAULT);
+    public function generateSenha($senha) {
+      return senha_hash($senha, SENHA_DEFAULT);
     }
 
-    // public function imageGenerateName() { return bin2hex(random_bytes(60)) . ".jpg"; }
-
+    public function imageGenerateName() { 
+      return bin2hex(random_bytes(60)) . ".jpg"; 
+    }
   }
 
   interface ClienteDAOInterface {
 
-    public function buildUser($data);
-    public function create(User $user, $authUser = false);
-    public function update(User $user, $redirect = true);
+    public function buildCliente($data);
+    public function create(Cliente $cliente, $authCliente = false);
+    public function update(Cliente $cliente, $redirect = true);
     public function verifyToken($protected = false);
     public function setTokenToSession($token, $redirect = true);
-    public function authenticateUser($email, $password);
+    public function authenticateCliente($email, $senha);
     public function findByEmail($email);
-    public function findById($id);
+    public function findByCodCliente($codCliente);
     public function findByToken($token);
     public function destroyToken();
-    public function changePassword(User $user);
+    public function changePassword(Cliente $Cliente);
 
   }

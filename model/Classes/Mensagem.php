@@ -7,7 +7,7 @@ class Mensagem {
     $this -> url = $url;
   }
 
-  public function setMessage($msg, $type, $redirect = "index.php") { // TODO redicionar para a index.php corretamente
+  public function setMensagem($msg, $type, $redirect = "index.php") { // TODO redicionar para a index.php corretamente
 
     $_SESSION["msg"] = $msg;
     $_SESSION["type"] = $type;
@@ -20,7 +20,7 @@ class Mensagem {
 
   }
 
-  public function getMessage() {
+  public function getMensagem() {
 
     if(!empty($_SESSION["msg"])) {
       return [
@@ -33,7 +33,7 @@ class Mensagem {
 
   }
 
-  public function clearMessage() {
+  public function clearMensagem() {
     $_SESSION["msg"] = "";
     $_SESSION["type"] = "";
   }
