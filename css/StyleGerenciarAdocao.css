@@ -1,21 +1,6 @@
-
 .titulo {
   /*Titulo da página*/
   margin-bottom: 0;
-}
-.mostrar_anuncios{
-  display: flex;
-  gap: 20px;
-  margin-top: 3rem;
-  padding-bottom: 30px;
-  align-items: center;
-}
-label {
-  display: flex;
-  align-items: center;
-}
-.opcoes{
-  padding-left: 5px;
 }
 .animal {
   width: 14rem;
@@ -50,13 +35,13 @@ label {
   font-weight: bold;
   font-size: 1.6em;
 }
-.usuario{
+.usuario {
   padding-top: 5px;
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.fotoUsuario{
+.fotoUsuario {
   height: 35px;
   width: 35px;
 }
@@ -68,9 +53,9 @@ label {
 .botao-borda {
   width: fit-content;
 }
-.aprovar{
+.aprovar {
   display: flex;
-  gap: 15px;
+  gap: 0.8em;
 }
 /*Div do adotado que fica ao lado da descrição*/
 .adotado {
@@ -81,6 +66,7 @@ label {
   border-color: var(--green);
   border-width: 0.15rem;
   padding: 0.4em 0.9em;
+  cursor: default;
   border-radius: 0.8em;
   transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
 }
@@ -93,17 +79,9 @@ label {
   border-color: var(--red);
   border-width: 0.15rem;
   padding: 0.4em 0.9em;
+  cursor: default;
   border-radius: 0.8em;
   transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
-}
-.btn{
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-.motivo{
-  padding-bottom: 10px;
-  padding-left: 5px;
 }
 @media (max-width: 1536px) {
 }
@@ -136,19 +114,12 @@ label {
     flex-direction: row;
     justify-content: center;
   }
-  .mostrar_anuncios{
-    justify-content: center;
-  }
 }
 
 /* sm */
 @media (max-width: 640px) {
   .animal {
     width: 20rem;
-  }
-  .mostrar_anuncios {
-   flex-direction: column;
-   justify-content: flex-start;
   }
 }
 
@@ -160,11 +131,10 @@ label {
   .animal {
     width: 80%;
   }
-  .fotoUsuario{
+  .fotoUsuario {
     height: 30px;
     width: 30px;
   }
-  
 }
 
 /* ANÚNCIO DE ADOÇÃO */

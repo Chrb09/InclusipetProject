@@ -152,13 +152,15 @@ body {
   text-align: left;
   width: 100%;
 }
-.infor{
+.infor {
   display: flex;
-  gap: 10px;
-  padding-bottom: 1rem;
+  gap: 0.6em;
+  padding-bottom: 0.5em;
+}
+.infor p {
   font-weight: bold;
 }
-.fotoUsuario{
+.fotoUsuario {
   height: 30px;
   width: 30px;
 }
@@ -234,7 +236,6 @@ body {
   flex-direction: column;
   gap: 0.35em;
   margin-bottom: 1em;
- 
 }
 .form-input input:not([type="checkbox"]):not([type="radio"]) {
   width: 100%;
@@ -243,7 +244,7 @@ body {
 .form-input br {
   display: none;
 }
-.form-input ult{
+.form-input ult {
   width: 48%;
   display: flex;
   flex-direction: column;
@@ -381,6 +382,9 @@ body {
     display: block;
     font-size: 1.3em;
   }
+  .acoes {
+    flex-wrap: wrap;
+  }
 }
 
 /* sm */
@@ -418,9 +422,5 @@ body {
   }
   .form-input {
     width: 100%;
-  }
-  .acoes{
-    flex-direction: column;
-    align-items: center;
   }
 }

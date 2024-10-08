@@ -12,6 +12,12 @@
     <link rel="icon" href="../../img/Outros/inclusipet.ico" />
     <!-- ICON -->
     <title>Cadastrar Funcionário</title>
+    <style>
+      .custom-select,
+      select {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <!-- PERFIL -->
@@ -108,20 +114,20 @@
 
           <!-- Conteudo principal -->
           <div class="titulo">Cadastrar Funcionário</div>
-          <br>
+          <br />
           <div class="cadastrar_pet"></div>
-          
+
           <form action="" class="form__cadastro">
-            <div class="form-input">
+            <div class="form-input desativado">
               <label for="">CodVeterinario</label><br />
-              <input type="number" name="" id="" disabled/>
+              <input type="number" name="" id="" disabled />
             </div>
 
-            <div class="form-input">
+            <div class="form-input desativado">
               <label for="">Senha Temporaria</label><br />
-              <input type="text" name="" id=""  disabled/>
+              <input type="text" name="" id="" disabled />
             </div>
-           
+
             <div class="form-input">
               <label for="">Cargo</label><br />
               <div class="custom-select">
@@ -138,39 +144,37 @@
               <input type="text" value="" />
             </div>
 
-              <div class="form-input">
-                <label for="">CEP</label><br />
-                <input type="text" name="" id="" />
-              </div>
+            <div class="form-input">
+              <label for="">CEP</label><br />
+              <input type="text" name="" id="" />
+            </div>
 
-              <div class="form-input">
-                <label for="">RG</label><br />
-                <input type="text" value="" />
-              </div>
+            <div class="form-input">
+              <label for="">RG</label><br />
+              <input type="text" value="" />
+            </div>
 
-              <div class="form-input">
-                <label for="">Telefone</label><br />
-                <input type="text" name="" id="" />
+            <div class="form-input">
+              <label for="">Telefone</label><br />
+              <input type="text" name="" id="" />
+            </div>
+
+            <div class="form-input">
+              <label for="">Unidade</label><br />
+              <div class="custom-select">
+                <select id="" name="" size="0" placeholder="Selecione...">
+                  <option value="alvim">Arthur Alvim</option>
+                  <option value="alvim">Arthur Alvim</option>
+                  <option value="alvim">Arthur Alvim</option>
+                </select>
               </div>
-              
-              <div class="form-input">
-                <label for="">Unidade</label><br />
-                <div class="custom-select">
-                  <select id="" name="" size="0" placeholder="Selecione...">
-                    <option value="alvim">Arthur Alvim</option>
-                    <option value="alvim">Arthur Alvim</option>
-                    <option value="alvim">Arthur Alvim</option>
-                  </select>
-                </div>
-              </div>
-              <br>
-              
-              <div class="button-wrapper-form">
-                <button class="botao botao-borda" onclick="location.href='funcoesdotutor.html'" type="button">Voltar</button>
-                <button class="botao botao-solido" onclick="" type="button">Salvar</button>
-              </div>
-            </form>
-          </div>
+            </div>
+
+            <div class="button-wrapper-form">
+              <button class="botao botao-borda" onclick="location.href='perfil.html'" type="button">Voltar</button>
+              <button class="botao botao-solido" onclick="" type="button">Cadastrar</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
