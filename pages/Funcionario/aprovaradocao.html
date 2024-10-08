@@ -103,8 +103,120 @@
           </div>
           <script src="../../js/nav_mobile.js"></script>
 
-          <!-- Conteudo principal -->
-          <div class="titulo">Aprovar Adoção</div>
+              <!-- Conteudo principal -->
+              <div class="titulo">Aprovar Adoção</div>
+              <!--Titulo da página-->
+              <div>
+
+                <div class="principal">
+                  <!--Div que contem o conteudo principal da pagina-->
+                 <div class="mostrar_anuncios">
+                    <p>Mostrar:</p>
+                    <label>
+                        <input type="radio" name="status" value="novos">
+                        <p class="opcoes">Novos</p>
+                    </label>
+                    <label>
+                        <input type="radio" name="status" value="aprovados">
+                        <p class="opcoes">Aprovados</p>
+                    </label>
+                    <label>
+                        <input type="radio" name="status" value="negados">
+                        <p class="opcoes">Negados</p>
+                    </label>
+                    <label>
+                        <input type="radio" name="status" value="todos" checked>
+                        <p class="opcoes">Todos</p>
+                    </label>
+                
+                  </div>
+                  <!--Inicio Item-->
+                  <div class="item">
+                    <!--Div que contem um dos animais disponiveiis prar a a adoção-->
+                    <img src="../../img/Adocao/Animal10/img1.png" alt="Belinha" class="animal" />
+      
+                    <div class="descricao-pet">
+                      <!--Div com a descrição do animal-->
+                      <div class="titulo_item">Belinha</div>
+                      <p class="descricao">
+                        Cadela de pequeno porte, com 10 anos de idade, de pelagem branca. É um pouco ansiosa.
+                      </p>
+                    <div class="usuario">
+                      <img src="../../img/Perfil/foto_usuario.png" class="fotoUsuario"/>
+                      <p class="nomeUsuario">Miguel Yudi Baba</p>
+                    </div>
+                    </div>
+      
+                    <div class="botoes">
+                      <!--Div que contem os botões ao lado da descrição-->
+                      <button class="botao-solido editar-button">
+                        <img src="../../img/Perfil/olho.png" alt="Editar" class="editar" />
+                        Visualizar
+                      </button>
+                      <div class="aprovar">
+                        <button class="recusado" onclick="motivoRecusar()" type="button">Recusar</button>
+                        <button class="adotado">Aprovar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Fim item-->
+      
+                  <!--Inicio Item-->
+                  <div class="item">
+                    <!--Div que contem um dos animais disponiveiis prar a a adoção-->
+                    <img src="../../img/Adocao/Animal9/img1.png" alt="Amarela" class="animal" />
+      
+                    <div class="descricao-pet">
+                      <!--Div com a descrição do animal-->
+                      <div class="titulo_item">Amarela</div>
+                      <p class="descricao">Gato jovem e lerdo, ama comer pão com leite de café da manhã.</p>
+                      <div class="usuario">
+                        <img src="../../img/Perfil/foto_usuario.png" class="fotoUsuario"/>
+                        <p class="nomeUsuario">Miguel Yudi Baba</p>
+                      </div>
+                    </div>
+      
+                    <div class="botoes">
+                      <!--Div que contem os botões ao lado da descrição-->
+                      <button class="botao-solido editar-button">
+                        <img src="../../img/Perfil/olho.png" alt="Editar" class="editar" />
+                        Visualizar
+                      </button>
+      
+                      <button class="adotado">Aprovado</button>
+                    </div>
+                  </div>
+                  <!--Fim item-->
+      
+                  <!--Inicio Item-->
+                  <div class="item">
+                    <!--Div que contem um dos animais disponiveiis prar a a adoção-->
+                    <img src="../../img/Adocao/Animal7/img1.png" alt="Bolinha" class="animal" />
+      
+                    <div class="descricao-pet">
+                      <!--Div com a descrição do animal-->
+                      <div class="titulo_item">Bolinha</div>
+                      <p class="descricao">
+                        Cadela de pequeno porte, com 12 anos de idade, de pelagem dourada e de olhos castanhos. Sofr...
+                      </p>
+                      <div class="usuario">
+                        <img src="../../img/Perfil/foto_usuario.png" class="fotoUsuario"/>
+                        <p class="nomeUsuario">Miguel Yudi Baba</p>
+                      </div>
+                    </div>
+                    <div class="botoes">
+                      <!--Div que contem os botões ao lado da descrição-->
+                      <button class="botao-solido editar-button">
+                        <img src="../../img/Perfil/olho.png" alt="Editar" class="editar" />
+                        Visualizar
+                      </button>
+      
+                      <button class="recusado">Recusado</button>
+                      
+                    </div>
+                  </div>
+                 
+          </div>
         </div>
       </div>
     </div>
@@ -113,4 +225,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../../js/perfil.js"></script>
+  <script>
+    function motivoRecusar() {
+      Swal.fire({
+        title: `<div class="titulo msg">Recusar Adoção</div>`,
+        html: `
+        <div>
+          <label for="" class="motivo">Motivo por ter recusado</label>
+          <textarea name="" id="" cols="40" rows="7" placeholder="Escreva sua mensagem..."></textarea>
+        </div>
+        <br>
+        <div class="btn">
+          <button class="botao-borda" onclick="Swal.close()" type="button">Voltar</button>
+          <button class="recusado" onclick="Swal.close()" type="button">Recusar</button>
+        </div>
+
+        `,
+        showConfirmButton: false,
+        focusConfirm: false,
+        backdrop: "rgb(87, 77, 189, 0.5",
+      });
+    }
+  </script>
 </html>
