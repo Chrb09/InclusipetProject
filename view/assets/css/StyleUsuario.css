@@ -152,6 +152,18 @@ body {
   text-align: left;
   width: 100%;
 }
+.infor {
+  display: flex;
+  gap: 0.6em;
+  padding-bottom: 0.5em;
+}
+.infor p {
+  font-weight: bold;
+}
+.fotoUsuario {
+  height: 30px;
+  width: 30px;
+}
 .editar-button {
   padding-inline: 0;
   border-radius: 0.75em;
@@ -231,6 +243,13 @@ body {
 
 .form-input br {
   display: none;
+}
+.form-input ult {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  margin-bottom: 1em;
 }
 .button-wrapper-form {
   width: 100%;
@@ -362,6 +381,9 @@ body {
   .login__name {
     display: block;
     font-size: 1.3em;
+  }
+  .acoes {
+    flex-wrap: wrap;
   }
 }
 

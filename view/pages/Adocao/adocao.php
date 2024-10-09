@@ -21,6 +21,9 @@
   include('../../components/header.php');
   ?>
   <!--Conteúdo-->
+  <a href="">
+    <div class="banner_adocao"></div>
+  </a>
   <div class="container container__adocao">
     <div class="titulo">Adote um Animalzinho!</div>
     <div class="grid__adocao">

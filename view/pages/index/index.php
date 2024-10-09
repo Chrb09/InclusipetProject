@@ -29,6 +29,7 @@
       <div class="swiper-slide index-slide1"></div>
       <div class="swiper-slide index-slide2"></div>
       <div class="swiper-slide index-slide3"></div>
+      <div class="swiper-slide index-slide4"></div>
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>

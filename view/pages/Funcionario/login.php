@@ -76,13 +76,13 @@
   <div class="container-login">
     <form class="container-form" action="#">
       <div class="form-content">
-        <div class="titulo">Sistema do Funcionario</div>
+        <div class="titulo">Sistema do Funcionário</div>
         <label for="log-in-email">Código de acesso</label>
         <input name="log-in-email" type="text" required autocomplete="on" />
         <label for="log-in-password">Senha</label>
         <input name="log-in-password" type="password" required autocomplete="on" />
         <button class="botao-solido" onclick="location.href='perfil.php'" type="button">Entre</button>
-        <ins><a href="../Login/login.html">Login Usuario</a></ins>
+        <ins><a href="../Login/login.php">Login Usuário</a></ins>
       </div>
     </form>
   </div>
