@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../assets/css/StyleUsuario.css" />
   <link rel="stylesheet" href="../../assets/css/StyleMeusAgendamentos.css" />
   <!-- CSS EXTERNO PAGINA -->
-  <link rel="icon" href="../../assets/assets/img/Outros/inclusipet.ico" />
+  <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <style>
     .conteudo {
       display: grid;
