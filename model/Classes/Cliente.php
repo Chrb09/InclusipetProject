@@ -11,18 +11,19 @@
     public $Senha;
     public $Imagem;
     public $Token; 
+    public $Lastname;
 
-    public function getFullName($nome) {
-      return $cliente -> Nome; 
-    }
+    public function getFullName() {
+      return $this->Nome; 
+  }
 
     public function generateToken() {
       return bin2hex(random_bytes(50));
     }
     
     public function generateSenha($senha) {
-      return senha_hash($senha, SENHA_DEFAULT);
-    }
+      return password_hash($senha, PASSWORD_DEFAULT); // Exemplo de uso do PASSWORD_DEFAULT
+  }
 
     public function imageGenerateName() { 
       return bin2hex(random_bytes(60)) . ".jpg"; 

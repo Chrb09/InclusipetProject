@@ -9,9 +9,8 @@ require_once("../controller/ClienteDAO.php");
 
 $message = new Mensagem($BASE_URL);
 
-
 // ===== Começo do CLIENTE =====
-$ClienteDao = new ClienteDAO($conn, $BASE_URL); 
+$clienteDao = new ClienteDAO($conn, $BASE_URL); 
 
 // Resgata o tipo do formulário
 $type = filter_input(INPUT_POST, "type"); 
@@ -28,19 +27,19 @@ if($type === "register_cliente") { // TODO
   if($name && $lastname && $email && $password) {
 
       // Verificar se o e-mail já está cadastrado no sistema
-      if($ClienteDao->findByEmail($email) === false) {
+      if($clienteDao->findByEmail($email) === false) {
 
         $cliente = new Cliente();
 
         // Criação de token e senha
         $clienteToken = $cliente->generateToken();
-        $finalPassword = $cliente->generatePassword($password);
+        $finalPassword = $cliente->generateSenha($password);
 
-        $cliente->name = $name;
-        $cliente->lastname = $lastname;
-        $cliente->email = $email;
-        $cliente->password = $finalPassword;
-        $cliente->token = $clienteToken;
+        $cliente->Nome = $name;
+        $cliente->Lastname = $lastname;
+        $cliente->Email = $email;
+        $cliente->Senha = $finalPassword;
+        $cliente->Token = $clienteToken;
 
         $auth = true;
 
@@ -48,13 +47,13 @@ if($type === "register_cliente") { // TODO
 
       } 
       else {  
-        // Envia uma msg de erro, usuário já existe
+        // Envia uma Mensagm de erro, usuário já existe
         $message->setMensagem("Usuário já cadastrado, tente outro e-mail.", "error", "back");
       }
     } 
     else {
 
-    // Enviar uma msg de erro, de dados faltantes
+    // Enviar uma mensagem de erro, de dados faltantes
     $message->setMensagem("Por favor, preencha todos os campos.", "error", "back");
     } 
   } 
