@@ -274,7 +274,7 @@
             </div>
             <div class="linha-button">
               <button class="botao-solido" onclick="enviarRelatorio()" type="button">Enviar Relatorio</button>
-              <button class="botao-borda" onclick="location.href='agendamentos.html'" type="button">Voltar</button>
+              <button class="botao-borda" onclick="location.href='agendamentos.php'" type="button">Voltar</button>
             </div>
           </div>
         </div>

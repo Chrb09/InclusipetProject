@@ -7,8 +7,8 @@
 
   <link rel="stylesheet" href="../../assets/css/StyleGeral.css" />
   <!-- CSS EXTERNO GERAL -->
-  <link rel="stylesheet" href="../../assets/css/StyleUsuario.css" />
   <link rel="stylesheet" href="../../assets/css/StylePerfil.css" />
+  <link rel="stylesheet" href="../../assets/css/StyleUsuario.css" />
   <!-- CSS EXTERNO PAGINA -->
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
@@ -30,6 +30,54 @@
         <?php include('../../components/navmobilevet.php'); ?>
         <!-- Conteudo principal -->
         <div class="titulo">Cadastrar Tutor</div>
+
+        <br />
+        <div class="cadastrar_pet">
+          <form action="" class="form__cadastro">
+            <div class="form-input">
+              <label for="">Email</label><br />
+              <input type="email" name="" id="" />
+            </div>
+
+            <div class="form-input">
+              <label for="">Nome</label><br />
+              <input type="text" name="" id="" />
+            </div>
+
+            <div class="form-input">
+              <label for="">CEP</label><br />
+              <input type="text" name="" id="" />
+            </div>
+            <div class="form-input">
+              <label for="">Data de Nascimento</label><br />
+              <input type="date" value="" max="" min="1900-01-01" />
+            </div>
+            <div class="form-input">
+              <label for="">Senha Temporaria</label><br />
+              <input type="text" name="" id="" />
+            </div>
+            <div class="form-input">
+              <label for="">CPF</label><br />
+              <input type="text" value="" />
+            </div>
+
+            <div class="form-input">
+              <label for="">Telefone</label><br />
+              <input type="text" name="" id="" />
+            </div>
+            <div class="form-input">
+              <label for="">Codigo de Usuario</label><br />
+              <input type="text" name="" id="" />
+            </div>
+
+            <div class="button-wrapper-form">
+              <button class="botao botao-borda" onclick="location.href='funcoesdotutor.php'" type="button">
+                Voltar
+              </button>
+              <button class="botao botao-solido" onclick="" type="button">Salvar</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

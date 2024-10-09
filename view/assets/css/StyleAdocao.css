@@ -1,4 +1,10 @@
 /****ADOÇÃO****/
+.banner_adocao {
+  background-image: url("../img/Adocao/BannerApp.png");
+  width: 100%;
+  aspect-ratio: 5.82 / 1;
+  background-size: cover;
+}
 .container__adocao {
   margin-top: 5rem;
 }
@@ -74,6 +80,10 @@ p {
 
 /* md */
 @media (max-width: 768px) {
+  .banner_adocao {
+    background-image: url("../img/Adocao/BannerAppMobile.png");
+    aspect-ratio: 3.19 / 1;
+  }
   .grid__adocao {
     padding-inline: 4em;
   }

@@ -29,6 +29,10 @@
   background-image: url("../img/Index/slide3.png");
   background-size: contain;
 }
+.index-slide4 {
+  background-image: url("../img/Index/slide4.png");
+  background-size: contain;
+}
 
 .container__titulo {
   margin-block: 3em;
@@ -327,7 +331,9 @@
   .index-slide3 {
     background-image: url("../img/Index/slide3_mobile.png");
   }
-
+  .index-slide4 {
+    background-image: url("../img/Index/slide4_mobile.png");
+  }
   .container-hero {
     flex-direction: column-reverse;
     align-items: center;
