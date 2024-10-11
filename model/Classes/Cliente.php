@@ -30,18 +30,17 @@
     }
   }
 
-  interface ClienteDAOInterface {
-
+  interface ClienteDAOInterface 
+  {
     public function buildCliente($data);
-    public function create(Cliente $cliente, $authCliente = false);  // Cria um novo Cliente no sistema
-    public function update(Cliente $cliente, $redirect = true);      // Atualiza as informações de um funcionário existente 
-    public function verifyToken($protected = false);    
-    public function setTokenToSession($token, $redirect = true);
-    public function authenticateCliente($email, $senha);
-    public function findByEmail($email);
-    public function findByCodCliente($codCliente);
-    public function findByToken($token);
-    public function destroyToken();
-    public function changeSenha(Cliente $Cliente);
-
+    public function create(Cliente $cliente, $authCliente = false);  // Cria um novo cliente no sistema
+    public function update(Cliente $cliente, $redirect = true);      // Atualiza as informações de um cliente existente 
+    public function verifyToken($protected = false);                 // Verifica a validade de um token de autenticação
+    public function setTokenToSession($token, $redirect = true);     // Armazena um token de autenticação na sessão do usuário
+    public function authenticateCliente($email, $senha);             // Autentica um cliente usando seu código e sua senha
+    public function findByEmail($email);                             // Busca o email do cliente
+    public function findByCodCliente($codCliente);                   // Busca o código do cliente
+    public function findByToken($token);                             // Busca o TOKEN
+    public function destroyToken();                                  // Deleta o TOKEN
+    public function changeSenha(Cliente $Cliente);                   // Altera a senha do cliente
   }

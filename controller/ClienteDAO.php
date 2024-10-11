@@ -173,9 +173,9 @@
         if($stmt->rowCount() > 0) {
 
           $data = $stmt->fetch();
-          $user = $this->buildCliente($data);
+          $cliente = $this->buildCliente($data);
           
-          return $user;
+          return $cliente;
         } 
         else {
           return false;

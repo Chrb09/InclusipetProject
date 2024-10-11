@@ -4,10 +4,10 @@
   require_once("globals.php");
   require_once("db.php");
   require_once("Classes/Cliente.php");
-  require_once("Classes/Menssage.php");
+  require_once("Classes/Message.php");
   require_once("../controller/ClienteDAO.php");
 
-  $message = new Mensagem($BASE_URL);
+  $message = new Message($BASE_URL);
 
   // ===== Começo do CLIENTE =====
   $clienteDao = new ClienteDAO($conn, $BASE_URL); 
@@ -17,17 +17,18 @@
 
   // Verificação do tipo de formulário
   if($type === "register_client") { // TODO
-    $nome = filter_input(INPUT_POST, "nome");
-    $datanasc = filter_input(INPUT_POST, "datanasc");
-    $telefone = filter_input(INPUT_POST, "telefone");
-    $cep = filter_input(INPUT_POST, "cep");
-    $cpf = filter_input(INPUT_POST, "cpf");
-    $email = filter_input(INPUT_POST, "email");
-    $senha = filter_input(INPUT_POST, "senha");
+    $nome = filter_input(INPUT_POST, "sign-up-name");
+    $datanasc = filter_input(INPUT_POST, "sign-up-date");
+    $telefone = filter_input(INPUT_POST, "sign-up-tel");
+    $cep = filter_input(INPUT_POST, "sign-up-cep");
+    $cpf = filter_input(INPUT_POST, "sign-up-cpf");
+    $email = filter_input(INPUT_POST, "sign-up-email");
+    $senha = filter_input(INPUT_POST, "sign-up-password");
 
     // Verificação de dados mínimos 
     if($nome && $datanasc && $telefone && $cep && $pf && $email && $senha) 
     {
+      /*
         // Verificar se o e-mail já está cadastrado no sistema
         if($clienteDao->findByEmail($email) === false) 
         {
@@ -55,17 +56,18 @@
           // Envia uma Mensagm de erro, usuário já existe
           $message->setMessage("Usuário já cadastrado, tente outro e-mail.", "error", "back");
         }
+        */
       } 
       else {
-
       // Enviar uma mensagem de erro, de dados faltantes
       $message->setMessage("Por favor, preencha todos os campos.", "error", "back");
       } 
+
     } 
     else if($type === "login_client") {
 
-    $email = filter_input(INPUT_POST, "email");
-    $senha = filter_input(INPUT_POST, "senha");
+    $email = filter_input(INPUT_POST, "log-in-email");
+    $senha = filter_input(INPUT_POST, "log-in-password");
 
     // Tenta autenticar usuário
     if($clienteDao->authenticateCliente($email, $senha)) {
