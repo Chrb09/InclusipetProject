@@ -18,7 +18,6 @@
   <!-- HEADER-->
   <?php include('../../components/header.php'); ?>
 
-  <!-- LOGIN -->
   <div class="container-login" id="container-login">
     <div class="form-container sign-up-container">
 
@@ -79,7 +78,7 @@
           <input name="sign-up-tel" id="sign-up-tel" placeholder="(00)00000-0000" type="text" required autocomplete="off" />
 
           <!-- buttons -->
-          <button class="botao-solido" onclick="location.href='../Perfil/perfil.php'" type="submit">Concluir Cadastro</button>
+          <button class="botao-solido" onclick="location.href='../Perfil/perfil.php'" type="submit" value="registrar">Concluir Cadastro</button>
           <button class="botao-borda" onclick="cadastrarnext()" type="button">Voltar</button>
         </div>
       </form>
