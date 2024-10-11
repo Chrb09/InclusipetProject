@@ -3,8 +3,8 @@
   require_once("../model/Classes/Cliente.php");
   require_once("../model/Mensagem.php");
 
-  class ClienteDAO implements ClienteDAOInterface {
-
+  class ClienteDAO implements ClienteDAOInterface 
+  {
     private $conn;
     private $url;
     private $message;
@@ -27,6 +27,7 @@
       $cliente->email = $data["Email"];
       $cliente->senha = $data["Senha"];
       $cliente->imagem = $data["Imagem"];
+      // $user->bio = $data["bio"];
       $cliente->token = $data["Token"];
 
       return $cliente;
@@ -56,48 +57,54 @@
     }
 
     // TODO
-    public function update(Cliente $cliente, $redirect = true) {
-
+    public function update(Cliente $cliente, $redirect = true) 
+    {
       $stmt = $this->conn->prepare("UPDATE users SET
-        name = :name,
-        lastname = :lastname,
+        nome = :nome,
+        datanasc = :datanasc,
+        telefone = :telefone,
+        cep = :cep,
+        cpf = :cpf,
         email = :email,
-        image = :image,
-        bio = :bio,
+        senha = :senha,
+        imagem = :imagem,
+        -- bio = :bio,
         token = :token
-        WHERE id = :id
-      ");
+        WHERE codcliente = :codcliente ");
 
-      $stmt->bindParam(":name", $user->name);
-      $stmt->bindParam(":lastname", $user->lastname);
-      $stmt->bindParam(":email", $user->email);
-      $stmt->bindParam(":image", $user->image);
-      $stmt->bindParam(":bio", $user->bio);
-      $stmt->bindParam(":token", $user->token);
-      $stmt->bindParam(":id", $user->id);
+      $stmt->bindParam(":nome", $cliente->nome);
+      $stmt->bindParam(":datanasc", $cliente->datanasc);
+      $stmt->bindParam(":telefone", $cliente->telefone);
+      $stmt->bindParam(":cep", $cliente->cep);
+      $stmt->bindParam(":cpf", $cliente->cpf);
+      $stmt->bindParam(":email", $cliente->email);
+      $stmt->bindParam(":senha", $cliente->senha);
+      $stmt->bindParam(":imagem", $cliente->imagem);
+      // $stmt->bindParam(":bio", $user->bio);
+      $stmt->bindParam(":token", $cliente->token);
+      $stmt->bindParam(":codcliente", $cliente->codcliente);
 
       $stmt->execute();
 
-      if($redirect) {
-
+      if($redirect) 
+      {
         // Redireciona para o perfil do usuario
         $this->message->setMessage("Dados atualizados com sucesso!", "success", "editprofile.php");
 
       }
-
     }
 
-    public function verifyToken($protected = false) {
-
+    public function verifyToken($protected = false) 
+    {
       if(!empty($_SESSION["token"])) {
 
         // Pega o token da session
         $token = $_SESSION["token"];
 
-        $user = $this->findByToken($token);
+        $cliente = $this->findByToken($token);
 
-        if($user) {
-          return $user;
+        if($cliente) {
+          return $cliente;
         } else if($protected) {
 
           // Redireciona usuário não autenticado
@@ -111,11 +118,10 @@
         $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "index.php");
 
       }
-
     }
 
-    public function setTokenToSession($token, $redirect = true) {
-
+    public function setTokenToSession($token, $redirect = true) 
+    {
       // Salvar token na session
       $_SESSION["token"] = $token;
 
@@ -125,91 +131,81 @@
         $this->message->setMessage("Seja bem-vindo!", "success", "editprofile.php");
 
       }
-
     }
 
-    public function authenticateUser($email, $password) {
+    public function authenticateCliente($email, $senha) 
+    {
+      $cliente = $this->findByEmail($email);
 
-      $user = $this->findByEmail($email);
-
-      if($user) {
+      if($cliente) {
 
         // Checar se as senhas batem
-        if(password_verify($password, $user->password)) {
+        if(password_verify($senha, $cliente->senha)) {
 
           // Gerar um token e inserir na session
-          $token = $user->generateToken();
+          $token = $cliente->generateToken();
 
           $this->setTokenToSession($token, false);
 
           // Atualizar token no usuário
-          $user->token = $token;
-
-          $this->update($user, false);
+          $cliente->token = $token;
+          $this->update($cliente, false);
 
           return true;
-
-        } else {
+        } 
+        else {
           return false;
         }
-
-      } else {
-
+      } 
+      else {
         return false;
-
       }
-
     }
 
     public function findByEmail($email) {
 
       if($email != "") {
 
-        $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = :email");
-
+        $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE email = :email");
         $stmt->bindParam(":email", $email);
-
         $stmt->execute();
 
         if($stmt->rowCount() > 0) {
 
           $data = $stmt->fetch();
-          $user = $this->buildUser($data);
+          $user = $this->buildCliente($data);
           
           return $user;
-
-        } else {
+        } 
+        else {
           return false;
         }
-
-      } else {
+      } 
+      else {
         return false;
       }
-
     }
 
-    public function findById($id) {
+    public function findByCodCliente($codcliente) {
 
-      if($id != "") {
+      if($codcliente != "") {
 
-        $stmt = $this->conn->prepare("SELECT * FROM users WHERE id = :id");
-
-        $stmt->bindParam(":id", $id);
-
+        $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE codcliente = :codcliente");
+        $stmt->bindParam(":codcliente", $codcliente);
         $stmt->execute();
 
         if($stmt->rowCount() > 0) {
 
           $data = $stmt->fetch();
-          $user = $this->buildUser($data);
+          $cliente = $this->buildCliente($data);
           
-          return $user;
-
-        } else {
+          return $cliente;
+        } 
+        else {
           return false;
         }
-
-      } else {
+      } 
+      else {
         return false;
       }
     }
@@ -218,27 +214,24 @@
 
       if($token != "") {
 
-        $stmt = $this->conn->prepare("SELECT * FROM users WHERE token = :token");
-
+        $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE token = :token");
         $stmt->bindParam(":token", $token);
-
         $stmt->execute();
 
         if($stmt->rowCount() > 0) {
 
           $data = $stmt->fetch();
-          $user = $this->buildUser($data);
+          $cliente = $this->buildCliente($data);
           
-          return $user;
-
-        } else {
+          return $cliente;
+        } 
+        else {
           return false;
         }
-
-      } else {
+      } 
+      else {
         return false;
       }
-
     }
 
     public function destroyToken() {
@@ -251,21 +244,15 @@
 
     }
 
-    public function changePassword(User $user) {
+    public function changeSenha(Cliente $cliente) {
 
-      $stmt = $this->conn->prepare("UPDATE users SET
-        password = :password
-        WHERE id = :id
-      ");
+      $stmt = $this->conn->prepare("UPDATE Cliente SET codcliente = :codcliente WHERE codcliente = :codcliente ");
 
-      $stmt->bindParam(":password", $user->password);
-      $stmt->bindParam(":id", $user->id);
-
+      $stmt->bindParam(":codcliente", $cliente->codcliente);
+      $stmt->bindParam(":codcliente", $cliente->codcliente);
       $stmt->execute();
 
       // Redirecionar e apresentar a mensagem de sucesso
       $this->message->setMessage("Senha alterada com sucesso!", "success", "editprofile.php");
-
     }
-
   }
