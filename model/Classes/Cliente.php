@@ -21,8 +21,8 @@
       return bin2hex(random_bytes(50));
     }
     
-    public function generateSenha($senha) {
-      return password_hash($senha, PASSWORD_DEFAULT); // Exemplo de uso do PASSWORD_DEFAULT
+    public function generateSenha($Senha) {
+      return password_hash($Senha, PASSWORD_DEFAULT); // Exemplo de uso do PASSWORD_DEFAULT
     }
 
     public function imageGenerateName() { 
@@ -37,10 +37,10 @@
     public function update(Cliente $cliente, $redirect = true);      // Atualiza as informações de um cliente existente 
     public function verifyToken($protected = false);                 // Verifica a validade de um token de autenticação
     public function setTokenToSession($token, $redirect = true);     // Armazena um token de autenticação na sessão do usuário
-    public function authenticateCliente($email, $senha);             // Autentica um cliente usando seu código e sua senha
-    public function findByEmail($email);                             // Busca o email do cliente
+    public function authenticateCliente($Email, $Senha);             // Autentica um cliente usando seu código e sua senha
+    public function findByEmail($Email);                             // Busca o email do cliente
     public function findByCodCliente($codCliente);                   // Busca o código do cliente
     public function findByToken($token);                             // Busca o TOKEN
     public function destroyToken();                                  // Deleta o TOKEN
-    public function changeSenha(Cliente $Cliente);                   // Altera a senha do cliente
+    public function changeSenha(Cliente $cliente);                   // Altera a senha do cliente
   }

@@ -15,7 +15,7 @@
   // Resgata o tipo do formulário
   $type = filter_input(INPUT_POST, "type"); 
 
-  // Verificação do tipo de formulário
+  // Verificação do tipo de formulário (CADASTRAR)
   if($type === "register_client") { // TODO
     $nome = filter_input(INPUT_POST, "sign-up-name");
     $datanasc = filter_input(INPUT_POST, "sign-up-date");
@@ -62,8 +62,8 @@
       // Enviar uma mensagem de erro, de dados faltantes
       $message->setMessage("Por favor, preencha todos os campos.", "error", "back");
       } 
-
     } 
+    // Verificação do tipo de formulário (LOGIN)
     else if($type === "login_client") {
 
     $email = filter_input(INPUT_POST, "log-in-email");
@@ -71,7 +71,7 @@
 
     // Tenta autenticar usuário
     if($clienteDao->authenticateCliente($email, $senha)) {
-      $message->setMessage("Seja bem-vindo!", "success", "editprofile.php");
+      $message->setMessage("Seja bem-vindo!", "success", "perfil.php");
 
     // Redireciona o usuário, caso não conseguir autenticar
     } else {

@@ -1,7 +1,7 @@
 <?php
 
   require_once("../model/Classes/Cliente.php");
-  require_once("../model/Mensagem.php");
+  require_once("../model/Message.php");
 
   class ClienteDAO implements ClienteDAOInterface 
   {
@@ -12,23 +12,23 @@
     public function __construct(PDO $conn, $url) {
       $this->conn = $conn;
       $this->url = $url;
-      $this->message = new Mensagem($url);
+      $this->message = new Message($url);
     }
 
     public function buildCliente($data) {
 
       $cliente = new Cliente();
-      $cliente->codcliente = $data["CodCliente"];
-      $cliente->nome = $data["Nome"];
-      $cliente->datanasc = $data["DataNasc"];
-      $cliente->telefone = $data["Telefone"];
-      $cliente->cep = $data["CEP"];
-      $cliente->cpf = $data["CPF"];
-      $cliente->email = $data["Email"];
-      $cliente->senha = $data["Senha"];
-      $cliente->imagem = $data["Imagem"];
+      $cliente->CodCliente = $data["CodCliente"];
+      $cliente->Nome = $data["Nome"];
+      $cliente->DataNasc = $data["DataNasc"];
+      $cliente->Telefone = $data["Telefone"];
+      $cliente->CEP = $data["CEP"];
+      $cliente->CPF = $data["CPF"];
+      $cliente->Email = $data["Email"];
+      $cliente->Senha = $data["Senha"];
+      $cliente->Imagem = $data["Imagem"];
       // $user->bio = $data["bio"];
-      $cliente->token = $data["Token"];
+      $cliente->Token = $data["Token"];
 
       return $cliente;
     }
@@ -57,32 +57,31 @@
     }
 
     // TODO
-    public function update(Cliente $cliente, $redirect = true) 
-    {
-      $stmt = $this->conn->prepare("UPDATE users SET
-        nome = :nome,
-        datanasc = :datanasc,
-        telefone = :telefone,
-        cep = :cep,
-        cpf = :cpf,
-        email = :email,
-        senha = :senha,
-        imagem = :imagem,
+    public function update(Cliente $cliente, $redirect = true) {
+      $stmt = $this->conn->prepare("UPDATE Cliente SET
+        Nome = :Nome,
+        Datanasc = :DataNasc,
+        Telefone = :Telefone,
+        CEP = :CEP,
+        CPF = :CPF,
+        Email = :Email,
+        Senha = :Senha,
+        Imagem = :Imagem,
         -- bio = :bio,
-        token = :token
-        WHERE codcliente = :codcliente ");
+        Token = :Token
+        WHERE CodCliente = :CodCliente ");
 
-      $stmt->bindParam(":nome", $cliente->nome);
-      $stmt->bindParam(":datanasc", $cliente->datanasc);
-      $stmt->bindParam(":telefone", $cliente->telefone);
-      $stmt->bindParam(":cep", $cliente->cep);
-      $stmt->bindParam(":cpf", $cliente->cpf);
-      $stmt->bindParam(":email", $cliente->email);
-      $stmt->bindParam(":senha", $cliente->senha);
-      $stmt->bindParam(":imagem", $cliente->imagem);
+      $stmt->bindParam(":Nome", $cliente->Nome);
+      $stmt->bindParam(":DataNasc", $cliente->DataNasc);
+      $stmt->bindParam(":Telefone", $cliente->Telefone);
+      $stmt->bindParam(":CEP", $cliente->CEP);
+      $stmt->bindParam(":CPF", $cliente->CPF);
+      $stmt->bindParam(":Email", $cliente->Email);
+      $stmt->bindParam(":Senha", $cliente->Senha);
+      $stmt->bindParam(":Imagem", $cliente->Imagem);
       // $stmt->bindParam(":bio", $user->bio);
-      $stmt->bindParam(":token", $cliente->token);
-      $stmt->bindParam(":codcliente", $cliente->codcliente);
+      $stmt->bindParam(":Token", $cliente->Token);
+      $stmt->bindParam(":CodCliente", $cliente->CodCliente);
 
       $stmt->execute();
 
@@ -94,18 +93,18 @@
       }
     }
 
-    public function verifyToken($protected = false) 
-    {
-      if(!empty($_SESSION["token"])) {
+    public function verifyToken($protected = false) {
+      if(!empty($_SESSION["Token"])) {
 
         // Pega o token da session
-        $token = $_SESSION["token"];
+        $Token = $_SESSION["Token"];
 
-        $cliente = $this->findByToken($token);
+        $cliente = $this->findByToken($Token);
 
         if($cliente) {
           return $cliente;
-        } else if($protected) {
+        } 
+        else if($protected) {
 
           // Redireciona usuário não autenticado
           $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "index.php");
@@ -120,35 +119,34 @@
       }
     }
 
-    public function setTokenToSession($token, $redirect = true) 
-    {
+    public function setTokenToSession($token, $redirect = true) {
       // Salvar token na session
-      $_SESSION["token"] = $token;
+      $_SESSION["Token"] = $Token;
 
       if($redirect) {
 
         // Redireciona para o perfil do usuario
-        $this->message->setMessage("Seja bem-vindo!", "success", "editprofile.php");
+        $this->message->setMessage("Seja bem-vindo!", "success", "perfil.php");
 
       }
     }
 
-    public function authenticateCliente($email, $senha) 
-    {
-      $cliente = $this->findByEmail($email);
+    // LOGAR
+    public function authenticateCliente($Email, $Senha) {
+      $cliente = $this->findByEmail($Email);
 
       if($cliente) {
 
-        // Checar se as senhas batem
+        // Checa se as senhas batem
         if(password_verify($senha, $cliente->senha)) {
 
-          // Gerar um token e inserir na session
+          // Gera um token e inserir na session
           $token = $cliente->generateToken();
 
           $this->setTokenToSession($token, false);
 
-          // Atualizar token no usuário
-          $cliente->token = $token;
+          // Atualiza token no usuário
+          $cliente->Token = $Token;
           $this->update($cliente, false);
 
           return true;
@@ -162,12 +160,11 @@
       }
     }
 
-    public function findByEmail($email) {
+    public function findByEmail($Email) {
+      if($Email != "") {
 
-      if($email != "") {
-
-        $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE email = :email");
-        $stmt->bindParam(":email", $email);
+        $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE Email = :Email");
+        $stmt->bindParam(":Email", $Email);
         $stmt->execute();
 
         if($stmt->rowCount() > 0) {
