@@ -1,7 +1,7 @@
 <?php
 
-  require_once("../model/Classes/Cliente.php");
-  require_once("../model/Message.php");
+  require_once('../model/Classes/Cliente.php');
+  require_once('../model/Classes/Message.php');
 
   class ClienteDAO implements ClienteDAOInterface 
   {
@@ -56,7 +56,6 @@
       }
     }
 
-    // TODO
     public function update(Cliente $cliente, $redirect = true) {
       $stmt = $this->conn->prepare("UPDATE Cliente SET
         Nome = :Nome,

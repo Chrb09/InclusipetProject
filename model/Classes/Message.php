@@ -20,14 +20,13 @@
       $_SESSION["msg"] = $msg;
       $_SESSION["type"] = $type;
 
-      /* if($redirect != "back") {
+      if($redirect != "back") {
         header("Location: $this -> url" . $redirect);
       } 
 
       else {
         header("Location: " . $_SERVER["HTTP_REFERER"]);
       }
-        */
     }
 
     public function getMessage() 
@@ -48,5 +47,5 @@
       $_SESSION["msg"] = "";
       $_SESSION["type"] = "";
     }
-
+    
   }

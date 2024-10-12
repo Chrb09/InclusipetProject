@@ -86,7 +86,7 @@
 
     <!-- LOGIN DO CLIENTE -->
     <div class="form-container sign-in-container">
-      <form action="../../../model/auth_process.php" method="POST">
+      <form action="<?= $BASE_URL ?>auth_process.php" method="POST">
       <input type="hidden" name="type" value="login_client">   <!-- register do autenticacao login -->
         <div class="form-content">
           <div class="titulo">Entrar</div>

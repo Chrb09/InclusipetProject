@@ -1,3 +1,27 @@
+<?php
+
+  require_once("../../../model/globals.php");
+  require_once("../../../model/db.php");
+  require_once("../../../model/Classes/Message.php");
+  require_once("../../../controller/ClienteDAO.php");
+
+  $message = new Message($BASE_URL);
+  
+  /*
+  $flassMessage = $message->getMessage();
+
+  
+  if(!empty($flassMessage["msg"])) {
+    // Limpar a mensagem
+    $message->clearMessage();
+  }
+
+  $clienteDao = new ClienteDAO($conn, $BASE_URL);
+
+  $clienteData = $clienteDao->verifyToken(false);
+  */
+?>
+
 <header class="header">
   <div class="container container__header">
     <a href="../index/index.php">

@@ -36,11 +36,11 @@
     public function create(Cliente $cliente, $authCliente = false);  // Cria um novo cliente no sistema
     public function update(Cliente $cliente, $redirect = true);      // Atualiza as informações de um cliente existente 
     public function verifyToken($protected = false);                 // Verifica a validade de um token de autenticação
-    public function setTokenToSession($token, $redirect = true);     // Armazena um token de autenticação na sessão do usuário
+    public function setTokenToSession($Token, $redirect = true);     // Armazena um token de autenticação na sessão do usuário
     public function authenticateCliente($Email, $Senha);             // Autentica um cliente usando seu código e sua senha
     public function findByEmail($Email);                             // Busca o email do cliente
     public function findByCodCliente($codCliente);                   // Busca o código do cliente
-    public function findByToken($token);                             // Busca o TOKEN
+    public function findByToken($Token);                             // Busca o TOKEN
     public function destroyToken();                                  // Deleta o TOKEN
     public function changeSenha(Cliente $cliente);                   // Altera a senha do cliente
   }

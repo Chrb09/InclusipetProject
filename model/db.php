@@ -1,6 +1,6 @@
 <?php
 
-$db_name = "db_inclusipet";
+$db_name = "bd_inclusipet";
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "";

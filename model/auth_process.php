@@ -1,6 +1,5 @@
 <?php
 
-  // TODO arrumar o nome dos arquivos
   require_once("globals.php");
   require_once("db.php");
   require_once("Classes/Cliente.php");
