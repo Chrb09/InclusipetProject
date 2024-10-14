@@ -1,3 +1,12 @@
+<?php
+
+  require_once('../../../model/db.php');
+  require_once('../../../model/globals.php');
+
+  $flassMessage = [];
+
+?>
+
 <header class="header">
   <div class="container container__header">
     <a href="../index/index.php">
@@ -72,3 +81,18 @@
   </div>
 </header>
 <script src="../../assets/js/dropdown_header.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<?php if(!empty($flassMessage["msg"])): ?>
+      <script type="text/javascript">
+            Swal.fire({
+                title: "Enviado com sucesso",
+                footer: $texto;
+                icon: $tipoicon,
+                confirmButtonColor: "#574dbd",
+            });
+    </script>
+<?php endif; ?>

@@ -52,7 +52,7 @@ CREATE TABLE `adocao` (
 
 CREATE TABLE `agendamento` (
   `CodAgendamento` int(11) NOT NULL,
-  `CodVeterinario` int(11) NOT NULL,
+  `CodFuncionario` int(11) NOT NULL,
   `CodAnimal` int(11) NOT NULL,
   `CodCliente` int(11) NOT NULL,
   `CodUnidade` int(11) NOT NULL,
@@ -78,7 +78,8 @@ CREATE TABLE `animal` (
   `DataNasc` date NOT NULL,
   `DataAprox` year(4) NOT NULL,
   `Peso` double NOT NULL,
-  `Castrado` tinyint(1) NOT NULL
+  `Castrado` tinyint(1) NOT NULL,
+  `Imagem` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -105,8 +106,10 @@ CREATE TABLE `cliente` (
   `Telefone` varchar(15) NOT NULL,
   `CEP` varchar(9) NOT NULL,
   `CPF` varchar(14) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `Senha` varchar(25) NOT NULL
+  `Email` varchar(100) NOT NULL,
+  `Senha` varchar(25) NOT NULL,
+  `Token` varchar(200),
+  `Imagem` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -128,7 +131,7 @@ CREATE TABLE `especie` (
 
 CREATE TABLE `imagem_adocao` (
   `CodAdocao` int(11) NOT NULL,
-  `Imagem` varchar(50) NOT NULL
+  `Imagem` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -173,11 +176,11 @@ CREATE TABLE `unidade` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `veterinario`
+-- Estrutura para tabela `funcionario`
 --
 
-CREATE TABLE `veterinario` (
-  `CodVeterinario` int(11) NOT NULL,
+CREATE TABLE `funcionario` (
+  `CodFuncionario` int(11) NOT NULL,
   `CodCargo` int(11) NOT NULL,
   `Senha` varchar(20) NOT NULL,
   `Nome` varchar(50) NOT NULL,
@@ -185,7 +188,9 @@ CREATE TABLE `veterinario` (
   `CPF` varchar(14) NOT NULL,
   `Telefone` varchar(15) NOT NULL,
   `CEP` varchar(9) NOT NULL,
-  `CodUnidade` int(11) NOT NULL
+  `CodUnidade` int(11) NOT NULL,
+  `Token` varchar(200),
+  `Imagem` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -207,7 +212,7 @@ ALTER TABLE `agendamento`
   ADD PRIMARY KEY (`CodAgendamento`),
   ADD KEY `CodAnimalAgendamento` (`CodAnimal`),
   ADD KEY `CodClienteAgendamento` (`CodCliente`),
-  ADD KEY `CodVeterinarioAgendamento` (`CodVeterinario`),
+  ADD KEY `CodFuncionarioAgendamento` (`CodFuncionario`),
   ADD KEY `CodUnidadeAgendamento` (`CodUnidade`),
   ADD KEY `CodServicoAgendamento` (`CodServico`);
 
@@ -263,14 +268,14 @@ ALTER TABLE `unidade`
   ADD PRIMARY KEY (`CodUnidade`);
 
 --
--- Índices de tabela `veterinario`
+-- Índices de tabela `funcionario`
 --
-ALTER TABLE `veterinario`
-  ADD PRIMARY KEY (`CodVeterinario`),
+ALTER TABLE `funcionario`
+  ADD PRIMARY KEY (`CodFuncionario`),
   ADD UNIQUE KEY `RG` (`RG`),
   ADD UNIQUE KEY `CPF` (`CPF`),
-  ADD KEY `CodCargoVeterinario` (`CodCargo`),
-  ADD KEY `CodUnidadeVeterinario` (`CodUnidade`);
+  ADD KEY `CodCargoFuncionario` (`CodCargo`),
+  ADD KEY `CodUnidadeFuncionario` (`CodUnidade`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -331,10 +336,10 @@ ALTER TABLE `unidade`
   MODIFY `CodUnidade` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `veterinario`
+-- AUTO_INCREMENT de tabela `funcionario`
 --
-ALTER TABLE `veterinario`
-  MODIFY `CodVeterinario` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `funcionario`
+  MODIFY `CodFuncionario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para tabelas despejadas
@@ -344,43 +349,43 @@ ALTER TABLE `veterinario`
 -- Restrições para tabelas `adocao`
 --
 ALTER TABLE `adocao`
-  ADD CONSTRAINT `CodClienteAdocao` FOREIGN KEY (`CodCliente`) REFERENCES `cliente` (`CodCliente`) ON UPDATE NO ACTION,
-  ADD CONSTRAINT `CodEspecieAdocao` FOREIGN KEY (`CodEspecie`) REFERENCES `especie` (`CodEspecie`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `CodClienteAdocao` FOREIGN KEY (`CodCliente`) REFERENCES `cliente` (`CodCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodEspecieAdocao` FOREIGN KEY (`CodEspecie`) REFERENCES `especie` (`CodEspecie`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `agendamento`
 --
 ALTER TABLE `agendamento`
-  ADD CONSTRAINT `CodAnimalAgendamento` FOREIGN KEY (`CodAnimal`) REFERENCES `animal` (`CodAnimal`) ON UPDATE NO ACTION,
-  ADD CONSTRAINT `CodClienteAgendamento` FOREIGN KEY (`CodCliente`) REFERENCES `cliente` (`CodCliente`) ON UPDATE NO ACTION,
-  ADD CONSTRAINT `CodServicoAgendamento` FOREIGN KEY (`CodServico`) REFERENCES `servico` (`CodServico`) ON UPDATE NO ACTION,
-  ADD CONSTRAINT `CodUnidadeAgendamento` FOREIGN KEY (`CodUnidade`) REFERENCES `unidade` (`CodUnidade`) ON UPDATE NO ACTION,
-  ADD CONSTRAINT `CodVeterinarioAgendamento` FOREIGN KEY (`CodVeterinario`) REFERENCES `veterinario` (`CodVeterinario`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `CodAnimalAgendamento` FOREIGN KEY (`CodAnimal`) REFERENCES `animal` (`CodAnimal`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodClienteAgendamento` FOREIGN KEY (`CodCliente`) REFERENCES `cliente` (`CodCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodServicoAgendamento` FOREIGN KEY (`CodServico`) REFERENCES `servico` (`CodServico`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodUnidadeAgendamento` FOREIGN KEY (`CodUnidade`) REFERENCES `unidade` (`CodUnidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodFuncionarioAgendamento` FOREIGN KEY (`CodFuncionario`) REFERENCES `funcionario` (`CodFuncionario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `animal`
 --
 ALTER TABLE `animal`
-  ADD CONSTRAINT `CodRacaAnimal` FOREIGN KEY (`CodRaca`) REFERENCES `raca` (`CodRaca`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `CodRacaAnimal` FOREIGN KEY (`CodRaca`) REFERENCES `raca` (`CodRaca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `imagem_adocao`
 --
 ALTER TABLE `imagem_adocao`
-  ADD CONSTRAINT `CodAdocaoImagem` FOREIGN KEY (`CodAdocao`) REFERENCES `adocao` (`CodAdocao`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `CodAdocaoImagem` FOREIGN KEY (`CodAdocao`) REFERENCES `adocao` (`CodAdocao`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `raca`
 --
 ALTER TABLE `raca`
-  ADD CONSTRAINT `CodEspecieRaca` FOREIGN KEY (`CodEspecie`) REFERENCES `especie` (`CodEspecie`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `CodEspecieRaca` FOREIGN KEY (`CodEspecie`) REFERENCES `especie` (`CodEspecie`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Restrições para tabelas `veterinario`
+-- Restrições para tabelas `funcionario`
 --
-ALTER TABLE `veterinario`
-  ADD CONSTRAINT `CodCargoVeterinario` FOREIGN KEY (`CodCargo`) REFERENCES `cargo` (`CodCargo`) ON UPDATE NO ACTION,
-  ADD CONSTRAINT `CodUnidadeVeterinario` FOREIGN KEY (`CodUnidade`) REFERENCES `unidade` (`CodUnidade`) ON UPDATE NO ACTION;
+ALTER TABLE `funcionario`
+  ADD CONSTRAINT `CodCargoFuncionario` FOREIGN KEY (`CodCargo`) REFERENCES `cargo` (`CodCargo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodUnidadeFuncionario` FOREIGN KEY (`CodUnidade`) REFERENCES `unidade` (`CodUnidade`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

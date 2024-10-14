@@ -18,16 +18,25 @@
   <!-- HEADER-->
   <?php include('../../components/header.php'); ?>
 
-  <!-- LOGIN -->
   <div class="container-login" id="container-login">
     <div class="form-container sign-up-container">
-      <form action="#" id="sign-up-form" class="">
+
+    <!-- CADASTRO DO CLIENTE -->
+    <form action="<?= $BASE_URL ?>auth_process.php" id="sign-up-form" method="POST"> <!-- TODO Arrumar a URL -->
+      <input type="hidden" name="type" value="register_client"> <!-- register do autenticacao cadastro -->
+
         <div class="form-content cadastrar1">
           <div class="titulo">Cadastrar-se</div>
+          
+          <!-- email -->
           <label for="sign-up-email">Email</label>
-          <input name="sign-up-email " type="email" required autocomplete="off" />
+          <input name="sign-up-email" type="email" required autocomplete="off" />
+
+          <!-- senha -->
           <label for="sign-up-password">Senha</label>
-          <input name="sign-up-password " type="password" required autocomplete="off" />
+          <input name="sign-up-password" type="password" required autocomplete="off" />
+
+          <!-- buttons -->
           <button class="botao-solido" onclick="cadastrarnext()" type="button">Continuar</button>
           <button class="botao-borda" onclick="" type="button">
             <svg id="Layer_1" style="enable-background: new 0 0 56.6934 56.6934" version="1.1"
@@ -43,36 +52,54 @@
             <a class="" id="signIn">Entre</a>
           </p>
         </div>
+        
+        <!-- segundo form do CADASTRAR -->
         <div class="form-content cadastrar2">
           <div class="titulo">Finalizar Cadastro</div>
+
+          <!-- nome -->
           <label for="sign-up-name">Nome Completo</label>
-          <input name="sign-up-name " placeholder="Seu Nome..." type="text" required autocomplete="off" />
+          <input name="sign-up-name" placeholder="Seu Nome..." type="text" required autocomplete="off" />
+
+          <!-- data nascimento -->
           <label for="sign-up-date">Data de Nascimento</label>
-          <input name="sign-up-date " type="date" required autocomplete="off" />
+          <input name="sign-up-date" type="date" required autocomplete="off" />
+
+          <!-- CPF -->
           <label for="sign-up-cpf">CPF</label>
-          <input name="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" type="text" required
-            autocomplete="off" />
+          <input name="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" type="text" required autocomplete="off" />
+
+          <!-- CEP -->
           <label for="sign-up-cep">CEP</label>
           <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" required autocomplete="off" />
+          
+          <!-- telefone -->
           <label for="sign-up-tel">Telefone</label>
-          <input name="sign-up-tel" id="sign-up-tel" placeholder="(00)00000-0000" type="text" required
-            autocomplete="off" />
-          <button class="botao-solido" onclick="location.href='../Perfil/perfil.php'" type="submit">
-            Concluir Cadastro
-          </button>
+          <input name="sign-up-tel" id="sign-up-tel" placeholder="(00)00000-0000" type="text" required autocomplete="off" />
+
+          <!-- buttons -->
+          <button class="botao-solido" onclick="" type="submit" value="registrar">Concluir Cadastro</button>
           <button class="botao-borda" onclick="cadastrarnext()" type="button">Voltar</button>
         </div>
       </form>
     </div>
+
+    <!-- LOGIN DO CLIENTE -->
     <div class="form-container sign-in-container">
-      <form action="#">
+      <form action="../../../model/auth_process.php" method="POST">
+      <input type="hidden" name="type" value="login_client">   <!-- register do autenticacao login -->
         <div class="form-content">
           <div class="titulo">Entrar</div>
+
+          <!-- email -->
           <label for="log-in-email">Email</label>
           <input name="log-in-email" type="email" required autocomplete="on" />
+
+          <!-- senha -->
           <label for="log-in-password">Senha</label>
           <input name="log-in-password" type="password" required autocomplete="on" />
-          <button class="botao-solido" onclick="location.href='../Perfil/perfil.php'" type="button">Entre</button>
+
+          <button class="botao-solido" value="login" type="button">Entre</button>
           <button class="botao-borda" onclick="" type="button">
             <svg id="Layer_1" style="enable-background: new 0 0 56.6934 56.6934" version="1.1"
               viewBox="0 0 56.6934 56.6934" width="56.6934px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +113,7 @@
             Ainda não possui uma conta?
             <a class="" id="signUp">Cadastre-se</a>
           </p>
-          <ins><a href="../Funcionario/login.php">Login Funcionario</a></ins>
+          <ins><a href="../Funcionario/login.php">Login Funcionario</a></ins> <!-- Leva para o LOGIN do funcionario -->
         </div>
       </form>
     </div>
