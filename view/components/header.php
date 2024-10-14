@@ -7,7 +7,6 @@
 
   $message = new Message($BASE_URL);
   
-  /*
   $flassMessage = $message->getMessage();
 
   
@@ -19,7 +18,7 @@
   $clienteDao = new ClienteDAO($conn, $BASE_URL);
 
   $clienteData = $clienteDao->verifyToken(false);
-  */
+  
 ?>
 
 <header class="header">
@@ -96,3 +95,27 @@
   </div>
 </header>
 <script src="../../assets/js/dropdown_header.js"></script>
+
+<?php if(!empty($flassMessage["msg"])): ?>
+  <script>
+  function enviarRelatorio() {
+    Swal.fire({
+      title: `<div class="titulo">Enviar Relatorio</div>`,
+      html: `
+        <div class="msg-container`+<?php echo $flassMessage["type"] ?>+`">
+          <p class="msg">`+<?php echo $flassMessage["type"] ?>+`</p>
+        </div>
+        <div class="linha">
+          <button class="botao-borda" onclick="Swal.close()" type="button">Fechar</button>
+        </div>
+        `,
+      showConfirmButton: false,
+      focusConfirm: false,
+      backdrop: "rgb(87, 77, 189, 0.5",
+    });
+  }
+</script>
+  <div class="msg-container">
+    <p class="msg <?= $flassMessage["type"] ?>"><?= $flassMessage["msg"] ?></p>
+  </div>
+<?php endif; ?>

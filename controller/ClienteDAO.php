@@ -1,7 +1,7 @@
 <?php
 
-  require_once('../model/Classes/Cliente.php');
-  require_once('../model/Classes/Message.php');
+  require_once("../model/Classes/Cliente.php");
+  require_once("../model/Classes/Message.php");
 
   class ClienteDAO implements ClienteDAOInterface 
   {
@@ -120,7 +120,7 @@
 
     public function setTokenToSession($token, $redirect = true) {
       // Salvar token na session
-      $_SESSION["Token"] = $Token;
+      $_SESSION["Token"] = $token;
 
       if($redirect) {
 
@@ -137,7 +137,7 @@
       if($cliente) {
 
         // Checa se as senhas batem
-        if(password_verify($senha, $cliente->senha)) {
+        if(password_verify($Senha, $cliente->senha)) {
 
           // Gera um token e inserir na session
           $token = $cliente->generateToken();
@@ -145,7 +145,7 @@
           $this->setTokenToSession($token, false);
 
           // Atualiza token no usuário
-          $cliente->Token = $Token;
+          $cliente->Token = $token;
           $this->update($cliente, false);
 
           return true;
