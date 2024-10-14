@@ -22,7 +22,7 @@
     <div class="form-container sign-up-container">
 
     <!-- CADASTRO DO CLIENTE -->
-    <form action="<?= $BASE_URL ?>auth_process.php" id="sign-up-form" method="POST"> <!-- TODO Arrumar a URL -->
+    <form action="../../../model/auth_process.php" id="sign-up-form" method="POST"> <!-- TODO Arrumar a URL -->
       <input type="hidden" name="type" value="register_client"> <!-- register do autenticacao cadastro -->
 
         <div class="form-content cadastrar1">
@@ -99,7 +99,7 @@
           <label for="log-in-password">Senha</label>
           <input name="log-in-password" type="password" required autocomplete="on" />
 
-          <button class="botao-solido" value="login" type="button">Entre</button>
+          <button class="botao-solido" value="login" type="submit">Entre</button>
           <button class="botao-borda" onclick="" type="button">
             <svg id="Layer_1" style="enable-background: new 0 0 56.6934 56.6934" version="1.1"
               viewBox="0 0 56.6934 56.6934" width="56.6934px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
