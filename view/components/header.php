@@ -1,9 +1,16 @@
 <?php
 
-  require_once('../../../model/db.php');
   require_once('../../../model/globals.php');
+  require_once('../../../model/db.php');
+  require_once('../../../model/Classes/Message.php') ;
 
-  $flassMessage = [];
+  $message = new Message($BASE_URL);
+  
+  $flassMessage = $message->getMessage();
+
+  if(!empty($flassMessage["msg"])){
+      $message->clearMessage();
+  }
 
 ?>
 
@@ -89,10 +96,10 @@
 <?php if(!empty($flassMessage["msg"])): ?>
       <script type="text/javascript">
             Swal.fire({
-                title: "Enviado com sucesso",
-                footer: $texto;
-                icon: $tipoicon,
+                title: "Mensagem do Sistema",
+                footer: <?= $flassMessage["msg"]?>;
+                icon: <?= $flassMessage["type"]?>,
                 confirmButtonColor: "#574dbd",
             });
-    </script>
+      </script>
 <?php endif; ?>

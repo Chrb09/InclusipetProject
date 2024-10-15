@@ -7,6 +7,7 @@
   require_once('../controller/ClienteDAO.php');
 
   $message = new Message($BASE_URL);
+  $clienteDao = new ClienteDAO($conn, $BASE_URL);
 
   // Resgata o tipo do formulário
   $type = filter_input(INPUT_POST, "type");
@@ -25,7 +26,13 @@
 
     // Verificação de dados mínimos 
     if($nome && $datanasc && $telefone && $cep && $cpf && $email && $senha) {
-      // TODO
+      // TODO fazer verificar o CPF
+      if($clienteDao->findByEmail($email) === false) {
+        // TODO
+      }
+      else {
+        // TODO
+      }
     }
     else {
       // Enviar uma msg de erro, de dados faltantes
