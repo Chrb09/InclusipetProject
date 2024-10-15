@@ -1,7 +1,7 @@
 <?php
 
-  require_once('../model/Classes/Cliente.php');
-  require_once("../model/Classes/Message.php");
+  require_once('../../../model/Classes/Modelagem/Cliente.php');
+  require_once("../../../model/Classes/Modelagem/Message.php");
 
   class ClienteDAO implements ClienteDAOInterface {
 
@@ -64,6 +64,29 @@
 
     public function verifyToken($protected = false) {
 
+      if(!empty($_SESSION["token"])) {
+        // Pega o token da session
+        $token = $_SESSION["token"];
+
+        $cliente = $this->findByToken($token);
+
+        if($cliente) {
+          return $cliente;
+        } 
+        else if($protected) {
+
+          // Redireciona usuário não autenticado
+          $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "index.php");
+
+        }
+      } 
+      else if($protected) {
+
+        // Redireciona usuário não autenticado
+         $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup","index.php");
+
+      }
+
     }
 
     public function setTokenToSession($token, $redirect = true) {
@@ -74,7 +97,7 @@
       if($redirect) {
 
         // Redireciona para o perfil do usuario
-        $this->message->setMessage("Conta criada com sucesso!.", "sucess", "popup", "../view/pages/Perfil/perfil.php");
+        $this->message->setMessage("Conta criada com sucesso!.", "success", "popup", "../view/pages/Perfil/perfil.php");
 
       }
     }
@@ -118,6 +141,25 @@
 
     public function findByToken($token) {
 
+      if($token != "") {
+        $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE Token = :Token");
+        $stmt->bindParam(":Token", $token);
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0) {
+
+          $data = $stmt->fetch();
+          $cliente = $this->buildcliente($data);
+          
+          return $cliente;
+
+        } else {
+          return false;
+        }
+
+      } else {
+        return false;
+      }
     }
 
     public function destroyToken() {

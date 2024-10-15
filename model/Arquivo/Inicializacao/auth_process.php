@@ -4,7 +4,7 @@
   require_once('db.php');
   require_once('Classes/Message.php');
   require_once('Classes/Cliente.php');
-  require_once('../controller/ClienteDAO.php');
+  require_once('../../../controller/ClienteDAO.php');
 
   $message = new Message($BASE_URL);
   $clienteDao = new ClienteDAO($conn, $BASE_URL);
