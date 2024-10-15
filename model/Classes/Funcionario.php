@@ -33,6 +33,11 @@ class Funcionario {
       public function create(Funcionario $funcionario , $authfuncionario = false );
       public function update(Funcionario $funcionario , $redirect = true );
       public function verifyToken($protected = false);
+      public function setTokenToSession($token, $redirect = true);
+      public function findById($codfuncionario);
+      public function findByToken($token);
+      public function destroyToken();
+      public function changePassword(Funcionario $funcionario);
 
       
   }

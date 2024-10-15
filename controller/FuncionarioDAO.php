@@ -31,11 +31,29 @@ class FuncionarioDAO implements FuncionarioDAOInterface{
     }
 
     public function create(Funcionario $funcionario, $authfuncionario = false) {
-      
+        $stmt = $this->conn->prepare("INSERT INTO funcionarios (CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        try{
+        $stmt->execute([
+            $funcionario->CodCargo,
+            $funcionario->Senha,
+            $funcionario->Nome,
+            $funcionario->RG,
+            $funcionario->CPF,
+            $funcionario->Telefone,
+            $funcionario->CEP,
+            $funcionario->CodUnidade,
+            $funcionario->Token,
+            $funcionario->Imagem
+        ]);
+
+       }catch(PDOException $e){
+         echo "Erro ao inserir funcionário: " . $e->getMessage();
+        return false;
+       }
     }
 
     public function update(Funcionario $funcionario, $redirect = true) {
-
+       
     }
 
     public function verifyToken($protected = false) {
@@ -45,9 +63,8 @@ class FuncionarioDAO implements FuncionarioDAOInterface{
     public function setTokenToSession($token, $redirect = true) {
 
     }
-    
 
-    public function findById($codcliente) {
+    public function findById($codfuncionario) {
 
     }
 
