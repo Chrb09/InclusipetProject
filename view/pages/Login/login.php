@@ -78,7 +78,7 @@
           <input name="sign-up-tel" id="sign-up-tel" placeholder="(00)00000-0000" type="text" required autocomplete="off" />
 
           <!-- buttons -->
-          <button class="botao-solido" onclick="" type="submit" value="registrar">Concluir Cadastro</button>
+          <button class="botao-solido" type="submit" value="registrar">Concluir Cadastro</button>
           <button class="botao-borda" onclick="cadastrarnext()" type="button">Voltar</button>
         </div>
       </form>
