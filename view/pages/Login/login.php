@@ -22,7 +22,8 @@
     <div class="form-container sign-up-container">
 
       <!-- CADASTRO DO CLIENTE -->
-      <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form" method="POST">
+      <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form"
+        onsubmit="return validarCadastro()" method="POST">
         <!-- TODO Arrumar a URL -->
         <input type="hidden" name="type" value="register_client"> <!-- register do autenticacao cadastro -->
 
@@ -31,17 +32,21 @@
 
           <!-- email -->
           <label for="sign-up-email">Email</label>
-          <input name="sign-up-email" type="email" required autocomplete="off" />
+          <input name="sign-up-email" id="sign-up-email" type="email" required autocomplete="off"
+            placeholder="seuemail@email..." />
 
           <!-- senha -->
           <label for="sign-up-password">Senha</label>
-          <input name="sign-up-password" type="password" required autocomplete="off" />
+          <input name="sign-up-password" id="sign-up-password" type="password" required autocomplete="off"
+            placeholder="Sua senha..." />
 
           <label for="sign-up-password">Confirmar Senha</label>
-          <input name="sign-up-confirm-password" type="password" required autocomplete="off" />
+          <input name="sign-up-confirm-password" id="sign-up-confirm-password" type="password" required
+            autocomplete="off" placeholder="Confirme sua senha..." />
 
           <!-- buttons -->
           <button class="botao-solido" onclick="cadastrarnext()" type="button">Continuar</button>
+          <!-- 
           <button class="botao-borda" onclick="" type="button">
             <svg id="Layer_1" style="enable-background: new 0 0 56.6934 56.6934" version="1.1"
               viewBox="0 0 56.6934 56.6934" width="56.6934px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +56,7 @@
             </svg>
             Continuar com Google
           </button>
+          -->
           <p>
             Já possui uma conta?
             <a class="" id="signIn">Entre</a>
@@ -63,11 +69,12 @@
 
           <!-- nome -->
           <label for="sign-up-name">Nome Completo</label>
-          <input name="sign-up-name" placeholder="Seu Nome..." type="text" required autocomplete="off" />
+          <input name="sign-up-name" id="sign-up-name" placeholder="Seu Nome..." type="text" required
+            autocomplete="off" />
 
           <!-- data nascimento -->
           <label for="sign-up-date">Data de Nascimento</label>
-          <input name="sign-up-date" type="date" required autocomplete="off" />
+          <input name="sign-up-date" id="sign-up-date" type="date" required autocomplete="off" />
 
           <!-- CPF -->
           <label for="sign-up-cpf">CPF</label>
@@ -92,20 +99,24 @@
 
     <!-- LOGIN DO CLIENTE -->
     <div class="form-container sign-in-container">
-      <form action="../../../model/Arquivo/Inicializacao/auth_process.php" method="POST">
+      <form action="../../../model/Arquivo/Inicializacao/auth_process.php" onsubmit="return validarLogin()"
+        method="POST">
         <input type="hidden" name="type" value="login_client"> <!-- register do autenticacao login -->
         <div class="form-content">
           <div class="titulo">Entrar</div>
 
           <!-- email -->
           <label for="log-in-email">Email</label>
-          <input name="log-in-email" type="email" required autocomplete="on" />
+          <input name="log-in-email" id="log-in-email" type="email" required autocomplete="on"
+            placeholder="seuemail@email..." />
 
           <!-- senha -->
           <label for="log-in-password">Senha</label>
-          <input name="log-in-password" type="password" required autocomplete="on" />
+          <input name="log-in-password" id="log-in-password" type="password" required autocomplete="on"
+            placeholder="Sua senha..." />
 
           <button class="botao-solido" value="login" type="submit">Entre</button>
+          <!-- 
           <button class="botao-borda" onclick="" type="button">
             <svg id="Layer_1" style="enable-background: new 0 0 56.6934 56.6934" version="1.1"
               viewBox="0 0 56.6934 56.6934" width="56.6934px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
@@ -115,6 +126,7 @@
             </svg>
             Entre com Google
           </button>
+          -->
           <p>
             Ainda não possui uma conta?
             <a class="" id="signUp">Cadastre-se</a>
