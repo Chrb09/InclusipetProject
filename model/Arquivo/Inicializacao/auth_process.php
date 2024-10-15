@@ -35,10 +35,7 @@ if ($type === 'register_client') {
     $message->setMessage("As senhas fornecidas não batem.", "error", "toast", "back");
   } else {
 
-    if ($clienteDao->findByEmail($email) === true) {
-      // Enviar uma msg de erro, de dados faltantes
-      $message->setMessage("Email já cadastrado.", "error", "toast", "back");
-    } else {
+    if ($clienteDao->findByEmail($email) === false) {
       $cliente = new Cliente();
 
       $clienteToken = $cliente->generateToken();
@@ -56,6 +53,10 @@ if ($type === 'register_client') {
       $auth = true;
 
       $clienteDao->create($cliente, $auth);
+    } else {
+
+      // Enviar uma msg de erro, de dados faltantes
+      $message->setMessage("Email já cadastrado.", "error", "toast", "back");
     }
   }
 } else if ($type === 'login_client') {

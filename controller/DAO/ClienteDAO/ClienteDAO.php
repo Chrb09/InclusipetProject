@@ -102,7 +102,7 @@ class ClienteDAO implements ClienteDAOInterface
     if ($redirect) {
 
       // Redireciona para o perfil do usuario
-      $this->message->setMessage("Conta criada com sucesso!", "success", "popup", "../../../view/pages/Perfil/perfil.php");
+      $this->message->setMessage("Usuario autenticado com sucesso!", "success", "toast", "../../../view/pages/Perfil/perfil.php");
 
     }
   }

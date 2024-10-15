@@ -31,15 +31,16 @@
       <form action="" class="form__login">
         <div class="form__row">
           <label for="">Nome</label><br />
-          <input type="text" name="" id="" />
+          <input type="text" name="contato-nome" id="contato-nome" placeholder="Seu nome..." />
         </div>
         <div class="form__row">
           <label for="">Email</label><br />
-          <input type="email" value="" />
+          <input type="email" name="contato-email" id="contato-email" placeholder="Seu email..." />
         </div>
         <div class="form__row">
           <label for="">Mensagem</label><br />
-          <textarea name="" id="" cols="30" rows="5" placeholder="Escreva sua mensagem aqui..."></textarea>
+          <textarea name="contato-mensagem" id="contato-mensagem" cols="30" rows="5"
+            placeholder="Escreva sua mensagem aqui..."></textarea>
         </div>
         <div class="form__row linha">
           <input type="checkbox" name="" id="" class="check" />
