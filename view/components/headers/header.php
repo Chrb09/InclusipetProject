@@ -1,20 +1,20 @@
 <?php
 
-  require_once('../../../model/globals.php');
-  require_once('../../../model/db.php');
-  require_once('../../../model/Classes/Message.php');
-  require_once('../../../controller/ClienteDAO.php');
+require_once('../../../model/Arquivo/inicializacao/globals.php');
+require_once('../../../model/Arquivo/inicializacao/db.php');
+require_once('../../../model/Classes/Modelagem/Message.php');
+require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 
-  $message = new Message($BASE_URL);
-  $flassMessage = $message->getMessage();
+$message = new Message($BASE_URL);
+$flassMessage = $message->getMessage();
 
-  if(!empty($flassMessage["msg"])){
-      $message->clearMessage();
-  }
+if (!empty($flassMessage["msg"])) {
+  $message->clearMessage();
+}
 
-  $clienteDao = new ClienteDAO($conn, $BASE_URL);
-  $clienteData = $clienteDao->verifyToken(false);
-  
+$clienteDao = new ClienteDAO($conn, $BASE_URL);
+$clienteData = $clienteDao->verifyToken(false);
+
 ?>
 
 <header class="header">

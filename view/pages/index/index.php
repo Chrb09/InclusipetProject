@@ -20,7 +20,7 @@
 
 <body>
   <!-- HEADER-->
-  <?php include('../../components/header.php'); ?>
+  <?php include('../../components/headers/header.php'); ?>
   <!-- CARROSSEL -->
   <div class="swiper swiper-index">
     <!-- Additional required wrapper -->

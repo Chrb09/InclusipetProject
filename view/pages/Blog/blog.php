@@ -18,7 +18,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "blog";
-  include('../../components/header.php');
+  include('../../components/headers/header.php');
   ?>
   <!-- BLOG -->
   <div class="container container-blog container__heading">

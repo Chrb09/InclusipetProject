@@ -126,7 +126,7 @@
     include('../../components/sidebarvet.php');
     ?>
     <div class="main">
-      <?php include('../../components/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfil.php'); ?>
 
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>

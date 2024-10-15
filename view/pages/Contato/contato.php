@@ -18,7 +18,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "contato";
-  include('../../components/header.php');
+  include('../../components/headers/header.php');
   ?>
   <!-- CONTATO -->
 

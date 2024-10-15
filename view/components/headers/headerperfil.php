@@ -1,8 +1,9 @@
 <?php
 
-require_once('../../../model/globals.php');
-require_once('../../../model/db.php');
-require_once('../../../model/Classes/Message.php');
+require_once('../../../model/Arquivo/inicializacao/globals.php');
+require_once('../../../model/Arquivo/inicializacao/db.php');
+require_once('../../../model/Classes/Modelagem/Message.php');
+require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 
 $message = new Message($BASE_URL);
 
@@ -82,8 +83,8 @@ if (!empty($flassMessage["msg"])) {
     ?>
     <script type="text/javascript">
       Toast.fire({
-        icon: "<?=$flassMessage["type"]?>",
-        title: "<?=$flassMessage["msg"]?>",
+        icon: "<?= $flassMessage["type"] ?>",
+        title: "<?= $flassMessage["msg"] ?>",
       })
     </script>
     <?php
@@ -93,7 +94,7 @@ if (!empty($flassMessage["msg"])) {
         Swal.fire({
           html: `<div><p for="" > <?= $flassMessage["msg"] ?></p></div> `,
           showConfirmButton: true,
-          icon: "<?=$flassMessage["type"]?>",
+          icon: "<?= $flassMessage["type"] ?>",
           focusConfirm: true,
           customClass: {
             popup: 'container-custom',

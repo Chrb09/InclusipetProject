@@ -18,7 +18,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "blog";
-  include('../../components/header.php');
+  include('../../components/headers/header.php');
   ?>
   <!--Conteudo-->
   <div class="scroll-watcher"></div>

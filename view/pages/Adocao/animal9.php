@@ -32,7 +32,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "adocao";
-  include('../../components/header.php');
+  include('../../components/headers/header.php');
   ?>
 
   <!--Conteudo-->

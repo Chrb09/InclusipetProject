@@ -16,18 +16,19 @@
 
 <body>
   <!-- HEADER-->
-  <?php include('../../components/header.php'); ?>
+  <?php include('../../components/headers/header.php'); ?>
 
   <div class="container-login" id="container-login">
     <div class="form-container sign-up-container">
 
-    <!-- CADASTRO DO CLIENTE -->
-    <form action="../../../model/auth_process.php" id="sign-up-form" method="POST"> <!-- TODO Arrumar a URL -->
-      <input type="hidden" name="type" value="register_client"> <!-- register do autenticacao cadastro -->
+      <!-- CADASTRO DO CLIENTE -->
+      <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form" method="POST">
+        <!-- TODO Arrumar a URL -->
+        <input type="hidden" name="type" value="register_client"> <!-- register do autenticacao cadastro -->
 
         <div class="form-content cadastrar1">
           <div class="titulo">Cadastrar-se</div>
-          
+
           <!-- email -->
           <label for="sign-up-email">Email</label>
           <input name="sign-up-email" type="email" required autocomplete="off" />
@@ -55,7 +56,7 @@
             <a class="" id="signIn">Entre</a>
           </p>
         </div>
-        
+
         <!-- segundo form do CADASTRAR -->
         <div class="form-content cadastrar2">
           <div class="titulo">Finalizar Cadastro</div>
@@ -70,15 +71,17 @@
 
           <!-- CPF -->
           <label for="sign-up-cpf">CPF</label>
-          <input name="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" type="text" required autocomplete="off" />
+          <input name="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" type="text" required
+            autocomplete="off" />
 
           <!-- CEP -->
           <label for="sign-up-cep">CEP</label>
           <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" required autocomplete="off" />
-          
+
           <!-- telefone -->
           <label for="sign-up-tel">Telefone</label>
-          <input name="sign-up-tel" id="sign-up-tel" placeholder="(00)00000-0000" type="text" required autocomplete="off" />
+          <input name="sign-up-tel" id="sign-up-tel" placeholder="(00)00000-0000" type="text" required
+            autocomplete="off" />
 
           <!-- buttons -->
           <button class="botao-solido" type="submit" value="registrar">Concluir Cadastro</button>
@@ -89,8 +92,8 @@
 
     <!-- LOGIN DO CLIENTE -->
     <div class="form-container sign-in-container">
-      <form action="../../../model/auth_process.php" method="POST">
-      <input type="hidden" name="type" value="login_client">   <!-- register do autenticacao login -->
+      <form action="../../../model/Arquivo/Inicializacao/auth_process.php" method="POST">
+        <input type="hidden" name="type" value="login_client"> <!-- register do autenticacao login -->
         <div class="form-content">
           <div class="titulo">Entrar</div>
 
