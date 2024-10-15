@@ -12,7 +12,7 @@
   // Resgata o tipo do formulário
   $type = filter_input(INPUT_POST, "type");
 
-  // ===== COMEÇO DOo CLIENTE =====
+  // ===== COMEÇO DO CLIENTE =====
   
   if($type === 'register_client') {
 
@@ -23,20 +23,43 @@
     $cpf = filter_input(INPUT_POST, "sign-up-cpf");
     $email = filter_input(INPUT_POST, "sign-up-email");
     $senha = filter_input(INPUT_POST, "sign-up-password");
+    $confirmarsenha = filter_input(INPUT_POST, "sign-up-confirm-password");
 
     // Verificação de dados mínimos 
-    if($nome && $datanasc && $telefone && $cep && $cpf && $email && $senha) {
-      // TODO fazer verificar o CPF
-      if($clienteDao->findByEmail($email) === false) {
-        // TODO
-      }
-      else {
-        // TODO
-      }
+    if(!$nome && !$datanasc && !$telefone && !$cep && !$cpf && !$email && !$senha) {
+
+      // Enviar uma msg de erro, de dados faltantes
+      $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
+
+    }
+    else if($senha !== $confirmarsenha ) {
+      $message->setMessage("As senhas fornecidas não batem.", "error", "toast", "back");
     }
     else {
-      // Enviar uma msg de erro, de dados faltantes
-      $message->setMessage("Por favor, preencha todos os campos.", "error", "back");
+
+      if($clienteDao->findByEmail($email) === true) {
+        // Enviar uma msg de erro, de dados faltantes
+        $message->setMessage("Email já cadastrado.", "error", "toast", "back");
+      }
+      else {
+        $cliente = new Cliente();
+
+        $clienteToken = $cliente->generateToken();
+        $senhaFinal = $cliente->generatePassword($senha);
+
+        $cliente->Nome = $nome;
+        $cliente->DataNasc = $datanasc;
+        $cliente->Telefone = $telefone;
+        $cliente->CEP = $cep;
+        $cliente->CPF = $cpf;
+        $cliente->Email = $email;
+        $cliente->Senha = $senhaFinal;
+        $cliente->Token = $clienteToken;
+
+        $auth = true;
+
+        $clienteDao->create($cliente, $auth);
+      }
     }
   }
   else if($type === 'login_client') {

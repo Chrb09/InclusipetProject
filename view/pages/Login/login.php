@@ -36,6 +36,9 @@
           <label for="sign-up-password">Senha</label>
           <input name="sign-up-password" type="password" required autocomplete="off" />
 
+          <label for="sign-up-password">Confirmar Senha</label>
+          <input name="sign-up-confirm-password" type="password" required autocomplete="off" />
+
           <!-- buttons -->
           <button class="botao-solido" onclick="cadastrarnext()" type="button">Continuar</button>
           <button class="botao-borda" onclick="" type="button">

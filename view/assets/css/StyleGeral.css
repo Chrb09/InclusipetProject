@@ -145,6 +145,79 @@ iframe {
   background-color: var(--purple);
   border-color: var(--purple);
 }
+.container-custom {
+  border-radius: 1rem;
+  padding-inline: 3em;
+  padding-block: 2em;
+  font-size: inherit;
+}
+
+.container-custom .swal2-title {
+  text-align: left;
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+.container-custom .swal2-html-container {
+  text-align: center;
+  display: flex !important;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 0;
+}
+
+.container-custom .swal2-confirm {
+  background-color: var(--purple);
+  color: var(--white);
+  font-weight: 600;
+  border-style: solid;
+  border-color: var(--purple);
+  border-width: 0.15rem;
+  padding: 0.4em 1.5em;
+  border-radius: 0.8em;
+  transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+  &:hover {
+    transform: translate(0, -4px);
+    background-color: var(--purplehover);
+    border-color: var(--purplehover);
+  }
+}
+.colored-toast {
+  width: 20rem;
+  border-radius: 1em;
+}
+
+.colored-toast.swal2-icon-success {
+  background-color: #4cb062 !important;
+}
+
+.colored-toast.swal2-icon-error {
+  background-color: #ff4848 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+  background-color: #ffb800 !important;
+}
+
+.colored-toast.swal2-icon-info {
+  background-color: #3f6eee !important;
+}
+
+.colored-toast.swal2-icon-question {
+  background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+  color: white;
+}
+
+.colored-toast .swal2-close {
+  color: white;
+}
+
+.colored-toast .swal2-html-container {
+  color: white;
+}
 
 @-webkit-keyframes shake {
   from {

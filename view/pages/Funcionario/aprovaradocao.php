@@ -253,5 +253,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
+<script>
+    function motivoRecusar() {
+      Swal.fire({
+        title: `<div class="titulo">Recusar Adoção</div>`,
+        html: `
+        <div class="form-input">
+          <label for="" >Motivo por ter recusado</label>
+          <textarea name="" id="" cols="40" rows="7" placeholder="Escreva sua mensagem..."></textarea>
+        </div>
+        <div class="linha">
+          <button class="botao-borda" onclick="Swal.close()" type="button">Voltar</button>
+          <button class="botao-solido recusar" onclick="Swal.close()" type="button">Recusar</button>
+        </div>
 
+        `,
+        confirmButtonText: "Ok!",
+        showConfirmButton: false,
+        focusConfirm: false,
+        backdrop: "rgb(87, 77, 189, 0.5",
+      });
+    }
+  </script>
 </html>

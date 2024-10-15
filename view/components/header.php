@@ -92,14 +92,45 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-right',
+    iconColor: 'white',
+    customClass: {
+      popup: 'colored-toast',
+    },
+    showConfirmButton: false,
+    timer: 6500,
+    timerProgressBar: true,
+  })
+</script>
 
-<?php if(!empty($flassMessage["msg"])): ?>
+<?php if (!empty($flassMessage["msg"])) {
+  if ($flassMessage['format'] == "toast") {
+    ?>
+    <script type="text/javascript">
+      Toast.fire({
+        icon: "<?= $flassMessage["type"] ?>",
+        title: "<?= $flassMessage["msg"] ?>",
+      })
+    </script>
+    <?php
+  } else if ($flassMessage['format'] == "popup") {
+    ?>
       <script type="text/javascript">
-            Swal.fire({
-                title: "Mensagem do Sistema",
-                footer: <?= $flassMessage["msg"]?>;
-                icon: <?= $flassMessage["type"]?>,
-                confirmButtonColor: "#574dbd",
-            });
+        Swal.fire({
+          html: `<div><p for="" > <?= $flassMessage["msg"] ?></p></div> `,
+          showConfirmButton: true,
+          icon: "<?= $flassMessage["type"] ?>",
+          focusConfirm: true,
+          customClass: {
+            popup: 'container-custom',
+          },
+          backdrop: "rgb(87, 77, 189, 0.5",
+        });
       </script>
-<?php endif; ?>
+    <?php
+  }
+}
+?>
