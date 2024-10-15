@@ -30,6 +30,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface{
         return $funcionario;
     }
 
+    //Função Create
     public function create(Funcionario $funcionario, $authfuncionario = false) {
         $stmt = $this->conn->prepare("INSERT INTO funcionarios (CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         try{
@@ -53,7 +54,23 @@ class FuncionarioDAO implements FuncionarioDAOInterface{
     }
 
     public function update(Funcionario $funcionario, $redirect = true) {
-       
+    $stmt = $this->conn->prepare("UPDATE funcionario SET 
+     CodCargo = :codcargo,
+     Senha = :senha,
+     Nome = :nome,
+     RG = :rg,
+     CPF = :cpf,
+     Telefone = :telefone,
+     CEP = :cep,
+     CodUnidade = :codunidade,
+     Token = :token,
+     Imagem = :imagem,
+     WHERE CodFuncionario = :codfuncionario
+    ");
+
+    $stmt->bindParam(":codcargo", $funcionario->CodCargo);
+    $stmt->bindParam(":senha", $funcionario->Senha);
+    $stmt->bindParam(":senha", $funcionario->Senha);
     }
 
     public function verifyToken($protected = false) {
