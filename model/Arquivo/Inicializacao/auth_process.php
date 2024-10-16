@@ -64,6 +64,20 @@ if ($type === 'register_client') {
   $email = filter_input(INPUT_POST, "log-in-email");
   $senha = filter_input(INPUT_POST, "log-in-password");
 
+  // Tenta autenticar usuário
+  if($clienteDao->authenticatecliente($email, $senha)) {
+
+    $message->setMessage("Seja bem-vindo!", "success", "toast", "../../../view/pages/Perfil/perfil.php");
+
+  // Redireciona o usuário, caso não conseguir autenticar
+  } else {
+    $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
+  }
+
+} else {
+
+  // TODO cadastro do funcionario
+                                                                                                                        
 }
 
 // ===== Fim do CLIENTE =====
