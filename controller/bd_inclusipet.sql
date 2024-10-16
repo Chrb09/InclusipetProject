@@ -107,7 +107,7 @@ CREATE TABLE `cliente` (
   `CEP` varchar(9) NOT NULL,
   `CPF` varchar(14) NOT NULL,
   `Email` varchar(100) NOT NULL,
-  `Senha` varchar(25) NOT NULL,
+  `Senha` varchar(200) NOT NULL,
   `Token` varchar(200),
   `Imagem` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -182,7 +182,7 @@ CREATE TABLE `unidade` (
 CREATE TABLE `funcionario` (
   `CodFuncionario` int(11) NOT NULL,
   `CodCargo` int(11) NOT NULL,
-  `Senha` varchar(20) NOT NULL,
+  `Senha` varchar(200) NOT NULL,
   `Nome` varchar(50) NOT NULL,
   `RG` varchar(12) NOT NULL,
   `CPF` varchar(14) NOT NULL,

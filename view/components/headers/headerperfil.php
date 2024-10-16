@@ -33,7 +33,9 @@ $clienteData = $clienteDao->verifyToken(false);
     <div class="linha">
       <?php if ($clienteData): ?>
         <!-- caso esteja logado -->
-        <a href=" ../Perfil/perfil.php"><?= $clienteData->nome ?></a>
+        <a href=" ../Perfil/perfil.php" class="a-logado"><?= $clienteData->nome ?>
+          <img src="../../assets/img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
+        </a>
       <?php else: ?>
         <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login" class="login__header" /></a>
       <?php endif; ?>
