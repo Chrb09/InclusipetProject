@@ -22,16 +22,16 @@ class ClienteDAO implements ClienteDAOInterface
 
     $cliente = new Cliente();
 
-    $cliente->codcliente = $data["codcliente"];
-    $cliente->nome = $data["nome"];
-    $cliente->datanasc = $data["datanasc"];
-    $cliente->telefone = $data["telefone"];
-    $cliente->cep = $data["cep"];
-    $cliente->cpf = $data["cpf"];
-    $cliente->email = $data["email"];
-    $cliente->senha = $data["senha"];
-    $cliente->token = $data["token"];
-    $cliente->imagem = $data["imagem"];
+    $cliente->codcliente = $data["CodCliente"];
+    $cliente->nome = $data["Nome"];
+    $cliente->datanasc = $data["DataNasc"];
+    $cliente->telefone = $data["Telefone"];
+    $cliente->cep = $data["CEP"];
+    $cliente->cpf = $data["CPF"];
+    $cliente->email = $data["Email"];
+    $cliente->senha = $data["Senha"];
+    $cliente->token = $data["Token"];
+    $cliente->imagem = $data["Imagem"];
 
     return $cliente;
 
@@ -44,20 +44,20 @@ class ClienteDAO implements ClienteDAOInterface
       VALUES (:Nome, :DataNasc, :Telefone, :CEP, :CPF, :Email, :Senha, :Token)");
 
     // Liga os parâmetros da query com os atributos do objeto Cliente
-    $stmt->bindParam(":Nome", $cliente->Nome);
-    $stmt->bindParam(":DataNasc", $cliente->DataNasc);
-    $stmt->bindParam(":Telefone", $cliente->Telefone);
-    $stmt->bindParam(":CEP", $cliente->CEP);
-    $stmt->bindParam(":CPF", $cliente->CPF);
-    $stmt->bindParam(":Email", $cliente->Email);
-    $stmt->bindParam(":Senha", $cliente->Senha);
-    $stmt->bindParam(":Token", $cliente->Token);
+    $stmt->bindParam(":Nome", $cliente->nome);
+    $stmt->bindParam(":DataNasc", $cliente->datanasc);
+    $stmt->bindParam(":Telefone", $cliente->telefone);
+    $stmt->bindParam(":CEP", $cliente->cep);
+    $stmt->bindParam(":CPF", $cliente->cpf);
+    $stmt->bindParam(":Email", $cliente->email);
+    $stmt->bindParam(":Senha", $cliente->senha);
+    $stmt->bindParam(":Token", $cliente->token);
 
     $stmt->execute();
 
     // Autentica o usuário, caso auth seja true
     if ($authcliente) {
-      $this->setTokenToSession($cliente->Token);
+      $this->setTokenToSession($cliente->token);
     }
 
   }
@@ -97,7 +97,7 @@ class ClienteDAO implements ClienteDAOInterface
   {
 
     // Salva token na session
-    $_SESSION["Token"] = $token;
+    $_SESSION["token"] = $token;
 
     if ($redirect) {
 
@@ -149,23 +149,24 @@ class ClienteDAO implements ClienteDAOInterface
 
   public function findByToken($token)
   {
-
     if ($token == "") {
 
       return false;
 
     } else {
 
-      $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE Token = :Token");
-      $stmt->bindParam(":Token", $token);
+      $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE Token = :token");
+      $stmt->bindParam(":token", $token);
       $stmt->execute();
 
+      // Verifica se foi encontrado pelo menos um registro com o email fornecido
       if ($stmt->rowCount() <= 0) {
 
         return false;
 
       } else {
 
+        // Obtém o primeiro registro retornado da consulta
         $data = $stmt->fetch();
         $cliente = $this->buildcliente($data);
         return $cliente;

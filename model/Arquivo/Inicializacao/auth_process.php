@@ -41,14 +41,14 @@ if ($type === 'register_client') {
       $clienteToken = $cliente->generateToken();
       $senhaFinal = $cliente->generatePassword($senha);
 
-      $cliente->Nome = $nome;
-      $cliente->DataNasc = $datanasc;
-      $cliente->Telefone = $telefone;
-      $cliente->CEP = $cep;
-      $cliente->CPF = $cpf;
-      $cliente->Email = $email;
-      $cliente->Senha = $senhaFinal;
-      $cliente->Token = $clienteToken;
+      $cliente->nome = $nome;
+      $cliente->datanasc = $datanasc;
+      $cliente->telefone = $telefone;
+      $cliente->cep = $cep;
+      $cliente->cpf = $cpf;
+      $cliente->email = $email;
+      $cliente->senha = $senhaFinal;
+      $cliente->token = $clienteToken;
 
       $auth = true;
 

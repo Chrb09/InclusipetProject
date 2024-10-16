@@ -31,12 +31,11 @@ $clienteData = $clienteDao->verifyToken(false);
     </div>
     |
     <div class="linha">
-     <?php if($clienteData): ?>
-          <!-- caso esteja logado -->
-          <a href=" ../Perfil/perfil.php"><?= $clienteData->nome ?></a>
+      <?php if ($clienteData): ?>
+        <!-- caso esteja logado -->
+        <a href=" ../Perfil/perfil.php"><?= $clienteData->nome ?></a>
       <?php else: ?>
-        <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login"
-            class="login__header" /></a>
+        <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login" class="login__header" /></a>
       <?php endif; ?>
     </div>
   </div>
@@ -48,12 +47,11 @@ $clienteData = $clienteDao->verifyToken(false);
   </a>
   <div class="linha">
     <div class="linha">
-      <?php if($clienteData): ?>
-          <!-- caso esteja logado -->
-          <a href=" ../Perfil/perfil.php"><?= $clienteData->Nome ?></a>
+      <?php if ($clienteData): ?>
+        <!-- caso esteja logado -->
+        <a href=" ../Perfil/perfil.php"><?= $clienteData->Nome ?></a>
       <?php else: ?>
-        <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login"
-            class="login__header" /></a>
+        <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login" class="login__header" /></a>
       <?php endif; ?>
     </div>
   </div>
