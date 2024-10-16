@@ -59,8 +59,13 @@ $clienteData = $clienteDao->verifyToken(false);
         } ?>"">Contato</a>
       </li>
       <li>
+        <?php if($clienteData): ?>
+          <!-- caso esteja logado -->
+          <a href=" ../Perfil/perfil.php"><?= $clienteData->nome ?></a>
+        <?php else: ?>
         <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login"
             class="login__header" /></a>
+        <?php endif; ?>
       </li>
     </ul>
     <button class="barra__header">

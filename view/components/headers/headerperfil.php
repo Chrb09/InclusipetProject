@@ -6,12 +6,14 @@ require_once('../../../model/Classes/Modelagem/Message.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 
 $message = new Message($BASE_URL);
-
 $flassMessage = $message->getMessage();
 
 if (!empty($flassMessage["msg"])) {
   $message->clearMessage();
 }
+
+$clienteDao = new ClienteDAO($conn, $BASE_URL);
+$clienteData = $clienteDao->verifyToken(false);
 
 ?>
 
@@ -29,14 +31,13 @@ if (!empty($flassMessage["msg"])) {
     </div>
     |
     <div class="linha">
-      <?php if ($user == 0) {
-        echo '<img src="../../assets/img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
-      <a href="perfil.php" class="login__name">Nome do Usuario</a>';
-      } elseif ($user == 1) {
-        echo '<img src="../../assets/img/QuemSomos/prof3.png" alt="Login" class="login__header" />
-        <a href="perfil.php" class="login__name">Nome do Funcionario</a>';
-      }
-      ?>
+     <?php if($clienteData): ?>
+          <!-- caso esteja logado -->
+          <a href=" ../Perfil/perfil.php"><?= $clienteData->nome ?></a>
+      <?php else: ?>
+        <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login"
+            class="login__header" /></a>
+      <?php endif; ?>
     </div>
   </div>
 </div>
@@ -47,14 +48,13 @@ if (!empty($flassMessage["msg"])) {
   </a>
   <div class="linha">
     <div class="linha">
-      <?php if ($user == 0) {
-        echo '<img src="../../assets/img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
-      <a href="perfil.php" class="login__name">Nome do Usuario</a>';
-      } elseif ($user == 1) {
-        echo '<img src="../../assets/img/QuemSomos/prof3.png" alt="Login" class="login__header" />
-        <a href="perfil.php" class="login__name">Nome do Funcionario</a>';
-      }
-      ?>
+      <?php if($clienteData): ?>
+          <!-- caso esteja logado -->
+          <a href=" ../Perfil/perfil.php"><?= $clienteData->Nome ?></a>
+      <?php else: ?>
+        <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login"
+            class="login__header" /></a>
+      <?php endif; ?>
     </div>
   </div>
 </div>
