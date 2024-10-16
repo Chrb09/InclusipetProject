@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="sidebar-background"></div>
   <div class="sidebar-nav">
-    <b>Área do Usuario</b>
+    <b>Área do Usuário</b>
     <button class="sidebar-button <?php if ($sidebarActive == 'perfil')
       echo ' ativo'; ?>" onclick="location.href='perfil.php'" type="button">Perfil</button>
     <button class="sidebar-button <?php if ($sidebarActive == 'pets')

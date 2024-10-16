@@ -126,6 +126,8 @@ iframe {
 .desativado {
   filter: contrast(0.3) grayscale(20%) brightness(1.5);
   user-select: none;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .desativado .botao-solido,

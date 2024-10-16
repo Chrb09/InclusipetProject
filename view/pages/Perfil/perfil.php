@@ -100,35 +100,41 @@ if($clienteData->imagem == "") {
 
           <!-- editar informações -->
           <form action="../../../model/Arquivo/Inicializacao/auth_process.php" class="form__cadastro">
-            <input type="hidden" name="type" value="update_client">
+            <input type="hidden" name="type" value="update_client"> <!-- update das informações do cliente -->
+
             <div class="form-input">
               <label for="sign-up-name">Nome Completo</label>
-              <input name="sign-up-name " placeholder="Seu Nome..." type="text" required autocomplete="off" />
+              <input name="sign-up-name " placeholder="Seu Nome..." type="text" required autocomplete="off"  value="<?= $clienteData->nome ?>" />
             </div>
+
             <div class="form-input">
               <label for="sign-up-date">Data de Nascimento</label>
-              <input name="sign-up-date " type="date" required autocomplete="off" />
+              <input name="sign-up-date " type="date" required autocomplete="off" value="<?= $clienteData->datanasc ?>" />
             </div>
+
             <div class="form-input">
               <label for="sign-up-email">Email</label>
-              <input name="sign-up-email " placeholder="Seu email..." type="email" required autocomplete="off" />
+              <input name="sign-up-email " placeholder="Seu email..." type="email" required autocomplete="off" value="<?= $clienteData->email ?>" />
             </div>
+
             <div class="form-input">
               <label for="sign-up-tel">Telefone</label>
               <input name="sign-up-tel" id="sign-up-tel" placeholder="(00)00000-0000" type="text" required
-                autocomplete="off" />
+                autocomplete="off" value="<?= $clienteData->telefone ?>"/>
             </div>
+
             <div class="form-input desativado">
               <label for="sign-up-cep">CEP</label>
-              <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" disabled
-                autocomplete="off" />
+              <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" readonly
+                autocomplete="off" value="<?= $clienteData->cep ?>" />
             </div>
+
             <div class="form-input desativado">
               <label for="sign-up-cpf">CPF</label>
-              <input name="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" type="text" disabled
-                autocomplete="off" />
+              <input name="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" type="text" readonly 
+                autocomplete="off" value="<?= $clienteData->cpf ?>" />
             </div>
-            <div class="form-input"></div>
+
             <div class="form-msg">Para alterar seu CEP ou CPF entre em contato.</div>
             <div class="button-wrapper-form">
               <button class="botao botao-borda" onclick="usuarioedit()" type="button">Voltar</button>
@@ -147,7 +153,7 @@ if($clienteData->imagem == "") {
           </a>
           <a class="nav-perfil" href="anuncioadocao.php"><img src="../../assets/img/Perfil/anunciar.png" alt="" />
             <div class="card-txt">
-              <p>Criar anuncio de</p>
+              <p>Criar anúncio de</p>
               <strong>Adoção</strong>
             </div>
           </a>
