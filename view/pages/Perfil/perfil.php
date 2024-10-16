@@ -11,8 +11,8 @@ $clienteDao = new ClienteDAO($conn, $BASE_URL);
 $clienteData = $clienteDao->verifyToken(true);
 $fullName = $cliente->getFullName($clienteData);
 
-if($clienteData->image == "") {
-  $clienteData->image = "user.png";
+if($clienteData->imagem == "") {
+  $clienteData->imagem = "user.png";
 }
 ?>
 <!DOCTYPE html>
@@ -90,9 +90,11 @@ if($clienteData->image == "") {
               </button>
               
               <!-- TODO -->
-              <button class="botao-solido sair-button" onclick="" type="button" href="../../../model/Arquivo/Inicializacao/logout.php" >
-                <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
-              </button>
+               <a  href="../../../model/Arquivo/Inicializacao/logout.php">
+                 <button class="botao-solido sair-button" onclick="" type="button" >
+                   <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
+                 </button>
+               </a>
             </div>
           </div>
           <form action="" class="form__cadastro">

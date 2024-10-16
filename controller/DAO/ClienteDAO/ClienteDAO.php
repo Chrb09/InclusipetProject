@@ -65,6 +65,28 @@ class ClienteDAO implements ClienteDAOInterface
   public function update(Cliente $cliente, $redirect = true) 
   {
 
+    $stmt = $this->conn->prepare("UPDATE Cliente SET 
+      Nome = :Nome, DataNasc = :DataNasc, Telefone = :Telefone, CEP = :CEP, CPF = :CPF,
+      Email = :Email, Senha = :Senha, Token = :Token WHERE CodCliente = :CodCliente");
+
+    $stmt->bindParam(":Nome", $cliente->nome);
+    $stmt->bindParam(":DataNasc", $cliente->datanasc);
+    $stmt->bindParam(":Telefone", $cliente->telefone);
+    $stmt->bindParam(":CEP", $cliente->cep);
+    $stmt->bindParam(":CPF", $cliente->cpf);
+    $stmt->bindParam(":Email", $cliente->email);
+    $stmt->bindParam(":Senha", $cliente->senha);
+    $stmt->bindParam(":Token", $cliente->token);
+    $stmt->bindParam(":CodCliente", $cliente->codcliente);
+
+    $stmt->execute();
+
+    if ($redirect) {
+
+      // Redireciona para o perfil do usuario
+      $this->message->setMessage("Dados atualizados com sucesso!", "success", "popup", "../../../view/pages/Perfil/perfil.php");
+
+    }
   }
 
   public function verifyToken($protected = false) 
@@ -113,7 +135,7 @@ class ClienteDAO implements ClienteDAOInterface
     $cliente = $this->findByEmail($email);
 
     if($cliente) {
-      if(password_verify($senha, $cliente->senha)) {
+      if(password_verify($senha, $cliente->senha)) { // TODO
         
         $token = $cliente->generateToken(); // Gera um token e o insere na session
 

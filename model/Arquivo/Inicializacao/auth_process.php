@@ -74,10 +74,14 @@ if ($type === 'register_client') {
     $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
   }
 
+} else if ($type === '') {
+
+  // TODO login do funcionario
+                                                                                                                        
 } else {
 
-  // TODO cadastro do funcionario
-                                                                                                                        
-}
+  $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
+
+}     
 
 // ===== Fim do CLIENTE =====
