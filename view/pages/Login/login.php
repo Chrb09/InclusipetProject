@@ -24,7 +24,6 @@
       <!-- CADASTRO DO CLIENTE -->
       <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form"
         onsubmit="return validarCadastro()" method="POST">
-        <!-- TODO Arrumar a URL -->
         <input type="hidden" name="type" value="register_client"> <!-- register do autenticacao cadastro -->
 
         <div class="form-content cadastrar1">

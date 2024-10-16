@@ -10,10 +10,11 @@ $clienteDao = new ClienteDAO($conn, $BASE_URL);
 
 $clienteData = $clienteDao->verifyToken(true);
 $fullName = $cliente->getFullName($clienteData);
-
+ 
 if($clienteData->imagem == "") {
   $clienteData->imagem = "user.png";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -64,23 +65,23 @@ if($clienteData->imagem == "") {
             <table class="info-table">
               <tr>
                 <th>Nome Completo:</th>
-                <td>Miguel Yudi Baba</td>
+                <td><?= $clienteData->nome ?></td> <!-- Nome Completo do cliente -->
               </tr>
               <tr>
                 <th>Data Nascimento:</th>
-                <td>11/04/2004</td>
+                <td><?= $clienteData->datanasc ?></td> <!-- Data de nascimento do cliente -->
               </tr>
               <tr>
                 <th>Email:</th>
-                <td>hatsunemikulover@gmail.com</td>
+                <td><?= $clienteData->email ?></td>  <!-- Email do cliente -->
               </tr>
               <tr>
                 <th>Telefone:</th>
-                <td>+11 91234-5678</td>
+                <td><?= $clienteData->telefone ?></td>  <!-- Telefone do cliente -->
               </tr>
               <tr>
                 <th>CEP/CPF:</th>
-                <td>69093-809 / 252.910.260-06</td>
+                <td><?= $clienteData->cep ?> / <?= $clienteData->cpf ?></td>  <!-- Cep e Cpf do cliente -->
               </tr>
             </table>
 
@@ -89,7 +90,6 @@ if($clienteData->imagem == "") {
                 <img src="../../assets/img/Perfil/editar_icon.png" alt="" />Editar
               </button>
               
-              <!-- TODO -->
                <a  href="../../../model/Arquivo/Inicializacao/logout.php">
                  <button class="botao-solido sair-button" onclick="" type="button" >
                    <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
@@ -97,7 +97,10 @@ if($clienteData->imagem == "") {
                </a>
             </div>
           </div>
-          <form action="" class="form__cadastro">
+
+          <!-- editar informações -->
+          <form action="../../../model/Arquivo/Inicializacao/auth_process.php" class="form__cadastro">
+            <input type="hidden" name="type" value="update_client">
             <div class="form-input">
               <label for="sign-up-name">Nome Completo</label>
               <input name="sign-up-name " placeholder="Seu Nome..." type="text" required autocomplete="off" />
