@@ -10,8 +10,8 @@ $clienteDao = new ClienteDAO($conn, $BASE_URL);
 
 $clienteData = $clienteDao->verifyToken(true);
 $fullName = $cliente->getFullName($clienteData);
- 
-if($clienteData->imagem == "") {
+
+if ($clienteData->imagem == "") {
   $clienteData->imagem = "user.png";
 }
 
@@ -31,6 +31,44 @@ if($clienteData->imagem == "") {
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
   <title>Perfil</title>
+  <style>
+    .container-input {
+      width: 25rem;
+      border-radius: 1rem;
+      padding-inline: 0.5em;
+      padding-block: 1em;
+      font-size: inherit;
+    }
+
+    .container-input .titulo-sweetalert {
+      color: var(--purple);
+      width: 100%;
+      text-align: left;
+    }
+
+    .container-input .form-sweetalert {
+      width: 100%;
+      display: flex;
+      text-align: left;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .container-input .input-sweetalert {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+
+    .container-input .linha-sweetalert {
+      width: 100%;
+      display: flex;
+      flex-direction: row !important;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+  </style>
 </head>
 
 <body>
@@ -59,7 +97,7 @@ if($clienteData->imagem == "") {
                 <img src="../../assets/img/Perfil/editar_icon.png" alt="" />
               </div>
             </div>
-            <ins><a href="">Alterar Senha</a></ins>
+            <ins><a href="#" id="alterarsenha">Alterar Senha</a></ins>
           </div>
           <div class="info_usuario">
             <table class="info-table">
@@ -73,15 +111,15 @@ if($clienteData->imagem == "") {
               </tr>
               <tr>
                 <th>Email:</th>
-                <td><?= $clienteData->email ?></td>  <!-- Email do cliente -->
+                <td><?= $clienteData->email ?></td> <!-- Email do cliente -->
               </tr>
               <tr>
                 <th>Telefone:</th>
-                <td><?= $clienteData->telefone ?></td>  <!-- Telefone do cliente -->
+                <td><?= $clienteData->telefone ?></td> <!-- Telefone do cliente -->
               </tr>
               <tr>
                 <th>CEP/CPF:</th>
-                <td><?= $clienteData->cep ?> / <?= $clienteData->cpf ?></td>  <!-- Cep e Cpf do cliente -->
+                <td><?= $clienteData->cep ?> / <?= $clienteData->cpf ?></td> <!-- Cep e Cpf do cliente -->
               </tr>
             </table>
 
@@ -89,12 +127,12 @@ if($clienteData->imagem == "") {
               <button class="botao-solido editar-button" onclick="usuarioedit()" type="button">
                 <img src="../../assets/img/Perfil/editar_icon.png" alt="" />Editar
               </button>
-              
-               <a  href="../../../model/Arquivo/Inicializacao/logout.php">
-                 <button class="botao-solido sair-button" onclick="" type="button" >
-                   <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
-                 </button>
-               </a>
+
+              <a href="../../../model/Arquivo/Inicializacao/logout.php">
+                <button class="botao-solido sair-button" onclick="" type="button">
+                  <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
+                </button>
+              </a>
             </div>
           </div>
 
@@ -104,34 +142,37 @@ if($clienteData->imagem == "") {
 
             <div class="form-input">
               <label for="sign-up-name">Nome Completo</label>
-              <input name="sign-up-name " placeholder="Seu Nome..." type="text" required autocomplete="off"  value="<?= $clienteData->nome ?>" />
+              <input name="sign-up-name " placeholder="Seu Nome..." type="text" required autocomplete="off"
+                value="<?= $clienteData->nome ?>" />
             </div>
 
             <div class="form-input">
               <label for="sign-up-date">Data de Nascimento</label>
-              <input name="sign-up-date " type="date" required autocomplete="off" value="<?= $clienteData->datanasc ?>" />
+              <input name="sign-up-date " type="date" required autocomplete="off"
+                value="<?= $clienteData->datanasc ?>" />
             </div>
 
             <div class="form-input">
               <label for="sign-up-email">Email</label>
-              <input name="sign-up-email " placeholder="Seu email..." type="email" required autocomplete="off" value="<?= $clienteData->email ?>" />
+              <input name="sign-up-email " placeholder="Seu email..." type="email" required autocomplete="off"
+                value="<?= $clienteData->email ?>" />
             </div>
 
             <div class="form-input">
               <label for="sign-up-tel">Telefone</label>
               <input name="sign-up-tel" id="sign-up-tel" placeholder="(00)00000-0000" type="text" required
-                autocomplete="off" value="<?= $clienteData->telefone ?>"/>
+                autocomplete="off" value="<?= $clienteData->telefone ?>" />
             </div>
 
             <div class="form-input desativado">
               <label for="sign-up-cep">CEP</label>
-              <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" readonly
-                autocomplete="off" value="<?= $clienteData->cep ?>" />
+              <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" readonly autocomplete="off"
+                value="<?= $clienteData->cep ?>" />
             </div>
 
             <div class="form-input desativado">
               <label for="sign-up-cpf">CPF</label>
-              <input name="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" type="text" readonly 
+              <input name="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" type="text" readonly
                 autocomplete="off" value="<?= $clienteData->cpf ?>" />
             </div>
 
@@ -172,5 +213,40 @@ if($clienteData->imagem == "") {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
+<script>
+  $('#alterarsenha').click(function () { mudarSenha(); return false; });
+
+  function mudarSenha() {
+    Swal.fire({
+      title: `<div class="titulo-sweetalert">Alterar Senha</div>`,
+      html: `
+        <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/auth_process.php" method="POST">
+        <input type="hidden" name="type" value="update_password">
+        <div class="input-sweetalert">
+          <label for="" >Senha</label>
+          <input name="change-password " placeholder="Sua nova senha..." type="password" required autocomplete="off"" />
+        </div>
+        <div class="input-sweetalert">
+          <label for="" >Confirmar senha</label>
+          <input name="change-password-confirm " placeholder="Sua nova senha..." type="password" required autocomplete="off"" />
+        </div>
+        <div class="linha-sweetalert">
+          <button class="botao-borda" onclick="Swal.close()"  type="button">Voltar</button>
+          <button class="botao-solido" onclick=""type="submit">Mudar</button>
+        </div>
+        </form>
+
+
+        `,
+      customClass: {
+        popup: 'container-input',
+      },
+      confirmButtonText: "Ok!",
+      showConfirmButton: false,
+      focusConfirm: false,
+      backdrop: "rgb(87, 77, 189, 0.5",
+    });
+  }
+</script>
 
 </html>
