@@ -70,11 +70,11 @@ if ($type === 'register_client') {
   $senha = filter_input(INPUT_POST, "log-in-password");
 
   // Tenta autenticar usuário
-  if($clienteDao->authenticatecliente($email, $senha)) {
+  if ($clienteDao->authenticatecliente($email, $senha)) {
 
     $message->setMessage("Seja bem-vindo!", "success", "toast", "../../../view/pages/Perfil/perfil.php");
 
-  // Redireciona o usuário, caso não conseguir autenticar
+    // Redireciona o usuário, caso não conseguir autenticar
   } else {
     $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
   }
@@ -82,12 +82,12 @@ if ($type === 'register_client') {
 } else if ($type === '') {
 
   // TODO login do funcionario
-                                                                                                                        
+
 } else {
 
   $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
 
-}     
+}
 
 // ===== Fim do CLIENTE =====
 
