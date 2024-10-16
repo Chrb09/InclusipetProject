@@ -5,6 +5,9 @@ require_once('db.php');
 require_once('../../Classes/Modelagem/Message.php');
 require_once('../../Classes/Modelagem/Cliente.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+require_once('../../Classes/Modelagem/Funcionario.php');
+require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
+
 
 $message = new Message($BASE_URL);
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
@@ -88,3 +91,8 @@ if ($type === 'register_client') {
 // ===== Fim do CLIENTE =====
 
 // ===== Começo do Funcionário =====
+
+$message = new Message($BASE_URL);
+$clienteDao = new ClienteDAO($conn, $BASE_URL);
+
+$nome = filter_input(INPUT_POST, "sign-up-name");
