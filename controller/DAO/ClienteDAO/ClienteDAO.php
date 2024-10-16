@@ -62,12 +62,12 @@ class ClienteDAO implements ClienteDAOInterface
 
   }
 
-  public function update(Cliente $cliente, $redirect = true)
+  public function update(Cliente $cliente, $redirect = true) 
   {
 
   }
 
-  public function verifyToken($protected = false)
+  public function verifyToken($protected = false) 
   {
 
     if (!empty($_SESSION["token"])) {
@@ -78,16 +78,17 @@ class ClienteDAO implements ClienteDAOInterface
 
       if ($cliente) {
         return $cliente;
-      } else if ($protected) {
+      } 
+      else if ($protected) {
 
         // Redireciona usuário não autenticado
-        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "index.php");
+        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/index/index.php");
 
       }
     } else if ($protected) {
 
       // Redireciona usuário não autenticado
-      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "index.php");
+      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/index/index.php");
 
     }
 
@@ -109,18 +110,31 @@ class ClienteDAO implements ClienteDAOInterface
 
   public function authenticatecliente($email, $senha)
   {
+    $cliente = $this->findByEmail($email);
 
+    if($cliente) {
+      if(password_verify($senha, $cliente->senha)) {
+        
+        $token = $cliente->generateToken(); // Gera um token e o insere na session
+
+        $this->setTokenToSession($token, false);
+
+        // Atualiza token no usuário
+        $cliente->token = $token;
+        $this->update($cliente, false);
+        
+        return true;
+
+      } else { return false; }
+    } else { return false; }
   }
 
   public function findByEmail($email)
   {
 
     // Verifica se foi enviado um email
-    if ($email == "") {
-
-      return false;
-
-    } else {
+    if ($email == "") { return false; } 
+    else {
 
       $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE Email = :Email");
       $stmt->bindParam(":Email", $email);
@@ -175,8 +189,13 @@ class ClienteDAO implements ClienteDAOInterface
     }
   }
 
-  public function destroyToken()
+  public function destroyToken() 
   {
+  
+    $_SESSION["token"] = ""; // Remove o token da session
+
+    // Redireciona e apresentar a mensagem de sucesso
+    $this->message->setMessage("Você fez o logout com sucesso!", "success", "toast", "../../../view/pages/index/index.php");
 
   }
 

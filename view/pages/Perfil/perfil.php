@@ -1,3 +1,20 @@
+<?php
+
+require_once('../../../model/Arquivo/inicializacao/globals.php');
+require_once('../../../model/Arquivo/inicializacao/db.php');
+require_once('../../../model/Classes/Modelagem/Message.php');
+require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+
+$cliente = new Cliente();
+$clienteDao = new ClienteDAO($conn, $BASE_URL);
+
+$clienteData = $clienteDao->verifyToken(true);
+$fullName = $cliente->getFullName($clienteData);
+
+if($clienteData->image == "") {
+  $clienteData->image = "user.png";
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -71,7 +88,9 @@
               <button class="botao-solido editar-button" onclick="usuarioedit()" type="button">
                 <img src="../../assets/img/Perfil/editar_icon.png" alt="" />Editar
               </button>
-              <button class="botao-solido sair-button" onclick="" type="button">
+              
+              <!-- TODO -->
+              <button class="botao-solido sair-button" onclick="" type="button" href="../../../model/Arquivo/Inicializacao/logout.php" >
                 <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
               </button>
             </div>
