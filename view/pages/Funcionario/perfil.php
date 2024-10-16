@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<?php
 
+require_once('../../../model/Arquivo/inicializacao/globals.php');
+require_once('../../../model/Arquivo/inicializacao/db.php');
+require_once('../../../model/Classes/Modelagem/Message.php');
+require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
+
+$funcionario = new Funcionario();
+$funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
+
+$funcionarioData = $funcionarioDao->verifyToken(true);
+$fullName = $funcionario->getFullName($funcionarioData);
+
+if($funcionarioData->Imagem == "") {
+  $funcionarioData->Imagem = "user.png";
+}
+?>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,6 +89,7 @@
               </tr>
             </table>
             <div class="linha">
+            <a  href="../../../model/Arquivo/Inicializacao/logout.php">
               <button class="botao-solido sair-button" onclick="" type="button">
                 <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
               </button>

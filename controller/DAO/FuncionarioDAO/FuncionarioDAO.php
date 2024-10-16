@@ -1,6 +1,6 @@
 <?php
 //Iniciando a estutura DAO do funcionário
-require_once('../controller/FuncionarioDAO.php'); //Chamando DAO
+require_once('../../../model/Classes/Modelagem/Funcionario.php');
 require_once("../../../model/Classes/Modelagem/Message.php"); //Chamando Message
 
 class FuncionarioDAO implements FuncionarioDAOInterface{

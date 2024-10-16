@@ -9,6 +9,7 @@ require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 $message = new Message($BASE_URL);
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
 
+
 // Resgata o tipo do formulário
 $type = filter_input(INPUT_POST, "type");
 
@@ -85,3 +86,5 @@ if ($type === 'register_client') {
 }     
 
 // ===== Fim do CLIENTE =====
+
+// ===== Começo do Funcionário =====
