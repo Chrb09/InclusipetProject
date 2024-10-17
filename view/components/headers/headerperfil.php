@@ -15,6 +15,11 @@ if (!empty($flassMessage["msg"])) {
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
 $clienteData = $clienteDao->verifyToken(false);
 
+if ($clienteData) {
+  if ($clienteData->imagem == "") {
+    $clienteData->imagem = "user.png";
+  }
+}
 ?>
 
 <div class="container header-perfil header-pc">
@@ -34,7 +39,7 @@ $clienteData = $clienteDao->verifyToken(false);
       <?php if ($clienteData): ?>
         <!-- caso esteja logado -->
         <a href=" ../Perfil/perfil.php" class="a-logado"><?= $clienteData->nome ?>
-          <img src="../../assets/img/Perfil/foto_usuario.png" alt="Login" class="login__header" />
+          <img src="../../assets/img/ImagensPerfil/<?= $clienteData->imagem ?>" alt="Login" class="login__header" />
         </a>
       <?php else: ?>
         <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login" class="login__header" /></a>
@@ -53,7 +58,7 @@ $clienteData = $clienteDao->verifyToken(false);
         <!-- caso esteja logado -->
         <a href=" ../Perfil/perfil.php"><?= $clienteData->Nome ?></a>
       <?php else: ?>
-        <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login" class="login__header" /></a>
+        <a href=" ../Login/login.php"><img src="../../assets/img/Login/<" alt="Login" class="login__header" /></a>
       <?php endif; ?>
     </div>
   </div>

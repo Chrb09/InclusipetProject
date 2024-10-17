@@ -67,7 +67,7 @@ class ClienteDAO implements ClienteDAOInterface
 
     $stmt = $this->conn->prepare("UPDATE Cliente SET 
       Nome = :Nome, DataNasc = :DataNasc, Telefone = :Telefone, CEP = :CEP, CPF = :CPF,
-      Email = :Email, Senha = :Senha, Token = :Token WHERE CodCliente = :CodCliente");
+      Email = :Email, Senha = :Senha, Token = :Token, Imagem =:Imagem WHERE CodCliente = :CodCliente");
 
     $stmt->bindParam(":Nome", $cliente->nome);
     $stmt->bindParam(":DataNasc", $cliente->datanasc);
@@ -77,6 +77,7 @@ class ClienteDAO implements ClienteDAOInterface
     $stmt->bindParam(":Email", $cliente->email);
     $stmt->bindParam(":Senha", $cliente->senha);
     $stmt->bindParam(":Token", $cliente->token);
+    $stmt->bindParam(":Imagem", $cliente->imagem);
     $stmt->bindParam(":CodCliente", $cliente->codcliente);
 
     $stmt->execute();
@@ -228,7 +229,14 @@ class ClienteDAO implements ClienteDAOInterface
 
   public function changePassword(Cliente $cliente)
   {
+    $stmt = $this->conn->prepare("UPDATE Cliente SET Senha = :Senha WHERE CodCliente = :CodCliente");
 
+    $stmt->bindParam(":Senha", $cliente->senha);
+    $stmt->bindParam(":CodCliente", $cliente->codcliente);
+
+    $stmt->execute();
+
+    $this->message->setMessage("Senha alterada com sucesso!", "success", "popup", "../../../view/pages/Perfil/perfil.php");
   }
 
 }

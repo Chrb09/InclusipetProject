@@ -11,9 +11,7 @@ $clienteDao = new ClienteDAO($conn, $BASE_URL);
 $clienteData = $clienteDao->verifyToken(true);
 $fullName = $cliente->getFullName($clienteData);
 
-if ($clienteData->imagem == "") {
-  $clienteData->imagem = "user.png";
-}
+
 
 ?>
 <!DOCTYPE html>
@@ -32,42 +30,7 @@ if ($clienteData->imagem == "") {
   <!-- ICON -->
   <title>Perfil</title>
   <style>
-    .container-input {
-      width: 25rem;
-      border-radius: 1rem;
-      padding-inline: 0.5em;
-      padding-block: 1em;
-      font-size: inherit;
-    }
 
-    .container-input .titulo-sweetalert {
-      color: var(--purple);
-      width: 100%;
-      text-align: left;
-    }
-
-    .container-input .form-sweetalert {
-      width: 100%;
-      display: flex;
-      text-align: left;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .container-input .input-sweetalert {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5em;
-    }
-
-    .container-input .linha-sweetalert {
-      width: 100%;
-      display: flex;
-      flex-direction: row !important;
-      justify-content: center;
-      align-items: center;
-      gap: 1em;
-    }
   </style>
 </head>
 
@@ -92,11 +55,12 @@ if ($clienteData->imagem == "") {
         <div class="usuario" id="usuario">
           <div class="foto-edit">
             <div class="foto-edit-wrapper">
-              <img src="../../assets/img/Perfil/foto_usuario.png" alt="Foto do pet" class="foto-edit-img" />
-              <div class="edit">
-                <img src="../../assets/img/Perfil/editar_icon.png" alt="" />
-              </div>
+              <img src="../../assets/img/ImagensPerfil/<?= $clienteData->imagem ?>" alt="Foto do pet"
+                class="foto-edit-img" />
+              <label for="foto-usuario-input" class="foto-usuario-label"><img
+                  src="../../assets/img/Perfil/editar_icon.png" alt="" /></label>
             </div>
+            <p for="" class="nome-foto-usuario" id="nome-foto-usuario"></p>
             <ins><a href="#" id="alterarsenha">Alterar Senha</a></ins>
           </div>
           <div class="info_usuario">
@@ -137,24 +101,26 @@ if ($clienteData->imagem == "") {
           </div>
 
           <!-- editar informações -->
-          <form action="../../../model/Arquivo/Inicializacao/auth_process.php" class="form__cadastro">
+          <form action="../../../model/Arquivo/Inicializacao/user_process.php" class="form__cadastro" method="POST"
+            enctype="multipart/form-data">
+            <input type="file" name="foto-usuario-input" id="foto-usuario-input" hidden>
             <input type="hidden" name="type" value="update_client"> <!-- update das informações do cliente -->
 
             <div class="form-input">
               <label for="sign-up-name">Nome Completo</label>
-              <input name="sign-up-name " placeholder="Seu Nome..." type="text" required autocomplete="off"
+              <input name="sign-up-name" placeholder="Seu Nome..." type="text" required autocomplete="off"
                 value="<?= $clienteData->nome ?>" />
             </div>
 
             <div class="form-input">
               <label for="sign-up-date">Data de Nascimento</label>
-              <input name="sign-up-date " type="date" required autocomplete="off"
+              <input name="sign-up-date" type="date" required autocomplete="off"
                 value="<?= $clienteData->datanasc ?>" />
             </div>
 
             <div class="form-input">
               <label for="sign-up-email">Email</label>
-              <input name="sign-up-email " placeholder="Seu email..." type="email" required autocomplete="off"
+              <input name="sign-up-email" placeholder="Seu email..." type="email" required autocomplete="off"
                 value="<?= $clienteData->email ?>" />
             </div>
 
@@ -179,7 +145,7 @@ if ($clienteData->imagem == "") {
             <div class="form-msg">Para alterar seu CEP ou CPF entre em contato.</div>
             <div class="button-wrapper-form">
               <button class="botao botao-borda" onclick="usuarioedit()" type="button">Voltar</button>
-              <button class="botao botao-solido" onclick="usuarioedit()" type="button">Salvar</button>
+              <button class="botao botao-solido" onclick="" type="submit">Salvar</button>
             </div>
           </form>
         </div>
@@ -216,19 +182,21 @@ if ($clienteData->imagem == "") {
 <script>
   $('#alterarsenha').click(function () { mudarSenha(); return false; });
 
+
+
   function mudarSenha() {
     Swal.fire({
       title: `<div class="titulo-sweetalert">Alterar Senha</div>`,
       html: `
-        <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/auth_process.php" method="POST">
+        <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/user_process.php" method="POST" onsubmit="return validarCadastro()">
         <input type="hidden" name="type" value="update_password">
         <div class="input-sweetalert">
           <label for="" >Senha</label>
-          <input name="change-password " placeholder="Sua nova senha..." type="password" required autocomplete="off"" />
+          <input name="change-password" id="sign-up-password" placeholder="Sua nova senha..." type="password" required autocomplete="off"" />
         </div>
         <div class="input-sweetalert">
           <label for="" >Confirmar senha</label>
-          <input name="change-password-confirm " placeholder="Sua nova senha..." type="password" required autocomplete="off"" />
+          <input name="change-password-confirm" id="sign-up-confirm-password" placeholder="Sua nova senha..." type="password" required autocomplete="off"" />
         </div>
         <div class="linha-sweetalert">
           <button class="botao-borda" onclick="Swal.close()"  type="button">Voltar</button>
@@ -247,6 +215,36 @@ if ($clienteData->imagem == "") {
       backdrop: "rgb(87, 77, 189, 0.5",
     });
   }
+
+  let imgPicture = document.querySelector('.foto-edit-img');  // Added the line.
+
+  let changePicInput = document.querySelector('#foto-usuario-input');
+
+  changePicInput.addEventListener("change", function () {
+
+    let arrBinaryFile = [];
+    let file = changePicInput.files[0];  // Changed the line.
+    let filename = file.name.split(/(\\|\/)/g).pop();
+    let reader = new FileReader();
+
+    // Array
+    reader.readAsArrayBuffer(file);
+    reader.onloadend = function (evt) {
+
+      if (evt.target.readyState == FileReader.DONE) {
+        var arrayBuffer = evt.target.result,
+          array = new Uint8Array(arrayBuffer);
+        for (var i = 0; i < array.length; i++) {
+          arrBinaryFile.push(array[i]);
+        }
+      }
+    }
+
+    // Display the image rightaway
+    //imgPicture.src = file.value;
+    document.querySelector('#nome-foto-usuario').innerHTML = filename;
+    imgPicture.src = URL.createObjectURL(file)  // Added the line.
+  });
 </script>
 
 </html>

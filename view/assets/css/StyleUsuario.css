@@ -209,6 +209,8 @@ body {
   z-index: 1;
   border-radius: 100%;
   width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 .foto-edit-wrapper {
   position: relative;

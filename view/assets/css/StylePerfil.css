@@ -41,11 +41,29 @@ strong {
 }
 .foto-edit-wrapper {
   width: 10em;
+  position: relative;
 }
-.edit {
-  height: 30%;
+.foto-usuario-label {
+  width: 3.5em;
+  height: 3.5em;
+  background-color: var(--purple);
+  border-radius: 10rem;
   padding: 0.6em;
   display: none;
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: background-color 0.3s;
+  &:hover {
+    cursor: pointer;
+    background-color: var(--purplehover);
+  }
+}
+.foto-usuario-label img {
+  z-index: 9;
+  aspect-ratio: 1 / 1;
+  width: 100%;
 }
 .info_usuario {
   display: flex;
@@ -60,14 +78,27 @@ strong {
 .form__cadastro {
   display: none;
 }
+.nome-foto-usuario {
+  display: none;
+}
 .usuario-edit .form__cadastro {
   display: flex;
 }
 .usuario-edit .info_usuario {
   display: none;
 }
-.usuario-edit .edit {
+.usuario-edit .foto-usuario-label {
   display: block;
+}
+.usuario-edit .nome-foto-usuario {
+  width: 20ch;
+  font-size: 1em;
+  font-weight: 500;
+  display: block;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .sair-button {
   --purple: var(--red);
@@ -103,9 +134,6 @@ strong {
   }
   .foto-edit-wrapper {
     width: 15em;
-  }
-  .edit {
-    padding: 0.9em;
   }
   .info_usuario {
     flex-direction: column-reverse;
