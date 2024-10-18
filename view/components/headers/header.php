@@ -19,6 +19,8 @@ if ($clienteData) {
   if ($clienteData->imagem == "") {
     $clienteData->imagem = "user.png";
   }
+
+  $primeiroNome = explode(' ', trim($clienteData->nome));
 }
 
 
@@ -73,7 +75,7 @@ if ($clienteData) {
           </li>
           <li>
           <!-- caso esteja logado -->
-          <a href=" ../Perfil/perfil.php" class="a-logado"><?= $clienteData->nome ?>
+          <a href=" ../Perfil/perfil.php" class="a-logado"><?= $primeiroNome[0] ?>
             <img src="../../assets/img/ImagensPerfil/<?= $clienteData->imagem ?>" alt="Login" class="login__header" />
           </a>
         <?php else: ?>

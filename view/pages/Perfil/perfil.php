@@ -62,6 +62,7 @@ $fullName = $cliente->getFullName($clienteData);
             </div>
             <p for="" class="nome-foto-usuario" id="nome-foto-usuario"></p>
             <ins><a href="#" id="alterarsenha">Alterar Senha</a></ins>
+            <ins><a href="#" id="resetarfoto">Resetar Foto</a></ins>
           </div>
           <div class="info_usuario">
             <table class="info-table">
@@ -104,6 +105,7 @@ $fullName = $cliente->getFullName($clienteData);
           <form action="../../../model/Arquivo/Inicializacao/user_process.php" class="form__cadastro" method="POST"
             enctype="multipart/form-data">
             <input type="file" name="foto-usuario-input" id="foto-usuario-input" hidden>
+            <input type="hidden" name="resetimage" id="resetimage" value="false">
             <input type="hidden" name="type" value="update_client"> <!-- update das informações do cliente -->
 
             <div class="form-input">
@@ -180,8 +182,12 @@ $fullName = $cliente->getFullName($clienteData);
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
 <script>
-  $('#alterarsenha').click(function () { mudarSenha(); return false; });
 
+  let imgPicture = document.querySelector('.foto-edit-img');  // Added the line.
+  let changePicInput = document.querySelector('#foto-usuario-input');
+  let resetimage = document.querySelector('#resetimage');
+  $('#alterarsenha').click(function () { mudarSenha(); return false; });
+  $('#resetarfoto').click(function () { resetarFoto(); return false; });
 
 
   function mudarSenha() {
@@ -216,9 +222,10 @@ $fullName = $cliente->getFullName($clienteData);
     });
   }
 
-  let imgPicture = document.querySelector('.foto-edit-img');  // Added the line.
-
-  let changePicInput = document.querySelector('#foto-usuario-input');
+  function resetarFoto() {
+    imgPicture.src = "../../assets/img/ImagensPerfil/user.png"
+    resetimage.value = "true"
+  }
 
   changePicInput.addEventListener("change", function () {
 
@@ -243,8 +250,14 @@ $fullName = $cliente->getFullName($clienteData);
     // Display the image rightaway
     //imgPicture.src = file.value;
     document.querySelector('#nome-foto-usuario').innerHTML = filename;
-    imgPicture.src = URL.createObjectURL(file)  // Added the line.
+
+    imgPicture.src = URL.createObjectURL(file)
   });
+
+
+
+
+
 </script>
 
 </html>

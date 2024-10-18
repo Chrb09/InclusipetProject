@@ -75,14 +75,17 @@ CREATE TABLE `animal` (
   `CodRaca` int(11) NOT NULL,
   `Nome` varchar(50) NOT NULL,
   `Sexo` char(5) NOT NULL,
-  `DataNasc` date NOT NULL,
-  `DataAprox` year(4) NOT NULL,
+  `DataNasc` date,
+  `DataAprox` year(4),
   `Peso` double NOT NULL,
   `Castrado` tinyint(1) NOT NULL,
   `Imagem` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
+
+insert into animal (CodAnimal, CodRaca, Nome, Sexo, DataNasc, DataAprox, Peso, Castrado, Imagem)
+ values (1, 1, 'Fonseca', 'Macho', null, '2008', '8.00', '1', null);
 
 --
 -- Estrutura para tabela `cargo`
@@ -94,6 +97,15 @@ CREATE TABLE `cargo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
+
+insert into cargo (CodCargo, Descricao)
+ values (1, 'Neurologista');
+ insert into cargo (CodCargo, Descricao)
+ values (2, 'Clínico');
+ insert into cargo (CodCargo, Descricao)
+ values (3, 'Fisioterapista');
+ insert into cargo (CodCargo, Descricao)
+ values (4, 'Cirugião');
 
 --
 -- Estrutura para tabela `cliente`
@@ -114,6 +126,13 @@ CREATE TABLE `cliente` (
 
 -- --------------------------------------------------------
 
+insert into cliente (CodCliente, Nome, DataNasc, Telefone, CEP, CPF, Email, Senha, Token, Imagem)
+ values (1, 'Miguel Yudi Baba', '2004-04-11', '(11)91234-5678', '69093-809', '252.910.260-06', 'hatsunemikulover@gmail.com', '$2y$10$maUt5gopWT2QyGQwbvqvrOavMQLPZMvoAfZ/nwmJUf/nzDTegBUHG', 'ec4636cc09a127bc25696cf09a8be2b994a48b6a906b24b0708e6037e83b884caabc85b736e4da5dc84208e5e085bcb4aca4', '1ca8d7315c43466b033f3e8010eb5aac93ec0747f8cbabc5f4418148f15a70f51301fad027425e4e4d39fac4ec103e62db1b2f12441d37d95285b3e8.jpg');
+ insert into cliente (CodCliente, Nome, DataNasc, Telefone, CEP, CPF, Email, Senha, Token, Imagem)
+ values (2, 'Giovanna Andrade', '2005-12-01', '(11)98765-4321', '69093-943', '558.736.462-77', 'guminum1fan@gmail.com', '$2y$10$.3zyiv01/u9T/s4RzxCZU.EGfH1GMwaMxRTISP8UEB3kcF9qT1NYG', '0b20086e04644102b0ee13c2957f9654050c0eeef15585c93557211df4cac680848e1d1357ee2b952cd55eacc5d5b5e5a82e', '06bd2382a46bb721eb2d9e53346e14cc14f41a810efec63b87c1a1764d804d7ce6c992569ffd61277f00c23a0de4bfaf4fb205f65c3b4385d28c6fc9.jpg');
+ insert into cliente (CodCliente, Nome, DataNasc, Telefone, CEP, CPF, Email, Senha, Token, Imagem)
+ values (3, 'Amanda Farias', '2005-07-05', '(11)99767-9687', '69504-344', '979.607.567-66', 'voviikoffe@gmail.com', '$2y$10$2JorqrnxcluOX0yFTnsJkOavgHDf8aLaMSmnMdzDQ1BE9DSesq6ZO', 'fb0b4c18493698a81d1318a5c6ff8e081410b824bb632109637b694bc6d749a64610b9a2acad4c62155f414e1c6e1e8e59cc', '7315de3c0089c9172ff6a3833453269dc967bed03f4ff94bd7cc16bd669ed85e5f448ba29433a1b13047b0344faa6724e17243ee1fb3d919d863bbe5.jpg');
+ 
 --
 -- Estrutura para tabela `especie`
 --
@@ -124,6 +143,13 @@ CREATE TABLE `especie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
+
+insert into especie (CodEspecie, Descricao)
+ values (1, 'Canino');
+ insert into especie (CodEspecie, Descricao)
+ values (2, 'Gato');
+ insert into especie (CodEspecie, Descricao)
+ values (3, 'Pássaro');
 
 --
 -- Estrutura para tabela `imagem_adocao`
@@ -147,6 +173,21 @@ CREATE TABLE `raca` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
+
+insert into raca (CodRaca, CodEspecie, Descricao)
+ values (1, 1, 'Vira-Lata');
+ insert into raca (CodRaca, CodEspecie, Descricao)
+ values (2, 1, 'Border Collie');
+ insert into raca (CodRaca, CodEspecie, Descricao)
+ values (3, 1, 'Lhasa Apso');
+ insert into raca (CodRaca, CodEspecie, Descricao)
+ values (4, 1, 'Lhasa Apso');
+ insert into raca (CodRaca, CodEspecie, Descricao)
+ values (5, 3, 'Calopsita');
+ insert into raca (CodRaca, CodEspecie, Descricao)
+ values (6, 2, 'Vira-Lata');
+ insert into raca (CodRaca, CodEspecie, Descricao)
+ values (7, 1, 'Chihuahua');
 
 --
 -- Estrutura para tabela `servico`
@@ -172,7 +213,7 @@ CREATE TABLE `unidade` (
   `HorarioInicial` time DEFAULT NULL,
   `HorarioFinal` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+INSERT INTO `unidade` (`CodUnidade`, `Nome`, `Endereco`, `Bairro`, `Telefone`, `HorarioInicial`, `HorarioFinal`) VALUES (1, 'Inclusipet - Guarulhos', 'R. Conceição da Feira', 'Jardim pres. dutra - SP', '(11) 11111-1111', '08:00:00', '21:00:00'), (2, 'Inclusipet - Vila Cisper', 'R. Cícero Dantas', 'Vila Cisper - SP', '(11) 22222-2222', '08:00:00', '18:00:00'), (3, 'Inclusipet - Artur Alvim', 'Av. Líder', 'Artur Alvim - SP', '(11) 33333-3333', '10:00:00', '18:00:00');
 -- --------------------------------------------------------
 
 --
@@ -192,6 +233,12 @@ CREATE TABLE `funcionario` (
   `Token` varchar(200),
   `Imagem` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+insert into `funcionario` (`CodFuncionario`, `CodCargo`, `Senha`, `Nome`, `RG`, `CPF`, `Telefone`, `CEP`, `CodUnidade`, `Token`, `Imagem`)
+ values (1, 1,'$2y$10$1xGy5hDzqYwYgJ/QuxEm1.rXLAHJHLOpu0TsRmMCMy8dGGbOtHNAC', 'Bernardo Vieira', '28.407.303-9', '343.243.242-34', '(43)24324-2343', '43242-343', '1', 'ee4cdf5cc2b7d945ef44d0f98fcb8344dd024c585751e061ba6dd93cd98b0b44e3b195a260a9880c805fb8caab7aa0028e12', null),
+(2, 3,'$2y$10$qV5DDHbg71bpwzlupW8px.5WIqIQnH1eGcfl/vZdjLlyBIu.Dmxxy', 'Beatriz Silva', '32.321.900-7', '435.435.345-34', '(32)23423-4324', '54354-354', '2', '196ab39fcf61c66855c3ff7bc0ef96c60cd9903d561152f218834944dfb1611a82a5acece27de59f7896ed225299f52c39a2', null);
+-- --------------------------------------------------------
+
+
 
 --
 -- Índices para tabelas despejadas

@@ -12,6 +12,7 @@ $clienteDao = new ClienteDAO($conn, $BASE_URL);
 
 // Resgata o tipo do formulário
 $type = filter_input(INPUT_POST, "type");
+$resetimage = filter_input(INPUT_POST, "resetimage");
 
 //Atualizar usuario
 if ($type === "update_client") {
@@ -33,28 +34,34 @@ if ($type === "update_client") {
     $clienteData->cpf = $cpf;
     $clienteData->email = $email;
 
-    if (isset($_FILES["foto-usuario-input"]) && !empty($_FILES["foto-usuario-input"]["tmp_name"])) {
 
-        $image = $_FILES["foto-usuario-input"];
-        $imageTypes = ["image/jpeg", "image/jpg", "image/png"];
-        $jpgArray = ["image/jpeg", "image/jpg"];
+    if ($resetimage == "true") {
+        $clienteData->imagem = "";
+    } else {
+        if (isset($_FILES["foto-usuario-input"]) && !empty($_FILES["foto-usuario-input"]["tmp_name"])) {
 
-        if (!in_array($image["type"], $imageTypes)) {
-            $message->setMessage("Tipo inválido de imagem, permitidos PNG ou JPG!", "error", "popup", "back");
-        } else {
-            if (in_array($image["type"], $jpgArray)) {
-                $imageFile = imagecreatefromjpeg($image["tmp_name"]);
+            $image = $_FILES["foto-usuario-input"];
+            $imageTypes = ["image/jpeg", "image/jpg", "image/png"];
+            $jpgArray = ["image/jpeg", "image/jpg"];
+
+            if (!in_array($image["type"], $imageTypes)) {
+                $message->setMessage("Tipo inválido de imagem, permitidos PNG ou JPG!", "error", "popup", "back");
             } else {
-                $imageFile = imagecreatefrompng($image["tmp_name"]);
+                if (in_array($image["type"], $jpgArray)) {
+                    $imageFile = imagecreatefromjpeg($image["tmp_name"]);
+                } else {
+                    $imageFile = imagecreatefrompng($image["tmp_name"]);
+                }
+
+                $imageName = $cliente->imageGenerateName();
+
+                imagejpeg($imageFile, "../../../view/assets/img/ImagensPerfil/" . $imageName, 100);
+
+                $clienteData->imagem = $imageName;
             }
-
-            $imageName = $cliente->imageGenerateName();
-
-            imagejpeg($imageFile, "../../../view/assets/img/ImagensPerfil/" . $imageName, 100);
-
-            $clienteData->imagem = $imageName;
         }
     }
+
 
     $clienteDao->update($clienteData);
 
