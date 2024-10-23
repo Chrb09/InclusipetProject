@@ -43,18 +43,18 @@
             <ins><a href="#" id="resetarfoto">Resetar Foto</a></ins>
           </div>
 
-          <form action="oet_process.php" class="form__cadastro" method="POST" enctype="multipart/form-data">
+          <form action="pet_process.php" class="form__cadastro" method="POST" enctype="multipart/form-data">
             <input type="file" name="foto-pet-input" id="foto-pet-input" hidden>
             <input type="hidden" name="resetimage" id="resetimage" value="false">
             <input type="hidden" name="type" value="create">
             <div class="form-input">
               <label for="">Nome</label><br />
-              <input type="text" name="" id="" />
+              <input type="text" name="nome" id="" />
             </div>
             <div class="form-input">
               <label for="">Espécie</label><br />
               <div class="custom-select">
-                <select id="" name="" size="1">
+                <select id="" name="especie" size="1">
                   <option value="cachorro">Cachorro</option>
                   <option value="gato">Gato</option>
                   <option value="passaro">Pássaro</option>
@@ -64,7 +64,7 @@
             <div class="form-input">
               <label for="">Raça</label><br />
               <div class="custom-select">
-                <select id="" name="" size="0" placeholder="Selecione...">
+                <select id="" name="raca" size="0" placeholder="Selecione...">
                   <option value="cachorro">Cachorro</option>
                   <option value="gato">Gato</option>
                   <option value="passaro">Pássaro</option>
@@ -86,18 +86,18 @@
             </div>
             <div class="form-input">
               <label for="">Data de Nascimento</label><br />
-              <input type="date" value="" max="" min="1900-01-01" />
+              <input type="date" value="" name="datanasc" max="" min="1950-01-01" />
               <div class="radio-div">
-                <input type="checkbox" name="" id="" class="check" /> Não lembro a data exata
+                <input type="checkbox" id="" class="check" /> Não lembro a data exata
               </div>
             </div>
             <div class="form-input desativado">
               <label for="">Data Aproximada</label><br />
-              <input type="date" value="" disabled />
+              <input type="date" name="dataaprox" value="" disabled />
             </div>
             <div class="form-input">
               <label for="">Peso (kg)</label><br />
-              <input type="number" value="" />
+              <input type="number" name="peso" value="" />
             </div>
 
             <div class="form-input">
@@ -116,7 +116,7 @@
 
             <div class="button-wrapper-form">
               <button class="botao botao-borda" onclick="location.href='meuspets.php'" type="button">Voltar</button>
-              <button class="botao botao-solido" onclick="" type="button">Salvar</button>
+              <button class="botao botao-solido" onclick="" type="submit">Salvar</button>
             </div>
           </form>
         </div>
