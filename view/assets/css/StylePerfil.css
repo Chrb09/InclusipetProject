@@ -100,10 +100,9 @@ strong {
   display: block;
 }
 .usuario-edit .nome-foto-usuario {
-  width: 20ch;
-  font-size: 1em;
-  font-weight: 500;
-  display: block;
+  max-width: 20ch;
+  font-size: 1em !important;
+  font-weight: 500 !important;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;

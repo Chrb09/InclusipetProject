@@ -35,13 +35,18 @@
         <div class="cadastrar_pet">
           <div class="foto-edit">
             <div class="foto-edit-wrapper">
-              <img src="../../assets/img/Perfil/fotos-pet.png" alt="Foto do pet" class="foto-edit-img" />
-              <div class="edit"><img src="../../assets/img/Perfil/editar_icon.png" alt="" /></div>
+              <img src="../../assets/img/ImagensPet/pet.png" alt="Foto do pet" class="foto-edit-img" />
+              <label for="foto-pet-input" class="foto-pet-label"><img src="../../assets/img/Perfil/editar_icon.png"
+                  alt="" /></label>
             </div>
-            <p>Nome do Pet</p>
+            <p for="" class="nome-foto-pet" id="nome-foto-pet"></p>
+            <ins><a href="#" id="resetarfoto">Resetar Foto</a></ins>
           </div>
 
-          <form action="" class="form__cadastro">
+          <form action="oet_process.php" class="form__cadastro" method="POST" enctype="multipart/form-data">
+            <input type="file" name="foto-pet-input" id="foto-pet-input" hidden>
+            <input type="hidden" name="resetimage" id="resetimage" value="false">
+            <input type="hidden" name="type" value="create">
             <div class="form-input">
               <label for="">Nome</label><br />
               <input type="text" name="" id="" />
@@ -120,5 +125,50 @@
     </div>
   </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../../assets/js/perfil.js"></script>
+<script>
+
+  let imgPicture = document.querySelector('.foto-edit-img');  // Added the line.
+  let changePicInput = document.querySelector('#foto-pet-input');
+  let resetimage = document.querySelector('#resetimage');
+  $('#resetarfoto').click(function () { resetarFoto(); return false; });
+
+  function resetarFoto() {
+    imgPicture.src = "../../assets/img/ImagensPet/pet.png"
+    resetimage.value = "true"
+    document.querySelector('#nome-foto-pet').innerHTML = "";
+  }
+
+  changePicInput.addEventListener("change", function () {
+
+    let arrBinaryFile = [];
+    let file = changePicInput.files[0];  // Changed the line.
+    let filename = file.name.split(/(\\|\/)/g).pop();
+    let reader = new FileReader();
+
+    // Array
+    reader.readAsArrayBuffer(file);
+    reader.onloadend = function (evt) {
+
+      if (evt.target.readyState == FileReader.DONE) {
+        var arrayBuffer = evt.target.result,
+          array = new Uint8Array(arrayBuffer);
+        for (var i = 0; i < array.length; i++) {
+          arrBinaryFile.push(array[i]);
+        }
+      }
+    }
+
+    // Display the image rightaway
+    //imgPicture.src = file.value;
+    document.querySelector('#nome-foto-pet').innerHTML = filename;
+
+    imgPicture.src = URL.createObjectURL(file)
+    resetimage.value = "false"
+  });
+</script>
 
 </html>

@@ -13,7 +13,7 @@ if (!empty($flassMessage["msg"])) {
 }
 
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
-$clienteData = $clienteDao->verifyToken(false);
+$clienteData = $clienteDao->verifyToken(true);
 
 if ($clienteData) {
   if ($clienteData->imagem == "") {

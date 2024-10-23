@@ -225,6 +225,7 @@ $fullName = $cliente->getFullName($clienteData);
   function resetarFoto() {
     imgPicture.src = "../../assets/img/ImagensPerfil/user.png"
     resetimage.value = "true"
+    document.querySelector('#nome-foto-usuario').innerHTML = "";
   }
 
   changePicInput.addEventListener("change", function () {
@@ -252,6 +253,7 @@ $fullName = $cliente->getFullName($clienteData);
     document.querySelector('#nome-foto-usuario').innerHTML = filename;
 
     imgPicture.src = URL.createObjectURL(file)
+    resetimage.value = "false"
   });
 
 

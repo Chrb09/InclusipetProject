@@ -73,6 +73,7 @@ CREATE TABLE `agendamento` (
 CREATE TABLE `animal` (
   `CodAnimal` int(11) NOT NULL,
   `CodRaca` int(11) NOT NULL,
+  `CodCliente` int(11) NOT NULL,
   `Nome` varchar(50) NOT NULL,
   `Sexo` char(5) NOT NULL,
   `DataNasc` date,
@@ -84,8 +85,8 @@ CREATE TABLE `animal` (
 
 -- --------------------------------------------------------
 
-insert into animal (CodAnimal, CodRaca, Nome, Sexo, DataNasc, DataAprox, Peso, Castrado, Imagem)
- values (1, 1, 'Fonseca', 'Macho', null, '2008', '8.00', '1', null);
+insert into animal (CodAnimal, CodRaca, CodCliente, Nome, Sexo, DataNasc, DataAprox, Peso, Castrado, Imagem)
+ values (1, 1, 1, 'Fonseca', 'Macho', null, '2008', '8.00', '1', null);
 
 --
 -- Estrutura para tabela `cargo`
@@ -413,7 +414,8 @@ ALTER TABLE `agendamento`
 -- Restrições para tabelas `animal`
 --
 ALTER TABLE `animal`
-  ADD CONSTRAINT `CodRacaAnimal` FOREIGN KEY (`CodRaca`) REFERENCES `raca` (`CodRaca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `CodRacaAnimal` FOREIGN KEY (`CodRaca`) REFERENCES `raca` (`CodRaca`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `CodClienteAnimal` FOREIGN KEY (`CodCliente`) REFERENCES `cliente` (`CodCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `imagem_adocao`
