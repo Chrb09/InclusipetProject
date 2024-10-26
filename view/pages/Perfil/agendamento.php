@@ -17,13 +17,19 @@
 <body>
   <!-- PERFIL -->
   <div class="container-usuario">
-    <?php
 
+    <?php
     $sidebarActive = "agendamentos";
     include('../../components/sidebarperfil.php');
+    require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
     ?>
+
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfil.php'); 
+      
+      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL);
+      // $pets = $petDao->getPetsByCodCliente($clienteData->codcliente);
+      ?>
 
       <div class="content">
 

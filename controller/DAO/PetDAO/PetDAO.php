@@ -33,6 +33,7 @@ class PetDAO implements PetDAOInterface
 
         return $pet;
     }
+    
     public function getPetsByCodCliente($CodCliente)
     {
         $pets = [];
