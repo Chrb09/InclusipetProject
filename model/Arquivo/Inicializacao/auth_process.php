@@ -31,7 +31,7 @@ if ($type === 'register_client') {
   $confirmarsenha = filter_input(INPUT_POST, "sign-up-confirm-password");
 
   // Verificação de dados mínimos 
-  if (!$nome && !$datanasc && !$telefone && !$cep && !$cpf && !$email && !$senha) {
+  if (!$nome || !$datanasc || !$telefone || !$cep || !$cpf || !$email || !$senha) {
 
     // Enviar uma msg de erro, de dados faltantes
     $message->setMessage("Preencha todos os campos.", "error", "toast", "back");

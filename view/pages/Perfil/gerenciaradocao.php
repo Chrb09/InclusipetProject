@@ -13,13 +13,18 @@
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
   <title>Gerenciar Adoção</title>
+  <style>
+    .titulo {
+      margin-bottom: 0.75em;
+    }
+  </style>
 </head>
 
 <body>
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 0;
+
     $sidebarActive = "adocao";
     include('../../components/sidebarperfil.php');
     ?>

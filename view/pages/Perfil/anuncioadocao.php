@@ -13,13 +13,14 @@
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
   <title>Anúncio de Adoção</title>
+
 </head>
 
 <body>
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 0;
+
     $sidebarActive = "adocao";
     include('../../components/sidebarperfil.php');
     ?>

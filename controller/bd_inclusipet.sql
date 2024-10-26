@@ -86,7 +86,7 @@ CREATE TABLE `animal` (
 -- --------------------------------------------------------
 
 insert into animal (CodAnimal, CodRaca, CodCliente, Nome, Sexo, DataNasc, DataAprox, Peso, Castrado, Imagem)
- values (1, 1, 1, 'Fonseca', 'Macho', null, '2008', '8.00', '1', null);
+ values (1, 1, 1, 'Fonseca', 'Macho', null, '2008', '8.00', '1', "899c2a0ad9e039fd880ea084e33e63b9f5d5c881a3412fb08416b649f576574a0f1fbb50f643f831e1fe9b7e24ee7d6ce219fda82c3e7e7f45eb9f4b");
 
 --
 -- Estrutura para tabela `cargo`
@@ -182,7 +182,7 @@ insert into raca (CodRaca, CodEspecie, Descricao)
  insert into raca (CodRaca, CodEspecie, Descricao)
  values (3, 1, 'Lhasa Apso');
  insert into raca (CodRaca, CodEspecie, Descricao)
- values (4, 1, 'Lhasa Apso');
+ values (4, 1, 'Pastor Alemão');
  insert into raca (CodRaca, CodEspecie, Descricao)
  values (5, 3, 'Calopsita');
  insert into raca (CodRaca, CodEspecie, Descricao)

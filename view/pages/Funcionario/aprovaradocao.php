@@ -121,7 +121,7 @@
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 1;
+
     $sidebarActive = "adocao";
     include('../../components/sidebarvet.php');
     ?>
@@ -254,10 +254,10 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
 <script>
-    function motivoRecusar() {
-      Swal.fire({
-        title: `<div class="titulo">Recusar Adoção</div>`,
-        html: `
+  function motivoRecusar() {
+    Swal.fire({
+      title: `<div class="titulo">Recusar Adoção</div>`,
+      html: `
         <div class="form-input">
           <label for="" >Motivo por ter recusado</label>
           <textarea name="" id="" cols="40" rows="7" placeholder="Escreva sua mensagem..."></textarea>
@@ -268,11 +268,12 @@
         </div>
 
         `,
-        confirmButtonText: "Ok!",
-        showConfirmButton: false,
-        focusConfirm: false,
-        backdrop: "rgb(87, 77, 189, 0.5",
-      });
-    }
-  </script>
+      confirmButtonText: "Ok!",
+      showConfirmButton: false,
+      focusConfirm: false,
+      backdrop: "rgb(87, 77, 189, 0.5",
+    });
+  }
+</script>
+
 </html>

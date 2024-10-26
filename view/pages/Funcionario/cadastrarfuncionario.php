@@ -25,7 +25,7 @@
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 1;
+
     $sidebarActive = "funcionario";
     include('../../components/sidebarvet.php');
     ?>

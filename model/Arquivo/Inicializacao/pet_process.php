@@ -9,12 +9,13 @@ require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 
 $message = new Message($BASE_URL);
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
+$petDao = new PetDAO($conn, $BASE_URL);
 
 
 $type = filter_input(INPUT_POST, "type");
 $resetimage = filter_input(INPUT_POST, "resetimage");
 
-$userData = $userDao->verifyToken();
+$clienteData = $clienteDao->verifyToken();
 
 //Atualizar usuario
 if ($type === "create") {
@@ -29,49 +30,52 @@ if ($type === "create") {
 
     $pet = new Pet();
 
-    if (!$nome) {
+    if (!$nome || !$especie || !$raca || !$sexo || !$peso || !$castrado) {
+        $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
     } else {
-        $pet->Nome() = $nome;
-        $pet->CodRaca() = $raca;
-        $pet->Sexo() = $sexo;
-        $pet->DataNasc() = $datanasc;
-        $pet->DataAprox() = $dataaprox;
-        $pet->Peso() = $peso;
-        $pet->Castrado() = $castrado;
+        if (!$datanasc && !$dataaprox) {
+            $message->setMessage("Preencha a data de nascimento ou a data aproximada.", "error", "popup", "back");
+        } else {
+            $pet->CodCliente = $clienteData->codcliente;
+            $pet->Nome = $nome;
+            $pet->CodRaca = $raca;
+            $pet->Sexo = $sexo;
+            $pet->DataNasc = $datanasc;
+            $pet->DataAprox = $dataaprox;
+            $pet->Peso = $peso;
+            $pet->Castrado = $castrado;
 
-        print_r($pet);
 
-        /*
-                if ($resetimage == "true") {
-                    $clienteData->imagem = "";
-                } else {
-                    if (isset($_FILES["foto-usuario-input"]) && !empty($_FILES["foto-usuario-input"]["tmp_name"])) {
+            if ($resetimage == "true") {
+                $pet->imagem = "";
+            } else {
+                if (isset($_FILES["foto-pet-input"]) && !empty($_FILES["foto-pet-input"]["tmp_name"])) {
 
-                        $image = $_FILES["foto-usuario-input"];
-                        $imageTypes = ["image/jpeg", "image/jpg", "image/png"];
-                        $jpgArray = ["image/jpeg", "image/jpg"];
+                    $image = $_FILES["foto-pet-input"];
+                    $imageTypes = ["image/jpeg", "image/jpg", "image/png"];
+                    $jpgArray = ["image/jpeg", "image/jpg"];
 
-                        if (!in_array($image["type"], $imageTypes)) {
-                            $message->setMessage("Tipo inválido de imagem, permitidos PNG ou JPG!", "error", "popup", "back");
+                    if (!in_array($image["type"], $imageTypes)) {
+                        $message->setMessage("Tipo inválido de imagem, permitidos PNG ou JPG!", "error", "popup", "back");
+                    } else {
+                        if (in_array($image["type"], $jpgArray)) {
+                            $imageFile = imagecreatefromjpeg($image["tmp_name"]);
                         } else {
-                            if (in_array($image["type"], $jpgArray)) {
-                                $imageFile = imagecreatefromjpeg($image["tmp_name"]);
-                            } else {
-                                $imageFile = imagecreatefrompng($image["tmp_name"]);
-                            }
-
-                            $imageName = $cliente->imageGenerateName();
-
-                            imagejpeg($imageFile, "../../../view/assets/img/ImagensPet/" . $imageName, 100);
-
-                            $clienteData->imagem = $imageName;
+                            $imageFile = imagecreatefrompng($image["tmp_name"]);
                         }
+
+                        $imageName = $pet->imageGenerateName();
+
+                        imagejpeg($imageFile, "../../../view/assets/img/ImagensPet/" . $imageName, 100);
+
+                        $pet->Imagem = $imageName;
                     }
                 }
-                    */
+            }
+        }
+
+        $petDao->create($pet);
     }
-
-
 } else {
     $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
 }

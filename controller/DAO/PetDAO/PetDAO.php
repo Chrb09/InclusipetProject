@@ -29,21 +29,63 @@ class PetDAO implements PetDAOInterface
         $pet->DataAprox = $data["DataAprox"];
         $pet->Peso = $data["Peso"];
         $pet->Castrado = $data["Castrado"];
-        $pet->imagem = $data["Imagem"];
+        $pet->Imagem = $data["Imagem"];
 
         return $pet;
     }
     public function getPetsByCodCliente($CodCliente)
     {
+        $pets = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM animal WHERE CodCliente = :CodCliente");
+        $stmt->bindParam(":CodCliente", $CodCliente);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $petsArray = $stmt->fetchAll();
+
+            foreach ($petsArray as $pet) {
+                $pets[] = $this->buildPet($pet);
+            }
+        }
+
+        return $pets;
 
     }
     public function findByCod($CodPet)
     {
+        $stmt = $this->conn->prepare("SELECT * FROM animal WHERE CodAnimal = :CodPet");
+        $stmt->bindParam(":CodPet", $CodPet);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $petData = $stmt->fetch();
+            $pet = $this->buildPet($petData);
+            return $pet;
+        } else {
+            $this->message->setMessage("Erro!", "error", "toast", "../../../view/pages/index/index.php");
+        }
+
 
     }
     public function create(Pet $pet)
     {
+        $stmt = $this->conn->prepare("INSERT INTO animal(CodRaca, CodCliente, Nome, Sexo, DataNasc, DataAprox, Peso, Castrado, Imagem) 
+        VALUES(:CodRaca, :CodCliente, :Nome, :Sexo, :DataNasc, :DataAprox, :Peso, :Castrado, :Imagem)");
 
+        $stmt->bindParam(":CodRaca", $pet->CodRaca);
+        $stmt->bindParam(":CodCliente", $pet->CodCliente);
+        $stmt->bindParam(":Nome", $pet->Nome);
+        $stmt->bindParam(":Sexo", $pet->Sexo);
+        $stmt->bindParam(":DataNasc", $pet->DataNasc);
+        $stmt->bindParam(":DataAprox", $pet->DataAprox);
+        $stmt->bindParam(":Peso", $pet->Peso);
+        $stmt->bindParam(":Castrado", $pet->Castrado);
+        $stmt->bindParam(":Imagem", $pet->Imagem);
+
+        $stmt->execute();
+
+        $this->message->setMessage("Animal cadastrado com sucesso!", "success", "popup", "../../../view/pages/perfil/meuspets.php");
     }
     public function update(Pet $pet)
     {
@@ -52,5 +94,37 @@ class PetDAO implements PetDAOInterface
     public function destroy($CodPet)
     {
 
+    }
+
+    public function getPetEspecie(Pet $pet)
+    {
+        $stmt = $this->conn->prepare("SELECT CodEspecie FROM raca WHERE CodRaca = :CodRaca");
+        $stmt->bindParam(":CodRaca", $pet->CodRaca);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $CodEspecie = $stmt->fetch();
+        }
+
+
+        $stmt2 = $this->conn->prepare("SELECT Descricao FROM especie WHERE CodEspecie = :CodEspecie");
+        $stmt2->bindParam(":CodEspecie", $CodEspecie[0]);
+        $stmt2->execute();
+
+        if ($stmt2->rowCount() > 0) {
+            $especie = $stmt2->fetch();
+            return $especie[0];
+        }
+    }
+    public function getPetRaca(Pet $pet)
+    {
+        $stmt = $this->conn->prepare("SELECT Descricao FROM raca WHERE CodRaca = :CodRaca");
+        $stmt->bindParam(":CodRaca", $pet->CodRaca);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $raca = $stmt->fetch();
+            return $raca[0];
+        }
     }
 }

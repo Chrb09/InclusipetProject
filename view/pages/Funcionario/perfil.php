@@ -13,10 +13,11 @@ $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
 $funcionarioData = $funcionarioDao->verifyToken(true);
 $fullName = $funcionario->getFullName($funcionarioData);
 
-if($funcionarioData->Imagem == "") {
+if ($funcionarioData->Imagem == "") {
   $funcionarioData->Imagem = "user.png";
 }
 ?>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,7 +36,7 @@ if($funcionarioData->Imagem == "") {
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 1;
+
     $sidebarActive = "perfil";
     include('../../components/sidebarvet.php');
     ?>
@@ -89,10 +90,10 @@ if($funcionarioData->Imagem == "") {
               </tr>
             </table>
             <div class="linha">
-            <a  href="../../../model/Arquivo/Inicializacao/logout.php">
-              <button class="botao-solido sair-button" onclick="" type="button">
-                <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
-              </button>
+              <a href="../../../model/Arquivo/Inicializacao/logout.php">
+                <button class="botao-solido sair-button" onclick="" type="button">
+                  <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
+                </button>
             </div>
           </div>
         </div>

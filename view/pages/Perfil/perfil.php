@@ -38,7 +38,7 @@ $fullName = $cliente->getFullName($clienteData);
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 0;
+
     $sidebarActive = "perfil";
     include('../../components/sidebarperfil.php');
     ?>

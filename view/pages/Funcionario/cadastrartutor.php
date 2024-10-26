@@ -19,7 +19,7 @@
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 1;
+
     $sidebarActive = "tutor";
     include('../../components/sidebarvet.php');
     ?>

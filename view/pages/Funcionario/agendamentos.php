@@ -145,7 +145,7 @@
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 1;
+
     $sidebarActive = "agendamentos";
     include('../../components/sidebarvet.php');
     ?>
