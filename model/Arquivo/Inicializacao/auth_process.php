@@ -96,4 +96,15 @@ if ($type === 'register_client') {
 $message = new Message($BASE_URL);
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
 
-$nome = filter_input(INPUT_POST, "sign-up-name");
+$type = filter_input(INPUT_POST, "type");
+
+if ($type === 'register_funcionario') {
+  $nome = filter_input(INPUT_POST, "sign-up-name");
+  $datanasc = filter_input(INPUT_POST, "sign-up-date");
+  $telefone = filter_input(INPUT_POST, "sign-up-tel");
+  $cep = filter_input(INPUT_POST, "sign-up-cep");
+  $cpf = filter_input(INPUT_POST, "sign-up-cpf");
+  $email = filter_input(INPUT_POST, "sign-up-email");
+  $senha = filter_input(INPUT_POST, "sign-up-password");
+  $confirmarsenha = filter_input(INPUT_POST, "sign-up-confirm-password");
+}

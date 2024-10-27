@@ -20,13 +20,15 @@
 
   <!-- LOGIN -->
   <div class="container-login">
-    <form class="container-form" action="#">
+  <form action="../../../model/Arquivo/Inicializacao/auth_process.php" onsubmit="return validarLogin()"
+  method="POST">
+  <input type="hidden" name="type" value="login_funcionario">
       <div class="form-content">
         <div class="titulo">Sistema do Funcionário</div>
         <label for="log-in-email">Código de acesso</label>
-        <input name="log-in-email" type="text" required autocomplete="on" placeholder="Seu código de acesso..." />
+        <input name="log-in-email" id="logi-n-cod" type="text" required autocomplete="on" placeholder="Digite seu código de acesso" />
         <label for="log-in-password">Senha</label>
-        <input name="log-in-password" type="password" required autocomplete="on" placeholder="Sua senha..." />
+        <input name="log-in-password" id="logi-n-password" type="password" required autocomplete="on" placeholder="Sua senha..." />
         <button class="botao-solido" onclick="location.href='perfil.php'" type="button">Entre</button>
         <ins><a href="../Login/login.php">Login Usuário</a></ins>
       </div>
