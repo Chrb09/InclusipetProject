@@ -102,7 +102,7 @@
                     <td><?= $petDao->getPetEspecie($petInfo) ?></td>
                   </tr>
                   <tr>
-                    <th>raça:</th>
+                    <th>Raça:</th>
                     <td><?= $petDao->getPetRaca($petInfo) ?></td>
                   </tr>
                   <tr>
@@ -142,10 +142,12 @@
                 </table>
               </div>
               <div class="button-row">
-                <button class="botao-solido" onclick="location.href='agendamento.php'" type="button">
+                <button class="botao-solido"
+                  onclick="location.href='agendamento.php?codAnimal=<?= $petInfo->CodAnimal ?>'" type="button">
                   Agendar Consulta
                 </button>
-                <button class="botao-solido editar-button" onclick="location.href='cadastraranimal.php'" type="button">
+                <button class="botao-solido editar-button"
+                  onclick="location.href='cadastraranimal.php?edit=<?= $petInfo->CodAnimal ?>'" type="button">
                   <img src="../../assets/img/Perfil/editar_icon.png" alt="" />Editar
                 </button>
               </div>

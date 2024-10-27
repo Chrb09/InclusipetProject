@@ -1,3 +1,14 @@
+.button-pet:has(:checked) img {
+  outline: 0.3em solid var(--purple);
+  outline-offset: -0.3em;
+}
+.button-pet:has(:checked) {
+  color: var(--purple);
+}
+.button-pet [type="radio"] {
+  display: none;
+}
+
 .conteudo {
   display: grid;
   padding-block: 2rem;
@@ -108,12 +119,6 @@
 
 /* AGENDAR CONSULTA */
 
-.selecionado img {
-  border: 0.3em solid var(--purple);
-}
-.selecionado {
-  color: var(--purple);
-}
 .img-menor,
 .novo-pet {
   border-radius: 100rem;
@@ -124,6 +129,7 @@
 
 .pets {
   margin-block: 3%;
+  font-size: 1.2em;
 }
 .meus-pets {
   display: flex;
@@ -131,7 +137,6 @@
   margin-block: 2%;
   gap: 1em;
   width: 100%;
-  font-size: 1.2em;
 }
 .button-pet {
   display: flex;
@@ -139,6 +144,11 @@
   gap: 0.5em;
   align-items: center;
   font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.meus-pets .button-pet:hover {
+  transform: scale(103%);
 }
 .button-cadastrar {
   flex-direction: row;

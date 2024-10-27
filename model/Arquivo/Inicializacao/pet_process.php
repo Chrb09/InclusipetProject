@@ -18,7 +18,7 @@ $resetimage = filter_input(INPUT_POST, "resetimage");
 $clienteData = $clienteDao->verifyToken();
 
 //Atualizar usuario
-if ($type === "create") {
+if ($type === "create" || $type === "edit") {
     $nome = filter_input(INPUT_POST, "nome");
     $especie = filter_input(INPUT_POST, "especie");
     $raca = filter_input(INPUT_POST, "raca");
@@ -27,6 +27,7 @@ if ($type === "create") {
     $dataaprox = filter_input(INPUT_POST, "dataaprox");
     $peso = filter_input(INPUT_POST, "peso");
     $castrado = filter_input(INPUT_POST, "castrado");
+    $imageatual = filter_input(INPUT_POST, "imagematual");
 
     $pet = new Pet();
 
@@ -70,11 +71,22 @@ if ($type === "create") {
 
                         $pet->Imagem = $imageName;
                     }
+                } else {
+                    $pet->Imagem = $imageatual;
                 }
+            }
+            if ($type === "create") {
+                $petDao->create($pet);
+            } else if ($type === "edit") {
+                $codanimal = filter_input(INPUT_POST, "codpet");
+                $pet->CodAnimal = $codanimal;
+                $petDao->update($pet);
+            } else {
+                $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
             }
         }
 
-        $petDao->create($pet);
+
     }
 } else {
     $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");

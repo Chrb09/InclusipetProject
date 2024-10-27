@@ -56,7 +56,6 @@ CREATE TABLE `agendamento` (
   `CodAnimal` int(11) NOT NULL,
   `CodCliente` int(11) NOT NULL,
   `CodUnidade` int(11) NOT NULL,
-  `Servico` varchar(30) NOT NULL,
   `Data` date NOT NULL,
   `Hora` time NOT NULL,
   `Info` varchar(200) DEFAULT NULL,

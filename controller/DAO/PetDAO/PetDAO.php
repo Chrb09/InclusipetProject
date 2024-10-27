@@ -33,7 +33,7 @@ class PetDAO implements PetDAOInterface
 
         return $pet;
     }
-    
+
     public function getPetsByCodCliente($CodCliente)
     {
         $pets = [];
@@ -90,7 +90,25 @@ class PetDAO implements PetDAOInterface
     }
     public function update(Pet $pet)
     {
+        $stmt = $this->conn->prepare("UPDATE animal SET 
+        CodRaca = :CodRaca, CodCliente = :CodCliente, Nome = :Nome, Sexo = :Sexo, DataNasc = :DataNasc,
+        DataAprox = :DataAprox, Peso = :Peso, Castrado = :Castrado, Imagem =:Imagem WHERE CodAnimal = :CodAnimal");
 
+        $stmt->bindParam(":CodRaca", $pet->CodRaca);
+        $stmt->bindParam(":CodCliente", $pet->CodCliente);
+        $stmt->bindParam(":Nome", $pet->Nome);
+        $stmt->bindParam(":Sexo", $pet->Sexo);
+        $stmt->bindParam(":DataNasc", $pet->DataNasc);
+        $stmt->bindParam(":DataAprox", $pet->DataAprox);
+        $stmt->bindParam(":Peso", $pet->Peso);
+        $stmt->bindParam(":Castrado", $pet->Castrado);
+        $stmt->bindParam(":Imagem", $pet->Imagem);
+        $stmt->bindParam(":CodAnimal", $pet->CodAnimal);
+
+        $stmt->execute();
+
+        // Redireciona para o perfil do usuario
+        $this->message->setMessage("Dados atualizados com sucesso!", "success", "toast", "../../../view/pages/Perfil/meuspets.php");
     }
     public function destroy($CodPet)
     {
@@ -128,4 +146,6 @@ class PetDAO implements PetDAOInterface
             return $raca[0];
         }
     }
+
+
 }
