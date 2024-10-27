@@ -6,6 +6,7 @@ const signUpForm = document.getElementById("sign-up-form");
 const logInEmail = document.getElementById("log-in-email");
 const logInPassword = document.getElementById("log-in-password");
 
+
 const signUpEmail = document.getElementById("sign-up-email");
 const signUpPassword = document.getElementById("sign-up-password");
 const signUpConfirmPassword = document.getElementById("sign-up-confirm-password");
