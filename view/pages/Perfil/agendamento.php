@@ -25,11 +25,7 @@
     ?>
 
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); 
-      
-      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL);
-      // $pets = $petDao->getPetsByCodCliente($clienteData->codcliente);
-      ?>
+      <?php include('../../components/headers/headerperfil.php'); ?>
 
       <div class="content">
 
@@ -38,6 +34,7 @@
         <!-- Começo do conteúdo principal -->
         <div class="titulo">Agendamento de consulta do pet</div>
 
+        <!-- pet -->
         <div class="pets">
           <span>Selecione o pet que deseja agendar uma consulta</span>
           <div class="meus-pets">
@@ -59,11 +56,15 @@
           </button>
         </div>
 
+        <!-- começo do formulário  -->
         <form action="" class="form__cadastro">
+          <input type="hidden" name="type" value="create_appointment"> <!-- register do agendamento -->
+
+          <!-- unidade -->
           <div class="form-input">
             <label for="">Unidade</label><br />
             <div class="custom-select">
-              <select id="" name="" size="1">
+              <select id="" name="unidade" size="1">
                 <option value="cachorro">Cachorro</option>
                 <option value="gato">Gato</option>
                 <option value="passaro">Pássaro</option>
@@ -71,10 +72,11 @@
             </div>
           </div>
 
+          <!-- serviço -->
           <div class="form-input">
             <label for="">Serviço</label><br />
             <div class="custom-select">
-              <select id="" name="" size="1">
+              <select id="" name="servico" size="1">
                 <option value="cachorro">Cachorro</option>
                 <option value="gato">Gato</option>
                 <option value="passaro">Pássaro</option>
@@ -82,10 +84,11 @@
             </div>
           </div>
 
+          <!-- especialidade -->
           <div class="form-input">
             <label for="">Especialidade</label><br />
             <div class="custom-select">
-              <select id="" name="" size="1">
+              <select id="" name="especialidade" size="1">
                 <option value="cachorro">Cachorro</option>
                 <option value="gato">Gato</option>
                 <option value="passaro">Pássaro</option>
@@ -93,10 +96,11 @@
             </div>
           </div>
 
+          <!-- profissionais -->
           <div class="form-input">
             <label for="">Profissional</label><br />
             <div class="custom-select">
-              <select id="" name="" size="1">
+              <select id="" name="profissional" size="1">
                 <option value="cachorro">Cachorro</option>
                 <option value="gato">Gato</option>
                 <option value="passaro">Pássaro</option>
@@ -104,21 +108,25 @@
             </div>
           </div>
 
+          <!-- data -->
           <div class="form-input">
             <label for="">Data desejada para consulta</label><br />
             <input type="date" value="" max="" min="1900-01-01" />
           </div>
 
+          <!-- hora -->
           <div class="form-input">
             <label for="">Horário desejado para consulta</label><br />
             <input type="time" value="" max="" min="1900-01-01" />
           </div>
 
+          <!-- buttons -->
           <div class="button-wrapper-form">
             <button class="botao botao-solido" onclick="location.href='resumoagendamento.php'" type="button">
               Continuar
             </button>
           </div>
+
         </form>
         <!-- Fim do conteúdo principal -->
       </div>

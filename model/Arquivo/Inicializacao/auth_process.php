@@ -89,9 +89,9 @@ if ($type === 'register_client') {
 
 }
 
-// ===== Fim do CLIENTE =====
+// ===== FIM DO CLIENTE =====
 
-// ===== Começo do Funcionário =====
+// ===== COMEÇO DO FUNCIONÁRIO =====
 
 $message = new Message($BASE_URL);
 $clienteDao = new ClienteDAO($conn, $BASE_URL);

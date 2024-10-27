@@ -37,6 +37,7 @@
       <div class="content">
 
         <?php include('../../components/navmobileperfil.php'); ?>
+        
         <!-- Começo do conteúdo principal -->
         <div class="titulo">Cadastrar Pet</div>
 
