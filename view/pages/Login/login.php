@@ -97,6 +97,7 @@
     </div>
 
     <!-- LOGIN DO CLIENTE -->
+     
     <div class="form-container sign-in-container">
       <form action="../../../model/Arquivo/Inicializacao/auth_process.php" onsubmit="return validarLogin()"
         method="POST">

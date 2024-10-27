@@ -12,6 +12,7 @@ require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
 
 $message = new Message($BASE_URL);
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
+$funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
 
 
 // Resgata o tipo do formulário
@@ -78,10 +79,20 @@ if ($type === 'register_client') {
   } else {
     $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
   }
+  
+} 
+else if ($type === 'login_funcionario') {
 
-} else if ($type === '') {
+  $codfuncionario = filter_input(INPUT_POST, "logi-n-cod");
+  $senha = filter_input(INPUT_POST, "log-in-password");
 
-  // TODO login do funcionario
+  if ($funcionarioDao->authenticateFuncionario($codfuncionario, $senha)) {
+
+    $message->setMessage("Seja bem-vindo!", "success", "toast", "../../../view/pages/Funcionario/perfil.php");
+    
+  } else {
+    $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
+  }
 
 } else {
 
@@ -93,7 +104,15 @@ if ($type === 'register_client') {
 
 // ===== COMEÇO DO FUNCIONÁRIO =====
 
-$message = new Message($BASE_URL);
-$clienteDao = new ClienteDAO($conn, $BASE_URL);
+$type = filter_input(INPUT_POST, "type");
 
-$nome = filter_input(INPUT_POST, "sign-up-name");
+if ($type === 'register_funcionario') {
+  $nome = filter_input(INPUT_POST, "sign-up-name");
+  $datanasc = filter_input(INPUT_POST, "sign-up-date");
+  $telefone = filter_input(INPUT_POST, "sign-up-tel");
+  $cep = filter_input(INPUT_POST, "sign-up-cep");
+  $cpf = filter_input(INPUT_POST, "sign-up-cpf");
+  $email = filter_input(INPUT_POST, "sign-up-email");
+  $senha = filter_input(INPUT_POST, "sign-up-password");
+  $confirmarsenha = filter_input(INPUT_POST, "sign-up-confirm-password");
+}

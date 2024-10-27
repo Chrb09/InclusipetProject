@@ -39,21 +39,22 @@
         <br />
         <div class="cadastrar_pet"></div>
 
-        <form action="" class="form__cadastro">
-          <div class="form-input desativado">
-            <label for="">CodVeterinario</label><br />
-            <input type="number" name="" id="" disabled />
+        <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form">
+        <input type="hidden" name="type" value="register_funcionario">  
+        <div class="form-input desativado">
+            <label for="sign-up-codVet">CodVeterinario</label><br />
+            <input type="number" name="sign-up-codVet" id="sign-up-codVet" disabled />
           </div>
 
           <div class="form-input desativado">
-            <label for="">Senha Temporaria</label><br />
-            <input type="text" name="" id="" disabled />
+            <label for="sign-up-password">Senha Temporaria</label><br />
+            <input type="text" name="sign-up-password" id="sign-up-password" disabled />
           </div>
 
           <div class="form-input">
-            <label for="">Cargo</label><br />
+            <label for="sign-up-cargo">Cargo</label><br />
             <div class="custom-select">
-              <select id="" name="" size="0" placeholder="Selecione...">
+              <select id="sign-up-cargo" name="sign-up-cargo" size="0" placeholder="Selecione...">
                 <option value="clinico">Clínico geral</option>
                 <option value="clinico">Clínico geral</option>
                 <option value="clinico">Clínico geral</option>
