@@ -22,26 +22,37 @@
     $sidebarActive = "agendamentos";
     include('../../components/sidebarperfil.php');
     require_once("../../../controller/DAO/PetDAO/PetDAO.php");
+    require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
     require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
     ?>
 
     <div class="main">
       <?php include('../../components/headers/headerperfil.php');
-      $petDao = new PetDAO($conn, $BASE_URL);
 
+      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL); // instancia do AgendamentoDAO
+      $petDao = new PetDAO($conn, $BASE_URL);                 // instancia do PetDAO
+      $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL); // instancia do FuncionarioDAO
+      
+      $unidades = $agendamentoDao->getUnidade();
+      $servicos = $agendamentoDao->getServico();
+      $especialidades = $agendamentoDao->getEspecialidade();
       $pets = $petDao->getPetsByCodCliente($clienteData->codcliente);
+      $funcionarios = $funcionarioDao->getAllFuncionario();
 
+      // Verifica se existem animais de estimação associados ao cliente
       if ($pets !== []) {
-        if (isset($_GET['codAnimal'])) {
-          $CodAnimal = $_GET['codAnimal'];
-        } else {
 
-          $CodAnimal = $pets[0]->CodAnimal;
+        // Verifica se o código do animal foi passado via GET
+        if (isset($_GET['codAnimal'])) {
+          $CodAnimal = $_GET['codAnimal']; // Atribui o código do animal passado na URL
+        } else {
+          $CodAnimal = $pets[0]->CodAnimal; // Caso contrário, usa o primeiro animal na lista
         }
+
+        // Busca as informações do animal usando o código fornecido
         $petInfo = $petDao->findByCod($CodAnimal);
       }
       ?>
-
 
       <div class="content">
 
@@ -81,9 +92,12 @@
             <div class="cadastrar-pet">Cadastrar Novo Pet</div>
           </button>
         </div>
+
+        <!-- se os pets ja estiverem sido cadastrados -->
         <?php if ($pets !== []) { ?>
+
           <!-- começo do formulário  -->
-          <form action="" class="form__cadastro">
+          <form class="form__cadastro" action="resumoagendamento.php" method="POST">
             <input type="hidden" name="type" value="create_appointment"> <!-- register do agendamento -->
 
             <!-- unidade -->
@@ -91,9 +105,14 @@
               <label for="">Unidade</label><br />
               <div class="custom-select">
                 <select id="" name="unidade" size="1">
-                  <option value="cachorro">Cachorro</option>
-                  <option value="gato">Gato</option>
-                  <option value="passaro">Pássaro</option>
+
+                  <?php foreach ($unidades as $unidade): ?>
+                    <!-- Define uma opção no select com o valor da unidade -->
+                    <option value="<?= $unidade[0] ?>">
+                      <?= $unidade[0] ?>
+                    </option>
+                  <?php endforeach; ?>
+
                 </select>
               </div>
             </div>
@@ -103,9 +122,14 @@
               <label for="">Serviço</label><br />
               <div class="custom-select">
                 <select id="" name="servico" size="1">
-                  <option value="cachorro">Cachorro</option>
-                  <option value="gato">Gato</option>
-                  <option value="passaro">Pássaro</option>
+
+                  <?php foreach ($servicos as $servico): ?>
+                    <!-- Define uma opção no select com o valor da  -->
+                    <option value="<?= $servico[0] ?>">
+                      <?= $servico[0] ?>
+                    </option>
+                  <?php endforeach; ?>
+
                 </select>
               </div>
             </div>
@@ -115,9 +139,14 @@
               <label for="">Especialidade</label><br />
               <div class="custom-select">
                 <select id="" name="especialidade" size="1">
-                  <option value="cachorro">Cachorro</option>
-                  <option value="gato">Gato</option>
-                  <option value="passaro">Pássaro</option>
+
+                  <?php foreach ($especialidades as $especialidade): ?>
+                    <!-- Define uma opção no select com o valor da  -->
+                    <option value="<?= $especialidade[0] ?>">
+                      <?= $especialidade[0] ?>
+                    </option>
+                  <?php endforeach; ?>
+
                 </select>
               </div>
             </div>
@@ -127,9 +156,14 @@
               <label for="">Profissional</label><br />
               <div class="custom-select">
                 <select id="" name="profissional" size="1">
-                  <option value="cachorro">Cachorro</option>
-                  <option value="gato">Gato</option>
-                  <option value="passaro">Pássaro</option>
+
+                  <?php foreach ($funcionarios as $funcionario): ?>
+                    <!-- Define uma opção no select com o valor da  -->
+                    <option value="<?= $funcionario->CodFuncionario ?>">
+                      <?= $funcionario->Nome ?>
+                    </option>
+                  <?php endforeach; ?>
+
                 </select>
               </div>
             </div>
@@ -148,7 +182,7 @@
 
             <!-- buttons -->
             <div class="button-wrapper-form">
-              <button class="botao botao-solido" onclick="location.href='resumoagendamento.php'" type="button">
+              <button class="botao botao-solido" type="submit">
                 Continuar
               </button>
             </div>

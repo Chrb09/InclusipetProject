@@ -1,6 +1,6 @@
 <?php
 
-class Agendamento   
+class Agendamento
 {
     public $CodAgendamento;
     public $CodFuncionario;
@@ -21,4 +21,7 @@ interface AgendamentoDAOInterface
     public function create(Agendamento $agendamento);
     public function update(Agendamento $agendamento);
     public function destroy($CodAgendamento);
+    public function getUnidade();
+    public function getServico();
+    public function getEspecialidade();
 }

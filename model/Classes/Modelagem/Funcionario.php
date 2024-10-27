@@ -38,7 +38,7 @@ class Funcionario {
       public function findByToken($token);
       public function destroyToken();
       public function changePassword(Funcionario $funcionario);
-
+      public function getAllFuncionario();
       
   }
 

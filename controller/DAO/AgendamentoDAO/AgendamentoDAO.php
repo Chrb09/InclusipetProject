@@ -3,7 +3,7 @@
 require_once('../../../model/Classes/Modelagem/Agendamento.php');
 require_once("../../../model/Classes/Modelagem/Message.php");
 
-class AgendamentoDAO implements AgendamentoDAOInterface 
+class AgendamentoDAO implements AgendamentoDAOInterface
 {
     private $conn;
     private $url;
@@ -35,15 +35,52 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         return $agendamento;
     }
 
-    public function create(Agendamento $agendamento) {
+
+    public function create(Agendamento $agendamento)
+    {
 
     }
 
-    public function update(Agendamento $agendamento) {
+    public function update(Agendamento $agendamento)
+    {
 
     }
 
-    public function destroy($CodAgendamento) {
-        
+    public function destroy($CodAgendamento)
+    {
+
+    }
+
+    public function getUnidade()
+    {
+        $stmt = $this->conn->prepare("SELECT Nome FROM Unidade");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $unidade = $stmt->fetchAll();
+            return $unidade;
+        }
+    }
+
+    public function getServico()
+    {
+        $stmt = $this->conn->prepare("SELECT Descricao FROM Servico");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $servico = $stmt->fetchAll();
+            return $servico;
+        }
+    }
+
+    public function getEspecialidade()
+    {
+        $stmt = $this->conn->prepare("SELECT Descricao FROM Cargo");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $cargo = $stmt->fetchAll();
+            return $cargo;
+        }
     }
 }
