@@ -1,3 +1,19 @@
+<?php
+
+if (isset($_POST)) {
+  $unidade = filter_input(INPUT_POST, "unidade");
+  $servico = filter_input(INPUT_POST, "servico");
+  $especialidade = filter_input(INPUT_POST, "especialidade");
+  $profissional = filter_input(INPUT_POST, "profissional");
+  $data = filter_input(INPUT_POST, "data");
+  $horario = filter_input(INPUT_POST, "horario");
+  $pets = filter_input(INPUT_POST, "pet");
+} else {
+  header("location:agendamento.php");
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,80 +35,105 @@
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-
     $sidebarActive = "agendamentos";
     include('../../components/sidebarperfil.php');
     ?>
     <div class="main">
+
       <?php
       include('../../components/headers/headerperfil.php');
 
+      require_once("../../../controller/DAO/PetDAO/PetDAO.php");
+      require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
 
+      $petDao = new PetDAO($conn, $BASE_URL);                 // instancia do PetDAO
+      $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL); // instancia do FuncionarioDAO
+      
+      $funcionario = $funcionarioDao->findById($profissional);
+      $pet = $petDao->findByCod($pets);
       ?>
 
       <div class="content">
 
         <?php include('../../components/navmobileperfil.php'); ?>
         <div class="titulo">Resumo agendamento</div>
-        <div class="pet-info">
-          <div class="pet-info-wrapper">
-            <div class="pet-info-img">
-              <img src="../../assets/img/Adocao/Animal1/img1.png" alt="" />
-              <strong>Fonseca</strong>
 
-              <div class="table-row">
-                <b>Serviço Agendado</b>
-                <table class="info-table">
-                  <tr>
-                    <th>Consulta:</th>
-                    <td>R$ 0,01</td>
-                  </tr>
-                </table>
+        <form action="../../../model/Arquivo/Inicializacao/appointment_process" method="POST">
+          <input type="hidden" name="type" value="create_appointment"> <!-- register do agendamento -->
+
+          <div class="pet-info">
+            <div class="pet-info-wrapper">
+              <div class="pet-info-img">
+                <img src="../../assets/img/ImagensPet/<?php if ($pet->Imagem == "") {
+                  echo ("pet.png");
+                } else {
+                  echo ($pet->Imagem);
+                } ?>" alt="" />
+
+                <input type="hidden" name="pet" value="<?= $pet->CodAnimal ?>">
+                <strong><?= $pet->Nome ?></strong>
+
+                <!-- informações do agendamento 
+                <div class="table-row">
+                  <b>Serviço Agendado</b>
+                  <table class="info-table">
+                    <tr>
+                      <th>Consulta:</th>
+                      <td>R$ 0,01</td>
+                    </tr>
+                  </table>
+                </div>
+                -->
+              </div>
+
+              <div class="pet-info-container">
+                <b>Detalhes</b>
+                <div class="table-row">
+                  <table class="info-table">
+                    <tr>
+                      <th>Pedido:</th>
+                      <td><b>34012</b></td>
+                    </tr>
+                    <tr>
+                      <th>Unidade:</th>
+                      <input type="hidden" name="unidade" value="<?= $unidade ?>">
+                      <td><?= $unidade ?></td>
+                    </tr>
+                    <tr>
+                      <th>Serviço:</th>
+                      <input type="hidden" name="servico" value="<?= $servico ?>">
+                      <td><?= $servico ?></td>
+                    </tr>
+                    <tr>
+                      <th>Especialidade:</th>
+                      <input type="hidden" name="especialidade" value="<?= $especialidade ?>">
+                      <td><?= $especialidade ?></td>
+                    </tr>
+                    <tr>
+                      <th>Profissional:</th>
+                      <input type="hidden" name="funcionario" value="<?= $funcionario->CodFuncionario ?>">
+                      <td><?= $funcionario->Nome ?></td>
+                    </tr>
+                    <tr>
+                      <th>Data consulta:</th>
+                      <input type="hidden" name="data" value="<?= $data ?>">
+                      <td><?= $data ?></td>
+                    </tr>
+                    <tr>
+                      <th>Hora Consulta:</th>
+                      <input type="hidden" name="horario" value="<?= $horario ?>">
+                      <td><?= $horario ?></td>
+                    </tr>
+                  </table>
+                </div>
               </div>
             </div>
-            <div class="pet-info-container">
-              <b>Detalhes</b>
-              <div class="table-row">
-                <table class="info-table">
-                  <tr>
-                    <th>Pedido:</th>
-                    <td><b>34012</b></td>
-                  </tr>
-                  <tr>
-                    <th>Unidade:</th>
-                    <td>Artur Alvim</td>
-                  </tr>
-                  <tr>
-                    <th>Serviço:</th>
-                    <td>Exame</td>
-                  </tr>
-                  <tr>
-                    <th>Especialidade:</th>
-                    <td>Clínico Geral</td>
-                  </tr>
-                  <tr>
-                    <th>Profissional:</th>
-                    <td>Mônica Machado</td>
-                  </tr>
-                  <tr>
-                    <th>Data consulta:</th>
-                    <td>24/04/2024</td>
-                  </tr>
-                  <tr>
-                    <th>Hora Consulta:</th>
-                    <td>11:20</td>
-                  </tr>
-                </table>
-              </div>
+            <div class="button-wrapper-form">
+              <button class="botao botao-borda" onclick="location.href='agendamento.php'" type="button">Voltar</button>
+              <button class="botao botao-solido" type="submit">Concluir</button>
             </div>
           </div>
-          <div class="button-wrapper-form">
-            <button class="botao botao-borda" onclick="location.href='agendamento.php'" type="button">Voltar</button>
-            <button class="botao botao-solido" onclick="location.href='meusagendamentos.php'" type="button">
-              Concluir
-            </button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
