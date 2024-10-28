@@ -65,40 +65,44 @@
         } else {
           echo ("Nenhum pet cadastrado!");
         } ?></div>
-        <div class="pets">
 
-          <div class="meus-pets">
-            <?php
-
-
-            foreach ($pets as $pet): ?>
-              <label class="button-pet selecionado" for="idlabel<?= $pet->CodAnimal ?>">
-                <img src="../../assets/img/ImagensPet/<?php
-                if ($pet->Imagem == "") {
-                  echo ("pet.png");
-                } else {
-                  echo ($pet->Imagem);
-                }
-                ?>" alt="" class="img-menor" /> <?= $pet->Nome ?>
-                <input type="radio" name="pet" value="<?= $pet->CodAnimal ?>" id="idlabel<?= $pet->CodAnimal ?>"
-                  class="check-pet" <?php
-                  if ($pet->CodAnimal == $petInfo->CodAnimal)
-                    print ("checked"); ?>>
-              </label>
-            <?php endforeach; ?>
-          </div>
-          <button class="button-pet button-cadastrar" onclick="location.href='cadastraranimal.php'" type="button">
-            <img src="../../assets/img/Perfil/adicionar.png" alt="" class="img-menor novo-pet" />
-            <div class="cadastrar-pet">Cadastrar Novo Pet</div>
-          </button>
-        </div>
 
         <!-- se os pets ja estiverem sido cadastrados -->
         <?php if ($pets !== []) { ?>
 
           <!-- começo do formulário  -->
           <form class="form__cadastro" action="resumoagendamento.php" method="POST">
-            <input type="hidden" name="type" value="create_appointment"> <!-- register do agendamento -->
+
+
+            <div class="pets">
+
+              <div class="meus-pets">
+                <?php
+
+
+                foreach ($pets as $pet): ?>
+                  <label class="button-pet selecionado" for="idlabel<?= $pet->CodAnimal ?>">
+                    <img src="../../assets/img/ImagensPet/<?php
+
+                    if ($pet->Imagem == "") {
+                      echo ("pet.png");
+                    } else {
+                      echo ($pet->Imagem);
+                    }
+
+                    ?>" alt="" class="img-menor" /> <?= $pet->Nome ?>
+                    <input type="radio" name="pet" value="<?= $pet->CodAnimal ?>" id="idlabel<?= $pet->CodAnimal ?>"
+                      class="check-pet" <?php
+                      if ($pet->CodAnimal == $petInfo->CodAnimal)
+                        print ("checked"); ?>>
+                  </label>
+                <?php endforeach; ?>
+              </div>
+              <button class="button-pet button-cadastrar" onclick="location.href='cadastraranimal.php'" type="button">
+                <img src="../../assets/img/Perfil/adicionar.png" alt="" class="img-menor novo-pet" />
+                <div class="cadastrar-pet">Cadastrar Novo Pet</div>
+              </button>
+            </div>
 
             <!-- unidade -->
             <div class="form-input">
@@ -171,13 +175,13 @@
             <!-- data -->
             <div class="form-input">
               <label for="">Data desejada para consulta</label><br />
-              <input type="date" value="" max="" min="1900-01-01" />
+              <input type="date" name="data" value="" max="" min="1900-01-01" />
             </div>
 
             <!-- hora -->
             <div class="form-input">
               <label for="">Horário desejado para consulta</label><br />
-              <input type="time" value="" max="" min="1900-01-01" />
+              <input type="time" name="horario" value="" max="" />
             </div>
 
             <!-- buttons -->

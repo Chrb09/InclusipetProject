@@ -11,8 +11,6 @@ $clienteDao = new ClienteDAO($conn, $BASE_URL);
 $clienteData = $clienteDao->verifyToken(true);
 $fullName = $cliente->getFullName($clienteData);
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
