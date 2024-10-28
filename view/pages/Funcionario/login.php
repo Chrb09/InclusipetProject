@@ -25,12 +25,19 @@
   <input type="hidden" name="type" value="login_funcionario">
       <div class="form-content">
         <div class="titulo">Sistema do Funcionário</div>
-        <label for="logi-n-cod">Código de acesso</label>
-        <input name="logi-n-cod" id="logi-n-cod" type="text" required autocomplete="on" placeholder="Digite seu código de acesso" />
+
+        <!--CodFuncionario-->
+        <label for="log-in-cod">Código de acesso</label>
+        <input name="log-in-cod" id="log-in-cod" type="text" required autocomplete="off" placeholder="Digite seu código de acesso" />
        
+        <!--Senha-->
         <label for="log-in-password">Senha</label>
-        <input name="log-in-password" id="log-in-password" type="password" required autocomplete="on" placeholder="Sua senha..." />
+        <input name="log-in-password" id="log-in-password" type="password" required autocomplete="off" placeholder="Sua senha..." />
+        
+        <!--Senha-->
         <button class="botao-solido" onclick="location.href='perfil.php'" type="button">Entre</button>
+        
+        <!--Retorno ao login usuário-->
         <ins><a href="../Login/login.php">Login Usuário</a></ins>
       </div>
     </form>

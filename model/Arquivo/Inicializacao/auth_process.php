@@ -81,9 +81,18 @@ if ($type === 'register_client') {
   }
   
 } 
+// ===== FIM DO CLIENTE =====
+
+
+// ===== COMEÇO DO FUNCIONÁRIO =====
+//Cadastrar funcionário:
+
+
+
+//Login funcionário
 else if ($type === 'login_funcionario') {
 
-  $codfuncionario = filter_input(INPUT_POST, "logi-n-cod");
+  $codfuncionario = filter_input(INPUT_POST, "log-in-cod");
   $senha = filter_input(INPUT_POST, "log-in-password");
 
   if ($funcionarioDao->authenticateFuncionario($codfuncionario, $senha)) {
@@ -100,19 +109,5 @@ else if ($type === 'login_funcionario') {
 
 }
 
-// ===== FIM DO CLIENTE =====
 
-// ===== COMEÇO DO FUNCIONÁRIO =====
 
-$type = filter_input(INPUT_POST, "type");
-
-if ($type === 'register_funcionario') {
-  $nome = filter_input(INPUT_POST, "sign-up-name");
-  $datanasc = filter_input(INPUT_POST, "sign-up-date");
-  $telefone = filter_input(INPUT_POST, "sign-up-tel");
-  $cep = filter_input(INPUT_POST, "sign-up-cep");
-  $cpf = filter_input(INPUT_POST, "sign-up-cpf");
-  $email = filter_input(INPUT_POST, "sign-up-email");
-  $senha = filter_input(INPUT_POST, "sign-up-password");
-  $confirmarsenha = filter_input(INPUT_POST, "sign-up-confirm-password");
-}
