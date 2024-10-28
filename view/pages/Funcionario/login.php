@@ -35,7 +35,7 @@
         <input name="log-in-password" id="log-in-password" type="password" required autocomplete="off" placeholder="Sua senha..." />
         
         <!--Senha-->
-        <button class="botao-solido" onclick="location.href='perfil.php'" type="button">Entre</button>
+        <button class="botao-solido" value="login" type="submit">Entre</button>
         
         <!--Retorno ao login usuário-->
         <ins><a href="../Login/login.php">Login Usuário</a></ins>

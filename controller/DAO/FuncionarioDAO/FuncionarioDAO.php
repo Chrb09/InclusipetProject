@@ -38,8 +38,21 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   //Função Create
   public function create(Funcionario $funcionario, $authfuncionario = false)
   {
-    $stmt = $this->conn->prepare("INSERT INTO funcionarios (CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) 
-     VALUES (:CodCargo, :CodCargo, :Senha, :Nome, :RG, :CPF, :Telefone, :CEP, :CodUnidade , :Token)");
+    $stmt = $this->conn->prepare("INSERT INTO funcionario (CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) 
+     VALUES (:CodCargo, :Senha, :Nome, :RG, :CPF, :Telefone, :CEP, :CodUnidade , :Token)");
+
+     
+    $stmt->bindParam(":CodCargo", $funcionario->codcargo);
+    $stmt->bindParam(":Senha", $funcionario->senha);
+    $stmt->bindParam(":Nome", $funcionario->nome);
+    $stmt->bindParam(":RG", $funcionario->rg);
+    $stmt->bindParam(":CPF", $funcionario->cpf);
+    $stmt->bindParam(":Telefone", $funcionario->telefone);
+    $stmt->bindParam(":CEP", $funcionario->cep);
+    $stmt->bindParam(":CodUnidade", $funcionario->codunidade);
+    $stmt->bindParam(":Token", $funcionario->token);
+  
+
 
     $stmt->execute();
     if ($authfuncionario) {
@@ -51,19 +64,20 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   public function update(Funcionario $funcionario, $redirect = true)
   {
     $stmt = $this->conn->prepare("UPDATE funcionario SET 
-     CodCargo = :codcargo,Senha = :senha,Nome = :nome,RG = :rg,CPF = :cpf,Telefone = :telefone,CEP = :cep,CodUnidade = :codunidade,
-     Token = :token,Imagem = :imagem,WHERE CodFuncionario = :codfuncionario
-    ");
+     CodCargo = :CodCargo,Senha = :Senha,Nome = :Nome,RG = :RG, CPF = :CPF, Telefone = :Telefone, CEP = :CEP, CodUnidade = :CodUnidade,
+     Token = :Token, Imagem = :Imagem WHERE CodFuncionario = :CodFuncionario");
 
-    $stmt->bindParam(":codcargo", $funcionario->codcargo);
-    $stmt->bindParam(":senha", $funcionario->senha);
-    $stmt->bindParam(":nome", $funcionario->nome);
-    $stmt->bindParam(":rg", $funcionario->rg);
-    $stmt->bindParam(":cpf", $funcionario->cpf);
-    $stmt->bindParam(":cep", $funcionario->cep);
-    $stmt->bindParam(":codunidade", $funcionario->codunidade);
-    $stmt->bindParam(":token", $funcionario->token);
-    $stmt->bindParam(":imagem", $funcionario->imagem);
+    $stmt->bindParam(":CodCargo", $funcionario->codcargo);
+    $stmt->bindParam(":Senha", $funcionario->senha);
+    $stmt->bindParam(":Nome", $funcionario->nome);
+    $stmt->bindParam(":RG", $funcionario->rg);
+    $stmt->bindParam(":CPF", $funcionario->cpf);
+    $stmt->bindParam(":Telefone", $funcionario->telefone);
+    $stmt->bindParam(":CEP", $funcionario->cep);
+    $stmt->bindParam(":CodUnidade", $funcionario->codunidade);
+    $stmt->bindParam(":Token", $funcionario->token);
+    $stmt->bindParam(":Imagem", $funcionario->imagem);
+    $stmt->bindParam(":CodFuncionario", $funcionario->codfuncionario);
 
     $stmt->execute();
 
