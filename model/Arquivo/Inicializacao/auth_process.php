@@ -81,6 +81,9 @@ if ($type === 'register_client') {
   }
   
 } 
+// ===== FIM DO CLIENTE =====
+
+
 // ===== COMEÇO DO FUNCIONÁRIO =====
 //Cadastrar funcionário:
 
@@ -106,6 +109,5 @@ else if ($type === 'login_funcionario') {
 
 }
 
-// ===== FIM DO CLIENTE =====
 
 
