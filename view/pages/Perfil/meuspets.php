@@ -58,7 +58,10 @@
             <?php
 
 
-            foreach ($pets as $pet): ?>
+            foreach ($pets as $pet):
+              $petNome = explode(' ', trim($pet->Nome));
+              ?>
+
               <a href="meuspets.php?codAnimal=<?= $pet->CodAnimal ?>">
                 <button class="button-pet selecionado">
                   <img src="../../assets/img/ImagensPet/<?php
@@ -67,7 +70,8 @@
                   } else {
                     echo ($pet->Imagem);
                   }
-                  ?>" alt="" class="img-menor" /> <?= $pet->Nome ?>
+                  ?>" alt="" class="img-menor" /> <?= $petNome[0] ?>
+
                   <input type="radio" name="pet" value="<?= $pet->CodAnimal ?>" id="idlabel<?= $pet->CodAnimal ?>"
                     class="check-pet" <?php
                     if ($pet->CodAnimal == $petInfo->CodAnimal)
