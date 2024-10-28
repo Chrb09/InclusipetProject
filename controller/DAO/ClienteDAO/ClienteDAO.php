@@ -135,7 +135,7 @@ class ClienteDAO implements ClienteDAOInterface
     $cliente = $this->findByEmail($email);
 
     if ($cliente) {
-      if (password_verify($senha, $cliente->senha)) { // TODO
+      if (password_verify($senha, $cliente->senha)) {
 
         $token = $cliente->generateToken(); // Gera um token e o insere na session
 

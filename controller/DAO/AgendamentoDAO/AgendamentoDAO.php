@@ -38,7 +38,20 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function create(Agendamento $agendamento)
     {
+        $stmt = $this->conn->prepare("INSERT INTO agendamento(CodFuncionario, CodAnimal, CodCliente, CodUnidade, Servico, Data, Hora, CodServico) 
+      VALUES (:CodFuncionario, :CodAnimal, :CodCliente, :CodUnidade, :Servico, :Data, :Hora, :CodServico)");
 
+        // Liga os parâmetros da query com os atributos do objeto Cliente
+        $stmt->bindParam(":CodFuncionario", $agendamento->CodFuncionario);
+        $stmt->bindParam(":CodAnimal", $agendamento->CodAnimal);
+        $stmt->bindParam(":CodCliente", $agendamento->CodCliente);
+        $stmt->bindParam(":CodUnidade", $agendamento->CodUnidade);
+        $stmt->bindParam(":Servico", $agendamento->Servico);
+        $stmt->bindParam(":Data", $agendamento->Data);
+        $stmt->bindParam(":Hora", $agendamento->Hora);
+        $stmt->bindParam(":CodServico", $agendamento->CodServico);
+
+        $stmt->execute();
     }
 
     public function update(Agendamento $agendamento)
