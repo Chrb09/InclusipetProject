@@ -110,7 +110,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function setTokenToSession($token, $redirect = true)
   {
-    $_SESSION["Token"] = $token;
+    $_SESSION["token"] = $token;
     //if para autenticação se estiver autenticado redireciona a Perfil
     if ($redirect) {
       $this->message->setMessage("Usuario autenticado com sucesso!", "success", "toast", "../../../view/pages/Funcionario/perfil.php");
@@ -130,11 +130,13 @@ class FuncionarioDAO implements FuncionarioDAOInterface
         $funcionario->token = $token;
         $this->update($funcionario, false);
         return true;
+        
 
       } else {
         return false;
       }
     } else {
+      
       return false;
     }
   }
@@ -184,7 +186,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function destroyToken()
   {
-    $_SESSION["Token"] = "";
+    $_SESSION["token"] = "";
 
 
     $this->message->setMessage("Você fez o logout com sucesso!", "success", "toast", "../../../view/pages/index/index.php");
