@@ -90,8 +90,8 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function verifyToken($protected = false)
   {
-    if (!empty($_SESSION["Token"])) {
-      $token = $_SESSION["Token"];
+    if (!empty($_SESSION["token"])) {
+      $token = $_SESSION["token"];
 
       $funcionario = $this->findByToken($token);
 
@@ -147,7 +147,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
     $stmt->execute();
 
-    if($stmt->rowCount() > 0){
+    if($stmt->rowCount() >   0){
       $data = $stmt->fetch();
       $funcionario = $this->buildfuncionario($data);
 
