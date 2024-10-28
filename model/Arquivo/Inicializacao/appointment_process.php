@@ -7,9 +7,13 @@ require_once('db.php');
 require_once('../../Classes/Modelagem/Message.php');
 require_once('../../Classes/Modelagem/Agendamento.php');
 require_once('../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php');
+require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 
 $message = new Message($BASE_URL);
+$clienteDao = new ClienteDAO($conn, $BASE_URL);
 $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL);
+
+$clienteData = $clienteDao->verifyToken();
 
 // Resgata o tipo do formulário
 $type = filter_input(INPUT_POST, "type");
@@ -35,13 +39,15 @@ if ($type === 'create_appointment') {
 
         $agendamento->CodUnidade = $unidade;
         $agendamento->CodServico = $servico;
+        $agendamento->CodCliente = $clienteData->codcliente;
         // $agendamento->especialidade = $especialidade;
         $agendamento->CodFuncionario = $funcionario;
         $agendamento->Data = $data;
         $agendamento->Hora = $horario;
         $agendamento->CodAnimal = $pet;
+        $agendamento->Cancelado = false;
 
-        $agendamentoeDao->create($agendamento);
+        $agendamentoDao->create($agendamento);
     }
 }
 // ===== FIM DO AGENDAMENTO =====

@@ -7,12 +7,12 @@ class Agendamento
     public $CodAnimal;
     public $CodCliente;
     public $CodUnidade;
-    public $Servico;
     public $Data;
     public $Hora;
     public $Info;
     public $Resultado;
     public $CodServico;
+    public $Cancelado;
 }
 
 interface AgendamentoDAOInterface
@@ -20,8 +20,12 @@ interface AgendamentoDAOInterface
     public function buildAgendamento($data);
     public function create(Agendamento $agendamento);
     public function update(Agendamento $agendamento);
-    public function destroy($CodAgendamento);
-    public function getUnidade();
-    public function getServico();
-    public function getEspecialidade();
+    public function cancel($CodAgendamento);
+    public function getAgendamentoByCodCliente($CodCliente);
+    public function getAllUnidade();
+    public function getAllServico();
+    public function getAllEspecialidade();
+    public function getUnidadeByCod($CodUnidade);
+    public function getServicoByCod($CodServico);
+    public function getEspecialidadeByCod($CodEspecialidade);
 }

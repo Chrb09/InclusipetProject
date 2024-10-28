@@ -44,17 +44,24 @@
 
     $sidebarActive = "agendamentos";
     include('../../components/sidebarperfil.php');
+
+    require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
+
     ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfil.php');
 
+      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL);
+
+      $agendamentos = $agendamentoDao->getAgendamentoByCodCliente($clienteData->codcliente);
+
+      ?>
       <div class="content">
 
         <?php include('../../components/navmobileperfil.php');
         // Adicionar Condição
-        $condicao = false;
-
-        if ($condicao == true) { ?>
+        
+        if ($agendamentos !== []) { ?>
           <div class="titulo">Meus Agendamentos</div>
           <!--CODIGO DA PAGINA AQUI-->
           <div class="conteudo">

@@ -60,7 +60,8 @@ CREATE TABLE `agendamento` (
   `Hora` time NOT NULL,
   `Info` varchar(200) DEFAULT NULL,
   `Resultado` varchar(1) DEFAULT NULL,
-  `CodServico` int(11) NOT NULL
+  `CodServico` int(11) NOT NULL,
+  `Cancelado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

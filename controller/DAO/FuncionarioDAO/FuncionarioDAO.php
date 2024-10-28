@@ -132,7 +132,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     } else {
       // Prepara a consulta para buscar pelo código do funcionário
       $stmt = $this->conn->prepare("SELECT * FROM Funcionario WHERE CodFuncionario = :CodFuncionario");
-      $stmt->bindParam(":codfuncionario", $codfuncionario);
+      $stmt->bindParam(":CodFuncionario", $codfuncionario);
       $stmt->execute();
 
       // Verifica se foi encontrado pelo menos um registro com o código fornecido

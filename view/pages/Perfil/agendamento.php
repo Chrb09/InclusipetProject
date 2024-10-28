@@ -38,9 +38,9 @@
       $petDao = new PetDAO($conn, $BASE_URL);                 // instancia do PetDAO
       $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL); // instancia do FuncionarioDAO
       
-      $unidades = $agendamentoDao->getUnidade();
-      $servicos = $agendamentoDao->getServico();
-      $especialidades = $agendamentoDao->getEspecialidade();
+      $unidades = $agendamentoDao->getAllUnidade();
+      $servicos = $agendamentoDao->getAllServico();
+      $especialidades = $agendamentoDao->getAllEspecialidade();
       $pets = $petDao->getPetsByCodCliente($clienteData->codcliente);
       $funcionarios = $funcionarioDao->getAllFuncionario();
 
@@ -100,7 +100,7 @@
 
                     ?>" alt="" class="img-menor" /> <?= $petNome[0] ?>
                     <input type="radio" name="pet" value="<?= $pet->CodAnimal ?>" id="idlabel<?= $pet->CodAnimal ?>"
-                      class="check-pet" <?php
+                      class="check-pet" required <?php
                       if ($pet->CodAnimal == $petInfo->CodAnimal)
                         print ("checked"); ?>>
                   </label>
@@ -116,12 +116,12 @@
             <div class="form-input">
               <label for="">Unidade</label><br />
               <div class="custom-select">
-                <select id="" name="unidade" size="1">
+                <select id="" name="unidade" required>
 
                   <?php foreach ($unidades as $unidade): ?>
                     <!-- Define uma opção no select com o valor da unidade -->
                     <option value="<?= $unidade[0] ?>">
-                      <?= $unidade[0] ?>
+                      <?= $agendamentoDao->getUnidadeByCod($unidade[0])[1] ?>
                     </option>
                   <?php endforeach; ?>
 
@@ -133,12 +133,12 @@
             <div class="form-input">
               <label for="">Serviço</label><br />
               <div class="custom-select">
-                <select id="" name="servico" size="1">
+                <select id="" name="servico" required">
 
                   <?php foreach ($servicos as $servico): ?>
                     <!-- Define uma opção no select com o valor da  -->
                     <option value="<?= $servico[0] ?>">
-                      <?= $servico[0] ?>
+                      <?= $agendamentoDao->getServicoByCod($servico[0]) ?>
                     </option>
                   <?php endforeach; ?>
 
@@ -150,12 +150,12 @@
             <div class="form-input">
               <label for="">Especialidade</label><br />
               <div class="custom-select">
-                <select id="" name="especialidade" size="1">
+                <select id="" name="especialidade" required>
 
                   <?php foreach ($especialidades as $especialidade): ?>
                     <!-- Define uma opção no select com o valor da  -->
                     <option value="<?= $especialidade[0] ?>">
-                      <?= $especialidade[0] ?>
+                      <?= $agendamentoDao->getEspecialidadeByCod($especialidade[0]) ?>
                     </option>
                   <?php endforeach; ?>
 
@@ -167,12 +167,12 @@
             <div class="form-input">
               <label for="">Profissional</label><br />
               <div class="custom-select">
-                <select id="" name="profissional" size="1">
+                <select id="" name="profissional" required>
 
                   <?php foreach ($funcionarios as $funcionario): ?>
                     <!-- Define uma opção no select com o valor da  -->
-                    <option value="<?= $funcionario->CodFuncionario ?>">
-                      <?= $funcionario->Nome ?>
+                    <option value="<?= $funcionario->codfuncionario ?>">
+                      <?= $funcionario->nome ?>
                     </option>
                   <?php endforeach; ?>
 
@@ -183,13 +183,13 @@
             <!-- data -->
             <div class="form-input">
               <label for="">Data desejada para consulta</label><br />
-              <input type="date" name="data" value="" max="" min="1900-01-01" />
+              <input type="date" name="data" value="" max="" min="1900-01-01" required />
             </div>
 
             <!-- hora -->
             <div class="form-input">
               <label for="">Horário desejado para consulta</label><br />
-              <input type="time" name="horario" value="" max="" />
+              <input type="time" name="horario" value="" required />
             </div>
 
             <!-- buttons -->

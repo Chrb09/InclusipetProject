@@ -17,7 +17,6 @@ $resetimage = filter_input(INPUT_POST, "resetimage");
 
 $clienteData = $clienteDao->verifyToken();
 
-//Atualizar usuario
 if ($type === "create" || $type === "edit") {
     $nome = filter_input(INPUT_POST, "nome");
     $especie = filter_input(INPUT_POST, "especie");

@@ -45,7 +45,9 @@ if (isset($_POST)) {
 
       require_once("../../../controller/DAO/PetDAO/PetDAO.php");
       require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
+      require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
 
+      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL); // instancia do AgendamentoDAO
       $petDao = new PetDAO($conn, $BASE_URL);                 // instancia do PetDAO
       $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL); // instancia do FuncionarioDAO
       
@@ -90,29 +92,31 @@ if (isset($_POST)) {
                 <b>Detalhes</b>
                 <div class="table-row">
                   <table class="info-table">
+                    <!--
                     <tr>
                       <th>Pedido:</th>
                       <td><b>34012</b></td>
                     </tr>
+              -->
                     <tr>
                       <th>Unidade:</th>
                       <input type="hidden" name="unidade" value="<?= $unidade ?>">
-                      <td><?= $unidade ?></td>
+                      <td><?= $agendamentoDao->getUnidadeByCod($unidade)[1] ?></td>
                     </tr>
                     <tr>
                       <th>Serviço:</th>
                       <input type="hidden" name="servico" value="<?= $servico ?>">
-                      <td><?= $servico ?></td>
+                      <td><?= $agendamentoDao->getServicoByCod($servico) ?></td>
                     </tr>
                     <tr>
                       <th>Especialidade:</th>
                       <input type="hidden" name="especialidade" value="<?= $especialidade ?>">
-                      <td><?= $especialidade ?></td>
+                      <td><?= $agendamentoDao->getEspecialidadeByCod($especialidade) ?></td>
                     </tr>
                     <tr>
                       <th>Profissional:</th>
-                      <input type="hidden" name="funcionario" value="<?= $funcionario->CodFuncionario ?>">
-                      <td><?= $funcionario->Nome ?></td>
+                      <input type="hidden" name="funcionario" value="<?= $funcionario->codfuncionario ?>">
+                      <td><?= $funcionario->nome ?></td>
                     </tr>
                     <tr>
                       <th>Data consulta:</th>

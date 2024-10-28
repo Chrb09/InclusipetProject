@@ -38,35 +38,55 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function create(Agendamento $agendamento)
     {
-        $stmt = $this->conn->prepare("INSERT INTO agendamento(CodFuncionario, CodAnimal, CodCliente, CodUnidade, Servico, Data, Hora, CodServico) 
-      VALUES (:CodFuncionario, :CodAnimal, :CodCliente, :CodUnidade, :Servico, :Data, :Hora, :CodServico)");
+        $stmt = $this->conn->prepare("INSERT INTO agendamento(CodFuncionario, CodAnimal, CodCliente, CodUnidade, Servico, Data, Hora, CodServico, Cancelado) 
+      VALUES (:CodFuncionario, :CodAnimal, :CodCliente, :CodUnidade, :Servico, :Data, :Hora, :CodServico, :Cancelado)");
 
         // Liga os parâmetros da query com os atributos do objeto Cliente
         $stmt->bindParam(":CodFuncionario", $agendamento->CodFuncionario);
         $stmt->bindParam(":CodAnimal", $agendamento->CodAnimal);
         $stmt->bindParam(":CodCliente", $agendamento->CodCliente);
         $stmt->bindParam(":CodUnidade", $agendamento->CodUnidade);
-        $stmt->bindParam(":Servico", $agendamento->Servico);
+        $stmt->bindParam(":Servico", $agendamento->CodServico);
         $stmt->bindParam(":Data", $agendamento->Data);
         $stmt->bindParam(":Hora", $agendamento->Hora);
         $stmt->bindParam(":CodServico", $agendamento->CodServico);
+        $stmt->bindParam(":Cancelado", $agendamento->Cancelado);
 
         $stmt->execute();
-    }
 
+        $this->message->setMessage("Visita agendada com sucesso!", "success", "popup", "../../../view/pages/perfil/meusagendamentos.php");
+    }
+    public function getAgendamentoByCodCliente($CodCliente)
+    {
+        $agendamentos = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE CodCliente = :CodCliente");
+        $stmt->bindParam(":CodCliente", $CodCliente);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $agendamentosArray = $stmt->fetchAll();
+
+            foreach ($agendamentosArray as $agendamento) {
+                $agendamentos[] = $this->buildAgendamento($agendamento);
+            }
+        }
+
+        return $agendamentos;
+    }
     public function update(Agendamento $agendamento)
     {
 
     }
 
-    public function destroy($CodAgendamento)
+    public function cancel($CodAgendamento)
     {
 
     }
 
-    public function getUnidade()
+    public function getAllUnidade()
     {
-        $stmt = $this->conn->prepare("SELECT Nome FROM Unidade");
+        $stmt = $this->conn->prepare("SELECT * FROM Unidade");
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -75,9 +95,9 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         }
     }
 
-    public function getServico()
+    public function getAllServico()
     {
-        $stmt = $this->conn->prepare("SELECT Descricao FROM Servico");
+        $stmt = $this->conn->prepare("SELECT * FROM Servico");
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -86,14 +106,49 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         }
     }
 
-    public function getEspecialidade()
+    public function getAllEspecialidade()
     {
-        $stmt = $this->conn->prepare("SELECT Descricao FROM Cargo");
+        $stmt = $this->conn->prepare("SELECT * FROM Cargo");
         $stmt->execute();
-
         if ($stmt->rowCount() > 0) {
             $cargo = $stmt->fetchAll();
             return $cargo;
+        }
+    }
+
+    public function getUnidadeByCod($CodUnidade)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM Unidade WHERE CodUnidade = :CodUnidade");
+        $stmt->bindParam(":CodUnidade", $CodUnidade);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $unidade = $stmt->fetch();
+            return $unidade;
+        }
+    }
+
+    public function getServicoByCod($CodServico)
+    {
+        $stmt = $this->conn->prepare("SELECT Descricao FROM Servico WHERE CodServico = :CodServico");
+        $stmt->bindParam(":CodServico", $CodServico);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $servico = $stmt->fetch();
+            return $servico[0];
+        }
+    }
+
+    public function getEspecialidadeByCod($CodEspecialidade)
+    {
+        $stmt = $this->conn->prepare("SELECT Descricao FROM Cargo WHERE CodCargo = :CodEspecialidade");
+        $stmt->bindParam(":CodEspecialidade", $CodEspecialidade);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $cargo = $stmt->fetch();
+            return $cargo[0];
         }
     }
 }
