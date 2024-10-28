@@ -147,7 +147,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
     $stmt->execute();
 
-    if($stmt->rowCount() >   0){
+    if($stmt->rowCount() > 0){
       $data = $stmt->fetch();
       $funcionario = $this->buildfuncionario($data);
 
