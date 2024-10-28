@@ -58,7 +58,7 @@ if (isset($_POST)) {
         <?php include('../../components/navmobileperfil.php'); ?>
         <div class="titulo">Resumo agendamento</div>
 
-        <form action="../../../model/Arquivo/Inicializacao/appointment_process" method="POST">
+        <form action="../../../model/Arquivo/Inicializacao/appointment_process.php" method="POST">
           <input type="hidden" name="type" value="create_appointment"> <!-- register do agendamento -->
 
           <div class="pet-info">
