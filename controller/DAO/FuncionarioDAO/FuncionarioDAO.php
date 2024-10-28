@@ -141,53 +141,46 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function findById($codfuncionario)
   {
-    if (empty($codfuncionario)) {
-      return false; // Retorna falso se o código estiver vazio
-    } else {
-      // Prepara a consulta para buscar pelo código do funcionário
-      $stmt = $this->conn->prepare("SELECT * FROM Funcionario WHERE CodFuncionario = :CodFuncionario");
-      $stmt->bindParam(":CodFuncionario", $codfuncionario);
-      $stmt->execute();
+   if($codfuncionario != ""){
+    $stmt = $this->conn->prepare("SELECT * FROM  funcionario WHERE CodFuncionario = :CodFuncionario");
+    $stmt->bindParam(":CodFuncionario", $codfuncionario);
 
-      // Verifica se foi encontrado pelo menos um registro com o código fornecido
-      if ($stmt->rowCount() <= 0) {
-        return false; // Retorna falso se não encontrar registros
-      } else {
-        // Obtém o primeiro registro retornado da consulta
-        $data = $stmt->fetch();
-        $funcionario = $this->buildfuncionario($data); // Método para construir o objeto Funcionario
-        return $funcionario; // Retorna o objeto Funcionario
-      }
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0){
+      $data = $stmt->fetch();
+      $funcionario = $this->buildfuncionario($data);
+
+      return $funcionario;
+    } else{
+      return false;
     }
   }
+  else{
+    return false;
+  }
+}
+
 
   public function findByToken($token)
   {
-    if ($token == "") {
-
-      return false;
-
-    } else {
+    if ($token != "") {
 
       $stmt = $this->conn->prepare("SELECT * FROM funcionario WHERE Token = :Token");
       $stmt->bindParam(":Token", $token);
       $stmt->execute();
 
-      // Verifica se foi encontrado pelo menos um registro com o email fornecido
-      if ($stmt->rowCount() <= 0) {
-
-        return false;
-
-      } else {
-
-        // Obtém o primeiro registro retornado da consulta
+      if($stmt->rowCount() > 0){
         $data = $stmt->fetch();
-        $funcionario = $this->buildfuncionario($data);
+        $funcionario  = $this->buildfuncionario($data);
         return $funcionario;
-
-      }
+    } else{
+      return false;
     }
+  } else{
+    return false;
   }
+}
 
   public function destroyToken()
   {
