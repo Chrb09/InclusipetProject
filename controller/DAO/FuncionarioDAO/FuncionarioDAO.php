@@ -20,17 +20,17 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   {
     $funcionario = new Funcionario(); //Chamando a classe Funcionario
 
-    $funcionario->CodFuncionario = $data["CodFuncionario"];
-    $funcionario->CodCargo = $data["CodCargo"];
-    $funcionario->Senha = $data["Senha"];
-    $funcionario->Nome = $data["Nome"];
-    $funcionario->RG = $data["RG"];
-    $funcionario->CPF = $data["CPF"];
-    $funcionario->Telefone = $data["Telefone"];
-    $funcionario->CEP = $data["CEP"];
-    $funcionario->CodUnidade = $data["CodUnidade"];
-    $funcionario->Token = $data["Token"];
-    $funcionario->Imagem = $data["Imagem"];
+    $funcionario->codfuncionario = $data["CodFuncionario"];
+    $funcionario->codcargo = $data["CodCargo"];
+    $funcionario->senha = $data["Senha"];
+    $funcionario->nome = $data["Nome"];
+    $funcionario->rg = $data["RG"];
+    $funcionario->cpf = $data["CPF"];
+    $funcionario->telefone = $data["Telefone"];
+    $funcionario->cep = $data["CEP"];
+    $funcionario->codunidade = $data["CodUnidade"];
+    $funcionario->token = $data["Token"];
+    $funcionario->imagem = $data["Imagem"];
 
     return $funcionario;
   }
@@ -38,13 +38,12 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   //Função Create
   public function create(Funcionario $funcionario, $authfuncionario = false)
   {
-    $stmt = $this->conn->prepare("INSERT INTO funcionarios (CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) VALUES ( CodCargo = :codcargo,
-      Senha = :senha, Nome = :nome,RG = :rg, CPF = :cpf,
-     Telefone = :telefone,CEP = :cep,CodUnidade = :codunidade,Token = :token, Imagem = :imagem)");
+    $stmt = $this->conn->prepare("INSERT INTO funcionarios (CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) 
+     VALUES (:CodCargo, :CodCargo, :Senha, :Nome, :RG, :CPF, :Telefone, :CEP, :CodUnidade , :Token)");
 
     $stmt->execute();
     if ($authfuncionario) {
-      $this->setTokenToSession($funcionario->Token);
+      $this->setTokenToSession($funcionario->token);
     }
 
   }
@@ -56,15 +55,15 @@ class FuncionarioDAO implements FuncionarioDAOInterface
      Token = :token,Imagem = :imagem,WHERE CodFuncionario = :codfuncionario
     ");
 
-    $stmt->bindParam(":codcargo", $funcionario->CodCargo);
-    $stmt->bindParam(":senha", $funcionario->Senha);
-    $stmt->bindParam(":nome", $funcionario->Nome);
-    $stmt->bindParam(":rg", $funcionario->RG);
-    $stmt->bindParam(":cpf", $funcionario->CPF);
-    $stmt->bindParam(":cep", $funcionario->CEP);
-    $stmt->bindParam(":codunidade", $funcionario->CodUnidade);
-    $stmt->bindParam(":token", $funcionario->Token);
-    $stmt->bindParam(":imagem", $funcionario->Imagem);
+    $stmt->bindParam(":codcargo", $funcionario->codcargo);
+    $stmt->bindParam(":senha", $funcionario->senha);
+    $stmt->bindParam(":nome", $funcionario->nome);
+    $stmt->bindParam(":rg", $funcionario->rg);
+    $stmt->bindParam(":cpf", $funcionario->cpf);
+    $stmt->bindParam(":cep", $funcionario->cep);
+    $stmt->bindParam(":codunidade", $funcionario->codunidade);
+    $stmt->bindParam(":token", $funcionario->token);
+    $stmt->bindParam(":imagem", $funcionario->imagem);
 
     $stmt->execute();
 
@@ -77,10 +76,10 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function verifyToken($protected = false)
   {
-    if (!empty($_SESSION["token"])) {
-      $Token = $_SESSION["token"];
+    if (!empty($_SESSION["Token"])) {
+      $token = $_SESSION["Token"];
 
-      $funcionario = $this->findByToken($Token);
+      $funcionario = $this->findByToken($token);
 
       if ($funcionario) {
         return $funcionario;
@@ -97,7 +96,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function setTokenToSession($token, $redirect = true)
   {
-    $_SESSION["token"] = $token;
+    $_SESSION["Token"] = $token;
     //if para autenticação se estiver autenticado redireciona a Perfil
     if ($redirect) {
       $this->message->setMessage("Usuario autenticado com sucesso!", "success", "toast", "../../../view/pages/Funcionario/perfil.php");
@@ -109,12 +108,12 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     $funcionario = $this->findById($codfuncionario);
 
     if ($funcionario) {
-      if (password_verify($senha, $funcionario->Senha)) { // TODO
+      if (password_verify($senha, $funcionario->senha)) { // TODO
         $token = $funcionario->generateToken();
         $this->setTokenToSession($token, false);
 
         // Atualiza token no usuário
-        $funcionario->Token = $token;
+        $funcionario->token = $token;
         $this->update($funcionario, false);
         return true;
 
@@ -132,7 +131,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
       return false; // Retorna falso se o código estiver vazio
     } else {
       // Prepara a consulta para buscar pelo código do funcionário
-      $stmt = $this->conn->prepare("SELECT * FROM Funcionario WHERE CodFuncionario = :codfuncionario");
+      $stmt = $this->conn->prepare("SELECT * FROM Funcionario WHERE CodFuncionario = :CodFuncionario");
       $stmt->bindParam(":codfuncionario", $codfuncionario);
       $stmt->execute();
 
@@ -148,16 +147,16 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     }
   }
 
-  public function findByToken($Token)
+  public function findByToken($token)
   {
-    if ($Token == "") {
+    if ($token == "") {
 
       return false;
 
     } else {
 
-      $stmt = $this->conn->prepare("SELECT * FROM funcionario WHERE Token = :token");
-      $stmt->bindParam(":token", $Token);
+      $stmt = $this->conn->prepare("SELECT * FROM funcionario WHERE Token = :Token");
+      $stmt->bindParam(":Token", $token);
       $stmt->execute();
 
       // Verifica se foi encontrado pelo menos um registro com o email fornecido
@@ -178,7 +177,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function destroyToken()
   {
-    $_SESSION["token"] = "";
+    $_SESSION["Token"] = "";
 
 
     $this->message->setMessage("Você fez o logout com sucesso!", "success", "toast", "../../../view/pages/index/index.php");

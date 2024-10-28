@@ -1,16 +1,16 @@
 <?php
 class Funcionario {
-  public $CodFuncionario;
-  public $CodCargo ;
-  public $Senha ;
-  public $Nome ;
-  public $RG;
-  public $CPF ;
-  public $Telefone;
-  public $CEP;
-  public $CodUnidade;
-  public $Token;
-  public $Imagem ;
+  public $codfuncionario;
+  public $codcargo ;
+  public $senha ;
+  public $nome ;
+  public $rg;
+  public $cpf ;
+  public $telefone;
+  public $cep;
+  public $codunidade;
+  public $token;
+  public $imagem ;
 
   public function getFullName($funcionario) {
     return $funcionario->nome;
@@ -20,8 +20,8 @@ class Funcionario {
     return bin2hex(random_bytes(50));
   }
   
-  public function generatePassword($Senha) {
-    return password_hash($Senha, PASSWORD_DEFAULT);
+  public function generatePassword($senha) {
+    return password_hash($senha, PASSWORD_DEFAULT);
   }
 
   public function imageGenerateName() {
