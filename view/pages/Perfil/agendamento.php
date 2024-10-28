@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="../../assets/css/StyleMeusAgendamentos.css" />
   <!-- CSS EXTERNO PAGINA -->
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
+  <style>
+    .pets {
+      width: 100%;
+    }
+  </style>
   <!-- ICON -->
   <title>Agendamento</title>
 </head>
@@ -80,7 +85,10 @@
                 <?php
 
 
-                foreach ($pets as $pet): ?>
+                foreach ($pets as $pet):
+                  $petNome = explode(' ', trim($pet->Nome));
+                  ?>
+
                   <label class="button-pet selecionado" for="idlabel<?= $pet->CodAnimal ?>">
                     <img src="../../assets/img/ImagensPet/<?php
 
@@ -90,7 +98,7 @@
                       echo ($pet->Imagem);
                     }
 
-                    ?>" alt="" class="img-menor" /> <?= $pet->Nome ?>
+                    ?>" alt="" class="img-menor" /> <?= $petNome[0] ?>
                     <input type="radio" name="pet" value="<?= $pet->CodAnimal ?>" id="idlabel<?= $pet->CodAnimal ?>"
                       class="check-pet" <?php
                       if ($pet->CodAnimal == $petInfo->CodAnimal)
