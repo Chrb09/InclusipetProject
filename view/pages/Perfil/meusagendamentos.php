@@ -45,150 +45,91 @@
     $sidebarActive = "agendamentos";
     include('../../components/sidebarperfil.php');
 
+    require_once("../../../controller/DAO/PetDAO/PetDAO.php");
+    require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
     require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
-
     ?>
+
     <div class="main">
       <?php include('../../components/headers/headerperfil.php');
 
-      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL);
-
+      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL); // instancia do AgendamentoDAO
+      $petDao = new PetDAO($conn, $BASE_URL);                 // instancia do PetDAO
+      $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL); // instancia do FuncionarioDAO
+      
       $agendamentos = $agendamentoDao->getAgendamentoByCodCliente($clienteData->codcliente);
 
       ?>
       <div class="content">
 
         <?php include('../../components/navmobileperfil.php');
-        // Adicionar Condição
-        
+
         if ($agendamentos !== []) { ?>
           <div class="titulo">Meus Agendamentos</div>
+
+
           <!--CODIGO DA PAGINA AQUI-->
           <div class="conteudo">
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
-                </div>
-                <div class="status">Tudo Certo</div>
-              </div>
-              <table class="info-table">
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Unidade:</th>
-                  <td>Artur Alvim</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Especialidade:</th>
-                  <td>Clínico Geral</td>
-                </tr>
-                <tr>
-                  <th>Data da Consulta:</th>
-                  <td>24/04/2024</td>
-                </tr>
-                <tr>
-                  <th>Horario da Consulta:</th>
-                  <td>11:20</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form">
-                <button class="botao botao-borda" onclick="location.href='agendamento.php'" type="button">
-                  Editar
-                </button>
-                <button class="botao botao-solido" onclick="" type="button">Cancelar</button>
-              </div>
-            </div>
 
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
-                </div>
-                <div class="status">Tudo Certo</div>
-              </div>
-              <table class="info-table">
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Unidade:</th>
-                  <td>Artur Alvim</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Especialidade:</th>
-                  <td>Clínico Geral</td>
-                </tr>
-                <tr>
-                  <th>Data da Consulta:</th>
-                  <td>24/04/2024</td>
-                </tr>
-                <tr>
-                  <th>Horario da Consulta:</th>
-                  <td>11:20</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form">
-                <button class="botao botao-borda" onclick="location.href='agendamento.php'" type="button">
-                  Editar
-                </button>
-                <button class="botao botao-solido" onclick="" type="button">Cancelar</button>
-              </div>
-            </div>
+            <?php foreach ($agendamentos as $agendamento):
+              $funcionario = $funcionarioDao->findById($agendamento->CodFuncionario);
+              $pet = $petDao->findByCod($agendamento->CodAnimal); ?>
 
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
+              <div class="card-agendamento">
+
+                <div class="animal">
+                  <div class="animal-wrapper"> <!-- TODO arrumar o css -->
+                    <img class="animal_photo" src="../../assets/img/ImagensPet/<?php if ($pet->Imagem == "") {
+                      echo ("pet.png");
+                    } else {
+                      echo ($pet->Imagem);
+                    } ?>" alt="" />
+
+                    <p><?= $pet->Nome ?></p>
+                  </div>
+                  <div class="status">Tudo Certo</div>
                 </div>
-                <div class="status cancelado">Cancelado</div>
+                <table class="info-table">
+
+                  <!--
+                  <tr>
+                    <th>Pedido:</th>
+                    <td>34012</td>
+                  </tr>
+                   -->
+
+                  <tr>
+                    <th>Unidade:</th>
+                    <td><?= $agendamentoDao->getUnidadeByCod($agendamento->CodUnidade)[1] ?></td>
+                  </tr>
+                  <tr>
+                    <th>Serviço:</th>
+                    <td><?= $agendamentoDao->getServicoByCod($agendamento->CodServico) ?></td>
+                  </tr>
+                  <tr>
+                    <th>Especialidade:</th>
+                    <td><?= $agendamentoDao->getEspecialidadeByCod($funcionario->codcargo) ?></td>
+                  </tr>
+                  <tr>
+                    <th>Data da Consulta:</th>
+                    <td><?= $agendamento->Data ?></td>
+                  </tr>
+                  <tr>
+                    <th>Horario da Consulta:</th>
+                    <td><?= $agendamento->Hora ?></td>
+                  </tr>
+                </table>
+                <div class="button-wrapper-form <?= ($agendamento->Cancelado == 1) ? 'cancelado' : '' ?>">
+                  <button class="botao botao-borda" onclick="location.href='agendamento.php'" type="button">
+                    Editar
+                  </button>
+                  <button class="botao botao-solido" id="resetarfoto" type="button">Cancelar</button>
+                </div>
+
               </div>
-              <table class="info-table">
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Unidade:</th>
-                  <td>Artur Alvim</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Especialidade:</th>
-                  <td>Clínico Geral</td>
-                </tr>
-                <tr>
-                  <th>Data da Consulta:</th>
-                  <td>24/04/2024</td>
-                </tr>
-                <tr>
-                  <th>Horario da Consulta:</th>
-                  <td>11:20</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form desativado">
-                <button class="botao botao-borda" onclick="" type="button" disabled>Editar</button>
-                <button class="botao botao-solido" onclick="" type="button" disabled>Cancelar</button>
-              </div>
-            </div>
+            <?php endforeach; ?>
           </div>
+
         <?php } else { ?>
           <div class="titulo">Nenhum agendamento realizado</div>
           <br>

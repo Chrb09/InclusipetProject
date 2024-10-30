@@ -145,6 +145,7 @@
                   </tr>
                 </table>
               </div>
+              <!-- TODO terminar a parte de cancelado e editar -->
               <div class="button-row">
                 <button class="botao-solido"
                   onclick="location.href='agendamento.php?codAnimal=<?= $petInfo->CodAnimal ?>'" type="button">
