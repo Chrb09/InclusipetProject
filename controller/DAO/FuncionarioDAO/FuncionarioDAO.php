@@ -38,7 +38,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   //Função Create
   public function create(Funcionario $funcionario, $authfuncionario = false)
   {
-    $stmt = $this->conn->prepare("INSERT INTO funcionario (CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) 
+    $stmt = $this->conn->prepare("INSERT INTO funcionario(CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) 
      VALUES (:CodCargo, :Senha, :Nome, :RG, :CPF, :Telefone, :CEP, :CodUnidade , :Token)");
 
      
@@ -64,7 +64,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   public function update(Funcionario $funcionario, $redirect = true)
   {
     $stmt = $this->conn->prepare("UPDATE funcionario SET 
-     CodCargo = :CodCargo,Senha = :Senha,Nome = :Nome,RG = :RG, CPF = :CPF, Telefone = :Telefone, CEP = :CEP, CodUnidade = :CodUnidade,
+     CodCargo = :CodCargo, Senha = :Senha,Nome = :Nome,RG = :RG, CPF = :CPF, Telefone = :Telefone, CEP = :CEP, CodUnidade = :CodUnidade,
      Token = :Token, Imagem = :Imagem WHERE CodFuncionario = :CodFuncionario");
 
     $stmt->bindParam(":CodCargo", $funcionario->codcargo);
@@ -91,6 +91,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   public function verifyToken($protected = false)
   {
     if (!empty($_SESSION["token"])) {
+
       $token = $_SESSION["token"];
 
       $funcionario = $this->findByToken($token);
