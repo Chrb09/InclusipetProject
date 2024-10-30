@@ -1,22 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<?php
-
-require_once('../../../model/Arquivo/inicializacao/globals.php');
-require_once('../../../model/Arquivo/inicializacao/db.php');
-require_once('../../../model/Classes/Modelagem/Message.php');
-require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
-
-$funcionario = new Funcionario();
-$funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
-
-$funcionarioData = $funcionarioDao->verifyToken(true);
-$fullName = $funcionario->getFullName($funcionarioData);
-
-if ($funcionarioData->Imagem == "") {
-  $funcionarioData->Imagem = "user.png";
-}
-?>
 
 <head>
   <meta charset="UTF-8" />
@@ -41,7 +24,7 @@ if ($funcionarioData->Imagem == "") {
     include('../../components/sidebarvet.php');
     ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
 
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>

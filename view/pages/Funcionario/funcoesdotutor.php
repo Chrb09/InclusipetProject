@@ -43,7 +43,7 @@
     include('../../components/sidebarvet.php');
     ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
 
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>

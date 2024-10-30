@@ -30,7 +30,7 @@
     include('../../components/sidebarvet.php');
     ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
 
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>
@@ -40,8 +40,8 @@
         <div class="cadastrar_pet"></div>
 
         <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form">
-        <input type="hidden" name="type" value="register_funcionario">  
-        <div class="form-input desativado">
+          <input type="hidden" name="type" value="register_funcionario">
+          <div class="form-input desativado">
             <label for="sign-up-codVet">CodVeterinario</label><br />
             <input type="number" name="sign-up-codVet" id="sign-up-codVet" disabled />
           </div>
