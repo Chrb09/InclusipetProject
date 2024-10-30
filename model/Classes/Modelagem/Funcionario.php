@@ -34,6 +34,7 @@ class Funcionario {
       public function update(Funcionario $funcionario , $redirect = true );
       public function verifyToken($protected = false);
       public function setTokenToSession($token, $redirect = true);
+      public function authenticateFuncionario($codfuncionario, $senha);
       public function findById($codfuncionario);
       public function findByToken($token);
       public function destroyToken();
