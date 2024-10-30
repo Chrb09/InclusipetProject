@@ -60,7 +60,7 @@ if ($funcionarioData) {
     <div class="linha">
       <?php if ($funcionarioData): ?>
         <!-- caso esteja logado -->
-        <a href=" ../Funcionario/perfil.php"><?= $funcionarioData->Nome ?></a>
+        <a href=" ../Funcionario/perfil.php"><?= $funcionarioData->nome ?></a>
       <?php else: ?>
         <a href=" ../Login/login.php"><img src="../../assets/img/Login/<" alt="Login" class="login__header" /></a>
       <?php endif; ?>

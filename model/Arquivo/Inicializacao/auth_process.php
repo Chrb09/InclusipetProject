@@ -86,7 +86,25 @@ if ($type === 'register_client') {
 
 // ===== COMEÇO DO FUNCIONÁRIO =====
 //Cadastrar funcionário:
+if ($type === 'register_funcionario') {
+  $codfuncionario = filter_input(INPUT_POST, "sign-up-codVet");
+  $senha = filter_input(INPUT_POST, "sign-up-password");
+  $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
+  $cpf = filter_input(INPUT_POST, "sign-up-cpf");
+  $cep = filter_input(INPUT_POST, "sign-up-cep");
+  $rg = filter_input(INPUT_POST, "sign-up-rg");
+  $telefone = filter_input(INPUT_POST, "sign-up-telefone");
+  $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
 
+  if(!$codcargo || !$cpf || !$cep || !$rg || !$telefone || !$codunidade) {
+
+    $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
+  } else {
+    if() {
+      
+    }
+  }
+}
 
 
 //Login funcionário
