@@ -164,29 +164,25 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 }
 
 
-public function findByToken($token)
-{
-    if (!empty($token)) {
-        try {
-            $stmt = $this->conn->prepare("SELECT * FROM funcionario WHERE Token = :Token");
-            $stmt->bindParam(":Token", $token);
-            $stmt->execute();
+  public function findByToken($token)
+  {
+    if ((!empty($token))) {
 
-            if ($stmt->rowCount() > 0) {
-                $data = $stmt->fetch(PDO::FETCH_ASSOC); // Especificando o modo de fetch
-                return $this->buildfuncionario($data);
-            } else {
-                return false;
-            }
-        } catch (PDOException $e) {
-            // Log do erro, se necessário
-            return false;
-        }
-    } else {
-        return false;
+      $stmt = $this->conn->prepare("SELECT * FROM funcionario WHERE Token = :Token");
+      $stmt->bindParam(":Token", $token);
+      $stmt->execute();
+
+      if($stmt->rowCount() > 0){
+        $data = $stmt->fetch();
+        $funcionario  = $this->buildfuncionario($data);
+        return $funcionario;
+    } else{
+      return false;
     }
+  } else{
+    return false;
+  }
 }
-
 
   public function destroyToken()
   {
