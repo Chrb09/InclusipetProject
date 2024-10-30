@@ -63,29 +63,29 @@
           </div>
 
           <div class="form-input">
-            <label for="">CPF</label><br />
-            <input type="text" value="" />
+            <label for="sign-up-cpf">CPF</label><br />
+            <input type="text" value="sign-up-cpf" id="sign-up-cpf" />
           </div>
 
           <div class="form-input">
-            <label for="">CEP</label><br />
-            <input type="text" name="" id="" />
+            <label for="sign-up-cep">CEP</label><br />
+            <input type="text" name="sign-up-cep" id="sign-up-cep" />
           </div>
 
           <div class="form-input">
-            <label for="">RG</label><br />
-            <input type="text" value="" />
+            <label for="sign-up-rg">RG</label><br />
+            <input type="text" name="sign-up-rg" id="sign-up-rg" />
           </div>
 
           <div class="form-input">
-            <label for="">Telefone</label><br />
-            <input type="text" name="" id="" />
+            <label for="sign-up-telefone">Telefone</label><br />
+            <input type="text" name="sign-up-telefone" id="sign-up-telefone" />
           </div>
 
           <div class="form-input">
             <label for="">Unidade</label><br />
             <div class="custom-select">
-              <select id="" name="" size="0" placeholder="Selecione...">
+              <select id="sign-up-unidade" name="sign-up-unidade" size="0" placeholder="Selecione...">
                 <option value="alvim">Arthur Alvim</option>
                 <option value="alvim">Arthur Alvim</option>
                 <option value="alvim">Arthur Alvim</option>
@@ -95,7 +95,7 @@
 
           <div class="button-wrapper-form">
             <button class="botao botao-borda" onclick="location.href='perfil.php'" type="button">Voltar</button>
-            <button class="botao botao-solido" onclick="" type="button">Cadastrar</button>
+            <button class="botao-solido" value="cadastro" type="submit">Cadastrar</button>
           </div>
         </form>
       </div>
