@@ -30,6 +30,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         $agendamento->Info = $data["Info"];
         $agendamento->Resultado = $data["Resultado"];
         $agendamento->CodServico = $data["CodServico"];
+        $agendamento->Cancelado = $data["Cancelado"];
 
         return $agendamento;
     }

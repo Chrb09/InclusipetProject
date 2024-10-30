@@ -8,13 +8,19 @@
 .button-pet [type="radio"] {
   display: none;
 }
+.animal_photo {
+  border-radius: 100rem;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  width: 1.5em;
+}
 
 .conteudo {
   display: grid;
   padding-block: 2rem;
   width: 100%;
   padding-right: 7em;
-  grid-template-columns: repeat(auto-fit, minmax(calc(25em - (2em * 2)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(calc(25em - (2em * 2)), 45%));
   gap: 2.5em;
 }
 .card-agendamento {

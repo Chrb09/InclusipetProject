@@ -87,7 +87,11 @@
 
                     <p><?= $pet->Nome ?></p>
                   </div>
-                  <div class="status">Tudo Certo</div>
+                  <div class="status <?= ($agendamento->Cancelado == 1) ? 'cancelado' : '' ?>"><?php if ($agendamento->Cancelado == 0) {
+                            echo ("Tudo Certo");
+                          } else {
+                            echo ("Cancelado");
+                          } ?></div>
                 </div>
                 <table class="info-table">
 
@@ -119,7 +123,7 @@
                     <td><?= $agendamento->Hora ?></td>
                   </tr>
                 </table>
-                <div class="button-wrapper-form <?= ($agendamento->Cancelado == 1) ? 'cancelado' : '' ?>">
+                <div class="button-wrapper-form <?= ($agendamento->Cancelado == 1) ? 'desativado' : '' ?>">
                   <button class="botao botao-borda" onclick="location.href='agendamento.php'" type="button">
                     Editar
                   </button>

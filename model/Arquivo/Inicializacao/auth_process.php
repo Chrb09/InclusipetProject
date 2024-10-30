@@ -79,8 +79,8 @@ if ($type === 'register_client') {
   } else {
     $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
   }
-  
-} 
+
+}
 // ===== FIM DO CLIENTE =====
 
 
@@ -96,13 +96,14 @@ if ($type === 'register_funcionario') {
   $telefone = filter_input(INPUT_POST, "sign-up-telefone");
   $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
 
-  if(!$codcargo || !$cpf || !$cep || !$rg || !$telefone || !$codunidade) {
+  if (!$codcargo || !$cpf || !$cep || !$rg || !$telefone || !$codunidade) {
 
     $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
   } else {
+    /*
     if() {
       
-    }
+    }*/
   }
 }
 
@@ -116,7 +117,7 @@ else if ($type === 'login_funcionario') {
   if ($funcionarioDao->authenticateFuncionario($codfuncionario, $senha)) {
 
     $message->setMessage("Seja bem-vindo!", "success", "toast", "../../../view/pages/Funcionario/perfil.php");
-    
+
   } else {
     $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
   }
