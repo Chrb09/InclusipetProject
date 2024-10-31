@@ -93,7 +93,7 @@ if ($type === 'register_funcionario') {
   $cpf = filter_input(INPUT_POST, "sign-up-cpf");
   $cep = filter_input(INPUT_POST, "sign-up-cep");
   $rg = filter_input(INPUT_POST, "sign-up-rg");
-  $telefone = filter_input(INPUT_POST, "sign-up-telefone");
+  $telefone = filter_input(INPUT_POST, "sign-up-tel");
   $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
 
   if (!$codcargo || !$cpf || !$cep || !$rg || !$telefone || !$codunidade) {

@@ -42,53 +42,62 @@
         <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form">
           <input type="hidden" name="type" value="register_funcionario">
           <div class="form-input desativado">
+            
+           <!--Código do veterinário-->
             <label for="sign-up-codVet">CodVeterinario</label><br />
             <input type="number" name="sign-up-codVet" id="sign-up-codVet" disabled />
           </div>
 
+          <!--Senha-->
           <div class="form-input desativado">
             <label for="sign-up-password">Senha Temporaria</label><br />
             <input type="text" name="sign-up-password" id="sign-up-password" disabled />
           </div>
 
+          <!--Cargo do funcionário-->
           <div class="form-input">
             <label for="sign-up-cargo">Cargo</label><br />
             <div class="custom-select">
               <select id="sign-up-cargo" name="sign-up-cargo" size="0" placeholder="Selecione...">
-                <option value="clinico">Clínico geral</option>
-                <option value="clinico">Clínico geral</option>
-                <option value="clinico">Clínico geral</option>
+                <option value="clinico1">Clínico geral</option>
+                <option value="clinico2">Oftamologista</option>
+                <option value="clinico3">Ortopedista</option>
               </select>
             </div>
           </div>
 
+          <!--CPF-->
           <div class="form-input">
             <label for="sign-up-cpf">CPF</label><br />
             <input type="text" value="sign-up-cpf" id="sign-up-cpf" />
           </div>
 
+          <!--CEP-->
           <div class="form-input">
             <label for="sign-up-cep">CEP</label><br />
             <input type="text" name="sign-up-cep" id="sign-up-cep" />
           </div>
 
+          <!--RG-->
           <div class="form-input">
             <label for="sign-up-rg">RG</label><br />
             <input type="text" name="sign-up-rg" id="sign-up-rg" />
           </div>
 
+          <!--Telefone-->
           <div class="form-input">
-            <label for="sign-up-telefone">Telefone</label><br />
-            <input type="text" name="sign-up-telefone" id="sign-up-telefone" />
+            <label for="sign-up-tel">Telefone</label><br />
+            <input type="text" name="sign-up-tel" id="sign-up-tel" />
           </div>
 
+          <!--Unidade-->
           <div class="form-input">
             <label for="">Unidade</label><br />
             <div class="custom-select">
               <select id="sign-up-unidade" name="sign-up-unidade" size="0" placeholder="Selecione...">
-                <option value="alvim">Arthur Alvim</option>
-                <option value="alvim">Arthur Alvim</option>
-                <option value="alvim">Arthur Alvim</option>
+                <option value="codunidade1">Guarulhos</option>
+                <option value="codunidade2">Vila Cisper</option>
+                <option value="codunidade3">Arthur Alvim</option>
               </select>
             </div>
           </div>
