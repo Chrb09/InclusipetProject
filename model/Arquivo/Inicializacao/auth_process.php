@@ -97,7 +97,7 @@ if ($type === 'register_funcionario') {
   $telefone = filter_input(INPUT_POST, "sign-up-tel");
   $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
 
-  if (!$codcargo ||!$nome || !$cpf || !$cep || !$rg || !$telefone || !$codunidade) {
+  if (!$nome || !$cpf || !$cep || !$rg || !$telefone) {
 
     $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
   } else {

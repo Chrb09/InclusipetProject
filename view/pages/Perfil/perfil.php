@@ -66,7 +66,7 @@ $fullName = $cliente->getFullName($clienteData);
             <table class="info-table">
               <tr>
                 <th>Nome Completo:</th>
-                <td><?= $clienteData->nome ?></td> <!-- Nome Completo do cliente -->
+                <td><?= $clienteData->nome ?></td> <!-- Nome Completo do cliente  -->
               </tr>
               <tr>
                 <th>Data Nascimento:</th>

@@ -45,40 +45,43 @@
             <table class="info-table">
               <tr>
                 <th>Nome:</th>
-                <td>YuYuHakusho Roxo</td>
+                <td><?= $funcionarioData->nome ?></td>
               </tr>
               <tr>
                 <th>Cargo:</th>
-                <td>Clínico Geral</td>
+                <td><?= $funcionarioData->codcargo ?></td>
               </tr>
               <tr>
                 <th>CPF:</th>
-                <td>252.910.260-06</td>
+                <td><?= $funcionarioData->cpf ?></td>
               </tr>
               <tr>
                 <th>RG:</th>
-                <td>42.707.138-0</td>
+                <td><?= $funcionarioData->rg ?></td>
               </tr>
               <tr>
                 <th>CEP:</th>
-                <td>83020-030</td>
+                <td><?= $funcionarioData->cep ?></td>
               </tr>
               <tr>
                 <th>Telefone:</th>
-                <td>+11 91234-5678</td>
+                <td><?= $funcionarioData->telefone ?></td>
               </tr>
               <tr>
                 <th>Unidade:</th>
-                <td>Artur Alvim</td>
+                <td><?= $funcionarioData->codunidade ?></td>
               </tr>
             </table>
+            
             <div class="linha">
               <a href="../../../model/Arquivo/Inicializacao/logout.php">
                 <button class="botao-solido sair-button" onclick="" type="button">
                   <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
                 </button>
+              </a>
             </div>
           </div>
+          
         </div>
         <br />
         <br />
