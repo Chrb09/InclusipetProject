@@ -100,10 +100,28 @@ if ($type === 'register_funcionario') {
 
     $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
   } else {
-    /*
-    if() {
-      
-    }*/
+    
+    if($funcionarioDao -> findById($codfuncionario) === false) {
+      $funcionario = new Funcionario();
+
+      $funcionarioToken = $funcionario->generateToken();
+      $senhaFinal = $funcionario->generatePassword($senha);
+
+      $funcionario->codcargo = $codcargo;
+      $funcionario->senha = $senhaFinal;
+      $funcionario->nome = $nome;
+      $funcionario->rg = $rg;
+      $funcionario->cpf = $cpf;
+      $funcionario->telefone = $telefone;
+      $funcionario->token = $funcionarioToken;
+
+      $authfuncionario = true;
+
+      $funcionarioDao->create($funcionario, $authfuncionario);
+    }else {
+      // Enviar uma msg de erro, de dados faltantes
+      $message->setMessage("Funcionario já cadastrado.", "error", "toast", "back");
+    }
   }
 }
 
