@@ -5,10 +5,12 @@ require_once('../../../model/Arquivo/inicializacao/db.php');
 require_once('../../../model/Classes/Modelagem/Cliente.php');
 require_once('../../../model/Classes/Modelagem/Message.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
 
 $message = new Message($BASE_URL);
 
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
+$funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
 
 // Resgata o tipo do formulário
 $type = filter_input(INPUT_POST, "type");

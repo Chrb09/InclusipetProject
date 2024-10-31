@@ -58,7 +58,7 @@
           <!--Nome-->
           <div class="form-input">
            <label for="sign-up-nome">Nome</label><br />
-           <input type="text" value="" id="sign-up-nome" />
+           <input type="text" name="sign-up-nome" id="sign-up-nome" />
           </div>
 
           <!--Cargo do funcionário-->
