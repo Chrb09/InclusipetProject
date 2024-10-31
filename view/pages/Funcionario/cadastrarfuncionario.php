@@ -39,8 +39,9 @@
         <br />
         <div class="cadastrar_pet"></div>
 
-        <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form">
-          <input type="hidden" name="type" value="register_funcionario">
+        <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form"
+         onsubmit="return validarCadastro()" method="POST">
+          <input type="hidden" name="type"  value="register_funcionario">
           <div class="form-input desativado">
             
            <!--Código do veterinário-->
@@ -52,6 +53,12 @@
           <div class="form-input desativado">
             <label for="sign-up-password">Senha Temporaria</label><br />
             <input type="text" name="sign-up-password" id="sign-up-password" disabled />
+          </div>
+
+          <!--Nome-->
+          <div class="form-input">
+           <label for="sign-up-nome">Nome</label><br />
+           <input type="text" value="" id="sign-up-nome" />
           </div>
 
           <!--Cargo do funcionário-->

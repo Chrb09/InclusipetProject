@@ -89,6 +89,7 @@ if ($type === 'register_client') {
 if ($type === 'register_funcionario') {
   $codfuncionario = filter_input(INPUT_POST, "sign-up-codVet");
   $senha = filter_input(INPUT_POST, "sign-up-password");
+  $nome = filter_input(INPUT_POST, "sign-up-nome" );
   $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
   $cpf = filter_input(INPUT_POST, "sign-up-cpf");
   $cep = filter_input(INPUT_POST, "sign-up-cep");
@@ -96,7 +97,7 @@ if ($type === 'register_funcionario') {
   $telefone = filter_input(INPUT_POST, "sign-up-tel");
   $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
 
-  if (!$codcargo || !$cpf || !$cep || !$rg || !$telefone || !$codunidade) {
+  if (!$codcargo ||!$nome || !$cpf || !$cep || !$rg || !$telefone || !$codunidade) {
 
     $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
   } else {
@@ -112,7 +113,9 @@ if ($type === 'register_funcionario') {
       $funcionario->nome = $nome;
       $funcionario->rg = $rg;
       $funcionario->cpf = $cpf;
+      $funcionario->cep = $cep;
       $funcionario->telefone = $telefone;
+      $funcionario->codunidade = $codunidade;
       $funcionario->token = $funcionarioToken;
 
       $authfuncionario = true;
