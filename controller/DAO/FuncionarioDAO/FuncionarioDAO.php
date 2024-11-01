@@ -38,10 +38,9 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   //Função Create
   public function create(Funcionario $funcionario, $authfuncionario = false)
   {
-    $stmt = $this->conn->prepare("INSERT INTO funcionario(CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) 
-     VALUES (:CodCargo, :Senha, :Nome, :RG, :CPF, :Telefone, :CEP, :CodUnidade , :Token)");
+    $stmt = $this->conn->prepare("INSERT INTO funcionario( CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) 
+     VALUES ( :CodCargo, :Senha, :Nome, :RG, :CPF,:Telefone, :CEP, :CodUnidade , :Token, :Imagem)");
 
-     
     $stmt->bindParam(":CodCargo", $funcionario->codcargo);
     $stmt->bindParam(":Senha", $funcionario->senha);
     $stmt->bindParam(":Nome", $funcionario->nome);
@@ -51,6 +50,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     $stmt->bindParam(":CEP", $funcionario->cep);
     $stmt->bindParam(":CodUnidade", $funcionario->codunidade);
     $stmt->bindParam(":Token", $funcionario->token);
+    $stmt->bindParam(":Imagem", $funcionario->imagem);
 
     $stmt->execute();
 

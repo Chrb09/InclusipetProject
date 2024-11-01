@@ -84,7 +84,7 @@
           <!--CPF-->
           <div class="form-input">
             <label for="sign-up-cpf">CPF</label><br />
-            <input type="text" value="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" autocomplete="off" required />
+            <input type="text" name="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" autocomplete="off" required />
           </div>
 
           <!--CEP-->
