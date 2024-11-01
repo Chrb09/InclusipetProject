@@ -98,6 +98,7 @@ $fullName = $cliente->getFullName($clienteData);
               </a>
             </div>
           </div>
+         </div>
 
           <!-- editar informações -->
           <form action="../../../model/Arquivo/Inicializacao/user_process.php" class="form__cadastro" method="POST"

@@ -41,6 +41,7 @@
             </div>
             <ins><a href="" id="alterarsenha">Alterar Senha</a></ins>
           </div>
+          
           <div class="info_usuario">
             <table class="info-table">
               <tr>
@@ -76,8 +77,12 @@
                 <?= $funcionarioDao->getUnidadeByCod($funcionarioData->codunidade)[1] ?></td>
               </tr>
             </table>
-            
+
             <div class="linha">
+            <button class="botao-solido editar-button" onclick="usuarioedit()" type="button">
+                <img src="../../assets/img/Perfil/editar_icon.png" alt="" />Editar
+              </button>
+
               <a href="../../../model/Arquivo/Inicializacao/logout.php">
                 <button class="botao-solido sair-button" onclick="" type="button">
                   <img src="../../assets/img/Perfil/sair.png" alt="" />Sair
@@ -85,8 +90,84 @@
               </a>
             </div>
           </div>
-          
         </div>
+
+         <!-- editar informações -->
+         <form action="../../../model/Arquivo/Inicializacao/user_process.php" class="form__cadastro" method="POST"
+            enctype="multipart/form-data">
+            <input type="file" name="foto-usuario-input" id="foto-usuario-input" hidden>
+            <input type="hidden" name="resetimage" id="resetimage" value="false">
+            <input type="hidden" name="type" value="update_funcionario"> <!-- update das informações do cliente -->
+
+            <div class="form-input">
+              <label for="sign-up-nome">Nome Completo</label>
+              <input name="sign-up-nome" placeholder="" type="text" required autocomplete="off"
+                value="<?= $funcionarioData->nome ?>" />
+            </div>
+
+            <div class="form-input">
+            <label for="sign-up-cargo">Cargo</label><br />
+            <div class="custom-select">
+            <select id="" name="sign-up-cargo" size="0">
+                  <?php foreach ($cargos as $cargo): ?>
+                    <option value="<?= $cargo[0] ?>">
+                      <?= $funcionarioDao->getCargoByCod($cargo[0]) ?>
+                    </option>
+                  <?php endforeach; ?>
+              </select>
+            </div>
+            </div>
+
+
+            <div class="form-input">
+              <label for="sign-up-cpf">Email</label>
+              <input name="sign-up-cpf" placeholder="000.000.000-00" type="text" required autocomplete="off"
+                value="<?= $funcionarioData->cpf ?>" />
+            </div>
+
+            <div class="form-input desativado">
+              <label for="sign-up-cep">CEP</label>
+              <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" readonly autocomplete="off"
+                value="<?= $funcionarioData->cep ?>" />
+            </div>
+
+            <div class="form-input desativado">
+              <label for="sign-up-rg">CPF</label>
+              <input name="sign-up-rg" id="sign-up-rg" placeholder="00.000.000-0" type="text" readonly
+                autocomplete="off" value="<?= $funcionarioData->rg ?>" />
+            </div>
+
+            <div class="form-input">
+              <label for="sign-up-tel">Telefone</label>
+              <input name="sign-up-tel" id="sign-up-tel" placeholder="(00)00000-0000" type="text" required
+                autocomplete="off" value="<?= $funcionarioData->telefone ?>" />
+            </div>
+
+            <div class="form-input">
+            <label for="sign-up-unidade">Unidade</label><br />
+            <div class="custom-select">
+              <select id="" name="sign-up-unidade" size="0" placeholder="Selecione...">
+                   <?php foreach ($unidades as $unidade): ?>
+                    <!-- Define uma opção no select com o valor da unidade -->
+                    <option value="<?= $unidade[0] ?>">
+                      <?= $funcionarioDao->getUnidadeByCod($unidade[0])[1] ?>
+                    </option>
+                  <?php endforeach; ?>
+              </select>
+            </div>
+          </div>
+
+            <div class="form-msg">Para alterar seu CEP ou CPF entre em contato.</div>
+            <div class="button-wrapper-form">
+              <button class="botao botao-borda" onclick="usuarioedit()" type="button">Voltar</button>
+              <button class="botao botao-solido" onclick="" type="submit">Salvar</button>
+            </div>
+          </form>
+        </div>
+        <br />
+        <br />
+
+        
         <br />
         <br />
         <div class="acoes">
@@ -155,5 +236,13 @@ function mudarSenha() {
     });
   }
 </script>
+
+<script>const usuario = document.getElementById("usuario");
+
+function usuarioedit() {
+  usuario.classList.toggle("usuario-edit");
+}</script>
+
+
 
 </html>
