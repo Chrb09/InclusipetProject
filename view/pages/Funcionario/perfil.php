@@ -19,10 +19,10 @@
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-
     $sidebarActive = "perfil";
     include('../../components/sidebarvet.php');
     ?>
+
     <div class="main">
       <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
 
@@ -77,7 +77,8 @@
                 <?= $funcionarioDao->getUnidadeByCod($funcionarioData->codunidade)[1] ?></td>
               </tr>
             </table>
-
+ 
+            <!--Botões Começo-->
             <div class="linha">
             <button class="botao-solido editar-button" onclick="usuarioedit()" type="button">
                 <img src="../../assets/img/Perfil/editar_icon.png" alt="" />Editar
@@ -91,8 +92,9 @@
             </div>
           </div>
         </div>
+               <!--Final-->
 
-         <!-- editar informações -->
+         <!-- Editar informações Começo -->
          <form action="../../../model/Arquivo/Inicializacao/user_process.php" class="form__cadastro" method="POST"
             enctype="multipart/form-data">
             <input type="file" name="foto-usuario-input" id="foto-usuario-input" hidden>
@@ -157,6 +159,8 @@
             </div>
           </div>
 
+          <!--Final do editar informações-->
+
             <div class="form-msg">Para alterar seu CEP ou CPF entre em contato.</div>
             <div class="button-wrapper-form">
               <button class="botao botao-borda" onclick="usuarioedit()" type="button">Voltar</button>
@@ -164,12 +168,14 @@
             </div>
           </form>
         </div>
+
+
+        <br />
+        <br />
         <br />
         <br />
 
-        
-        <br />
-        <br />
+        <!--Começo de Ações-->
         <div class="acoes">
           <a class="nav-perfil" href="agendamentos.php"><img src="../../assets/img/Perfil/agendar.png" alt="" />
             <div class="card-txt">
@@ -195,6 +201,8 @@
     </div>
   </div>
 </body>
+
+<!--Partes de Scripts-->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -237,6 +245,7 @@ function mudarSenha() {
   }
 </script>
 
+<!--Script de Editar Usuário-->
 <script>const usuario = document.getElementById("usuario");
 
 function usuarioedit() {
