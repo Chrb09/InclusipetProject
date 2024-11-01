@@ -28,12 +28,17 @@
 
     $sidebarActive = "funcionario";
     include('../../components/sidebarvet.php');
+    require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
     ?>
     <div class="main">
       <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
 
       <div class="content">
-        <?php include('../../components/navmobilevet.php'); ?>
+        <?php include('../../components/navmobilevet.php'); 
+         $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
+         $cargos = $funcionarioDao->getAllCargo();
+         $unidades = $funcionarioDao->getAllUnidade();
+        ?>
         <!-- Conteudo principal -->
         <div class="titulo">Cadastrar Funcionário</div>
         <br />
@@ -74,6 +79,7 @@
               </select>
             </div>
           </div>
+          
 
           <!--CPF-->
           <div class="form-input">
@@ -103,10 +109,13 @@
           <div class="form-input">
             <label for="">Unidade</label><br />
             <div class="custom-select">
-              <select id="sign-up-unidade" name="sign-up-unidade" size="0" placeholder="Selecione...">
-                <option value="codunidade1">Guarulhos</option>
-                <option value="codunidade2">Vila Cisper</option>
-                <option value="codunidade3">Arthur Alvim</option>
+              <select id="" name="sign-up-unidade" size="0" placeholder="Selecione...">
+                   <?php foreach ($unidades as $unidade): ?>
+                    <!-- Define uma opção no select com o valor da unidade -->
+                    <option value="<?= $unidade[0] ?>">
+                      <?= $funcionarioDao->getUnidadeByCod($unidade[0])[1] ?>
+                    </option>
+                  <?php endforeach; ?>
               </select>
             </div>
           </div>

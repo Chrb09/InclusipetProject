@@ -198,6 +198,16 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   }
 
+  public function getAllCargo()
+  {
+      $stmt = $this->conn->prepare("SELECT * FROM Cargo");
+      $stmt->execute();
+      if ($stmt->rowCount() > 0) {
+          $cargo = $stmt->fetchAll();
+          return $cargo;
+      }
+  }
+
   public function getAllFuncionario()
   {
     $funcionarios = []; // Inicializa um array vazio para armazenar os funcionários
@@ -218,6 +228,17 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     }
 
     return $funcionarios; // Retorna o array de funcionários
+  }
+
+  public function getAllUnidade()
+  {
+      $stmt = $this->conn->prepare("SELECT * FROM Unidade");
+      $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+          $unidade = $stmt->fetchAll();
+          return $unidade;
+      }
   }
 
   public function getUnidadeByCod($codunidade)

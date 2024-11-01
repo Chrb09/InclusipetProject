@@ -48,6 +48,8 @@ interface FuncionarioDAOInterface
   public function getUnidadeByCod($codunidade);
   public function getCargoByCod($codcargo);
   public function getAllFuncionario();
+  public function getAllCargo();
+  public function getAllUnidade();
 
 }
 
