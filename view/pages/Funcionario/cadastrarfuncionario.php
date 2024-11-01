@@ -45,7 +45,7 @@
         <div class="cadastrar_pet"></div>
 
         <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form"
-         onsubmit="return validarCadastro()" method="POST">
+          method="POST">
           <input type="hidden" name="type"  value="register_funcionario">
           <div class="form-input desativado">
             
@@ -84,25 +84,25 @@
           <!--CPF-->
           <div class="form-input">
             <label for="sign-up-cpf">CPF</label><br />
-            <input type="text" value="sign-up-cpf" id="sign-up-cpf" />
+            <input type="text" value="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" />
           </div>
 
           <!--CEP-->
           <div class="form-input">
             <label for="sign-up-cep">CEP</label><br />
-            <input type="text" name="sign-up-cep" id="sign-up-cep" />
+            <input type="text" name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" />
           </div>
 
           <!--RG-->
           <div class="form-input">
             <label for="sign-up-rg">RG</label><br />
-            <input type="text" name="sign-up-rg" id="sign-up-rg" />
+            <input type="text" name="sign-up-rg" id="sign-up-rg" placeholder="00.000.000-0" />
           </div>
 
           <!--Telefone-->
           <div class="form-input">
             <label for="sign-up-tel">Telefone</label><br />
-            <input type="text" name="sign-up-tel" id="sign-up-tel" />
+            <input type="text" name="sign-up-tel" id="sign-up-tel" placeholder="(**)" />
           </div>
 
           <!--Unidade-->
@@ -122,7 +122,7 @@
 
           <div class="button-wrapper-form">
             <button class="botao botao-borda" onclick="location.href='perfil.php'" type="button">Voltar</button>
-            <button class="botao-solido" value="cadastro" type="submit">Cadastrar</button>
+            <button class="botao-solido" value="registrar" type="submit">Cadastrar</button>
           </div>
         </form>
       </div>
@@ -133,5 +133,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
+
 
 </html>
