@@ -87,7 +87,7 @@ if ($type === 'register_client') {
 // ===== COMEÇO DO FUNCIONÁRIO =====
 //Cadastrar funcionário:
 if ($type === 'register_funcionario') {
-  $senha = filter_input(INPUT_POST, "sign-up-senha");
+  
   $nome = filter_input(INPUT_POST, "sign-up-nome" );
   $codcargo = filter_input(INPUT_POST, "cargo");
   $cpf = filter_input(INPUT_POST, "sign-up-cpf");
@@ -96,7 +96,7 @@ if ($type === 'register_funcionario') {
   $telefone = filter_input(INPUT_POST, "sign-up-tel");
   $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
 
-  if (!$nome || !$cpf || !$cep || !$rg || !$telefone) {
+  if (!$nome  || !$cpf || !$cep || !$rg || !$telefone  ) {
 
     $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
   } else {
@@ -106,13 +106,13 @@ if ($type === 'register_funcionario') {
 
       $funcionarioToken = $funcionario->generateToken();
       $senhaFinal = $funcionario->generatePassword($senha);
-
-      $funcionario->codcargo = $codcargo;
       $funcionario->senha = $senhaFinal;
+      
       $funcionario->nome = $nome;
-      $funcionario->rg = $rg;
+      $funcionario->codcargo = $codcargo;
       $funcionario->cpf = $cpf;
       $funcionario->cep = $cep;
+      $funcionario->rg = $rg;
       $funcionario->telefone = $telefone;
       $funcionario->codunidade = $codunidade;
       $funcionario->token = $funcionarioToken;
