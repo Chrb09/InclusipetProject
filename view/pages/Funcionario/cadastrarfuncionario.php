@@ -47,9 +47,9 @@
         <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form"
           method="POST">
           <input type="hidden" name="type"  value="register_funcionario">
+          
+          <!--Código do veterinário-->
           <div class="form-input desativado">
-            
-           <!--Código do veterinário-->
             <label for="sign-up-codVet">CodVeterinario</label><br />
             <input type="number" name="sign-up-codVet" id="sign-up-codVet" disabled />
           </div>
@@ -70,7 +70,7 @@
           <div class="form-input">
             <label for="sign-up-cargo">Cargo</label><br />
             <div class="custom-select">
-              <select id="" name="cargo" size="0">
+              <select id="" name="sign-up-cargo" size="0">
                   <?php foreach ($cargos as $cargo): ?>
                     <option value="<?= $cargo[0] ?>">
                       <?= $funcionarioDao->getCargoByCod($cargo[0]) ?>
@@ -107,7 +107,7 @@
 
           <!--Unidade-->
           <div class="form-input">
-            <label for="">Unidade</label><br />
+            <label for="sign-up-unidade">Unidade</label><br />
             <div class="custom-select">
               <select id="" name="sign-up-unidade" size="0" placeholder="Selecione...">
                    <?php foreach ($unidades as $unidade): ?>

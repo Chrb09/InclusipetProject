@@ -87,9 +87,8 @@ if ($type === 'register_client') {
 // ===== COMEÇO DO FUNCIONÁRIO =====
 //Cadastrar funcionário:
 if ($type === 'register_funcionario') {
-  
   $nome = filter_input(INPUT_POST, "sign-up-nome" );
-  $codcargo = filter_input(INPUT_POST, "cargo");
+  $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
   $cpf = filter_input(INPUT_POST, "sign-up-cpf");
   $cep = filter_input(INPUT_POST, "sign-up-cep");
   $rg = filter_input(INPUT_POST, "sign-up-rg");
