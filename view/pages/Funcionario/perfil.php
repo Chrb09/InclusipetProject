@@ -40,6 +40,7 @@
               </div>
             </div>
             <ins><a href="" id="alterarsenha">Alterar Senha</a></ins>
+            <ins><a href="" id="resetarfoto">Alterar foto</a></ins>
           </div>
           
           <div class="info_usuario">
@@ -99,7 +100,7 @@
             enctype="multipart/form-data">
             <input type="file" name="foto-usuario-input" id="foto-usuario-input" hidden>
             <input type="hidden" name="resetimage" id="resetimage" value="false">
-            <input type="hidden" name="type" value="update_funcionario"> <!-- update das informações do cliente -->
+            <input type="hidden" name="type" value="update_funcionario"> <!-- update das informações do funcionario -->
 
             <div class="form-input">
               <label for="sign-up-nome">Nome Completo</label>
@@ -163,8 +164,12 @@
 
             <div class="form-msg">Para alterar seu CEP ou CPF entre em contato.</div>
             <div class="button-wrapper-form">
+
+             <!--Botões de salvar e voltar-->
+
               <button class="botao botao-borda" onclick="usuarioedit()" type="button">Voltar</button>
               <button class="botao botao-solido" onclick="" type="submit">Salvar</button>
+          
             </div>
           </form>
         </div>
