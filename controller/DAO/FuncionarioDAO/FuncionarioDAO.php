@@ -195,7 +195,14 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function changePassword(Funcionario $funcionario)
   {
+    $stmt = $this->conn->prepare("UPDATE funcionario SET Senha = :Senha WHERE CodFuncionario = :CodFuncionario");
 
+    $stmt->bindParam(":Senha", $funcionario->senha);
+    $stmt->bindParam(":CodFuncionario", $funcionario->codfuncionario);
+
+    $stmt->execute();
+
+    $this->message->setMessage("Senha alterada com sucesso!", "success", "popup", "../../../view/pages/Perfil/perfil.php");
   }
 
   public function getAllCargo()

@@ -3,6 +3,7 @@
 require_once('../../../model/Arquivo/inicializacao/globals.php');
 require_once('../../../model/Arquivo/inicializacao/db.php');
 require_once('../../../model/Classes/Modelagem/Cliente.php');
+require_once('../../../model/Classes/Modelagem/Funcionario.php');
 require_once('../../../model/Classes/Modelagem/Message.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
@@ -91,3 +92,31 @@ if ($type === "update_client") {
 } else {
     $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
 }
+ //Fim do usuário
+
+ //Começo do funcionário
+
+ if($type === "update_password") {
+    $senha = filter_input(INPUT_POST, "change-password");
+    $confirmarsenha = filter_input(INPUT_POST, "change-password-confirm");
+
+    $funcionarioData = $funcionarioDao->verifyToken();
+    $id = $funcionarioData->codfuncionario;
+
+    if ($senha != $confirmarsenha) {
+        $message->setMessage("As senhas não batem", "error", "toast", "back");
+    } else if (strlen($senha) < 8) {
+        $message->setMessage("A senha deve ter no mínimo 8 caracteres", "error", "toast", "back");
+    } else {
+        $funcionario = new Funcionario();
+
+        $finalSenha = $funcionario->generatePassword($senha);
+
+        $funcionario->senha = $finalSenha;
+        $funcionario->codfuncionario = $id;
+
+        $funcionarioDao->changePassword($funcionario);
+    }
+
+
+ }

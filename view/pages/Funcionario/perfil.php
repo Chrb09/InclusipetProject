@@ -39,7 +39,7 @@
                 <img src="../../assets/img/Perfil/editar_icon.png" alt="" />
               </div>
             </div>
-            <ins><a href="">Alterar Senha</a></ins>
+            <ins><a href="" id="alterarsenha">Alterar Senha</a></ins>
           </div>
           <div class="info_usuario">
             <table class="info-table">
@@ -118,5 +118,42 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
+
+<!--Script Alterar Senha-->
+<script>
+$('#alterarsenha').click(function () { mudarSenha(); return false; });
+
+function mudarSenha() {
+    Swal.fire({
+      title: `<div class="titulo-sweetalert">Alterar Senha</div>`,
+      html: `
+        <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/user_process.php" method="POST" onsubmit="return validarCadastro()">
+        <input type="hidden" name="type" value="update_password">
+        <div class="input-sweetalert">
+          <label for="" >Senha</label>
+          <input name="change-password" id="sign-up-password" placeholder="Sua nova senha..." type="password" required autocomplete="off"" />
+        </div>
+        <div class="input-sweetalert">
+          <label for="" >Confirmar senha</label>
+          <input name="change-password-confirm" id="sign-up-confirm-password" placeholder="Sua nova senha..." type="password" required autocomplete="off"" />
+        </div>
+        <div class="linha-sweetalert">
+          <button class="botao-borda" onclick="Swal.close()"  type="button">Voltar</button>
+          <button class="botao-solido" onclick=""type="submit">Mudar</button>
+        </div>
+        </form>
+
+
+        `,
+      customClass: {
+        popup: 'container-input',
+      },
+      confirmButtonText: "Ok!",
+      showConfirmButton: false,
+      focusConfirm: false,
+      backdrop: "rgb(87, 77, 189, 0.5",
+    });
+  }
+</script>
 
 </html>
