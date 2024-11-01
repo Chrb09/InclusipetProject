@@ -45,6 +45,8 @@ interface FuncionarioDAOInterface
   public function findByToken($token);
   public function destroyToken();
   public function changePassword(Funcionario $funcionario);
+  public function getUnidadeByCod($codunidade);
+  public function getCargoByCod($codcargo);
   public function getAllFuncionario();
 
 }

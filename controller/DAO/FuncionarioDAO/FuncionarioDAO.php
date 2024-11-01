@@ -219,4 +219,30 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
     return $funcionarios; // Retorna o array de funcionários
   }
+
+  public function getUnidadeByCod($codunidade)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM unidade WHERE CodUnidade = :CodUnidade");
+        $stmt->bindParam(":CodUnidade", $codunidade);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $unidade = $stmt->fetch();
+            return $unidade;
+        }
+    }
+ 
+    //Função Get cargobycod, encontrar o cargo pelo código
+    public function getCargoByCod($codcargo)
+    {
+        $stmt = $this->conn->prepare("SELECT Descricao FROM cargo WHERE CodCargo = :CodCargo");
+        $stmt->bindParam(":CodCargo", $codcargo);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $cargo = $stmt->fetch();
+            return $cargo[0];
+        }
+    }
+    
 }

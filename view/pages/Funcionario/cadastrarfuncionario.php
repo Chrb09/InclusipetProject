@@ -65,10 +65,12 @@
           <div class="form-input">
             <label for="sign-up-cargo">Cargo</label><br />
             <div class="custom-select">
-              <select id="sign-up-cargo" name="sign-up-cargo" size="0" placeholder="Selecione...">
-                <option value="clinico1">Clínico geral</option>
-                <option value="clinico2">Oftamologista</option>
-                <option value="clinico3">Ortopedista</option>
+              <select id="" name="cargo" size="0">
+                  <?php foreach ($cargos as $cargo): ?>
+                    <option value="<?= $cargo[0] ?>">
+                      <?= $funcionarioDao->getCargoByCod($cargo[0]) ?>
+                    </option>
+                  <?php endforeach; ?>
               </select>
             </div>
           </div>
