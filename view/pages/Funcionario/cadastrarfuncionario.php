@@ -134,5 +134,67 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
 
+<script>
+    $(document).ready(function() {
+      // Máscaras para os campos
+      $("#sign-up-cpf").mask("000.000.000-00");
+      $("#sign-up-cep").mask("00000-000");
+      $("#sign-up-tel").mask("(00) 00000-0000");
+      $("#sign-up-rg").mask("00.000.000-0"); // Máscara para RG
+
+      // Função de validação do cadastro
+      window.validarCadastro = function() {
+        const nome = $("#sign-up-nome").val();
+        const cpf = $("#sign-up-cpf").val();
+        const cep = $("#sign-up-cep").val();
+        const rg = $("#sign-up-rg").val();
+        const telefone = $("#sign-up-tel").val();
+        
+        // Validações
+        if (!nome || !cpf || !cep || !rg || !telefone) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Preencha todos os campos obrigatórios!'
+          });
+          return false;
+        }
+
+        if (cpf.length !== 14) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'CPF deve ter 11 dígitos!'
+          });
+          return false;
+        }
+
+        if (cep.length !== 10) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'CEP deve ter 8 dígitos!'
+          });
+          return false;
+        }
+
+        if (rg.length !== 12) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'RG deve ter 9 dígitos!'
+          });
+          return false;
+        }
+
+        if (telefone.length !== 15) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Telefone deve ter 14 dígitos!'
+          });
+          return false;
+        }
+
+        return true; 
+      };
+    });
+  </script>
+
 
 </html>
