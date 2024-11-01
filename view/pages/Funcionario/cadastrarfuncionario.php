@@ -63,7 +63,7 @@
           <!--Nome-->
           <div class="form-input">
            <label for="sign-up-nome">Nome</label><br />
-           <input type="text" name="sign-up-nome" id="sign-up-nome" />
+           <input type="text" name="sign-up-nome" id="sign-up-nome" required/>
           </div>
 
           <!--Cargo do funcionário-->
@@ -84,25 +84,25 @@
           <!--CPF-->
           <div class="form-input">
             <label for="sign-up-cpf">CPF</label><br />
-            <input type="text" value="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" />
+            <input type="text" value="sign-up-cpf" id="sign-up-cpf" placeholder="000.000.000-00" autocomplete="off" required />
           </div>
 
           <!--CEP-->
           <div class="form-input">
             <label for="sign-up-cep">CEP</label><br />
-            <input type="text" name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" />
+            <input type="text" name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" autocomplete="off" required/>
           </div>
 
           <!--RG-->
           <div class="form-input">
             <label for="sign-up-rg">RG</label><br />
-            <input type="text" name="sign-up-rg" id="sign-up-rg" placeholder="00.000.000-0" />
+            <input type="text" name="sign-up-rg" id="sign-up-rg" placeholder="00.000.000-0" autocomplete="off" required/>
           </div>
 
           <!--Telefone-->
           <div class="form-input">
             <label for="sign-up-tel">Telefone</label><br />
-            <input type="text" name="sign-up-tel" id="sign-up-tel" placeholder="(**)" />
+            <input type="text" name="sign-up-tel" id="sign-up-tel" placeholder="(00) 00000-0000" autocomplete="off"  required/>
           </div>
 
           <!--Unidade-->
