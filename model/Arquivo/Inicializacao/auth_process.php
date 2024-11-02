@@ -83,6 +83,33 @@ if ($type === 'register_client') {
 }
 // ===== FIM DO CLIENTE =====
 
+//Criação da função para validação de CPF
+
+function validarCPF($cpf){
+  $cpf = preg_replace('/\D/', '', $cpf); // Remove caracteres não numéricos
+
+  if (strlen($cpf) != 11 || preg_match('/^(\d)\1{10}$/', $cpf)) {
+      return false; // CPF inválido
+  }
+
+  // Validação do primeiro dígito
+  $soma = 0;
+  for ($i = 1; $i <= 9; $i++) {
+      $soma += (int)$cpf[$i - 1] * (11 - $i);
+  }
+  $resto = ($soma * 10) % 11;
+  if ($resto >= 10) $resto = 0;
+  if ($resto != (int)$cpf[9]) return false;
+
+  // Validação do segundo dígito
+  $soma = 0;
+  for ($i = 1; $i <= 10; $i++) {
+      $soma += (int)$cpf[$i - 1] * (12 - $i);
+  }
+  $resto = ($soma * 10) % 11;
+  if ($resto >= 10) $resto = 0;
+  return $resto == (int)$cpf[10];
+}
 
 // ===== COMEÇO DO FUNCIONÁRIO =====
 //Cadastrar funcionário:
@@ -100,7 +127,10 @@ if ($type === 'register_funcionario') {
   if (!$nome  || !$cpf || !$cep || !$rg || !$telefone || !$codunidade ) {
 
     $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
-  } else {
+  } else if(!validarCPF($cpf)){
+    $message->setMessage("CPF inválido.", "error", "toast", "back");
+  } 
+  else {
     
     if($funcionarioDao -> findById($codfuncionario) === false) {
       $funcionario = new Funcionario();
