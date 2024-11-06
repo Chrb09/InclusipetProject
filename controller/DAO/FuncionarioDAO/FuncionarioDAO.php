@@ -31,6 +31,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     $funcionario->codunidade = $data["CodUnidade"];
     $funcionario->token = $data["Token"];
     $funcionario->imagem = $data["Imagem"];
+    $funcionario->dataAdmissao = $data["DataAdmissao"];
 
     return $funcionario;
   }
@@ -261,8 +262,8 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   //Função Get cargobycod, encontrar o cargo pelo código
   public function getCargoByCod($codcargo)
   {
-    $stmt = $this->conn->prepare("SELECT Descricao FROM cargo WHERE CodCargo = :CodCargo");
-    $stmt->bindParam(":CodCargo", $codcargo);
+    $stmt = $this->conn->prepare("SELECT Descricao FROM Cargo WHERE CodCargo = :CodEspecialidade");
+    $stmt->bindParam(":CodEspecialidade", $codcargo);
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {

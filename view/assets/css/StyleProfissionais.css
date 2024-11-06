@@ -45,7 +45,10 @@ th:nth-child(5) {
   width: 125px;
 }
 .card img {
-  height: 100%;
+  width: 8em;
+  border-radius: 1em;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
 }
 .info {
   text-align: left;

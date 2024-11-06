@@ -12,6 +12,7 @@ class Funcionario
   public $codunidade;
   public $token;
   public $imagem;
+  public $dataAdmissao;
 
   public function getFullName($funcionario)
   {
