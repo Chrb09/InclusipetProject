@@ -36,7 +36,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   }
 
   //Função Create
-  public function create(Funcionario $funcionario, $authfuncionario = false)
+  public function create(Funcionario $funcionario, $authfuncionario = false, $senha)
   {
     $stmt = $this->conn->prepare("INSERT INTO funcionario( CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) 
      VALUES ( :CodCargo, :Senha, :Nome, :RG, :CPF,:Telefone, :CEP, :CodUnidade , :Token, :Imagem)");
@@ -54,10 +54,9 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
     $stmt->execute();
 
+    $id = $this->conn->lastInsertId();
 
-    if ($authfuncionario) {
-      $this->setTokenToSession($funcionario->token);
-    }
+    $this->message->setMessage("Funcionario cadastrado com <br><b>Código:</b> $id <br> <b>Senha:</b> $senha", "success", "popup", "back");
 
   }
 

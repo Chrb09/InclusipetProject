@@ -184,6 +184,9 @@ iframe {
     border-color: var(--purplehover);
   }
 }
+.container-custom b {
+  font-size: 1em;
+}
 .colored-toast {
   width: 20rem;
   border-radius: 1em;

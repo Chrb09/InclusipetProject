@@ -9,7 +9,7 @@
   <!-- CSS EXTERNO GERAL -->
   <link rel="stylesheet" href="../../assets/css/StylePost.css" />
   <!-- CSS EXTERNO PAGINA -->
-  <link rel="icon" href="../../../assets/img/Outros/inclusipet.ico" />
+  <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
   <title>A Importância das Vacinas para a Saúde dos Animais</title>
 </head>

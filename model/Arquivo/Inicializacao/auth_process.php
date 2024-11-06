@@ -125,9 +125,9 @@ if ($type === 'register_client') {
         $funcionario->codunidade = $codunidade;
         $funcionario->token = $funcionarioToken;
 
-        $authfuncionario = true;
+        $authfuncionario = false;
 
-        $funcionarioDao->create($funcionario, $authfuncionario);
+        $funcionarioDao->create($funcionario, $authfuncionario, $senha);
       } else {
         // Enviar uma msg de erro, de dados faltantes
         $message->setMessage("Funcionario já cadastrado.", "error", "toast", "back");
