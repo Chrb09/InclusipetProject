@@ -152,10 +152,23 @@ span {
   align-items: center;
   gap: 1rem;
 }
-.fotos img {
-  width: 15%;
-}
 
+.foto-pet-adocao {
+  width: 12%;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.3s;
+  &:hover {
+    transform: translate(0, -4px);
+  }
+}
+.foto-pet-adocao img {
+  border-radius: 1em;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 100%;
+}
 /* sm */
 @media (max-width: 640px) {
   .top {

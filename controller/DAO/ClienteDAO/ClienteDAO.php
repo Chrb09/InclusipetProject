@@ -93,9 +93,9 @@ class ClienteDAO implements ClienteDAOInterface
   public function verifyToken($protected = false)
   {
 
-    if (!empty($_SESSION["token"])) {
+    if (!empty($_SESSION["token_cliente"])) {
       // Pega o token da session
-      $token = $_SESSION["token"];
+      $token = $_SESSION["token_cliente"];
 
       $cliente = $this->findByToken($token);
 
@@ -120,7 +120,7 @@ class ClienteDAO implements ClienteDAOInterface
   {
 
     // Salva token na session
-    $_SESSION["token"] = $token;
+    $_SESSION["token_cliente"] = $token;
 
     if ($redirect) {
 
@@ -220,7 +220,7 @@ class ClienteDAO implements ClienteDAOInterface
   public function destroyToken()
   {
 
-    $_SESSION["token"] = ""; // Remove o token da session
+    $_SESSION["token_cliente"] = ""; // Remove o token da session
 
     // Redireciona e apresentar a mensagem de sucesso
     $this->message->setMessage("Você fez o logout com sucesso!", "success", "toast", "../../../view/pages/index/index.php");

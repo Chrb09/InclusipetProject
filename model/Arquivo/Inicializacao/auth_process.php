@@ -39,6 +39,8 @@ if ($type === 'register_client') {
 
   } else if ($senha !== $confirmarsenha) {
     $message->setMessage("As senhas fornecidas não batem.", "error", "toast", "back");
+  } else if (!validarCPF($cpf)) {
+    $message->setMessage("CPF inválido.", "error", "toast", "back");
   } else {
 
     if ($clienteDao->findByEmail($email) === false) {
@@ -80,104 +82,102 @@ if ($type === 'register_client') {
     $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
   }
 
-}
-// ===== FIM DO CLIENTE =====
+} else
+  // ===== FIM DO CLIENTE =====
+
+
+
+
+
+  // ===== COMEÇO DO FUNCIONÁRIO =====
+//Cadastrar funcionário:
+  if ($type === 'register_funcionario') {
+    $codfuncionario = filter_input(INPUT_POST, "sign-up-codVet");
+    $senha = filter_input(INPUT_POST, "sign-up-password");
+    $nome = filter_input(INPUT_POST, "sign-up-nome");
+    $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
+    $cpf = filter_input(INPUT_POST, "sign-up-cpf");
+    $cep = filter_input(INPUT_POST, "sign-up-cep");
+    $rg = filter_input(INPUT_POST, "sign-up-rg");
+    $telefone = filter_input(INPUT_POST, "sign-up-tel");
+    $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
+
+    if (!$nome || !$cpf || !$cep || !$rg || !$telefone || !$codunidade) {
+
+      $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
+    } else if (!validarCPF($cpf)) {
+      $message->setMessage("CPF inválido.", "error", "toast", "back");
+    } else {
+
+      if ($funcionarioDao->findById($codfuncionario) === false) {
+        $funcionario = new Funcionario();
+
+        $funcionarioToken = $funcionario->generateToken();
+        $senhaFinal = $funcionario->generatePassword($senha);
+        $funcionario->senha = $senhaFinal;
+
+        $funcionario->nome = $nome;
+        $funcionario->codcargo = $codcargo;
+        $funcionario->cpf = $cpf;
+        $funcionario->cep = $cep;
+        $funcionario->rg = $rg;
+        $funcionario->telefone = $telefone;
+        $funcionario->codunidade = $codunidade;
+        $funcionario->token = $funcionarioToken;
+
+        $authfuncionario = true;
+
+        $funcionarioDao->create($funcionario, $authfuncionario);
+      } else {
+        // Enviar uma msg de erro, de dados faltantes
+        $message->setMessage("Funcionario já cadastrado.", "error", "toast", "back");
+      }
+    }
+  } else if ($type === 'login_funcionario') {
+
+    $codfuncionario = filter_input(INPUT_POST, "log-in-cod");
+    $senha = filter_input(INPUT_POST, "log-in-password");
+
+    if ($funcionarioDao->authenticateFuncionario($codfuncionario, $senha)) {
+
+      $message->setMessage("Seja bem-vindo!", "success", "toast", "../../../view/pages/Funcionario/perfil.php");
+
+    } else {
+      $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
+    }
+
+  } else {
+    $message->setMessage("Informações inválidas aaaaaa!", "error", "toast", "../../../view/pages/index/index.php");
+  }
+
 
 //Criação da função para validação de CPF
-
-function validarCPF($cpf){
+function validarCPF($cpf)
+{
   $cpf = preg_replace('/\D/', '', $cpf); // Remove caracteres não numéricos
 
   if (strlen($cpf) != 11 || preg_match('/^(\d)\1{10}$/', $cpf)) {
-      return false; // CPF inválido
+    return false; // CPF inválido
   }
 
   // Validação do primeiro dígito
   $soma = 0;
   for ($i = 1; $i <= 9; $i++) {
-      $soma += (int)$cpf[$i - 1] * (11 - $i);
+    $soma += (int) $cpf[$i - 1] * (11 - $i);
   }
   $resto = ($soma * 10) % 11;
-  if ($resto >= 10) $resto = 0;
-  if ($resto != (int)$cpf[9]) return false;
+  if ($resto >= 10)
+    $resto = 0;
+  if ($resto != (int) $cpf[9])
+    return false;
 
   // Validação do segundo dígito
   $soma = 0;
   for ($i = 1; $i <= 10; $i++) {
-      $soma += (int)$cpf[$i - 1] * (12 - $i);
+    $soma += (int) $cpf[$i - 1] * (12 - $i);
   }
   $resto = ($soma * 10) % 11;
-  if ($resto >= 10) $resto = 0;
-  return $resto == (int)$cpf[10];
+  if ($resto >= 10)
+    $resto = 0;
+  return $resto == (int) $cpf[10];
 }
-
-// ===== COMEÇO DO FUNCIONÁRIO =====
-//Cadastrar funcionário:
-if ($type === 'register_funcionario') {
-  $codfuncionario = filter_input(INPUT_POST, "sign-up-codVet");
-  $senha = filter_input(INPUT_POST, "sign-up-password");
-  $nome = filter_input(INPUT_POST, "sign-up-nome" );
-  $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
-  $cpf = filter_input(INPUT_POST, "sign-up-cpf");
-  $cep = filter_input(INPUT_POST, "sign-up-cep");
-  $rg = filter_input(INPUT_POST, "sign-up-rg");
-  $telefone = filter_input(INPUT_POST, "sign-up-tel");
-  $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
-
-  if (!$nome  || !$cpf || !$cep || !$rg || !$telefone || !$codunidade ) {
-
-    $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
-  } else if(!validarCPF($cpf)){
-    $message->setMessage("CPF inválido.", "error", "toast", "back");
-  } 
-  else {
-    
-    if($funcionarioDao -> findById($codfuncionario) === false) {
-      $funcionario = new Funcionario();
-
-      $funcionarioToken = $funcionario->generateToken();
-      $senhaFinal = $funcionario->generatePassword($senha);
-      $funcionario->senha = $senhaFinal;
-      
-      $funcionario->nome = $nome;
-      $funcionario->codcargo = $codcargo;
-      $funcionario->cpf = $cpf;
-      $funcionario->cep = $cep;
-      $funcionario->rg = $rg;
-      $funcionario->telefone = $telefone;
-      $funcionario->codunidade = $codunidade;
-      $funcionario->token = $funcionarioToken;
-
-      $authfuncionario = true;
-
-      $funcionarioDao->create($funcionario, $authfuncionario);
-    }else {
-      // Enviar uma msg de erro, de dados faltantes
-      $message->setMessage("Funcionario já cadastrado.", "error", "toast", "back");
-    }
-  }
-}
-
-
-//Login funcionário
-else if ($type === 'login_funcionario') {
-
-  $codfuncionario = filter_input(INPUT_POST, "log-in-cod");
-  $senha = filter_input(INPUT_POST, "log-in-password");
-
-  if ($funcionarioDao->authenticateFuncionario($codfuncionario, $senha)) {
-
-    $message->setMessage("Seja bem-vindo!", "success", "toast", "../../../view/pages/Funcionario/perfil.php");
-
-  } else {
-    $message->setMessage("Usuário e/ou senha incorretos.", "error", "toast", "back");
-  }
-
-} else {
-
-  $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
-
-}
-
-
-

@@ -600,16 +600,20 @@ strong {
 }
 .login__header {
   border-radius: 100%;
-}
-.login__header {
   aspect-ratio: 1 / 1;
-  width: 3.8rem;
   height: 3.8rem;
   object-fit: cover;
   transition: transform 0.3s;
   &:hover {
     transform: translate(0, -4px);
   }
+}
+
+.login__header-mobile {
+  border-radius: 100%;
+  aspect-ratio: 1 / 1;
+  height: 4em;
+  object-fit: cover;
 }
 .barra__header {
   display: none;

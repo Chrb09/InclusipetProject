@@ -99,6 +99,7 @@
 @media (max-width: 1024px) {
   .conteudo {
     padding-right: 10em;
+    grid-template-columns: repeat(auto-fit, minmax(calc(25em - (2em * 2)), 90%));
   }
 }
 

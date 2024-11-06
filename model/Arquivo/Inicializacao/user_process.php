@@ -92,11 +92,11 @@ if ($type === "update_client") {
 } else {
     $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
 }
- //Fim do usuário
+//Fim do usuário
 
- //Começo do funcionário
+//Começo do funcionário
 
- if($type === "update_funcionario"){
+if ($type === "update_funcionario") {
     $funcionarioData = $funcionarioDao->verifyToken();
 
     $nome = filter_input(INPUT_POST, "sign-up-nome");
@@ -110,9 +110,9 @@ if ($type === "update_client") {
 
     $funcionarioDao->update($funcionarioData);
 
- }
+}
 
- if($type === "update_password") {
+if ($type === "update_password") {
     $senha = filter_input(INPUT_POST, "change-password");
     $confirmarsenha = filter_input(INPUT_POST, "change-password-confirm");
 
@@ -135,4 +135,4 @@ if ($type === "update_client") {
     }
 
 
- }
+}
