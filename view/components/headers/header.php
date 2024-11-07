@@ -97,7 +97,8 @@ if ($funcionarioData) {
           <li>
             <!-- caso esteja logado -->
             <a href=" ../Funcionario/perfil.php" class="a-logado"><?= $primeiroNomeFunc[0] ?>
-              <img src="../../assets/img/ImagensPerfil/<?= $funcionarioData->imagem ?>" alt="Login" class="login__header" />
+              <img src="../../assets/img/ImagensFuncionario/<?= $funcionarioData->imagem ?>" alt="Login"
+                class="login__header" />
             </a>
 
         <?php } else { ?>
@@ -130,15 +131,22 @@ if ($funcionarioData) {
         <a href="../Contato/contato.php" class="links__header">Contato</a>
       </li>
       <li>
-        <?php if ($clienteData): ?>
+        <?php if ($clienteData) { ?>
           <!-- caso esteja logado -->
           <a href=" ../Perfil/perfil.php" class="a-logado">
             <img src="../../assets/img/ImagensPerfil/<?= $clienteData->imagem ?>" alt="Login"
               class="login__header-mobile" />
           </a>
-        <?php else: ?>
-          <div class="botao-solido-branco" onclick="location.href='../Login/login.php'" type="button">Login</div>
-        <?php endif; ?>
+
+        <?php } else if ($funcionarioData) { ?>
+            <a href=" ../Perfil/perfil.php" class="a-logado">
+              <img src="../../assets/img/ImagensFuncionario/<?= $funcionarioData->imagem ?>" alt="Login"
+                class="login__header-mobile" />
+            </a>
+
+        <?php } else { ?>
+            <div class="botao-solido-branco" onclick="location.href='../Login/login.php'" type="button">Login</div>
+        <?php } ?>
 
       </li>
     </div>
