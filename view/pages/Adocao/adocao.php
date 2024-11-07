@@ -19,6 +19,11 @@
   <?php
   $activePage = "adocao";
   include('../../components/headers/header.php');
+  require_once("../../../controller/DAO/PetDAO/PetDAO.php");
+
+  $pet = new Pet();
+  $petDao = new PetDAO($conn, $BASE_URL);
+  $petData = $petDao->getPetsByCodCliente(true);
   ?>
   <!--Conteúdo-->
   <a href="">
@@ -27,6 +32,25 @@
   <div class="container container__adocao">
     <div class="titulo">Adote um Animalzinho!</div>
     <div class="grid__adocao">
+
+      <?php ?>
+      <div class="cartao-transp">
+        <a href="animal1.php?id=1"><img src="../../assets/img/Adocao/Animal1/img1.png" alt=""
+            class="cartao__imagem" /></a>
+        <div class="cartao__content">
+          <p>
+            <strong>Fonseca</strong><br />
+            São Paulo, São Paulo
+          </p>
+          <div class="cartao_texto">
+            Um cachorro de olhos marrons claros, de porte médio, velho, de pelagem curta, branca e com manchas pretas
+            pelo seu corpo.
+          </div>
+          <button class="botao-solido" onclick="location.href='animal1.php'">Quero Adotar!</button>
+        </div>
+      </div>
+      <?php ?>
+
       <!-- ANIMAL 01 -->
       <div class="cartao-transp">
         <a href="animal1.php"><img src="../../assets/img/Adocao/Animal1/img1.png" alt="" class="cartao__imagem" /></a>
