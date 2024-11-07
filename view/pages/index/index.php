@@ -296,8 +296,14 @@
     </div>
     <div class="container container__reviews">
       <div class="botao__reviews">
-        <button class="botao-solido-branco" onclick="location.href='../Perfil/agendamentoantigo.php'" type="button">
-          Agende uma visita!
+        <button class="botao-solido-branco" type="button">
+          <a href="<?php if ($clienteData) {
+            echo '../Perfil/agendamento.php';
+          } else {
+            echo '../Login/login.php';
+          } ?>">
+            Agende uma visita!
+          </a>
         </button>
       </div>
     </div>

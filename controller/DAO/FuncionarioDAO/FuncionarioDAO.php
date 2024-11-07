@@ -100,11 +100,11 @@ class FuncionarioDAO implements FuncionarioDAOInterface
         return $funcionario;
       } else if ($protected) {
 
-        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/index/index.php");
+        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/funcionario/login.php");
       }
     } else if ($protected) {
 
-      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/index/index.php");
+      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/funcionario/login.php");
     }
 
   }
