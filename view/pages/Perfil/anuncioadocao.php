@@ -61,7 +61,7 @@
             </label>
           </div>
         </div>
-        <form action="../../../model/Arquivo/Inicializacao/adocao_process.php" class="form__cadastro"
+        <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" class="form__cadastro"
           onsubmit="return validarAnuncio()" method="POST" enctype="multipart/form-data">
           <input type="file" name="foto-pet-1" id="foto-pet-1" hidden>
           <input type="file" name="foto-pet-2" id="foto-pet-2" hidden>

@@ -50,4 +50,7 @@ if ($type === 'create_appointment') {
         $agendamentoDao->create($agendamento);
     }
 }
+else if($type === 'cancelar') {
+    // TODO
+}
 // ===== FIM DO AGENDAMENTO =====

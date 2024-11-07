@@ -130,10 +130,10 @@
                   </tr>
                 </table>
                 <div class="button-wrapper-form <?= ($agendamento->Cancelado == 1) ? 'desativado' : '' ?>">
-                  <button class="botao botao-borda" onclick="location.href='agendamento.php'" type="button">
-                    Editar
-                  </button>
-                  <button class="botao botao-solido" id="resetarfoto" type="button">Cancelar</button>
+                  <form action="">
+                    <input type="hidden" name="type" value="cancelar">
+                    <button class="botao botao-solido" id="resetarfoto" type="submit">Cancelar</button>
+                  </form>
                 </div>
 
               </div>
