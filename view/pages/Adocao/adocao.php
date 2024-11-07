@@ -45,7 +45,7 @@
           <div class="cartao__content">
             <p>
               <strong><?= $adocao->Nome ?></strong><br />
-              São Paulo, São Paulo
+              <?= $adocao->Endereco ?>
             </p>
             <div class="cartao_texto">
               <?= $adocao->Descricao ?>
