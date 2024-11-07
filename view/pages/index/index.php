@@ -20,7 +20,12 @@
 
 <body>
   <!-- HEADER-->
-  <?php include('../../components/headers/header.php'); ?>
+  <?php include('../../components/headers/header.php');
+  require_once("../../../controller/DAO/PetDAO/PetDAO.php");
+  require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
+
+  $petDao = new PetDAO($conn, $BASE_URL);
+  $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL); ?>
   <!-- CARROSSEL -->
   <div class="swiper swiper-index">
     <!-- Additional required wrapper -->
@@ -198,11 +203,11 @@
         <div class="hr hr-branco"></div>
         <div class="subtitulo__reviews">
           <p class="subtitulo-text__reviews">
-            +1.000 <br />
+            +<?= $petDao->getPetCount() ?> <br />
             Pets Felizes
           </p>
           <p class="subtitulo-text__reviews">
-            +2.500 <br />
+            +<?= $agendamentoDao->getAgendamentoCount() ?> <br />
             Atendimentos
           </p>
         </div>

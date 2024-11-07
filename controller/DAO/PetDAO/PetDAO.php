@@ -33,7 +33,17 @@ class PetDAO implements PetDAOInterface
 
         return $pet;
     }
+    public function getPetCount()
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM animal");
+        $stmt->execute();
 
+        if ($stmt->rowCount() > 0) {
+            $petsArray = $stmt->fetchAll();
+
+            return count($petsArray);
+        }
+    }
     public function getPetsByCodCliente($CodCliente)
     {
         $pets = [];

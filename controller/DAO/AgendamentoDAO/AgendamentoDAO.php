@@ -73,6 +73,18 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
         return $agendamentos;
     }
+    public function getAgendamentoCount()
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $agendamentoArray = $stmt->fetchAll();
+
+            return count($agendamentoArray);
+        }
+
+    }
     public function update(Agendamento $agendamento)
     {
 

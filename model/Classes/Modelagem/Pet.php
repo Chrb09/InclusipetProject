@@ -25,6 +25,7 @@ interface PetDAOInterface
     public function getPetsByCodCliente($CodCliente);
     public function getPetEspecie(Pet $pet);
     public function getPetRaca(Pet $pet);
+    public function getPetCount();
     public function findByCod($CodPet);
     public function create(Pet $pet);
     public function update(Pet $pet);

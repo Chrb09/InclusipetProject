@@ -22,6 +22,7 @@ interface AgendamentoDAOInterface
     public function update(Agendamento $agendamento);
     public function cancel($CodAgendamento);
     public function getAgendamentoByCodCliente($CodCliente);
+    public function getAgendamentoCount();
     public function getAllUnidade();
     public function getAllServico();
     public function getAllEspecialidade();
