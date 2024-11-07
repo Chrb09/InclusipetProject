@@ -26,8 +26,9 @@
     if (isset($_GET['CodAdocao'])) {
         $CodAdocao = $_GET['CodAdocao'];
 
-        $Animal = $adocaoDao->getAdocaoByCodAdocao($CodAdocao);
-        $Imagens = $adocaoDao->getImagemAdocaoByCod($CodAdocao);
+        $Animal = $adocaoDao->getAdocaoByCodAdocao($CodAdocao); // Objeto da Adocao
+        $Imagens = $adocaoDao->getImagemAdocaoByCod($CodAdocao); // Array de Imagens
+        $Detalhes = $adocaoDao->getDetalheAdocaoByCod($CodAdocao); // Array de Detalhes
     } else {
         header("Location: adocao.php");
     }
@@ -53,27 +54,37 @@
     <div class="container container__pet">
         <div class="galeria">
             <div class="imagem-grande-wrapper">
-                <img src="../../assets/img/Adocao/Animal1/img1.png" alt="animal1" class="imagem-grande" />
-                <img src="../../assets/img/Adocao/Animal1/img2.png" alt="animal2" class="imagem-grande" />
-                <img src="../../assets/img/Adocao/Animal1/img3.png" alt="animal3" class="imagem-grande" />
-                <img src="../../assets/img/Adocao/Animal1/img4.png" alt="animal4" class="imagem-grande" />
-                <img src="../../assets/img/Adocao/Animal1/img5.png" alt="animal5" class="imagem-grande" />
+                <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[0] ?>" alt="animal1"
+                    class="imagem-grande" />
+                <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[1] ?>" alt="animal2"
+                    class="imagem-grande" />
+                <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[2] ?>" alt="animal3"
+                    class="imagem-grande" />
+                <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[3] ?>" alt="animal4"
+                    class="imagem-grande" />
+                <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[4] ?>" alt="animal5"
+                    class="imagem-grande" />
             </div>
             <div class="imagem-pequena-container">
                 <div class="imagem-pequena-wrapper" onclick="currentSlide(1)">
-                    <img src="../../assets/img/Adocao/Animal1/img1.png" alt="" class="imagem-pequena" />
+                    <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[0] ?>" alt="" class="
+                        imagem-pequena" />
                 </div>
                 <div class="imagem-pequena-wrapper" onclick="currentSlide(2)">
-                    <img src="../../assets/img/Adocao/Animal1/img2.png" alt="" class="imagem-pequena" />
+                    <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[1] ?>" alt=""
+                        class="imagem-pequena" />
                 </div>
                 <div class="imagem-pequena-wrapper" onclick="currentSlide(3)">
-                    <img src="../../assets/img/Adocao/Animal1/img3.png" alt="" class="imagem-pequena" />
+                    <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[2] ?>" alt=""
+                        class="imagem-pequena" />
                 </div>
                 <div class="imagem-pequena-wrapper" onclick="currentSlide(4)">
-                    <img src="../../assets/img/Adocao/Animal1/img4.png" alt="" class="imagem-pequena" />
+                    <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[3] ?>" alt=""
+                        class="imagem-pequena" />
                 </div>
                 <div class="imagem-pequena-wrapper" onclick="currentSlide(5)">
-                    <img src="../../assets/img/Adocao/Animal1/img5.png" alt="" class="imagem-pequena" />
+                    <img src="../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[4] ?>" alt=""
+                        class="imagem-pequena" />
                 </div>
             </div>
         </div>

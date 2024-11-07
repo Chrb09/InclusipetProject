@@ -137,12 +137,17 @@ class AdocaoDAO implements AdocaoDAOInterface
     }
     public function getDetalheAdocaoByCod($CodAdocao)
     {
+        $detalheAdocao = [];
         $stmt = $this->conn->prepare("SELECT Detalhe FROM detalhes_adocao WHERE CodAdocao = :CodAdocao");
         $stmt->bindParam(":CodAdocao", $CodAdocao);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            $detalheAdocao = $stmt->fetchAll();
+            $detalheArray = $stmt->fetchAll();
+
+            foreach ($detalheArray as $detalhe) {
+                $detalheAdocao[] = $detalhe[0];
+            }
             return $detalheAdocao;
         }
     }
