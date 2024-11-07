@@ -116,7 +116,7 @@ class AdocaoDAO implements AdocaoDAOInterface
 
         if ($stmt->rowCount() > 0) {
             $especie = $stmt->fetch();
-            return $especie;
+            return $especie[0];
         }
     }
     public function getImagemAdocaoByCod($CodAdocao)

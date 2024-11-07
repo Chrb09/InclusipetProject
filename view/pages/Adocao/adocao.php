@@ -24,20 +24,6 @@
   $adocaoDao = new AdocaoDAO($conn, $BASE_URL);
   $adocoes = $adocaoDao->getAllAdocao();
 
-
-
-  /*
-  if ($pets !== []) {
-    if (isset($_GET['codAnimal'])) {
-      $CodAnimal = $_GET['codAnimal'];
-    } else {
-
-      $CodAnimal = $pets[0]->CodAnimal;
-    }
-    $petInfo = $petDao->findByCod($CodAnimal);
-  }
-  */
-
   ?>
   <!--Conteúdo-->
   <a href="">

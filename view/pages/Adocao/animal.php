@@ -26,8 +26,8 @@
     if (isset($_GET['CodAdocao'])) {
         $CodAdocao = $_GET['CodAdocao'];
 
-        $Animal = $adocaoDao->getAdocaoByCodAdocao($CodAdocao); // Objeto da Adocao
-        $Imagens = $adocaoDao->getImagemAdocaoByCod($CodAdocao); // Array de Imagens
+        $Animal = $adocaoDao->getAdocaoByCodAdocao($CodAdocao);    // Objeto da Adocao
+        $Imagens = $adocaoDao->getImagemAdocaoByCod($CodAdocao);   // Array de Imagens
         $Detalhes = $adocaoDao->getDetalheAdocaoByCod($CodAdocao); // Array de Detalhes
     } else {
         header("Location: adocao.php");
@@ -95,30 +95,32 @@
             <div>
                 <div class="titulo"><?= $Animal->Nome ?></div>
                 <div class="caracteristicas">
-                    <b>Canino | Macho | 15 Anos | Grande | Castrado</b>
+                    
+                    <b> <?= $adocaoDao->getEspecieByCod($Animal->CodEspecie); ?> | <?= $Animal->Sexo ?> | <?= $Animal->Idade ?> Anos | <?= $Animal->Porte ?> | <?php if($Animal->Castrado === 0) { echo "Não Castrado"; } else { echo "Castrado "; } ?></b>
                 </div>
             </div>
             <div class="quem">
-                <strong>Quem é Fonseca?</strong>
+                <strong>Quem é <?= $Animal->Nome ?>?</strong>
                 <p>
-                    Um cachorro de olhos marrons claros, de porte médio, velho, de pelagem curta, branca e com manchas
-                    pretas
-                    pelo seu corpo.
+                <?= $Animal->Descricao ?>
                 </p>
             </div>
             <div class="detalhes">
                 <strong>Mais Detalhes</strong>
                 <div class="categorias">
-                    <div class="categoria">Vira-Lata</div>
-                    <div class="categoria">Brincalhão</div>
-                    <div class="categoria">Ama comer escondido</div>
-                    <div class="categoria">Precisa de carinho</div>
+                    <?php 
+                    foreach($Detalhes as $Detalhe):
+                    ?>
+                    <div class="categoria"><?=$Detalhe?></div>
+                    <?php 
+                    endforeach;
+                    ?>
                 </div>
             </div>
             <div class="contato">
                 <strong>Quer Adotar?</strong>
-                (11) 11111-1111 <br />
-                Av. Aguia de Haia - SP
+                <?= $Animal->Telefone ?> <br />
+                <?= $Animal->Endereco ?>
             </div>
         </div>
     </div>
