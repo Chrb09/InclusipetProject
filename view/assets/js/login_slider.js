@@ -16,6 +16,7 @@ const signUpCPF = document.getElementById("sign-up-cpf");
 const signUpCEP = document.getElementById("sign-up-cep");
 const signUpTelefone = document.getElementById("sign-up-tel");
 
+
 signUpButton.addEventListener("click", () => {
   containerlogin.classList.add("right-panel-active");
 });
@@ -71,7 +72,7 @@ function validarCadastro() {
       title: "Preencha o CPF corretamente",
     });
     return false;
-  } else if (signUpCEP.value.length != 9) {
+  }  else if (signUpCEP.value.length != 9) {
     Toast.fire({
       icon: "warning",
       title: "Preencha o CEP corretamente",
@@ -83,11 +84,16 @@ function validarCadastro() {
       title: "Preencha o telefone corretamente",
     });
     return false;
-  } else {
+  } 
+  else {
     return true;
-  }
+  } 
 }
 
 $("#sign-up-cpf").mask("000.000.000-00");
 $("#sign-up-cep").mask("00000-000");
 $("#sign-up-tel").mask("(00)00000-0000");
+
+
+
+

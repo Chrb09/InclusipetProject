@@ -130,7 +130,16 @@ if ($funcionarioData) {
         <a href="../Contato/contato.php" class="links__header">Contato</a>
       </li>
       <li>
-        <div class="botao-solido-branco" onclick="location.href='../Login/login.php'" type="button">Login</div>
+        <?php if ($clienteData): ?>
+          <!-- caso esteja logado -->
+          <a href=" ../Perfil/perfil.php" class="a-logado">
+            <img src="../../assets/img/ImagensPerfil/<?= $clienteData->imagem ?>" alt="Login"
+              class="login__header-mobile" />
+          </a>
+        <?php else: ?>
+          <div class="botao-solido-branco" onclick="location.href='../Login/login.php'" type="button">Login</div>
+        <?php endif; ?>
+
       </li>
     </div>
   </div>

@@ -59,7 +59,9 @@ if ($clienteData) {
     <div class="linha">
       <?php if ($clienteData): ?>
         <!-- caso esteja logado -->
-        <a href=" ../Perfil/perfil.php"><?= $clienteData->Nome ?></a>
+        <a href=" ../Perfil/perfil.php" class="a-logado"><?= $primeiroNome[0] ?>
+          <img src="../../assets/img/ImagensPerfil/<?= $clienteData->imagem ?>" alt="Login" class="login__header" />
+        </a>
       <?php else: ?>
         <a href=" ../Login/login.php"><img src="../../assets/img/Login/<" alt="Login" class="login__header" /></a>
       <?php endif; ?>

@@ -38,14 +38,24 @@ CREATE TABLE `adocao` (
   `Porte` varchar(20) NOT NULL,
   `Castrado` tinyint(1) NOT NULL,
   `Sexo` char(5) NOT NULL,
-  `Descricao` varchar(80) NOT NULL,
-  `Detalhes` varchar(250) NOT NULL,
+  `Descricao` TEXT NOT NULL,
   `Telefone` varchar(15) NOT NULL,
-  `Endereco` varchar(50) NOT NULL
+  `Endereco` varchar(50) NOT NULL,
+  `Adotado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
-
+INSERT INTO `adocao` (`CodAdocao`, `CodEspecie`, `CodCliente`, `Nome`, `Idade`, `Porte`, `Castrado`, `Sexo`, `Descricao`,`Telefone`, `Endereco`, `Adotado`) VALUES
+(1, 1, 3, 'Fonseca', 15, 'Grande', 1, 'Macho', 'Um cachorro de olhos marrons claros, de porte médio, velho, de pelagem curta, branca e com manchas pretas pelo seu corpo.', '(11) 11111-1111', 'Av. Águia de Haia', '0') ,
+(2, 2, 3, 'Afrodite', 7, 'Pequeno', 1, 'Fêmea', 'Gata jovem de olhos azuis de pelagem dourada, nascida sem as pernas traseiras. Foi achada ainda filhote e levada para um centro de adoção.','(11) 11111-1111', 'Av. Águia de Haia ', '0'),
+(3, 1, 2, 'Neném', 8, 'Médio', 1, 'Fêmea', 'Cadela de porte médio, peluda, pelagem preta e que possui manchas brancas nas patas. Possui dificuldades em andar devido um acidente de carro.','(11) 11111-1111', 'Av. Águia de Haia ', '0'),
+(4, 1, 1, 'Max', 2, 'Médio', 0, 'Macho', 'Um cachorro de porte médio, juvenil, de pelagem preta com manchas brancas no queixo, no peito e na barriga.','(11) 11111-1111', 'Av. Águia de Haia ', '0'),
+(5, 2, 2, 'Fofinha', 5, 'Pequeno', 1, 'Fêmea', 'Gata jovem, de olhos azuis, branca com manchas marrons e pretas pelo seu corpo. Precisa de cuidado especial devido a doença FeLV, a leucemia felina.', '(11) 11111-1111', 'Av. Águia de Haia ', '0'),
+(6, 1, 1, 'Marrom', 10, 'Médio', 1, 'Macho', 'Cachorro adulto, marrom de patas brancas e de olhos castanhos. Após sofrer um acidente de carro lutou bastante pela sua vida e agora procura por um lar com muito amor e carinho.','(11) 11111-1111', 'Av. Águia de Haia ', '0'),
+(7, 1, 1, 'Bolinha', 12, 'Pequeno', 1, 'Fêmea', 'Cadela de pequeno porte, com 12 anos de idade, de pelagem dourada e de olhos castanhos. Sofreu abuso dos seus donos anteriores e agora procura por uma casa que lhe proporcione bastante amor e carinho.', '(11) 11111-1111', 'Av. Águia de Haia ', '0'),
+(8, 3, 3, 'Bebê', 2, 'Pequeno', 1, 'Macho', 'Calopsita jovem, amarelada e de bochechas vermelhas e muito agitada.', '(11) 11111-1111', 'Av. Águia de Haia ', '0'),
+(9, 2, 1, 'Amarela', 2, 'Pequeno', 1, 'Fêmea', 'Gata jovem e ativa, ama comer pão com leite de café da manhã e tem a cauda tortinha.', '(11) 11111-1111', 'Av. Águia de Haia ', '0'),
+(10, 1, 2, 'Belinha', 11, 'Pequeno', 1, 'Fêmea', 'Cadela de porte pequeno, apesar de ser mais velha, é super brincalhona.', '(11) 11111-1111', 'Av. Águia de Haia ', '0');
 --
 -- Estrutura para tabela `agendamento`
 --
@@ -65,7 +75,8 @@ CREATE TABLE `agendamento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
-
+INSERT INTO `agendamento` (`CodAgendamento`, `CodFuncionario`, `CodAnimal`, `CodCliente`, `CodUnidade`, `Data`, `Hora`, `Info`, `Resultado`, `CodServico`, `Cancelado`) VALUES
+(1, 1, 1, 3, 3, '2024-11-21', '16:00:00', NULL, NULL, 5, 0);
 --
 -- Estrutura para tabela `animal`
 --
@@ -161,8 +172,101 @@ CREATE TABLE `imagem_adocao` (
   `Imagem` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+INSERT INTO `imagem_adocao` (`CodAdocao`, `Imagem`) VALUES
+(1, '142ca4bbf8a3a4843a6d1ecce3863b3e3e7d1e339765959e1efc235bdaba8ca40dec420257db21e06dafe468abaa7720e856ba555c893d5629c075d1.jpg') ,
+(1, '0f15590f44d14bc614909a2f3b9fcdad94f0c7be40e1a94ac1ad7e13a6544807b729fd5186a2d6ce25cea071683b21f234738ec03c76a6a58c0cdfe9.jpg') ,
+(1, '228db783c3f23a72046a5b0dc1b23dd1e3601aa5a47850ea31743c5d078895ba5006df966b18d611d6d5d00d9fcc8a4e2ce226a11824bc603afc0e37.jpg') ,
+(1, 'a33c90738c607ed4c70ab34f98b2eafa422111e8838d18dfa240c47367e0abb03c33cf02902b7c6266ab87ce1ee46d9578dafa74e19d80ec072de445.jpg') ,
+(1, 'aeb281858333162c4649c69d79e6a1d07d9eeab828b73a4c12f651d04ad451ff5d60300e35ff494cd391487fce246589964d7fd18e60e4a869f7e83d.jpg') ,
+(2, '18c13ca6de1f08375dc67c7e3616765e75e91899d5e67a0792a5bea92a35e4591a00e7e5e63d2729fa02a502e85b6d4cdcc32acbcaa673d3dbeb15c8.jpg') ,
+(2, '4667fbeda7be678b65c255569c172a6cbc789b87c52169743fdf6635766283ef60702903c6639ff2bcceaaa7aa8df94bca105a8b7d5d0f43999f4574.jpg') ,
+(2, 'd01c1b12873ed496367673fafbf074a89ff363fccdc10ec6373198f29a0191364325410b68f8b9175da3febc6e0f50706d6eab6af93c382e76d06418.jpg') ,
+(2, '1a5e4a27651c1a27ef2fd1388db2cd8f77b632257299e0c2a1dbbb5664dd019643784c98b7601903d36d342b9c26c02e2d114ac206a06ac278849ff4.jpg') ,
+(2, 'd6b51d7b559cb64662bc512f6d263d5fa7340d66478504d9dacd233495f7e0daaa31248b34a210e3e4703f66d36a016dd3e6b3723ffd873ba1909cc6.jpg') ,
+(3, '8d741e1d7bfd89ee151a1294691d2795ad84e0d9988457c399805d305c7dc14a66c35ce6257aac49a16e2333c6b21d258ae8841b108958e3bef2078b.jpg') ,
+(3, '9dbfcb8ecf5e1cd35294c886aff604763c6a57d465a62a42eda4657497cd7ebc38b148d54eced2999dff285c1a7f205e124edb4092b29d266654d129.jpg') ,
+(3, 'a1c1c940aff6ac1fdca96d7451c50fb9eeb7cad494ba0a6991167b97d83b8d1318a365f3ab71c8d7b086a2524bd3f5332ddff4954694a6e0dc9382ec.jpg') ,
+(3, 'd9026575c86d4aafad9d883fcd9dcba188ef90c101bc9e2c5e818a47cc245b9f4ccfb1cc3da1f77bf355610fc036bce987772df9f26b04f8e41d6e99.jpg') ,
+(3, '79328c889a636edfb70f1ec5b93afd970b87c9eb51b0960c04f14d3c78a669551c70ba371c65bbb4bf8849f40565cc2e8b39b9cb13914680824a4e37.jpg') ,
+(4, 'b9386bee4896446ee163f7e80779842ceae53d1caf71c9a103bdac66cc8bd1540a6d4499b5e1f36d352fcb759c014ed6663c1100f6eddcd7091858de.jpg') ,
+(4, 'fc93210f043db3623585dba6cdda533cf3ca8ef038665ac21ac8420714c13ee728f680a5007805f1fce0db62f2a79ff742c71dfd3ed4a62042f0ee4d.jpg') ,
+(4, '57701f4d97207c1b4052f6c6c62674c53abcef2ff454c124385581a70a526983676a83971b5177c85515ed5c073730c84e9104f47ab04f3cd3705aaf.jpg') ,
+(4, '405ab92f0fa8e885095c538b5e1c8c02a771674fa7138e8b3f5ecfaac16c7f5556440d2e58ecb721f3550b841395f1776cc632286cacfbfb871bd4c1.jpg') ,
+(4, '8562bba89a4bcd98b63bdee18e7d5c1dc502a5e00f0cf96c88cc3d4d41118689fb683e952ea65572f4118008147aa04def0f203b6860b65624969e30.jpg') ,
+(5, '37d3c8a8d4dcf0a77ded3b11be49038635016d45ca0f9b213033348b77b3525ef512b48192e3d82a5f4c7a75a60c035199d80c8f7708844b41a173e9.jpg') ,
+(5, 'c94f6e11a9a3b7c3b5dd3b874c637c6ed499103e3c5bdb9ca8fa8ec9152a193cc5e82893353a7c044707f410f722e7e4e1e51aade58c3ef33a713366.jpg') ,
+(5, '939668372b8f73c69626e6d3a0cdff2bb010e6c902aa7953b972f23979a38660bd407af890b1904866a6ae65288722a8d980f5f1dc607291923d1283.jpg') ,
+(5, 'e975da67f34080f4d2319780fca4a78cff331b95f20fed6973dbe6b69aca325b4e1129d5300fcf377e58e0c9859c3589b87a4f364309be2c175b9195.jpg') ,
+(5, '9db1d1d992b917c3a572b640aa500d7685552f6a8d56eebae2783a3e136ade36dfa8aaae9da0a36809ac38ba0046f0bb9a469526579c10a9ba1d4b62.jpg') ,
+(6, 'cee01bf49032d9230b25c1e8b4d7b77b3e20e7a023cb5504adfda037577bc2889c1544ffaca5cec3a34d9251a03735c1dfa16598a420f9fa7ef87448.jpg') ,
+(6, 'cd5f04ea3703302ac9a5acb74905b49b98261d99fc1106043994dc381273af9ef9febd5bb2f2ea7b29bb32213fde5e780b0390c5ce8cc553203934aa.jpg') ,
+(6, 'c69cae9c00987be2ef58c0c4df187fe35d5bdd8426d3f06b8c56a1f11ac5b18082f9adf364797a41e7278e6ef08934ea5d6a1d576cc46d65e3716587.jpg') ,
+(6, '9b2583c780f5905fc36befe1911d039a88c522d20dc645517bb60c2c63b5c7b6087219261f6fa784da2f18edd821f434b8b1394373976ab627790a68.jpg') ,
+(6, '8ab11ac81edaebb70cfa1c0fafac9cdac841ab535bbe0ac1e41ede114c944754b148033509e7d0d25e06376698d9ed2dac4c506767f127f5e992ba50.jpg') ,
+(7, '4595c65a660a58e29ce650db9dd733200e63c002ea4aec839d649827c5ac57fea50fdb0dd835d7e341f8411b08e95c3085b279447cedcfa4103c4b68.jpg') ,
+(7, 'ec47b11de899153c2d0caf1812971d4aa875e367006d646f9a56d5b74f9b1893a667da4e14f61e9ac8b9790618f56bb9fe69166c359454dfb6442d9a.jpg') ,
+(7, 'c7680b92821574605e0d17bec164734d12bf5b031e4d352ed68e648445e0528a65c992e8729228138ad53bc657384e736e8647cead103da9483ee9af.jpg') ,
+(7, '18a5e4c1bfe1f7ffe776714cf2644c3b5d4c2a801d8cfddf5f541906d7e0a16e0c3777c4b3f9e05f70b3aaf884153a311c7b7ce20e01ecf3cd6ab383.jpg') ,
+(7, '3befbdb4a98118863a015e994e8ea36d3ece958cf4993792095aa21ee0318a17e79c460a6f7b6c361d18dfe8efb8e271da0a9746afc9317489db32db.jpg') ,
+(8, 'd04e6e0ae7083b14393e743364908f6ed378e88588d7c9938bd7d35555a8d0114cb3dfa49b13fc4523f9ef8be947154867cb652ae808fbbcdcbd7227.jpg') ,
+(8, '8f4f17287c5ce91d2e10474d7ec8cba0a38757896aab3bb933eecd5f93e002530bfc7681a3f7e2316de1069107a8c7a17de4c698c151dffe23bf275e.jpg') ,
+(8, '9f985f653ed8814c44b3dde8ed255d5aaf4151ae8d5b8eaafff470678bedcde7638d5d22dbea722509b44fc276a4647f0d52778a9aefb587b244f901.jpg') ,
+(8, 'ba4f694d7e65fae3782f43f11804f25e80efe178e77edec5ea67107ea3587a1b4cce2aefceb16bc079bd88a78d1e9e52dbab8731735e3479dc5fdfa2.jpg') ,
+(8, '436cc4a56fd1ff1b3b7ddf521b992bcb15653ee0157cac8e06df9aa27f2acdd0920c7bd64747432efb23ca16e7b99fbbee27d0c460f97077d6665d77.jpg') ,
+(9, '3c2d766f99a648aa1b81de4975053de9e5a31fdef0a0826dd421faa90543b9281beddf62f2e08d47331bc27183467742e7dfa5e7b15fecc7029e2362.jpg') ,
+(9, '39d16db3ef850b61c11a3231023a2e10558785edc3217ea29b9b7fc99eccc117c308c835f3e21bc42f685a86945fc6a6c590e921836f5639c2c1ebd1.jpg') ,
+(9, '6f8136fb5f19a59437a80874182d233e293d0a503610f54602818ceb0c3210538e05d8590f7db512790a005f0daa1e569c2e6559067b2f47a3bf57cc.jpg') ,
+(9, 'd14b140ca86bef382801975a26d976bc90c32604ed1165ea28ef5fca6e823a23e5ab280b5af577f3f817468085b681e716044761b45c01c0f0ad8a80.jpg') ,
+(9, '3306b06009000f8a67edb151c757f7662e7f9721860e12d4c16208359d619ffd83a35738407a54f6e5337cca4ad1ab52557c37acda9824b823bb7b2b.jpg') ,
+(10, '36add5d8725292a5d5142b7eebd10eb23a45c89588653321e2a39a8bb80c4e34cffd93ee32cde7302d50df35bac0450c163248f673f4f1b87aab10cd.jpg') ,
+(10, '65e605f9a2e9b1179e3d3bcfc5bb7dd981a8e692b075366af35c57d493c1f979d80772f676e4f79bec6c5893fec84bd4efaf46ff399c2d6b9591bbed.jpg') ,
+(10, '65e46ff1508dbf0ed2c454b377852a14ea759c084b5cfaed8ba9cc308228094104d537551c7e824e93adbb961a2f8f6ff12a12c1961a7d04f74f8440.jpg') ,
+(10, 'e334da6404238fc2a8b05272b199921a8f4f8fd8d65a00e17a0abbd629884993fcff826c84a73c61ef0de7d5a60b3f8056d5ae7b8d7e0b793fc961c4.jpg') ,
+(10 , '5a89d6b3d4e56a0932cfa509aaa07f67c75715b6c2dcd3d8720187a34d99887c31361f01007e44ed632a450e405213559a8bef518ab2895558432824.jpg');
 
+
+
+CREATE TABLE `detalhes_adocao` (
+  `CodAdocao` int(11) NOT NULL,
+  `Detalhe` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+INSERT INTO `detalhes_adocao` (`CodAdocao`, `Detalhe`) VALUES
+(1, 'Vira-Lata'),
+(1, 'Brincalhão'),
+(1, 'Ama comer escondido'),
+(1, 'Precisa de carinho'),
+(2, 'Laranja'),
+(2, 'Agitada'),
+(2, 'Necessidades Especiais'),
+(3, 'Vira-Lata'),
+(3, 'Dificuldades em pular e correr'),
+(3, 'Não alimentar demais'),
+(3, 'Precisa de carinho'),
+(4, 'Vira-Lata'),
+(4, 'Brincalhão'),
+(4, 'Adora abraços'),
+(4, 'Pula muito'),
+(5, 'Branco & Marrom'),
+(5, 'Precisa de distância de outros animais'),
+(5, 'Adora sache'),
+(5, 'Precisa de carinho'),
+(6, 'Vira-Lata'),
+(6, 'Brincalhão'),
+(6, 'Necessidades Especiais'),
+(6, 'Precisa de carinho'),
+(7, 'Vira-Lata'),
+(7, 'Necessidades Especiais'),
+(7, 'Gosta de Flores'),
+(8, 'Calopsita'),
+(8, 'Brincalhão'),
+(8, 'Adora comer escondido'),
+(8, 'Precisa de carinho'),
+(9, 'Laranja & Branco'),
+(9, 'Adora sapato'),
+(9, 'Precisa de carinho'),
+(10, 'Precisa de carinho');
 --
 -- Estrutura para tabela `raca`
 --
@@ -200,7 +304,12 @@ CREATE TABLE `servico` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
-
+INSERT INTO `servico` (`CodServico`, `Descricao`) VALUES
+(1, 'Fisioterapia'),
+(2, 'Ortopedia'),
+(3, 'Neurologia'),
+(4, 'Terapia Comportament'),
+(5, 'Aconselhamento');
 --
 -- Estrutura para tabela `unidade`
 --
@@ -233,11 +342,12 @@ CREATE TABLE `funcionario` (
   `CEP` varchar(9) NOT NULL,
   `CodUnidade` int(11) NOT NULL,
   `Token` varchar(200),
-  `Imagem` varchar(200)
+  `Imagem` varchar(200),
+  `DataAdmissao` date
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-insert into `funcionario` (`CodFuncionario`, `CodCargo`, `Senha`, `Nome`, `RG`, `CPF`, `Telefone`, `CEP`, `CodUnidade`, `Token`, `Imagem`)
- values (1, 1,'$2y$10$1xGy5hDzqYwYgJ/QuxEm1.rXLAHJHLOpu0TsRmMCMy8dGGbOtHNAC', 'Bernardo Vieira', '28.407.303-9', '343.243.242-34', '(43)24324-2343', '43242-343', '1', 'ee4cdf5cc2b7d945ef44d0f98fcb8344dd024c585751e061ba6dd93cd98b0b44e3b195a260a9880c805fb8caab7aa0028e12', null),
-(2, 3,'$2y$10$qV5DDHbg71bpwzlupW8px.5WIqIQnH1eGcfl/vZdjLlyBIu.Dmxxy', 'Beatriz Silva', '32.321.900-7', '435.435.345-34', '(32)23423-4324', '54354-354', '2', '196ab39fcf61c66855c3ff7bc0ef96c60cd9903d561152f218834944dfb1611a82a5acece27de59f7896ed225299f52c39a2', null);
+insert into `funcionario` (`CodFuncionario`, `CodCargo`, `Senha`, `Nome`, `RG`, `CPF`, `Telefone`, `CEP`, `CodUnidade`, `Token`, `Imagem`, `DataAdmissao`)
+ values (1, 1,'$2y$10$1xGy5hDzqYwYgJ/QuxEm1.rXLAHJHLOpu0TsRmMCMy8dGGbOtHNAC', 'Bernardo Vieira', '28.407.303-9', '343.243.242-34', '(43)24324-2343', '43242-343', '1', 'ee4cdf5cc2b7d945ef44d0f98fcb8344dd024c585751e061ba6dd93cd98b0b44e3b195a260a9880c805fb8caab7aa0028e12', '0ced47bb60892e9d94cbb0672da56cf7dbeb9df979fac7db103cac37f3bbc905ce2a36ed9a7f5812b0ce11545b992d012d7e199be81f87199d366b2e.jpg', '2018-04-11'),
+(2, 3,'$2y$10$qV5DDHbg71bpwzlupW8px.5WIqIQnH1eGcfl/vZdjLlyBIu.Dmxxy', 'Beatriz Silva', '32.321.900-7', '435.435.345-34', '(32)23423-4324', '54354-354', '2', '196ab39fcf61c66855c3ff7bc0ef96c60cd9903d561152f218834944dfb1611a82a5acece27de59f7896ed225299f52c39a2', 'f4f7fa2bc1692741c240e7876a9efa235eb25ebb1fe57821eb0738fbda79bcaed40c6aeb202e1353aa773a1f683535c38c3ab04bf164da3b5ba894b3.jpg', '2018-04-11');
 -- --------------------------------------------------------
 
 
@@ -296,6 +406,9 @@ ALTER TABLE `especie`
 --
 ALTER TABLE `imagem_adocao`
   ADD KEY `CodAdocaoImagem` (`CodAdocao`);
+
+  ALTER TABLE `detalhes_adocao`
+  ADD KEY `CodAdocaoDetalhes` (`CodAdocao`);
 
 --
 -- Índices de tabela `raca`

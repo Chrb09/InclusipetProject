@@ -38,6 +38,12 @@
     .card-txt {
       margin-top: 0.5em;
     }
+
+    @media (max-width: 768px) {
+      .nav-perfil {
+        margin-inline: auto;
+      }
+    }
   </style>
 </head>
 

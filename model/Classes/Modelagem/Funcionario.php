@@ -12,6 +12,7 @@ class Funcionario
   public $codunidade;
   public $token;
   public $imagem;
+  public $dataAdmissao;
 
   public function getFullName($funcionario)
   {
@@ -36,7 +37,7 @@ class Funcionario
 interface FuncionarioDAOInterface
 {
   public function buildfuncionario($data);
-  public function create(Funcionario $funcionario, $authfuncionario = false);
+  public function create(Funcionario $funcionario, $authfuncionario = false, $senha);
   public function update(Funcionario $funcionario, $redirect = true);
   public function verifyToken($protected = false);
   public function setTokenToSession($token, $redirect = true);
@@ -45,7 +46,11 @@ interface FuncionarioDAOInterface
   public function findByToken($token);
   public function destroyToken();
   public function changePassword(Funcionario $funcionario);
+  public function getUnidadeByCod($codunidade);
+  public function getCargoByCod($codcargo);
   public function getAllFuncionario();
+  public function getAllCargo();
+  public function getAllUnidade();
 
 }
 

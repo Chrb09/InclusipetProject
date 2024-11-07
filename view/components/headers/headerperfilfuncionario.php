@@ -43,7 +43,8 @@ if ($funcionarioData) {
       <?php if ($funcionarioData): ?>
         <!-- caso esteja logado -->
         <a href=" ../Funcionario/perfil.php" class="a-logado"><?= $primeiroNome[0] ?>
-          <img src="../../assets/img/ImagensPerfil/<?= $funcionarioData->imagem ?>" alt="Login" class="login__header" />
+          <img src="../../assets/img/ImagensFuncionario/<?= $funcionarioData->imagem ?>" alt="Login"
+            class="login__header" />
         </a>
       <?php else: ?>
         <a href=" ../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login" class="login__header" /></a>

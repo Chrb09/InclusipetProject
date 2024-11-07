@@ -3,12 +3,15 @@
 require_once('../../../model/Arquivo/inicializacao/globals.php');
 require_once('../../../model/Arquivo/inicializacao/db.php');
 require_once('../../../model/Classes/Modelagem/Cliente.php');
+require_once('../../../model/Classes/Modelagem/Funcionario.php');
 require_once('../../../model/Classes/Modelagem/Message.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
 
 $message = new Message($BASE_URL);
 
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
+$funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
 
 // Resgata o tipo do formulário
 $type = filter_input(INPUT_POST, "type");
@@ -88,4 +91,48 @@ if ($type === "update_client") {
     }
 } else {
     $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
+}
+//Fim do usuário
+
+//Começo do funcionário
+
+if ($type === "update_funcionario") {
+    $funcionarioData = $funcionarioDao->verifyToken();
+
+    $nome = filter_input(INPUT_POST, "sign-up-nome");
+    $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
+    $cpf = filter_input(INPUT_POST, "sign-up-cpf");
+    $cep = filter_input(INPUT_POST, "sign-up-cep");
+    $rg = filter_input(INPUT_POST, "sign-up-rg");
+    $telefone = filter_input(INPUT_POST, "sign-up-tel");
+    $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
+
+
+    $funcionarioDao->update($funcionarioData);
+
+}
+
+if ($type === "update_password") {
+    $senha = filter_input(INPUT_POST, "change-password");
+    $confirmarsenha = filter_input(INPUT_POST, "change-password-confirm");
+
+    $funcionarioData = $funcionarioDao->verifyToken();
+    $id = $funcionarioData->codfuncionario;
+
+    if ($senha != $confirmarsenha) {
+        $message->setMessage("As senhas não batem", "error", "toast", "back");
+    } else if (strlen($senha) < 8) {
+        $message->setMessage("A senha deve ter no mínimo 8 caracteres", "error", "toast", "back");
+    } else {
+        $funcionario = new Funcionario();
+
+        $finalSenha = $funcionario->generatePassword($senha);
+
+        $funcionario->senha = $finalSenha;
+        $funcionario->codfuncionario = $id;
+
+        $funcionarioDao->changePassword($funcionario);
+    }
+
+
 }

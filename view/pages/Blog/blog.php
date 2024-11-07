@@ -27,10 +27,14 @@
   <div class="container container-blog container__main">
     <div class="sidebar-nav">
       <strong>Categorias de Blog</strong>
-      <button class="sidebar-button ativo" onclick="" type="button">Ver Todos</button>
-      <button class="sidebar-button" onclick="" type="button">Acessibilidade</button>
-      <button class="sidebar-button" onclick="" type="button">Conscientização</button>
-      <button class="sidebar-button" onclick="" type="button">Cuidados</button>
+      <label class="sidebar-button ativo" for="todos">Ver Todos <input type="radio" name="filtro" checked value="todos"
+          id="todos"></label>
+      <label class="sidebar-button" for="Acessibilidade">Acessibilidade <input type="radio" name="filtro"
+          value="Acessibilidade" id="Acessibilidade"></label>
+      <label class="sidebar-button" for="Conscientização">Conscientização <input type="radio" name="filtro"
+          value="Conscientização" id="Conscientização"></label>
+      <label class="sidebar-button" for="Cuidados">Cuidados <input type="radio" name="filtro" value="Cuidados"
+          id="Cuidados"></label>
     </div>
     <main>
       <div class="section-nav-mobile">
@@ -163,5 +167,10 @@
   include('../../components/footer.php');
   ?>
 </body>
+<script>
+  function filtrar() {
+
+  }
+</script>
 
 </html>
