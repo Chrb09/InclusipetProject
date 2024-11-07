@@ -28,18 +28,18 @@
         Envie uma <br />
         mensagem
       </div>
-      <form action="" class="form__login">
+      <form action="https://formsubmit.co/inclusipet@gmail.com" class="form__login" method="POST">
         <div class="form__row">
           <label for="">Nome</label><br />
-          <input type="text" name="contato-nome" id="contato-nome" placeholder="Seu nome..." />
+          <input type="text" name="name" id="contato-nome" placeholder="Seu nome..." />
         </div>
         <div class="form__row">
           <label for="">Email</label><br />
-          <input type="email" name="contato-email" id="contato-email" placeholder="Seu email..." />
+          <input type="email" name="email" id="contato-email" placeholder="Seu email..." />
         </div>
         <div class="form__row">
           <label for="">Mensagem</label><br />
-          <textarea name="contato-mensagem" id="contato-mensagem" cols="30" rows="5"
+          <textarea name="message" id="contato-mensagem" cols="30" rows="5"
             placeholder="Escreva sua mensagem aqui..."></textarea>
         </div>
         <div class="form__row linha">
@@ -48,7 +48,7 @@
             <strong><a href="creditos.php"><ins>termos</ins></a></strong>
           </label>
         </div>
-        <button class="botao-solido" onclick="alerta()" type="button">Enviar</button>
+        <button class="botao-solido" onclick="alerta()" type="submit">Enviar</button>
       </form>
     </div>
     <div class="section-telefone">
