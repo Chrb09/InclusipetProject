@@ -123,6 +123,21 @@ b {
   grid-template-columns: repeat(auto-fit, minmax(calc(20em - (2em * 2)), 1fr));
   gap: 2em;
 }
+.todosg .cartao-transp:first-of-type {
+  grid-column: 1 / span 2;
+}
+
+.acessibilidadeg :nth-child(1 of .acessibilidade) {
+  grid-column: 1 / span 2;
+}
+
+.conscientizacaog :nth-child(1 of .conscientizacao) {
+  grid-column: 1 / span 2;
+}
+
+.cuidadosg :nth-child(1 of .cuidados) {
+  grid-column: 1 / span 2;
+}
 /*Responsividade*/
 
 /* xl */

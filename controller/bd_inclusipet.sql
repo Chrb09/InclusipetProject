@@ -347,7 +347,7 @@ CREATE TABLE `funcionario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 insert into `funcionario` (`CodFuncionario`, `CodCargo`, `Senha`, `Nome`, `RG`, `CPF`, `Telefone`, `CEP`, `CodUnidade`, `Token`, `Imagem`, `DataAdmissao`)
  values (1, 1,'$2y$10$1xGy5hDzqYwYgJ/QuxEm1.rXLAHJHLOpu0TsRmMCMy8dGGbOtHNAC', 'Bernardo Vieira', '28.407.303-9', '343.243.242-34', '(43)24324-2343', '43242-343', '1', 'ee4cdf5cc2b7d945ef44d0f98fcb8344dd024c585751e061ba6dd93cd98b0b44e3b195a260a9880c805fb8caab7aa0028e12', '0ced47bb60892e9d94cbb0672da56cf7dbeb9df979fac7db103cac37f3bbc905ce2a36ed9a7f5812b0ce11545b992d012d7e199be81f87199d366b2e.jpg', '2018-04-11'),
-(2, 3,'$2y$10$qV5DDHbg71bpwzlupW8px.5WIqIQnH1eGcfl/vZdjLlyBIu.Dmxxy', 'Beatriz Silva', '32.321.900-7', '435.435.345-34', '(32)23423-4324', '54354-354', '2', '196ab39fcf61c66855c3ff7bc0ef96c60cd9903d561152f218834944dfb1611a82a5acece27de59f7896ed225299f52c39a2', 'f4f7fa2bc1692741c240e7876a9efa235eb25ebb1fe57821eb0738fbda79bcaed40c6aeb202e1353aa773a1f683535c38c3ab04bf164da3b5ba894b3.jpg', '2018-04-11');
+(2, 3,'$2y$10$qV5DDHbg71bpwzlupW8px.5WIqIQnH1eGcfl/vZdjLlyBIu.Dmxxy', 'Beatriz Silva', '32.321.900-7', '435.435.345-34', '(32)23423-4324', '54354-354', '2', '196ab39fcf61c66855c3ff7bc0ef96c60cd9903d561152f218834944dfb1611a82a5acece27de59f7896ed225299f52c39a2', 'f4f7fa2bc1692741c240e7876a9efa235eb25ebb1fe57821eb0738fbda79bcaed40c6aeb202e1353aa773a1f683535c38c3ab04bf164da3b5ba894b3.jpg', '2020-01-28');
 -- --------------------------------------------------------
 
 

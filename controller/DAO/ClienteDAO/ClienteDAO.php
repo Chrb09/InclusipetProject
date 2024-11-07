@@ -104,13 +104,13 @@ class ClienteDAO implements ClienteDAOInterface
       } else if ($protected) {
 
         // Redireciona usuário não autenticado
-        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/index/index.php");
+        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/login/login.php");
 
       }
     } else if ($protected) {
 
       // Redireciona usuário não autenticado
-      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/index/index.php");
+      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/login/login.php");
 
     }
 
