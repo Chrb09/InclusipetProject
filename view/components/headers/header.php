@@ -4,6 +4,7 @@ require_once('../../../model/Arquivo/inicializacao/globals.php');
 require_once('../../../model/Arquivo/inicializacao/db.php');
 require_once('../../../model/Classes/Modelagem/Message.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
 
 $message = new Message($BASE_URL);
 $flassMessage = $message->getMessage();
@@ -12,8 +13,13 @@ if (!empty($flassMessage["msg"])) {
   $message->clearMessage();
 }
 
+// cliente
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
 $clienteData = $clienteDao->verifyToken(false);
+
+// funcionario
+$funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
+$funcionarioData = $funcionarioDao->verifyToken(false);
 
 if ($clienteData) {
   if ($clienteData->imagem == "") {
@@ -23,6 +29,12 @@ if ($clienteData) {
   $primeiroNome = explode(' ', trim($clienteData->nome));
 }
 
+if ($funcionarioData) {
+  if ($funcionarioData->imagem == "") {
+    $funcionarioData->imagem = "user.png";
+  }
+  $primeiroNomeFunc = explode(' ', trim($funcionarioData->nome));
+}
 
 ?>
 
@@ -68,21 +80,32 @@ if ($clienteData) {
         } ?>"">Contato</a>
       </li>
         <li>
-        <?php if ($clienteData): ?>
-          <a href="">
-              |
-              </a>
+        <?php if ($clienteData) { ?> <!-- caso seja o cliente -->
+          <a href=""> | </a>
           </li>
+
           <li>
           <!-- caso esteja logado -->
           <a href=" ../Perfil/perfil.php" class="a-logado"><?= $primeiroNome[0] ?>
             <img src="../../assets/img/ImagensPerfil/<?= $clienteData->imagem ?>" alt="Login" class="login__header" />
           </a>
-        <?php else: ?>
-          <a href=" ../Login/login.php">
-            <img src="../../assets/img/Login/login.png" alt="Login" class="login__header" />
-          </a>
-        <?php endif; ?>
+
+        <?php } else if ($funcionarioData) { ?> <!-- caso seja o funcionario -->
+            <a href=""> | </a>
+          </li>
+
+          <li>
+            <!-- caso esteja logado -->
+            <a href=" ../Funcionario/perfil.php" class="a-logado"><?= $primeiroNomeFunc[0] ?>
+              <img src="../../assets/img/ImagensPerfil/<?= $funcionarioData->imagem ?>" alt="Login" class="login__header" />
+            </a>
+
+        <?php } else { ?>
+            <a href=" ../Login/login.php">
+              <img src="../../assets/img/Login/login.png" alt="Login" class="login__header" />
+            </a>
+        <?php } ?>
+
       </li>
     </ul>
     <button class="barra__header">
