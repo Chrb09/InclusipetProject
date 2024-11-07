@@ -11,7 +11,6 @@
     <!-- CSS EXTERNO PAGINA -->
     <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
     <!-- ICON -->
-    <title>Fonseca</title>
 </head>
 
 <body>
@@ -35,6 +34,7 @@
     ?>
 
     <head>
+        <title><?= $Animal->Nome ?></title>
         <style>
             body {
                 background: linear-gradient(0deg, rgba(87, 77, 189, 0.5) 0%, rgba(87, 77, 189, 0.5) 100%),
@@ -95,24 +95,30 @@
             <div>
                 <div class="titulo"><?= $Animal->Nome ?></div>
                 <div class="caracteristicas">
-                    
-                    <b> <?= $adocaoDao->getEspecieByCod($Animal->CodEspecie); ?> | <?= $Animal->Sexo ?> | <?= $Animal->Idade ?> Anos | <?= $Animal->Porte ?> | <?php if($Animal->Castrado === 0) { echo "Não Castrado"; } else { echo "Castrado "; } ?></b>
+
+                    <b> <?= $adocaoDao->getEspecieByCod($Animal->CodEspecie); ?> | <?= $Animal->Sexo ?> |
+                        <?= $Animal->Idade ?> Anos | <?= $Animal->Porte ?> |
+                        <?php if ($Animal->Castrado === 0) {
+                            echo "Não Castrado";
+                        } else {
+                            echo "Castrado ";
+                        } ?></b>
                 </div>
             </div>
             <div class="quem">
                 <strong>Quem é <?= $Animal->Nome ?>?</strong>
                 <p>
-                <?= $Animal->Descricao ?>
+                    <?= $Animal->Descricao ?>
                 </p>
             </div>
             <div class="detalhes">
                 <strong>Mais Detalhes</strong>
                 <div class="categorias">
-                    <?php 
-                    foreach($Detalhes as $Detalhe):
-                    ?>
-                    <div class="categoria"><?=$Detalhe?></div>
-                    <?php 
+                    <?php
+                    foreach ($Detalhes as $Detalhe):
+                        ?>
+                        <div class="categoria"><?= $Detalhe ?></div>
+                    <?php
                     endforeach;
                     ?>
                 </div>
