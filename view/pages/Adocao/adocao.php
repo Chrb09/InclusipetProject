@@ -22,8 +22,10 @@
   require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php");
 
   $adocaoDao = new AdocaoDAO($conn, $BASE_URL);
-  // TODO $adocaoData = $adocaoDao->getAdocaoByCodCliente($clienteData->codcliente);
-  
+  $adocoes = $adocaoDao->getAllAdocao();
+
+
+
   /*
   if ($pets !== []) {
     if (isset($_GET['codAnimal'])) {
@@ -45,28 +47,29 @@
     <div class="titulo">Adote um Animalzinho!</div>
     <div class="grid__adocao">
 
-      <!--
       <?php
       foreach ($adocoes as $adocao):
+
+        $imagens = $adocaoDao->getImagemAdocaoByCod($adocao->CodAdocao);
         ?>
         <div class="cartao-transp">
-          <a href="animal.php?CodAdocao=<?= $adocao->CodAdocao ?>"><img src="../../assets/img/Adocao/Animal1/img1.png"
-              alt="" class="cartao__imagem" /></a>
+          <a href="animal.php?CodAdocao=<?= $adocao->CodAdocao ?>"><img
+              src="../../assets/img/ImagensAdocao/<?= $adocao->CodAdocao ?>/<?= $imagens[0] ?>" alt=""
+              class="cartao__imagem" /></a>
           <div class="cartao__content">
             <p>
-              <strong><?= $adocaoData->Nome ?></strong><br />
+              <strong><?= $adocao->Nome ?></strong><br />
               São Paulo, São Paulo
             </p>
             <div class="cartao_texto">
-              Um cachorro de olhos marrons claros, de porte médio, velho, de pelagem curta, branca e com manchas pretas
-              pelo seu corpo.
+              <?= $adocao->Descricao ?>
             </div>
-            <button class="botao-solido" onclick="location.href='animal1.php'">Quero Adotar!</button>
+            <button class="botao-solido" onclick="location.href='animal.php'">Quero Adotar!</button>
           </div>
         </div>
       <?php endforeach; ?>
-      -->
 
+      <!-- DELETAR OS OUTROS TODO -->
       <!-- ANIMAL 01 -->
       <div class="cartao-transp">
         <a href="animal1.php"><img src="../../assets/img/Adocao/Animal1/img1.png" alt="" class="cartao__imagem" /></a>

@@ -5,7 +5,15 @@ require_once('../../../model/Classes/Modelagem/Adocao.php');
 class AdocaoDAO implements AdocaoDAOInterface
 {
     private $conn;
+    private $url;
+    private $message;
 
+    public function __construct(PDO $conn, $url)
+    {
+        $this->conn = $conn;
+        $this->url = $url;
+        $this->message = new Message($url);
+    }
     public function buildAdocao($data)
     {
         $adocao = new Adocao(); //Chamando a classe Adocao
