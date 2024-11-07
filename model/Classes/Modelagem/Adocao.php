@@ -20,6 +20,7 @@ interface AdocaoDAOInterface
     public function create(Adocao $adocao);
     public function update(Adocao $adocao);
     public function getAdocaoByCodCliente($CodCliente);
+    public function getAdocaoByCodAdocao($CodAdocao);
     public function getAllAdocao();
     public function getEspecieByCod($CodEspecie);
     public function getImagemAdocaoByCod($CodAdocao);
