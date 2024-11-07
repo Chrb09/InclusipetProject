@@ -12,20 +12,6 @@
     <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
     <!-- ICON -->
     <title>Fonseca</title>
-    <style>
-        body {
-            background: linear-gradient(0deg, rgba(87, 77, 189, 0.5) 0%, rgba(87, 77, 189, 0.5) 100%),
-                url(../../assets/img/Adocao/Animal1/img5.png), lightgray 10%;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        @media (max-width: 640px) {
-            body {
-                background: none;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -33,8 +19,36 @@
     <?php
     $activePage = "adocao";
     include('../../components/headers/header.php');
+    require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php");
+
+    $adocaoDao = new AdocaoDAO($conn, $BASE_URL);
+
+    if (isset($_GET['CodAdocao'])) {
+        $CodAdocao = $_GET['CodAdocao'];
+
+        $Animal = $adocaoDao->getAdocaoByCodAdocao($CodAdocao);
+        $Imagens = $adocaoDao->getImagemAdocaoByCod($CodAdocao);
+    } else {
+        header("Location: adocao.php");
+    }
     ?>
 
+    <head>
+        <style>
+            body {
+                background: linear-gradient(0deg, rgba(87, 77, 189, 0.5) 0%, rgba(87, 77, 189, 0.5) 100%),
+                    url(../../assets/img/ImagensAdocao/<?= $CodAdocao ?>/<?= $Imagens[4] ?>), lightgray 10%;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            @media (max-width: 640px) {
+                body {
+                    background: none;
+                }
+            }
+        </style>
+    </head>
     <!--Conteudo-->
     <div class="container container__pet">
         <div class="galeria">
@@ -68,7 +82,7 @@
 
         <div class="info">
             <div>
-                <div class="titulo">Fonseca</div>
+                <div class="titulo"><?= $Animal->Nome ?></div>
                 <div class="caracteristicas">
                     <b>Canino | Macho | 15 Anos | Grande | Castrado</b>
                 </div>

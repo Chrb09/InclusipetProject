@@ -78,21 +78,18 @@ class AdocaoDAO implements AdocaoDAOInterface
     }
     public function getAdocaoByCodAdocao($CodAdocao)
     {
-        $adocoes = [];
 
         $stmt = $this->conn->prepare("SELECT * FROM adocao WHERE CodAdocao = :CodAdocao");
         $stmt->bindParam(":CodAdocao", $CodAdocao);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            $adocoesArray = $stmt->fetchAll();
+            $adocao = $stmt->fetch();
 
-            foreach ($adocoesArray as $adocao) {
-                $adocoes[] = $this->buildAdocao($adocao);
-            }
+            $Adocao = $this->buildAdocao($adocao);
         }
 
-        return $adocoes;
+        return $Adocao;
     }
     public function getAllAdocao()
     {
@@ -124,12 +121,17 @@ class AdocaoDAO implements AdocaoDAOInterface
     }
     public function getImagemAdocaoByCod($CodAdocao)
     {
+        $imagemAdocao = [];
         $stmt = $this->conn->prepare("SELECT Imagem FROM imagem_adocao WHERE CodAdocao = :CodAdocao");
         $stmt->bindParam(":CodAdocao", $CodAdocao);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            $imagemAdocao = $stmt->fetch();
+            $imagemArray = $stmt->fetchAll();
+
+            foreach ($imagemArray as $imagens) {
+                $imagemAdocao[] = $imagens[0];
+            }
             return $imagemAdocao;
         }
     }
