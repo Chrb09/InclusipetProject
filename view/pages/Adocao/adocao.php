@@ -45,6 +45,7 @@
     <div class="titulo">Adote um Animalzinho!</div>
     <div class="grid__adocao">
 
+      <!--
       <?php
       foreach ($adocoes as $adocao):
         ?>
@@ -64,6 +65,7 @@
           </div>
         </div>
       <?php endforeach; ?>
+      -->
 
       <!-- ANIMAL 01 -->
       <div class="cartao-transp">
