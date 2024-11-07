@@ -53,7 +53,6 @@
               <tr>
                 <th>Cargo:</th>
                 <td>
-                  <?= $funcionarioData->codcargo ?> -
                   <?= $funcionarioDao->getCargoByCod($funcionarioData->codcargo) ?>
                 </td>
               </tr>
@@ -75,7 +74,7 @@
               </tr>
               <tr>
                 <th>Unidade:</th>
-                <td> <?= $funcionarioData->codunidade ?> -
+                <td>
                   <?= $funcionarioDao->getUnidadeByCod($funcionarioData->codunidade)[1] ?>
                 </td>
               </tr>

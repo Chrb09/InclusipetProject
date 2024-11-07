@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../../assets/css/StyleGeral.css" />
   <!-- CSS EXTERNO GERAL -->
   <link rel="stylesheet" href="../../assets/css/StyleUsuario.css" />
-  <link rel="stylesheet" href="../../assets/css/StylePerfil.css" />
+  <link rel="stylesheet" href="../../assets/css/StyleFuncTutor.css" />
   <!-- CSS EXTERNO PAGINA -->
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
@@ -50,34 +50,60 @@
         <!-- Conteudo principal -->
         <div class="titulo">Funções do tutor</div>
 
-        <div class="infor">
-          Utilizando as informações de:
-          <img src="../../assets/img/Perfil/foto_usuario.png" class="fotoUsuario" />
-          <p>Miguel Yudi Baba</p>
+        <div class="infor selecionar" id="infor">
+          <div class="utilizando">
+            Utilizando as informações de:
+            <img src="../../assets/img/Perfil/foto_usuario.png" class="fotoUsuario" />
+            <p>Miguel Yudi Baba</p>
+            <ins><a href="" class="link" id="alterar">Alterar</a></ins>
+          </div>
+          <div class="selecionando">
+            <form action="../../../model/Arquivo/Inicializacao/vettutor_process.php" class="form__cadastro"
+              method="POST">
+              <div class="form-input">
+                <label for="">Tutor</label><br />
+                <div class="custom-select">
+                  <select name="especie" id="especie-select" required>
+                    <option value="1">Miguel
+                    </option>
+                    <option value="2">Giovanna</option>
+                    <option value="3">Amanda</option>
+                  </select>
+                </div>
+              </div>
+              <div class="button-wrapper-form">
+                <button class="botao-solido" id="salvar">Salvar</button>
+              </div>
+            </form>
+          </div>
         </div>
 
-        <ins><a href="" class="link">Alterar</a></ins>
+
         <br />
         <div class="acoes">
-          <a class="nav-perfil" href=""><img src="../../assets/img/Perfil/agendar.png" alt="" />
+          <a class="nav-perfil" href="../Funcoes_Tutor/agendamentot.php"><img src="../../assets/img/Perfil/agendar.png"
+              alt="" />
             <div class="card-txt">
               <p>Agendar</p>
               <strong>Consulta</strong>
             </div>
           </a>
-          <a class="nav-perfil" href=""><img src="../../assets/img/Perfil/anunciar.png" alt="" />
+          <a class="nav-perfil" href="../Funcoes_Tutor/anuncioadocaot.php"><img
+              src="../../assets/img/Perfil/anunciar.png" alt="" />
             <div class="card-txt">
               <p>Criar anúncio de</p>
               <strong>Adoção</strong>
             </div>
           </a>
-          <a class="nav-perfil" href=""><img src="../../assets/img/Perfil/cadastrar.png" alt="" />
+          <a class="nav-perfil" href="../Funcoes_Tutor/cadastraranimalt.php"><img
+              src="../../assets/img/Perfil/cadastrar.png" alt="" />
             <div class="card-txt">
               <p>Cadastrar</p>
               <strong>Animal</strong>
             </div>
           </a>
-          <a class="nav-perfil" href="cadastrartutor.php"><img src="../../assets/img/Perfil/funcionario.png" alt="" />
+          <a class="nav-perfil" href="../Funcoes_Tutor/cadastrartutor.php"><img
+              src="../../assets/img/Perfil/funcionario.png" alt="" />
             <div class="card-txt">
               <p>Cadastrar</p>
               <strong>Tutor</strong>
@@ -92,5 +118,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
+
+<script>
+  $('#alterar').click(function () { alterar(); return false; });
+  $('#salvar').click(function () { salvar(); return false; });
+  let infor = document.querySelector('#infor');
+
+  function alterar() {
+    infor.classList.add("selecionar")
+  }
+
+  function salvar() {
+    infor.classList.remove("selecionar")
+  }
+
+</script>
 
 </html>

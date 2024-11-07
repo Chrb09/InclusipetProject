@@ -71,7 +71,8 @@
             </div>
 
             <div class="button-wrapper-form">
-              <button class="botao botao-borda" onclick="location.href='funcoesdotutor.php'" type="button">
+              <button class="botao botao-borda" onclick="location.href='../Funcionario/funcoesdotutor.php'"
+                type="button">
                 Voltar
               </button>
               <button class="botao botao-solido" onclick="" type="button">Salvar</button>

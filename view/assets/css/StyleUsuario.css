@@ -152,13 +152,24 @@ body {
   text-align: left;
   width: 100%;
 }
-.infor {
+.utilizando {
   display: flex;
   gap: 0.6em;
   padding-bottom: 0.5em;
 }
-.infor p {
+.utilizando p {
   font-weight: bold;
+}
+
+.selecionando {
+  display: none;
+}
+.selecionar .utilizando {
+  display: none;
+}
+
+.selecionar .selecionando {
+  display: flex;
 }
 .fotoUsuario {
   height: 30px;

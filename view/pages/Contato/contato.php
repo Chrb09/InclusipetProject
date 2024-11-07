@@ -88,9 +88,14 @@
 <script>
   function alerta() {
     Swal.fire({
-      title: "Enviado com sucesso",
+      html: `<div><p>Enviado com Sucesso!</p></div> `,
+      showConfirmButton: true,
       icon: "success",
-      confirmButtonColor: "#574dbd",
+      focusConfirm: true,
+      customClass: {
+        popup: 'container-custom',
+      },
+      backdrop: "rgb(87, 77, 189, 0.5",
     });
   }
 </script>
