@@ -39,8 +39,8 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   //Função Create
   public function create(Funcionario $funcionario, $authfuncionario = false, $senha)
   {
-    $stmt = $this->conn->prepare("INSERT INTO funcionario( CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem) 
-     VALUES ( :CodCargo, :Senha, :Nome, :RG, :CPF,:Telefone, :CEP, :CodUnidade , :Token, :Imagem)");
+    $stmt = $this->conn->prepare("INSERT INTO funcionario( CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem, DataAdmissao) 
+     VALUES ( :CodCargo, :Senha, :Nome, :RG, :CPF,:Telefone, :CEP, :CodUnidade , :Token, :Imagem, :DataAdmissao)");
 
     $stmt->bindParam(":CodCargo", $funcionario->codcargo);
     $stmt->bindParam(":Senha", $funcionario->senha);
@@ -52,6 +52,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     $stmt->bindParam(":CodUnidade", $funcionario->codunidade);
     $stmt->bindParam(":Token", $funcionario->token);
     $stmt->bindParam(":Imagem", $funcionario->imagem);
+    $stmt->bindParam(":DataAdmissao", $funcionario->dataAdmissao);
 
     $stmt->execute();
 
@@ -163,7 +164,58 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     }
   }
 
+  public function findByCPF($cpf)
+  {
+    // Verifica se foi enviado um email
+    if ($cpf == "") {
+      return false;
+    } else {
 
+      $stmt = $this->conn->prepare("SELECT * FROM Funcionario WHERE CPF = :cpf");
+      $stmt->bindParam(":cpf", $cpf);
+      $stmt->execute();
+
+      // Verifica se foi encontrado pelo menos um registro com o email fornecido
+      if ($stmt->rowCount() <= 0) {
+
+        return false;
+
+      } else {
+
+        // Obtém o primeiro registro retornado da consulta
+        $data = $stmt->fetch();
+        $funcionario = $this->buildfuncionario($data);
+        return $funcionario;
+
+      }
+    }
+  }
+  public function findByRG($rg)
+  {
+    // Verifica se foi enviado um email
+    if ($rg == "") {
+      return false;
+    } else {
+
+      $stmt = $this->conn->prepare("SELECT * FROM Funcionario WHERE RG = :rg");
+      $stmt->bindParam(":rg", $rg);
+      $stmt->execute();
+
+      // Verifica se foi encontrado pelo menos um registro com o email fornecido
+      if ($stmt->rowCount() <= 0) {
+
+        return false;
+
+      } else {
+
+        // Obtém o primeiro registro retornado da consulta
+        $data = $stmt->fetch();
+        $funcionario = $this->buildfuncionario($data);
+        return $funcionario;
+
+      }
+    }
+  }
   public function findByToken($token)
   {
     if ((!empty($token))) {

@@ -43,6 +43,8 @@ interface FuncionarioDAOInterface
   public function setTokenToSession($token, $redirect = true);
   public function authenticateFuncionario($codfuncionario, $senha);
   public function findById($codfuncionario);
+  public function findByCPF($cpf);
+  public function findByRG($rg);
   public function findByToken($token);
   public function destroyToken();
   public function changePassword(Funcionario $funcionario);

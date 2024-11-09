@@ -32,16 +32,16 @@
           <!-- email -->
           <label for="sign-up-email">Email</label>
           <input name="sign-up-email" id="sign-up-email" type="email" required autocomplete="off"
-            placeholder="seuemail@email..." />
+            placeholder="seuemail@email..." maxlength="100" />
 
           <!-- senha -->
           <label for="sign-up-password">Senha</label>
           <input name="sign-up-password" id="sign-up-password" type="password" required autocomplete="off"
-            placeholder="Sua senha..." />
+            placeholder="Sua senha..." maxlength="25" />
 
           <label for="sign-up-password">Confirmar Senha</label>
           <input name="sign-up-confirm-password" id="sign-up-confirm-password" type="password" required
-            autocomplete="off" placeholder="Confirme sua senha..." />
+            autocomplete="off" placeholder="Confirme sua senha..." maxlength="25" />
 
           <!-- buttons -->
           <button class="botao-solido" onclick="cadastrarnext()" type="button">Continuar</button>
@@ -68,12 +68,13 @@
 
           <!-- nome -->
           <label for="sign-up-name">Nome Completo</label>
-          <input name="sign-up-name" id="sign-up-name" placeholder="Seu Nome..." type="text" required
-            autocomplete="off" />
+          <input name="sign-up-name" id="sign-up-name" placeholder="Seu Nome..." type="text" required autocomplete="off"
+            maxlength="50" />
 
           <!-- data nascimento -->
           <label for="sign-up-date">Data de Nascimento</label>
-          <input name="sign-up-date" id="sign-up-date" type="date" required autocomplete="off" />
+          <input name="sign-up-date" id="sign-up-date" type="date" required autocomplete="off" min="1900-01-01"
+            max="2020-01-01" />
 
           <!-- CPF -->
           <label for="sign-up-cpf">CPF</label>
@@ -97,7 +98,7 @@
     </div>
 
     <!-- LOGIN DO CLIENTE -->
-     
+
     <div class="form-container sign-in-container">
       <form action="../../../model/Arquivo/Inicializacao/auth_process.php" onsubmit="return validarLogin()"
         method="POST">
@@ -108,12 +109,12 @@
           <!-- email -->
           <label for="log-in-email">Email</label>
           <input name="log-in-email" id="log-in-email" type="email" required autocomplete="on"
-            placeholder="seuemail@email..." />
+            placeholder="seuemail@email..." maxlength="100" />
 
           <!-- senha -->
           <label for="log-in-password">Senha</label>
           <input name="log-in-password" id="log-in-password" type="password" required autocomplete="on"
-            placeholder="Sua senha..." />
+            placeholder="Sua senha..." maxlength="25" />
 
           <button class="botao-solido" value="login" type="submit">Entre</button>
           <!-- 

@@ -73,7 +73,7 @@
               <input type="hidden" name="type" value="create">
               <div class="form-input">
                 <label for="">Nome</label><br />
-                <input type="text" name="nome" placeholder="Nome do seu pet" required />
+                <input type="text" name="nome" maxlength="50" placeholder="Nome do seu pet" required />
               </div>
               <div class="form-input">
                 <label for="">Espécie</label><br />
@@ -177,7 +177,8 @@
               <input type="hidden" name="imagematual" value="<?= $petInfo->Imagem ?>">
               <div class="form-input">
                 <label for="">Nome</label><br />
-                <input type="text" name="nome" placeholder="Nome do seu pet" value="<?= $petInfo->Nome ?>" required />
+                <input type="text" name="nome" maxlength="50" placeholder="Nome do seu pet" value="<?= $petInfo->Nome ?>"
+                  required />
               </div>
               <div class="form-input">
                 <label for="">Espécie</label><br />

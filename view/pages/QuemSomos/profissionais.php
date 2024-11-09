@@ -42,7 +42,11 @@
       <div class="card-container">
         <?php foreach ($funcionarios as $funcionario): ?>
           <div class="card">
-            <img src="../../assets/img/ImagensFuncionario/<?= $funcionario->imagem ?>" alt="" />
+            <img src="../../assets/img/ImagensFuncionario/<?php if ($funcionario->imagem == "") {
+              echo ("user.png");
+            } else {
+              echo $funcionario->imagem;
+            } ?>" alt="" />
             <div class="table-wrapper">
               <table class="info">
                 <tr>
@@ -56,7 +60,7 @@
                   <td><?= $funcionarioDao->getCargoByCod($funcionario->codcargo) ?></td>
                   <td><?= explode("- ", $funcionarioDao->getUnidadeByCod($funcionario->codunidade)[1])[1] ?></td>
                   <td><?php
-                  $tempoAdmissao = 2024 - explode("-", $funcionario->dataAdmissao)[0];
+                  $tempoAdmissao = date("Y") - explode("-", $funcionario->dataAdmissao)[0];
                   if ($tempoAdmissao <= 0) {
                     echo "<1 Ano";
                   } else {

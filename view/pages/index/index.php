@@ -64,7 +64,11 @@
     </div>
     <div class="container linha-hero">
       <div class="card-hero">
-        <a href="../Login/login.php">
+        <a href="<?php if ($clienteData) {
+          echo '../Perfil/agendamento.php';
+        } else {
+          echo '../Login/login.php';
+        } ?>">
           <img src="../../assets/img/Index/agendamento.png" alt="" />
           <div class="titulo-card-hero">
             Agende sua <br />
@@ -72,7 +76,11 @@
           </div>
         </a>
         <p>Cadastre o seu pet e faça um agendamento direto do conforto de sua casa!</p>
-        <a href="../Login/login.php" class="link">Acessar
+        <a href="<?php if ($clienteData) {
+          echo '../Perfil/agendamento.php';
+        } else {
+          echo '../Login/login.php';
+        } ?>" class="link">Acessar
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
             class="seta__link">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -132,7 +140,11 @@
     <div class="swiper swiper_hero">
       <div class="swiper-wrapper">
         <div class="card-hero swiper-slide">
-          <a href="../Login/login.php">
+          <a href="<?php if ($clienteData) {
+            echo '../Perfil/agendamento.php';
+          } else {
+            echo '../Login/login.php';
+          } ?>">
             <img src="../../assets/img/Index/agendamento.png" alt="" />
             <div class="titulo-card-hero">
               Agende sua <br />
@@ -140,7 +152,11 @@
             </div>
           </a>
           <p>Cadastre o seu pet e faça um agendamento direto do conforto de sua casa!</p>
-          <a href="../Login/login.php" class="link">Acessar
+          <a href="<?php if ($clienteData) {
+            echo '../Perfil/agendamento.php';
+          } else {
+            echo '../Login/login.php';
+          } ?>" class="link">Acessar
             <?php
             include('../../assets/svg/seta_link.php');
             ?>

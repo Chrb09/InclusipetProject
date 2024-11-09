@@ -20,5 +20,5 @@
       Funções do tutor
     </button>
   </div>
-  <div class="copyright-sidebar">®2024 Inclusipet. Todos os direitos reservados.</div>
+  <div class="copyright-sidebar">®2023-<?= date("Y") ?> Inclusipet. Todos os direitos reservados.</div>
 </div>

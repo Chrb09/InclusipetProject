@@ -57,13 +57,14 @@
           <!--Senha-->
           <div class="form-input desativado">
             <label for="sign-up-password">Senha Temporaria</label><br />
-            <input type="text" name="sign-up-password" id="sign-up-password" value="<?= rand(10000000, 99999999) ?>" />
+            <input type="text" maxlength="25" name="sign-up-password" id="sign-up-password"
+              value="<?= rand(10000000, 99999999) ?>" />
           </div>
 
           <!--Nome-->
           <div class="form-input">
             <label for="sign-up-nome">Nome</label><br />
-            <input type="text" name="sign-up-nome" id="sign-up-nome" required />
+            <input type="text" maxlength="50" name="sign-up-nome" id="sign-up-nome" required />
           </div>
 
           <!--Cargo do funcionário-->

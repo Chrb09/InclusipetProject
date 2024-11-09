@@ -70,7 +70,10 @@ $fullName = $cliente->getFullName($clienteData);
               </tr>
               <tr>
                 <th>Data Nascimento:</th>
-                <td><?= $clienteData->datanasc ?></td> <!-- Data de nascimento do cliente -->
+                <td><?php
+                $dataNascimento = explode("-", $clienteData->datanasc);
+                echo ("$dataNascimento[2]/$dataNascimento[1]/$dataNascimento[0]");
+                ?></td> <!-- Data de nascimento do cliente -->
               </tr>
               <tr>
                 <th>Email:</th>

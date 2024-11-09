@@ -73,13 +73,13 @@
 
           <div class="form-input">
             <label for="">Nome</label><br />
-            <input type="text" name="" id="" required placeholder="Nome do seu animalzinho.." />
+            <input type="text" name="nome" id="" maxlength="50" required placeholder="Nome do seu animalzinho.." />
           </div>
 
           <div class="form-input">
             <label for="">Espécie</label><br />
             <div class="custom-select">
-              <select id="" name="" size="1" required>
+              <select id="" name="especie" required>
                 <option value="cachorro">Cachorro</option>
                 <option value="gato">Gato</option>
                 <option value="passaro">Pássaro</option>
@@ -90,7 +90,7 @@
           <div class="form-input">
             <div id="form-data">
               <label for="">Idade</label><br />
-              <input type="number" name="" id="datanasc" min="0" max="99" required placeholder="00" />
+              <input type="number" name="idade" id="datanasc" min="0" max="99" required placeholder="00" />
             </div>
             <div class="radio-div"><input type="checkbox" name="" id="checkdata" class="check" /> Não sei a idade</div>
           </div>
@@ -98,7 +98,7 @@
           <div class="form-input">
             <label for="">Porte</label><br />
             <div class="custom-select">
-              <select id="" name="" size="1" required>
+              <select id="" name="porte" required>
                 <option value="cachorro">Pequeno</option>
                 <option value="gato">Médio</option>
                 <option value="passaro">Grande</option>
@@ -136,23 +136,24 @@
 
           <div class="form-input">
             <label for="">Descrição do pet</label>
-            <textarea name="" id="" cols="30" rows="5" placeholder="Descrição do seu animalzinho..."
-              required></textarea>
+            <textarea name="descricao" maxlength="500" id="" cols="30" rows="5"
+              placeholder="Descrição do seu animalzinho..." required></textarea>
           </div>
 
           <div class="form-input">
             <label for="">Mais detalhes (Escreva um por linha)</label>
-            <textarea name="" id="" cols="30" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+            <textarea name="detalhes" id="" cols="30" rows="5" placeholder="Escreva sua mensagem aqui..."
+              required></textarea>
           </div>
 
           <div class="form-input">
             <label for="">Seu telefone para contato</label><br />
-            <input type="tel" name="" id="" required placeholder="(00)00000-0000" />
+            <input type="tel" name="telefone" id="" required placeholder="(00)00000-0000" />
           </div>
 
           <div class="form-input">
             <label for="">Endereço de referência</label><br />
-            <input type="text" name="" id="" required placeholder="Endereço de referencia..." />
+            <input type="text" name="endereco" maxlength="50" id="" required placeholder="Endereço de referencia..." />
           </div>
 
           <div class="button-wrapper-form">

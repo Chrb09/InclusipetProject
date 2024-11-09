@@ -32,7 +32,8 @@
       <div class="hr"></div>
     </div>
     <?php foreach ($unidades as $unidade): ?>
-      <div class="cartao__unidades">
+      <div class="cartao__unidades" inicial="<?= explode(':', trim($unidade[5]))[0] ?>"
+        final="<?= explode(':', trim($unidade[6]))[0] ?>">
         <div class="cartao-body">
           <strong class="cartao-titulo"><?= $unidade[1] ?></strong>
           <div class="cartao-subtitulo">
@@ -57,21 +58,24 @@
   ?>
 </body>
 <script>
-  /*
-  const cartao1 = document.querySelector(".cartao1");
-  const cartao2 = document.querySelector(".cartao2");
-  const cartao3 = document.querySelector(".cartao3");
+
+  const cartoes = document.getElementsByClassName("cartao__unidades");
+
   const data = new Date();
   let hora = data.getHours();
-  if (hora > 21 || hora < 8) {
-    cartao1.classList.toggle("fechado");
+
+  for (let cartao of cartoes) {
+    if (hora => cartao.getAttribute("final") || hora <= cartao.getAttribute("inicial")) {
+      cartao.classList.toggle("fechado");
+    }
   }
-  if (hora > 18 || hora < 8) {
-    cartao2.classList.toggle("fechado");
-  }
-  if (hora > 18 || hora < 10) {
-    cartao3.classList.toggle("fechado");
-  }
+
+
+
+
+
+
+
 </script>
 
 </html>

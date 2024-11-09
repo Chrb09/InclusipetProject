@@ -293,11 +293,11 @@
       html: `
         <div class="form-input">
           <label for="">Informações Adicionais</label>
-          <textarea name="" id="" cols="30" rows="3" placeholder="Escreva sua mensagem..."></textarea>
+          <textarea name="info" id="" maxlength="200" cols="30" rows="3" placeholder="Escreva sua mensagem..."></textarea>
         </div>
         <div class="form-input">
           <label for="">PDF Resultado dos Exames</label>
-          <input type="file" value="" />
+          <input type="file" name="pdf" value="" />
         </div>
         <div class="linha">
           <button class="botao-borda" onclick="Swal.close()" type="button">Voltar</button>

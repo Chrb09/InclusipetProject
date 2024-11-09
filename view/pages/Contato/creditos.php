@@ -55,6 +55,7 @@
   <?php
   $activePage = "contato";
   include('../../components/headers/header.php');
+
   ?>
 
   <!-- CONTATOS -->

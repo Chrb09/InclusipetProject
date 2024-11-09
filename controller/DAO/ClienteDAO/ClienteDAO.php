@@ -184,6 +184,46 @@ class ClienteDAO implements ClienteDAOInterface
     }
   }
 
+  public function findByCPF($cpf)
+  {
+
+    // Verifica se foi enviado um email
+    if ($cpf == "") {
+      return false;
+    } else {
+
+      $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE CPF = :cpf");
+      $stmt->bindParam(":cpf", $cpf);
+      $stmt->execute();
+
+      // Verifica se foi encontrado pelo menos um registro com o email fornecido
+      if ($stmt->rowCount() <= 0) {
+
+        return false;
+
+      } else {
+
+        // Obtém o primeiro registro retornado da consulta
+        $data = $stmt->fetch();
+        $cliente = $this->buildcliente($data);
+        return $cliente;
+
+      }
+    }
+  }
+  public function validateAge($birthday)
+  {
+
+    $min_age = 18; // Set the min age in years
+
+    $dataArray = explode("-", $birthday);
+    if (mktime(0, 0, 0, $dataArray[1], $dataArray[2], $dataArray[0]) < mktime(0, 0, 0, date('m'), date('j'), (date('Y') - $min_age))) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public function findById($codcliente)
   {
 

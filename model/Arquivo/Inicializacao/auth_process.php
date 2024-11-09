@@ -43,7 +43,15 @@ if ($type === 'register_client') {
     $message->setMessage("CPF inválido.", "error", "toast", "back");
   } else {
 
-    if ($clienteDao->findByEmail($email) === false) {
+    if ($clienteDao->findByEmail($email) !== false) {
+      // Enviar uma msg de erro, de dados faltantes
+      $message->setMessage("Email já cadastrado.", "error", "toast", "back");
+
+    } else if ($clienteDao->findByCPF($cpf) !== false) {
+      $message->setMessage("CPF já cadastrado.", "error", "toast", "back");
+    } else if ($clienteDao->validateAge($datanasc) !== true) {
+      $message->setMessage("Menor de 18 anos.", "error", "toast", "back");
+    } else {
       $cliente = new Cliente();
 
       $clienteToken = $cliente->generateToken();
@@ -61,10 +69,6 @@ if ($type === 'register_client') {
       $auth = true;
 
       $clienteDao->create($cliente, $auth);
-    } else {
-
-      // Enviar uma msg de erro, de dados faltantes
-      $message->setMessage("Email já cadastrado.", "error", "toast", "back");
     }
   }
 } else if ($type === 'login_client') {
@@ -124,6 +128,7 @@ if ($type === 'register_client') {
         $funcionario->telefone = $telefone;
         $funcionario->codunidade = $codunidade;
         $funcionario->token = $funcionarioToken;
+        $funcionario->dataAdmissao = date("Y-m-d");
 
         $authfuncionario = false;
 
