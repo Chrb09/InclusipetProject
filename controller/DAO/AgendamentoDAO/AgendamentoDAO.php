@@ -85,14 +85,35 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         }
 
     }
-    public function update(Agendamento $agendamento)
+
+    public function getAgendamentoByInfo($CodPet)
     {
+        $agendamentos = [];
 
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Info IS NOT NULL AND CodAnimal = :CodAnimal");
+        $stmt->bindParam(":CodAnimal", $CodPet);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $agendamentosArray = $stmt->fetchAll();
+
+            foreach ($agendamentosArray as $agendamento) {
+                $agendamentos[] = $this->buildAgendamento($agendamento);
+            }
+        }
+
+        return $agendamentos;
     }
-
     public function cancel($CodAgendamento)
     {
+        $stmt = $this->conn->prepare("UPDATE Agendamento SET Cancelado = 1 WHERE CodAgendamento = :CodAgendamento");
 
+        $stmt->bindParam(":CodAgendamento", $CodAgendamento);
+
+        $stmt->execute();
+
+        // Redireciona para o perfil do usuario
+        $this->message->setMessage("Agendamento cancelado!", "success", "toast", "../../../view/pages/Perfil/meusagendamentos.php");
     }
 
     public function getAllUnidade()

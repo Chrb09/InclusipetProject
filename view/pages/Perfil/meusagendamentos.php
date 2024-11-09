@@ -122,7 +122,10 @@
                   </tr>
                   <tr>
                     <th>Data da Consulta:</th>
-                    <td><?= $agendamento->Data ?></td>
+                    <td><?php
+                    $data = explode("-", $agendamento->Data);
+                    echo ("$data[2]/$data[1]/$data[0]");
+                    ?></td>
                   </tr>
                   <tr>
                     <th>Horario da Consulta:</th>
@@ -130,8 +133,9 @@
                   </tr>
                 </table>
                 <div class="button-wrapper-form <?= ($agendamento->Cancelado == 1) ? 'desativado' : '' ?>">
-                  <form action="">
+                  <form action="../../../model/Arquivo/Inicializacao/appointment_process.php" method="POST">
                     <input type="hidden" name="type" value="cancelar">
+                    <input type="hidden" name="id" value="<?= $agendamento->CodAgendamento ?>">
                     <button class="botao botao-solido" id="resetarfoto" type="submit">Cancelar</button>
                   </form>
                 </div>

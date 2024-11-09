@@ -49,8 +49,8 @@ if ($type === 'create_appointment') {
 
         $agendamentoDao->create($agendamento);
     }
-}
-else if($type === 'cancelar') {
-    // TODO
+} else if ($type === 'cancelar') {
+    $codagendamento = filter_input(INPUT_POST, "id");
+    $agendamentoDao->cancel($codagendamento);
 }
 // ===== FIM DO AGENDAMENTO =====

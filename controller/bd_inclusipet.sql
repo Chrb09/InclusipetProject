@@ -76,7 +76,7 @@ CREATE TABLE `agendamento` (
 
 -- --------------------------------------------------------
 INSERT INTO `agendamento` (`CodAgendamento`, `CodFuncionario`, `CodAnimal`, `CodCliente`, `CodUnidade`, `Data`, `Hora`, `Info`, `Resultado`, `CodServico`, `Cancelado`) VALUES
-(1, 1, 1, 3, 3, '2024-11-21', '16:00:00', NULL, NULL, 5, 0);
+(1, 1, 1, 1, 3, '2024-11-21', '16:00:00', "Exame Mensal Legal do cachorro fez tanana uou varias linha shikanoko nokonoko koshi tan tan", NULL, 5, 0);
 --
 -- Estrutura para tabela `animal`
 --
