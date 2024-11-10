@@ -13,6 +13,35 @@
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
   <title>Meus Pets</title>
+
+  <style>
+    .nav-perfil {
+      display: flex;
+      flex-direction: column;
+      width: 8em;
+      align-items: center;
+      text-align: center;
+      transition: filter 0.3s;
+
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+
+    .nav-perfil img {
+      width: 7em;
+    }
+
+    .card-txt {
+      margin-top: 0.5em;
+    }
+
+    @media (max-width: 768px) {
+      .nav-perfil {
+        margin-inline: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -46,47 +75,42 @@
       <div class="content">
 
         <?php include('../../components/navmobileperfil.php'); ?>
-        <div class="titulo"><?php
-        if ($pets !== []) {
-          echo ("Meus Pets");
-        } else {
-          echo ("Nenhum pet cadastrado!");
-        } ?></div>
-        <div class="pets">
+        <?php if ($pets !== []): ?>
+          <div class="titulo">Meus Pets</div>
+          <div class="pets">
 
-          <div class="meus-pets">
-            <?php
+            <div class="meus-pets">
+              <?php
 
 
-            foreach ($pets as $pet):
-              $petNome = explode(' ', trim($pet->Nome));
-              ?>
+              foreach ($pets as $pet):
+                $petNome = explode(' ', trim($pet->Nome));
+                ?>
 
-              <a href="meuspets.php?codAnimal=<?= $pet->CodAnimal ?>">
-                <button class="button-pet selecionado">
-                  <img src="../../assets/img/ImagensPet/<?php
-                  if ($pet->Imagem == "") {
-                    echo ("pet.png");
-                  } else {
-                    echo ($pet->Imagem);
-                  }
-                  ?>" alt="" class="img-menor" /> <?= $petNome[0] ?>
+                <a href="meuspets.php?codAnimal=<?= $pet->CodAnimal ?>">
+                  <button class="button-pet selecionado">
+                    <img src="../../assets/img/ImagensPet/<?php
+                    if ($pet->Imagem == "") {
+                      echo ("pet.png");
+                    } else {
+                      echo ($pet->Imagem);
+                    }
+                    ?>" alt="" class="img-menor" /> <?= $petNome[0] ?>
 
-                  <input type="radio" name="pet" value="<?= $pet->CodAnimal ?>" id="idlabel<?= $pet->CodAnimal ?>"
-                    class="check-pet" <?php
-                    if ($pet->CodAnimal == $petInfo->CodAnimal)
-                      print ("checked"); ?>>
-                </button>
-              </a>
-            <?php endforeach; ?>
+                    <input type="radio" name="pet" value="<?= $pet->CodAnimal ?>" id="idlabel<?= $pet->CodAnimal ?>"
+                      class="check-pet" <?php
+                      if ($pet->CodAnimal == $petInfo->CodAnimal)
+                        print ("checked"); ?>>
+                  </button>
+                </a>
+              <?php endforeach; ?>
+            </div>
+            <button class="button-pet button-cadastrar" onclick="location.href='cadastraranimal.php'" type="button">
+              <img src="../../assets/img/Perfil/adicionar.png" alt="" class="img-menor novo-pet" />
+              <div class="cadastrar-pet">Cadastrar Novo Pet</div>
+            </button>
           </div>
-          <button class="button-pet button-cadastrar" onclick="location.href='cadastraranimal.php'" type="button">
-            <img src="../../assets/img/Perfil/adicionar.png" alt="" class="img-menor novo-pet" />
-            <div class="cadastrar-pet">Cadastrar Novo Pet</div>
-          </button>
-        </div>
-        <div class="pet-info">
-          <?php if ($pets !== []): ?>
+          <div class="pet-info">
             <div class="pet-info-img">
               <img src="../../assets/img/ImagensPet/<?php
               if ($petInfo->Imagem == "") {
@@ -157,10 +181,19 @@
                 </button>
               </div>
             </div>
-          <?php endif;
-          ?>
-        </div>
 
+          </div>
+        <?php else: ?>
+          <div class="titulo">Nenhum animal cadastrado</div>
+          <br>
+          <a class="nav-perfil" href="cadastraranimal.php"><img src="../../assets/img/Perfil/cadastrar.png" alt="" />
+            <div class="card-txt">
+              <p>Cadastrar</p>
+              <strong>Animal</strong>
+            </div>
+          </a>
+
+        <?php endif; ?>
       </div>
     </div>
   </div>

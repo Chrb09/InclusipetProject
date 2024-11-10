@@ -86,12 +86,13 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     }
 
-    public function getAgendamentoByInfo($CodPet)
+    public function getAgendamentoByInfoDate($CodPet, $data)
     {
         $agendamentos = [];
 
-        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Info IS NOT NULL AND CodAnimal = :CodAnimal");
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Info IS NOT NULL AND CodAnimal = :CodAnimal AND Data > :Data");
         $stmt->bindParam(":CodAnimal", $CodPet);
+        $stmt->bindParam(":Data", $data);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -104,6 +105,27 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
         return $agendamentos;
     }
+    public function getAgendamentoByInfoDateType($CodPet, $data, $tipo)
+    {
+        $agendamentos = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Info IS NOT NULL AND CodAnimal = :CodAnimal AND Data > :Data AND CodServico = :CodServico");
+        $stmt->bindParam(":CodAnimal", $CodPet);
+        $stmt->bindParam(":Data", $data);
+        $stmt->bindParam(":CodServico", $tipo);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $agendamentosArray = $stmt->fetchAll();
+
+            foreach ($agendamentosArray as $agendamento) {
+                $agendamentos[] = $this->buildAgendamento($agendamento);
+            }
+        }
+
+        return $agendamentos;
+    }
+
     public function cancel($CodAgendamento)
     {
         $stmt = $this->conn->prepare("UPDATE Agendamento SET Cancelado = 1 WHERE CodAgendamento = :CodAgendamento");
