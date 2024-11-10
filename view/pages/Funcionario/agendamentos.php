@@ -231,7 +231,13 @@
               <div class="card-agendamento">
                 <div class="animal">
                   <div class="animal-wrapper">
-                    <img src="../../assets/img/Perfil/fonseca.png" alt="" />
+                    <img src="../../assets/img/ImagensPet/<?php
+                    if ($pet->Imagem == "") {
+                      echo ("pet.png");
+                    } else {
+                      echo ($pet->Imagem);
+                    }
+                    ?>" alt="" class="animal_photo" />
                     <p><?= $pet->Nome ?></p>
                   </div>
                   <div class="status 
