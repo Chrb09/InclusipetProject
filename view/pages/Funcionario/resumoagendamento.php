@@ -150,13 +150,39 @@
 <body>
   <!-- PERFIL -->
   <div class="container-usuario">
-    <?php
 
+    <?php
     $sidebarActive = "agendamentos";
-    include('../../components/sidebarvet.php');
-    ?>
+    include('../../components/sidebarvet.php'); ?>
+
     <div class="main">
-      <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
+      <?php
+      include('../../components/headers/headerperfilfuncionario.php');
+
+      require_once("../../../controller/DAO/PetDAO/PetDAO.php");
+      require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
+      require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
+      require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+
+      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL); // instancia do AgendamentoDAO
+      $petDao = new PetDAO($conn, $BASE_URL);                 // instancia do PetDAO
+      $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL); // instancia do FuncionarioDAO
+      $clienteDao = new ClienteDAO($conn, $BASE_URL);         // instancia do ClienteDAO
+      
+      if (isset($_GET['CodAgendamento'])) {
+        $CodAgendamento = $_GET['CodAgendamento'];
+
+        $agendamento = $agendamentoDao->getAgendamentoByCodAgendamento($CodAgendamento);   // Objeto da Agendamento
+        $cliente = $clienteDao->findById($agendamento->CodCliente);
+        $funcionario = $funcionarioDao->findById($agendamento->CodFuncionario);
+        $pet = $petDao->findByCod($agendamento->CodAnimal);
+        $dataAgendamento = new DateTime($agendamento->Data);
+        $dataAtual = new DateTime("Today");
+
+      } else {
+        header("Location: agendamentos.php");
+      }
+      ?>
 
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>
@@ -164,6 +190,8 @@
         <!-- Conteudo principal -->
         <div class="titulo">Detalhes Agendamento</div>
         <div class="grid-detalhes">
+
+          <!-- cliente -->
           <div class="info_usuario tutor">
             <table class="info-table">
               <tr>
@@ -171,63 +199,87 @@
               </tr>
               <tr>
                 <th>Nome:</th>
-                <td>Miguel Yudi Baba</td>
+                <td><?= $cliente->nome ?></td>
               </tr>
               <tr>
                 <th>Data Nasc:</th>
-                <td>11/04/2008</td>
-              </tr>
-              <tr>
-                <th>Email:</th>
-                <td>hatsunemikolover@gmail.com</td>
-              </tr>
-              <tr>
-                <th>Telefone:</th>
-                <td>+11 91234-5678</td>
-              </tr>
-              <tr>
-                <th>CEP/CPF:</th>
-                <td>69093-809 / 252.910.260-06</td>
-              </tr>
-            </table>
-          </div>
-          <div class="info_usuario agendamento">
-            <table class="info-table">
-              <tr>
-                <b>Detalhes do Agendamento</b>
-              </tr>
-              <tr>
-                <th>Pedido:</th>
                 <td>
-                  <bold>34012</bold>
+                  <?php
+                  $dataNasc = explode("-", $cliente->datanasc);
+                  $dataNascFormatada = "$dataNasc[2]/$dataNasc[1]/$dataNasc[0]";
+                  echo $dataNascFormatada;
+                  ?>
                 </td>
               </tr>
               <tr>
-                <th>Unidade:</th>
-                <td>Artur Alvim</td>
+                <th>Email:</th>
+                <td><?= $cliente->email ?></td>
               </tr>
               <tr>
-                <th>Serviço:</th>
-                <td>Exame</td>
+                <th>Telefone:</th>
+                <td><?= $cliente->telefone ?></td>
               </tr>
               <tr>
-                <th>Especialidade:</th>
-                <td>Clínico Geral</td>
-              </tr>
-              <tr>
-                <th>Profissional:</th>
-                <td>YuYuHakusho Roxo</td>
-              </tr>
-              <tr>
-                <th>Data:</th>
-                <td>24/04/2024</td>
-              </tr>
-              <tr>
-                <th>Horario:</th>
-                <td>11:20</td>
+                <th>CEP/CPF:</th>
+                <td><?= $cliente->cep ?> / <?= $cliente->cpf ?></td>
               </tr>
             </table>
           </div>
+
+          <!-- agendamento -->
+          <div class="info_usuario agendamento">
+            <table class="info-table">
+
+              <tr>
+                <b>Detalhes do Agendamento</b>
+              </tr>
+
+              <tr>
+                <th>Pedido:</th>
+                <td>
+                  <bold><?= $agendamento->CodAgendamento ?></bold>
+                </td>
+              </tr>
+
+              <tr>
+                <th>Unidade:</th>
+                <td><?= $agendamentoDao->getUnidadeByCod($agendamento->CodUnidade)[1] ?></td>
+              </tr>
+
+              <tr>
+                <th>Serviço:</th>
+                <td><?= $agendamentoDao->getServicoByCod($agendamento->CodServico) ?></td>
+              </tr>
+
+              <tr>
+                <th>Especialidade:</th>
+                <td><?= $agendamentoDao->getEspecialidadeByCod($funcionario->codcargo) ?></td>
+              </tr>
+
+              <tr>
+                <th>Profissional:</th>
+                <td><?= $funcionario->nome ?></td>
+              </tr>
+
+              <tr>
+                <th>Data:</th>
+                <td><?php
+                $data = explode("-", $agendamento->Data);
+                $dataFormatada = "$data[2]/$data[1]/$data[0]";
+
+                echo $dataFormatada;
+                ?></td>
+              </tr>
+
+              <tr>
+                <th>Horario:</th>
+                <td><?= explode(":00", string: $agendamento->Hora)[0] . "h" ?></td>
+              </tr>
+
+            </table>
+          </div>
+
+          <!-- pet -->
           <div class="info_usuario pet">
             <div>
               <table class="info-table">
@@ -236,47 +288,66 @@
                 </tr>
                 <tr>
                   <th>Nome:</th>
-                  <td>Fonseca</td>
+                  <td><?= $pet->Nome ?></td>
                 </tr>
                 <tr>
                   <th>Espécie:</th>
-                  <td>Canino</td>
+                  <td><?= $petDao->getPetEspecie($pet) ?></td>
                 </tr>
                 <tr>
                   <th>Raça:</th>
-                  <td>Vira-Lata</td>
+                  <td><?= $petDao->getPetRaca($pet) ?></td>
                 </tr>
                 <tr>
                   <th>Sexo:</th>
-                  <td>Macho</td>
+                  <td><?= $pet->Sexo ?></td>
                 </tr>
                 <tr>
                   <th>Data Nasc:</th>
-                  <td>-</td>
+                  <td><?php if ($pet->DataNasc == "") {
+                    echo ("-");
+                  } else {
+                    echo ($pet->DataNasc);
+                  } ?></td>
                 </tr>
+              </table>
+              <table class="info-table">
                 <tr>
                   <th>Data Aprox:</th>
-                  <td>2008</td>
+                  <td><?php if ($pet->DataAprox == "") {
+                    echo ("-");
+                  } else {
+                    echo ($pet->DataAprox);
+                  } ?></td>
                 </tr>
+                <!-- 
                 <tr>
                   <th>Porte:</th>
                   <td>Grande</td>
                 </tr>
+                -->
                 <tr>
                   <th>Castrado?</th>
-                  <td>Sim</td>
+                  <td>
+                    <?php if ($pet->Castrado == 0) {
+                      echo ("Não");
+                    } else {
+                      echo ("Sim");
+                    } ?>
+                  </td>
                 </tr>
                 <tr>
                   <th>Peso:</th>
-                  <td>8KG</td>
+                  <td><?= $pet->Peso ?>KG</td>
                 </tr>
               </table>
             </div>
             <div class="linha-button">
-              <button class="botao-solido" onclick="enviarRelatorio()" type="button">Enviar Relatorio</button>
+              <button class="botao-solido" onclick="enviarRelatorio()" type="button">Enviar Relatório</button>
               <button class="botao-borda" onclick="location.href='agendamentos.php'" type="button">Voltar</button>
             </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -73,6 +73,37 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
         return $agendamentos;
     }
+    public function getAgendamentoByCodAgendamento($CodAgendamento)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE CodAgendamento = :CodAgendamento");
+        $stmt->bindParam(":CodAgendamento", $CodAgendamento);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $agendamento = $stmt->fetch();
+
+            $Agendamento = $this->buildAgendamento($agendamento);
+        }
+
+        return $Agendamento;
+    }
+    public function getAllAgendamento()
+    {
+        $agendamentos = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Cancelado = 0");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $agendamentosArray = $stmt->fetchAll();
+
+            foreach ($agendamentosArray as $agendamento) {
+                $agendamentos[] = $this->buildAgendamento($agendamento);
+            }
+        }
+
+        return $agendamentos;
+    }
     public function getAgendamentoCount()
     {
         $stmt = $this->conn->prepare("SELECT * FROM agendamento");
@@ -85,7 +116,6 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         }
 
     }
-
     public function getAgendamentoByInfoDate($CodPet, $data)
     {
         $agendamentos = [];

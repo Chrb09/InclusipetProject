@@ -21,6 +21,8 @@ interface AgendamentoDAOInterface
     public function create(Agendamento $agendamento);
     public function cancel($CodAgendamento);
     public function getAgendamentoByCodCliente($CodCliente);
+    public function getAgendamentoByCodAgendamento($CodAgendamento);
+    public function getAllAgendamento();
     public function getAgendamentoByInfoDateType($CodPet, $data, $tipo);
     public function getAgendamentoByInfoDate($CodPet, $data);
 

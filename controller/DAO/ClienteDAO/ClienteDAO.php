@@ -226,7 +226,23 @@ class ClienteDAO implements ClienteDAOInterface
 
   public function findById($codcliente)
   {
+    if ($codcliente != "") {
+      $stmt = $this->conn->prepare("SELECT * FROM  cliente WHERE CodCliente = :CodCliente");
+      $stmt->bindParam(":CodCliente", $codcliente);
 
+      $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+        $data = $stmt->fetch();
+        $cliente = $this->buildcliente($data);
+
+        return $cliente;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
   public function findByToken($token)

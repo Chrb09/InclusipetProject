@@ -150,7 +150,20 @@
     include('../../components/sidebarvet.php');
     ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
+      <?php include('../../components/headers/headerperfilfuncionario.php');
+
+      require_once("../../../controller/DAO/PetDAO/PetDAO.php");
+      require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
+      require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
+      require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+
+      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL); // instancia do AgendamentoDAO
+      $petDao = new PetDAO($conn, $BASE_URL);                 // instancia do PetDAO
+      $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL); // instancia do FuncionarioDAO
+      $clienteDao = new ClienteDAO($conn, $BASE_URL);         // instancia do ClienteDAO
+      
+      $agendamentos = $agendamentoDao->getAllAgendamento();
+      ?>
 
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>
@@ -159,6 +172,8 @@
         <div class="conteudo-principal">
           <div class="titulo">Agendamentos</div>
           <div class="top">
+
+            <!-- FILTROS -->
             <div class="form-group">
               <label for="data">A Partir de:</label>
               <input type="date" id="data" name="data" />
@@ -201,40 +216,64 @@
             <b>12/09</b>
             <div class="hr"></div>
           </div>
-          <div class="conteudo">
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
-                </div>
-                <div class="status">Enviado</div>
-              </div>
-              <table class="info-table">
-                <tr>
-                  <th>Tutor:</th>
-                  <td>Miguel Yudi Baba</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Data Consulta:</th>
-                  <td>12/09/2024</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form">
-                <button class="botao botao-solido" onclick="location.href='resumoagendamento.php'" type="button">
-                  Visualizar Detalhes
-                </button>
-              </div>
-            </div>
 
+          <!-- AGENDAMENTOS -->
+          <div class="conteudo">
+
+            <?php foreach ($agendamentos as $agendamento):
+              $cliente = $clienteDao->findById($agendamento->CodCliente);
+              $funcionario = $funcionarioDao->findById($agendamento->CodFuncionario);
+              $pet = $petDao->findByCod($agendamento->CodAnimal);
+              $dataAgendamento = new DateTime($agendamento->Data);
+              $dataAtual = new DateTime("Today");
+              ?>
+
+              <div class="card-agendamento">
+                <div class="animal">
+                  <div class="animal-wrapper">
+                    <img src="../../assets/img/Perfil/fonseca.png" alt="" />
+                    <p><?= $pet->Nome ?></p>
+                  </div>
+                  <div class="status">Enviado</div> <!-- TODO -->
+                </div>
+                <table class="info-table">
+                  <tr>
+                    <th>Tutor:</th>
+                    <td><?= $cliente->nome ?></td>
+                  </tr>
+
+                  <tr>
+                    <th>Serviço:</th>
+                    <td><?= $agendamentoDao->getServicoByCod($agendamento->CodServico) ?></td>
+                  </tr>
+
+                  <tr>
+                    <th>Pedido:</th>
+                    <td><?= $agendamento->CodAgendamento ?></td>
+                  </tr>
+
+                  <tr>
+                    <th>Data Consulta:</th>
+                    <td><?php
+                    $data = explode("-", $agendamento->Data);
+                    $dataFormatada = "$data[2]/$data[1]/$data[0]";
+
+                    echo $dataFormatada;
+                    ?></td>
+                  </tr>
+                </table>
+                <div class="button-wrapper-form">
+                  <button class="botao botao-solido"
+                    onclick="location.href='resumoagendamento.php?CodAgendamento=<?= $agendamento->CodAgendamento ?>'"
+                    type="button">
+                    Visualizar Detalhes
+                  </button>
+                </div>
+              </div>
+
+            <?php endforeach; ?>
+
+            <!-- 
             <div class="card-agendamento">
               <div class="animal">
                 <div class="animal-wrapper">
@@ -410,9 +449,10 @@
             </div>
           </div>
         </div>
+            -->
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
