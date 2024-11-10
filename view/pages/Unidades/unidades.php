@@ -65,7 +65,10 @@
   let hora = data.getHours();
 
   for (let cartao of cartoes) {
-    if (hora => cartao.getAttribute("final") || hora <= cartao.getAttribute("inicial")) {
+    console.log(cartao.getAttribute("inicial"));
+    console.log(hora);
+    console.log(cartao.getAttribute("final"));
+    if (hora <= cartao.getAttribute("inicial") || hora >= cartao.getAttribute("final")) {
       cartao.classList.toggle("fechado");
     }
   }
