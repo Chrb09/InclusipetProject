@@ -59,7 +59,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
     {
         $agendamentos = [];
 
-        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE CodCliente = :CodCliente");
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE CodCliente = :CodCliente ORDER BY Data DESC");
         $stmt->bindParam(":CodCliente", $CodCliente);
         $stmt->execute();
 

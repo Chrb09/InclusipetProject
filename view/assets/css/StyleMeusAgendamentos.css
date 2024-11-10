@@ -70,6 +70,9 @@
 .cancelado {
   --green: var(--red);
 }
+.tudocerto {
+  --green: var(--green-light);
+}
 .pendente {
   --green: var(--yellow);
 }

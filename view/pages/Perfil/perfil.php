@@ -256,11 +256,6 @@ $fullName = $cliente->getFullName($clienteData);
     imgPicture.src = URL.createObjectURL(file)
     resetimage.value = "false"
   });
-
-
-
-
-
 </script>
 
 </html>

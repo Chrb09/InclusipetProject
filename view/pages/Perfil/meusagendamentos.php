@@ -40,6 +40,10 @@
         margin-inline: auto;
       }
     }
+
+    .botao-solido {
+      max-width: 10rem !important;
+    }
   </style>
 </head>
 
@@ -79,7 +83,10 @@
 
             <?php foreach ($agendamentos as $agendamento):
               $funcionario = $funcionarioDao->findById($agendamento->CodFuncionario);
-              $pet = $petDao->findByCod($agendamento->CodAnimal); ?>
+              $pet = $petDao->findByCod($agendamento->CodAnimal);
+              $dataAgendamento = new DateTime($agendamento->Data);
+              $dataAtual = new DateTime("Today");
+              ?>
 
               <div class="card-agendamento">
 
@@ -93,11 +100,27 @@
 
                     <p><?= $pet->Nome ?></p>
                   </div>
-                  <div class="status <?= ($agendamento->Cancelado == 1) ? 'cancelado' : '' ?>"><?php if ($agendamento->Cancelado == 0) {
-                            echo ("Tudo Certo");
-                          } else {
-                            echo ("Cancelado");
-                          } ?></div>
+                  <div class="status 
+                  <?php
+                  if ($agendamento->Cancelado == 1) {
+
+                    echo 'cancelado';
+                  } else {
+                    if ($dataAgendamento > $dataAtual) {
+                      echo "tudocerto";
+                    }
+                  }
+                  ?>">
+                    <?php if ($agendamento->Cancelado == 0) {
+                      if ($dataAgendamento < $dataAtual) {
+                        echo ("Concluido");
+                      } else {
+                        echo ("Tudo Certo");
+                      }
+                    } else {
+                      echo ("Cancelado");
+                    } ?>
+                  </div>
                 </div>
                 <table class="info-table">
 
@@ -124,22 +147,24 @@
                     <th>Data da Consulta:</th>
                     <td><?php
                     $data = explode("-", $agendamento->Data);
-                    echo ("$data[2]/$data[1]/$data[0]");
+                    $dataFormatada = "$data[2]/$data[1]/$data[0]";
+
+                    echo $dataFormatada;
                     ?></td>
                   </tr>
                   <tr>
                     <th>Horario da Consulta:</th>
-                    <td><?= $agendamento->Hora ?></td>
+                    <td><?= explode(":00", string: $agendamento->Hora)[0] . "h" ?></td>
                   </tr>
                 </table>
-                <div class="button-wrapper-form <?= ($agendamento->Cancelado == 1) ? 'desativado' : '' ?>">
-                  <form action="../../../model/Arquivo/Inicializacao/appointment_process.php" method="POST">
-                    <input type="hidden" name="type" value="cancelar">
-                    <input type="hidden" name="id" value="<?= $agendamento->CodAgendamento ?>">
-                    <button class="botao botao-solido" id="resetarfoto" type="submit">Cancelar</button>
-                  </form>
-                </div>
-
+                <?php
+                if ($dataAgendamento > $dataAtual) {
+                  ?>
+                  <div class="button-wrapper-form <?= ($agendamento->Cancelado == 1) ? 'desativado' : '' ?>">
+                    <button class="botao botao-solido" id="resetarfoto" type="button"
+                      onclick="cancelar(<?= $agendamento->CodAgendamento ?>, '<?= $dataFormatada ?>')">Cancelar</button>
+                  </div>
+                <?php } ?>
               </div>
             <?php endforeach; ?>
           </div>
@@ -158,5 +183,37 @@
     </div>
   </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../../assets/js/perfil.js"></script>
+<script>
+
+  function cancelar(Id, Data) {
+    Swal.fire({
+      title: `<div class="titulo-sweetalert">Cancelamento</div>`,
+      html: `
+        <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/appointment_process.php" method="POST">
+        <input type="hidden" name="type" value="cancelar">
+        <input name="id" type="hidden" value="`+ Id + `" required/>
+        <p>Cancelar o agendamento de: `+ Data + `?</p>
+        <div class="linha-sweetalert">
+          <button class="botao-borda" onclick="Swal.close()"  type="button">Voltar</button>
+          <button class="botao-solido" onclick=""type="submit">Cancelar</button>
+        </div>
+        </form>
+
+
+        `,
+      customClass: {
+        popup: 'container-input',
+      },
+      showConfirmButton: false,
+      focusConfirm: false,
+      backdrop: "rgb(87, 77, 189, 0.5",
+    });
+  }
+
+</script>
 
 </html>

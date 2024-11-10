@@ -101,7 +101,7 @@
         <?php include('../../components/navmobileperfil.php');
         if ($agendamentos != []) {
           ?>
-          <div class="titulo">Meus Agendamentos</div>
+          <div class="titulo">Resultados Exames</div>
           <form class="top" method="POST" action="resultadosexames.php">
             <div class="form-group">
               <label for="pet">Pet:</label>
@@ -165,7 +165,7 @@
                               $data = explode("-", $resultado->Data);
                               echo ("$data[2]/$data[1]/$data[0]");
                               ?> <br />
-                              <?= explode(":00", $resultado->Hora)[0] . "H" ?>
+                              <?= explode(":00", $resultado->Hora)[0] . "h" ?>
                             </td>
                             <td><?= $agendamentoDao->getServicoByCod($resultado->CodServico) ?></td>
                             <td><?= $funcionario->nome ?></td>
