@@ -152,7 +152,7 @@ if ($type === 'register_client') {
     }
 
   } else {
-    $message->setMessage("Informações inválidas aaaaaa!", "error", "toast", "../../../view/pages/index/index.php");
+    $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
   }
 
 

@@ -52,5 +52,9 @@ if ($type === 'create_appointment') {
 } else if ($type === 'cancelar') {
     $codagendamento = filter_input(INPUT_POST, "id");
     $agendamentoDao->cancel($codagendamento);
+} else if ($type === 'enviarrelatorio') {
+
+} else {
+    $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
 }
 // ===== FIM DO AGENDAMENTO =====

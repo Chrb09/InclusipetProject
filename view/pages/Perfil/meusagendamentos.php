@@ -103,7 +103,6 @@
                   <div class="status 
                   <?php
                   if ($agendamento->Cancelado == 1) {
-
                     echo 'cancelado';
                   } else {
                     if ($dataAgendamento > $dataAtual) {

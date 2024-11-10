@@ -91,7 +91,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
     {
         $agendamentos = [];
 
-        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Cancelado = 0");
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Cancelado = 0 ORDER BY Data ASC");
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {

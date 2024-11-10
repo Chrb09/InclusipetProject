@@ -213,7 +213,7 @@
             </div>
           </div>
           <div class="linha-hr">
-            <b>12/09</b>
+            <b>DD/MM</b>
             <div class="hr"></div>
           </div>
 
@@ -234,7 +234,25 @@
                     <img src="../../assets/img/Perfil/fonseca.png" alt="" />
                     <p><?= $pet->Nome ?></p>
                   </div>
-                  <div class="status">Enviado</div> <!-- TODO -->
+                  <div class="status 
+                  <?php
+                  if ($dataAgendamento < $dataAtual) {
+                    if ($agendamento->Info == '') {
+                      echo 'pendente';
+                    }
+                  }
+                  ?>">
+                    <?php
+                    if ($dataAgendamento < $dataAtual) {
+                      if ($agendamento->Info == '') {
+                        echo 'Enviar Relatorio';
+                      } else {
+                        echo 'Enviado';
+                      }
+                    } else {
+                      echo '<img src="../../assets/img/Perfil/horario.png" alt=""/> ' . explode(":00", string: $agendamento->Hora)[0] . "h";
+                    } ?>
+                  </div> <!-- TODO -->
                 </div>
                 <table class="info-table">
                   <tr>

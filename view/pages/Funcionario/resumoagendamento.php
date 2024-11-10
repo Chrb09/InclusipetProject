@@ -307,7 +307,10 @@
                   <td><?php if ($pet->DataNasc == "") {
                     echo ("-");
                   } else {
-                    echo ($pet->DataNasc);
+                    $petDataNasc = explode("-", $cliente->datanasc);
+                    $petDataNascFormatada = "$petDataNasc[2]/$petDataNasc[1]/$petDataNasc[0]";
+                    echo $petDataNascFormatada;
+
                   } ?></td>
                 </tr>
               </table>
@@ -343,7 +346,9 @@
               </table>
             </div>
             <div class="linha-button">
-              <button class="botao-solido" onclick="enviarRelatorio()" type="button">Enviar Relatório</button>
+              <button class="botao-solido" onclick="enviarRelatorio(<?= $agendamento->CodAgendamento ?>)"
+                type="button">Enviar
+                Relatório</button>
               <button class="botao-borda" onclick="location.href='agendamentos.php'" type="button">Voltar</button>
             </div>
           </div>
@@ -358,23 +363,26 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
 <script>
-  function enviarRelatorio() {
+  function enviarRelatorio(codAgendamento) {
     Swal.fire({
-      title: `<div class="titulo">Enviar Relatorio</div>`,
+      title: `<div class="titulo">Enviar Relatorio para Cod ` + codAgendamento + `</div>`,
       html: `
+      <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/appointment_process.php" method="POST">
+      <input type="hidden" name="type" value="enviarrelatorio">
+        <input name="id" type="hidden" value="`+ codAgendamento + `" required/>
         <div class="form-input">
           <label for="">Informações Adicionais</label>
-          <textarea name="info" id="" maxlength="200" cols="30" rows="3" placeholder="Escreva sua mensagem..."></textarea>
+          <textarea name="info" id="" maxlength="200" cols="30" rows="3" placeholder="Escreva sua mensagem..." required></textarea>
         </div>
         <div class="form-input">
           <label for="">PDF Resultado dos Exames</label>
-          <input type="file" name="pdf" value="" />
+          <input type="file" name="pdf" value="" required/>
         </div>
         <div class="linha">
           <button class="botao-borda" onclick="Swal.close()" type="button">Voltar</button>
-          <button class="botao-solido" onclick="Swal.close()" type="button">Enviar</button>
+          <button class="botao-solido" onclick="" type="submit">Enviar</button>
         </div>
-
+</form>
         `,
       showConfirmButton: false,
       focusConfirm: false,
