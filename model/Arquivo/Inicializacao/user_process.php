@@ -89,50 +89,50 @@ if ($type === "update_client") {
 
         $clienteDao->changePassword($cliente);
     }
-} else {
-    $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
-}
-//Fim do usuário
+} else
+    //Fim do usuário
 
-//Começo do funcionário
+    //Começo do funcionário
 
-if ($type === "update_funcionario") {
-    $funcionarioData = $funcionarioDao->verifyToken();
+    if ($type === "update_funcionario") {
+        $funcionarioData = $funcionarioDao->verifyToken();
 
-    $nome = filter_input(INPUT_POST, "sign-up-nome");
-    $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
-    $cpf = filter_input(INPUT_POST, "sign-up-cpf");
-    $cep = filter_input(INPUT_POST, "sign-up-cep");
-    $rg = filter_input(INPUT_POST, "sign-up-rg");
-    $telefone = filter_input(INPUT_POST, "sign-up-tel");
-    $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
+        $nome = filter_input(INPUT_POST, "sign-up-nome");
+        $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
+        $cpf = filter_input(INPUT_POST, "sign-up-cpf");
+        $cep = filter_input(INPUT_POST, "sign-up-cep");
+        $rg = filter_input(INPUT_POST, "sign-up-rg");
+        $telefone = filter_input(INPUT_POST, "sign-up-tel");
+        $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
 
 
-    $funcionarioDao->update($funcionarioData);
+        $funcionarioDao->update($funcionarioData);
 
-}
+    } else
 
-if ($type === "update_password") {
-    $senha = filter_input(INPUT_POST, "change-password");
-    $confirmarsenha = filter_input(INPUT_POST, "change-password-confirm");
+        if ($type === "update_password_vet") {
+            $senha = filter_input(INPUT_POST, "change-password");
+            $confirmarsenha = filter_input(INPUT_POST, "change-password-confirm");
 
-    $funcionarioData = $funcionarioDao->verifyToken();
-    $id = $funcionarioData->codfuncionario;
+            $funcionarioData = $funcionarioDao->verifyToken();
+            $id = $funcionarioData->codfuncionario;
 
-    if ($senha != $confirmarsenha) {
-        $message->setMessage("As senhas não batem", "error", "toast", "back");
-    } else if (strlen($senha) < 8) {
-        $message->setMessage("A senha deve ter no mínimo 8 caracteres", "error", "toast", "back");
-    } else {
-        $funcionario = new Funcionario();
+            if ($senha != $confirmarsenha) {
+                $message->setMessage("As senhas não batem", "error", "toast", "back");
+            } else if (strlen($senha) < 8) {
+                $message->setMessage("A senha deve ter no mínimo 8 caracteres", "error", "toast", "back");
+            } else {
+                $funcionario = new Funcionario();
 
-        $finalSenha = $funcionario->generatePassword($senha);
+                $finalSenha = $funcionario->generatePassword($senha);
 
-        $funcionario->senha = $finalSenha;
-        $funcionario->codfuncionario = $id;
+                $funcionario->senha = $finalSenha;
+                $funcionario->codfuncionario = $id;
 
-        $funcionarioDao->changePassword($funcionario);
-    }
+                $funcionarioDao->changePassword($funcionario);
+            }
 
 
-}
+        } else {
+            $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");
+        }

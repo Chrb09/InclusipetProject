@@ -224,8 +224,8 @@
     Swal.fire({
       title: `<div class="titulo-sweetalert">Alterar Senha</div>`,
       html: `
-        <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/user_process.php" method="POST" onsubmit="return validarCadastro()">
-        <input type="hidden" name="type" value="update_password">
+        <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/user_process.php" method="POST">
+        <input type="hidden" name="type" value="update_password_vet">
         <div class="input-sweetalert">
           <label for="" >Senha</label>
           <input name="change-password" id="sign-up-password" placeholder="Sua nova senha..." type="password" required autocomplete="off"" />

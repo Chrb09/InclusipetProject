@@ -253,7 +253,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
     $stmt->execute();
 
-    $this->message->setMessage("Senha alterada com sucesso!", "success", "popup", "../../../view/pages/Perfil/perfil.php");
+    $this->message->setMessage("Senha alterada com sucesso!", "success", "popup", "../../../view/pages/Funcionario/perfil.php");
   }
 
   public function getAllCargo()

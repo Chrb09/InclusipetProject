@@ -195,7 +195,7 @@ $fullName = $cliente->getFullName($clienteData);
     Swal.fire({
       title: `<div class="titulo-sweetalert">Alterar Senha</div>`,
       html: `
-        <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/user_process.php" method="POST" onsubmit="return validarCadastro()">
+        <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/user_process.php" method="POST">
         <input type="hidden" name="type" value="update_password">
         <div class="input-sweetalert">
           <label for="" >Senha</label>
