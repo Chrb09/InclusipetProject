@@ -9,6 +9,8 @@ class Adocao
     public $Castrado;
     public $Sexo;
     public $Descricao;
+    public $Detalhes = [];
+    public $Imagens = [];
     public $Telefone;
     public $Endereco;
     public $Adotado;
@@ -27,6 +29,7 @@ interface AdocaoDAOInterface
     public function getEspecieByCod($CodEspecie);
     public function getImagemAdocaoByCod($CodAdocao);
     public function getDetalheAdocaoByCod($CodAdocao);
+    public function updateAprovado($CodAdocao);
 
 }
 

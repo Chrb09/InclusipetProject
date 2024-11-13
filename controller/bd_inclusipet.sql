@@ -46,17 +46,17 @@ CREATE TABLE `adocao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
-INSERT INTO `adocao` (`CodAdocao`, `CodEspecie`, `CodCliente`, `Nome`, `Idade`, `Porte`, `Castrado`, `Sexo`, `Descricao`,`Telefone`, `Endereco`, `Adotado`) VALUES
-(1, 1, 3, 'Fonseca', 15, 'Grande', 1, 'Macho', 'Um cachorro de olhos marrons claros, de porte médio, velho, de pelagem curta, branca e com manchas pretas pelo seu corpo.', '(11) 11111-1111', 'Av. Águia de Haia', '0') ,
-(2, 2, 3, 'Afrodite', 7, 'Pequeno', 1, 'Fêmea', 'Gata jovem de olhos azuis de pelagem dourada, nascida sem as pernas traseiras. Foi achada ainda filhote e levada para um centro de adoção.','(11) 11111-1111', 'Av. Águia de Haia ', '0'),
-(3, 1, 2, 'Neném', 8, 'Médio', 1, 'Fêmea', 'Cadela de porte médio, peluda, pelagem preta e que possui manchas brancas nas patas. Possui dificuldades em andar devido um acidente de carro.','(11) 11111-1111', 'Av. Águia de Haia ', '0'),
-(4, 1, 1, 'Max', 2, 'Médio', 0, 'Macho', 'Um cachorro de porte médio, juvenil, de pelagem preta com manchas brancas no queixo, no peito e na barriga.','(11) 11111-1111', 'Av. Águia de Haia ', '0'),
-(5, 2, 2, 'Fofinha', 5, 'Pequeno', 1, 'Fêmea', 'Gata jovem, de olhos azuis, branca com manchas marrons e pretas pelo seu corpo. Precisa de cuidado especial devido a doença FeLV, a leucemia felina.', '(11) 11111-1111', 'Av. Águia de Haia ', '0'),
-(6, 1, 1, 'Marrom', 10, 'Médio', 1, 'Macho', 'Cachorro adulto, marrom de patas brancas e de olhos castanhos. Após sofrer um acidente de carro lutou bastante pela sua vida e agora procura por um lar com muito amor e carinho.','(11) 11111-1111', 'Av. Águia de Haia ', '0'),
-(7, 1, 1, 'Bolinha', 12, 'Pequeno', 1, 'Fêmea', 'Cadela de pequeno porte, com 12 anos de idade, de pelagem dourada e de olhos castanhos. Sofreu abuso dos seus donos anteriores e agora procura por uma casa que lhe proporcione bastante amor e carinho.', '(11) 11111-1111', 'Av. Águia de Haia ', '0'),
-(8, 3, 3, 'Bebê', 2, 'Pequeno', 1, 'Macho', 'Calopsita jovem, amarelada e de bochechas vermelhas e muito agitada.', '(11) 11111-1111', 'Av. Águia de Haia ', '0'),
-(9, 2, 1, 'Amarela', 2, 'Pequeno', 1, 'Fêmea', 'Gata jovem e ativa, ama comer pão com leite de café da manhã e tem a cauda tortinha.', '(11) 11111-1111', 'Av. Águia de Haia ', '0'),
-(10, 1, 2, 'Belinha', 11, 'Pequeno', 1, 'Fêmea', 'Cadela de porte pequeno, apesar de ser mais velha, é super brincalhona.', '(11) 11111-1111', 'Av. Águia de Haia ', '0');
+INSERT INTO `adocao` (`CodAdocao`, `CodEspecie`, `CodCliente`, `Nome`, `Idade`, `Porte`, `Castrado`, `Sexo`, `Descricao`,`Telefone`, `Endereco`, `Adotado`, `Aprovado`) VALUES
+(1, 1, 3, 'Fonseca', 15, 'Grande', 1, 'Macho', 'Um cachorro de olhos marrons claros, de porte médio, velho, de pelagem curta, branca e com manchas pretas pelo seu corpo.', '(11) 11111-1111', 'Av. Águia de Haia', '0', '1') ,
+(2, 2, 3, 'Afrodite', 7, 'Pequeno', 1, 'Fêmea', 'Gata jovem de olhos azuis de pelagem dourada, nascida sem as pernas traseiras. Foi achada ainda filhote e levada para um centro de adoção.','(11) 11111-1111', 'Av. Águia de Haia ', '0', '1'),
+(3, 1, 2, 'Neném', 8, 'Médio', 1, 'Fêmea', 'Cadela de porte médio, peluda, pelagem preta e que possui manchas brancas nas patas. Possui dificuldades em andar devido um acidente de carro.','(11) 11111-1111', 'Av. Águia de Haia ', '0', '1'),
+(4, 1, 1, 'Max', 2, 'Médio', 0, 'Macho', 'Um cachorro de porte médio, juvenil, de pelagem preta com manchas brancas no queixo, no peito e na barriga.','(11) 11111-1111', 'Av. Águia de Haia ', '0', '1'),
+(5, 2, 2, 'Fofinha', 5, 'Pequeno', 1, 'Fêmea', 'Gata jovem, de olhos azuis, branca com manchas marrons e pretas pelo seu corpo. Precisa de cuidado especial devido a doença FeLV, a leucemia felina.', '(11) 11111-1111', 'Av. Águia de Haia ', '0', '1'),
+(6, 1, 1, 'Marrom', 10, 'Médio', 1, 'Macho', 'Cachorro adulto, marrom de patas brancas e de olhos castanhos. Após sofrer um acidente de carro lutou bastante pela sua vida e agora procura por um lar com muito amor e carinho.','(11) 11111-1111', 'Av. Águia de Haia ', '0', '1'),
+(7, 1, 1, 'Bolinha', 12, 'Pequeno', 1, 'Fêmea', 'Cadela de pequeno porte, com 12 anos de idade, de pelagem dourada e de olhos castanhos. Sofreu abuso dos seus donos anteriores e agora procura por uma casa que lhe proporcione bastante amor e carinho.', '(11) 11111-1111', 'Av. Águia de Haia ', '0', '1'),
+(8, 3, 3, 'Bebê', 2, 'Pequeno', 1, 'Macho', 'Calopsita jovem, amarelada e de bochechas vermelhas e muito agitada.', '(11) 11111-1111', 'Av. Águia de Haia ', '0', '1'),
+(9, 2, 1, 'Amarela', 2, 'Pequeno', 1, 'Fêmea', 'Gata jovem e ativa, ama comer pão com leite de café da manhã e tem a cauda tortinha.', '(11) 11111-1111', 'Av. Águia de Haia ', '0', '1'),
+(10, 1, 2, 'Belinha', 11, 'Pequeno', 1, 'Fêmea', 'Cadela de porte pequeno, apesar de ser mais velha, é super brincalhona.', '(11) 11111-1111', 'Av. Águia de Haia ', '0', '1');
 --
 -- Estrutura para tabela `agendamento`
 --

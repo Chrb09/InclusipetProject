@@ -28,14 +28,13 @@ if ($type === 'create_adoption') {
     $telefone = filter_input(INPUT_POST, "telefone");
     $endereco = filter_input(INPUT_POST, "endereco");
 
-     // Verificação de dados mínimos TODO
-     if (!$unidade || !$servico || !$especialidade || !$funcionario || !$data || !$horario || !$pet) {
+    // Verificação de dados mínimos TODO
+    if (!$nome || !$especie || !$idade || !$porte || !$castrado || !$sexo || !$descricao || !$telefone || !$endereco) {
 
         // Enviar uma msg de erro, de dados faltantes
-        $message->setMessage("Preencha todos os campos.", "error", "popup", "../../../view/pages/Perfil/gerenciaradocao.php");
-     } else {
+        $message->setMessage("Preencha todos os campos.", "error", "popup", "../../../view/pages/Perfil/anuncioadocao.php");
+    } else {
         $adocao = new Adocao();
-
         $adocao->CodEspecie = $especie;
         $adocao->Nome = $nome;
         $adocao->Idade = $idade;
@@ -43,9 +42,16 @@ if ($type === 'create_adoption') {
         $adocao->Castrado = $castrado;
         $adocao->Sexo = $sexo;
         $adocao->Descricao = $descricao;
-        //$adocao->Detalhes = $detalhes; // TODO
         $adocao->Telefone = $telefone;
         $adocao->Endereco = $endereco;
+        $adocao->Adotado = '0';
+        $adocao->Aprovado = '0';
+
+        // Foreach dos detalhes
+        //  $adocao->Detalhes = $detalhes;
+
+        // Foreach das imagens
+        // $adocao->Imagens = ;
 
         $adocaoDao->create($adocao);
     }

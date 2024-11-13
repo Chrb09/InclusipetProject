@@ -52,9 +52,13 @@ class AdocaoDAO implements AdocaoDAOInterface
         $stmt->bindParam(":Adotado", $adocao->Adotado);
         $stmt->bindParam(":Aprovado", $adocao->Aprovado);
 
+        // Foreach dos detalhes
+
+        // Foreach das imagens
+
         $stmt->execute();
 
-        // TODO $this->message->setMessage("Visita agendada com sucesso!", "success", "popup", "../../../view/pages/perfil/meusadocaos.php");
+        $this->message->setMessage("Adoção criada, esperando aprovação", "warning", "popup", "../../../view/pages/perfil/gerenciaradocao.php");
     }
     public function update(Adocao $adocao)
     {
@@ -97,7 +101,7 @@ class AdocaoDAO implements AdocaoDAOInterface
     {
         $adocoes = [];
 
-        $stmt = $this->conn->prepare("SELECT * FROM adocao WHERE Adotado = 0");
+        $stmt = $this->conn->prepare("SELECT * FROM adocao WHERE Adotado = 0 AND Aprovado = 1");
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -110,7 +114,7 @@ class AdocaoDAO implements AdocaoDAOInterface
 
         return $adocoes;
     }
-    public function getAllEspecie() 
+    public function getAllEspecie()
     {
         $especies = [];
 
@@ -120,7 +124,7 @@ class AdocaoDAO implements AdocaoDAOInterface
         if ($stmt->rowCount() > 0) {
             $especiesArray = $stmt->fetchAll();
 
-                return $especiesArray;
+            return $especiesArray;
         }
 
     }
@@ -166,5 +170,9 @@ class AdocaoDAO implements AdocaoDAOInterface
             }
             return $detalheAdocao;
         }
+    }
+    public function updateAprovado($CodAdocao)
+    {
+
     }
 }
