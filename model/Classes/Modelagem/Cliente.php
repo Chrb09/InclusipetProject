@@ -51,5 +51,6 @@ interface ClienteDAOInterface
   public function findByToken($token);
   public function destroyToken();
   public function changePassword(Cliente $cliente);
+  public function getAllCliente();
 
 }

@@ -295,4 +295,21 @@ class ClienteDAO implements ClienteDAOInterface
     $this->message->setMessage("Senha alterada com sucesso!", "success", "popup", "../../../view/pages/Perfil/perfil.php");
   }
 
+  public function getAllCliente(){
+    $clientes = [];
+
+    $stmt = $this->conn->prepare("SELECT * FROM Cliente");
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        $clientesArray = $stmt->fetchAll();
+
+        foreach ($clientesArray as $cliente) {
+            $clientes[] = $this->buildcliente($cliente);
+        }
+    }
+
+    return $clientes;
+  }
+
 }

@@ -30,6 +30,8 @@
 
     $sidebarActive = "adocao";
     include('../../components/sidebarperfil.php');
+
+    require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php");
     ?>
     <div class="main">
       <?php include('../../components/headers/headerperfil.php'); ?>
@@ -61,6 +63,8 @@
             </label>
           </div>
         </div>
+
+        <!-- CADASTRO DO PET PARA ADOCAO -->
         <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" class="form__cadastro"
           onsubmit="return validarAnuncio()" method="POST" enctype="multipart/form-data">
           <input type="file" name="foto-pet-1" id="foto-pet-1" hidden>
@@ -80,9 +84,14 @@
             <label for="">Espécie</label><br />
             <div class="custom-select">
               <select id="" name="especie" required>
-                <option value="cachorro">Cachorro</option>
-                <option value="gato">Gato</option>
-                <option value="passaro">Pássaro</option>
+
+                <!-- especie -->
+                <?php foreach ($servicos as $servico): ?>
+                  <!-- Define uma opção no select com o valor da  -->
+                  <option value="<?= $servico[0] ?>">
+                    <?= $agendamentoDao->getServicoByCod($servico[0]) ?>
+                  </option>
+                <?php endforeach; ?>
               </select>
             </div>
           </div>

@@ -46,7 +46,12 @@
       <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
 
       <div class="content">
-        <?php include('../../components/navmobilevet.php'); ?>
+        <?php include('../../components/navmobilevet.php');
+        require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+        $clienteDao = new ClienteDAO($conn, $BASE_URL);
+        $clientes = $clienteDao->getAllCliente();
+
+        ?>
         <!-- Conteudo principal -->
         <div class="titulo">Funções do tutor</div>
 
@@ -64,6 +69,7 @@
                 <label for="">Tutor</label><br />
                 <div class="custom-select">
                   <select name="especie" id="especie-select" required>
+
                     <option value="1">Miguel
                     </option>
                     <option value="2">Giovanna</option>
