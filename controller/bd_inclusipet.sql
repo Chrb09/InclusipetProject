@@ -41,7 +41,8 @@ CREATE TABLE `adocao` (
   `Descricao` TEXT NOT NULL,
   `Telefone` varchar(15) NOT NULL,
   `Endereco` varchar(50) NOT NULL,
-  `Adotado` tinyint(1) NOT NULL
+  `Adotado` tinyint(1) NOT NULL,
+  `Aprovado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
