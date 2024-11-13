@@ -156,11 +156,9 @@
           </div>
 
           <div class="button-wrapper-form">
-            <!--
-            <button class="botao botao-borda" type="submit">
-              Prévia
-            </button>
--->
+            <button class="botao botao-borda" onclick="location.href='../Funcionario/funcoesdotutor.php'"
+              type="button">Voltar</button>
+
             <button class="botao botao-solido" type="submit">Salvar</button>
           </div>
         </form>

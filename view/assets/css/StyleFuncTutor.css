@@ -21,6 +21,54 @@
 .button-wrapper-form {
   justify-content: start;
 }
+ins {
+  display: block;
+  width: fit-content;
+}
+
+.titulo {
+  margin-bottom: 0.5em;
+}
+
+.utilizando {
+  display: flex;
+  gap: 0.6em;
+  padding-bottom: 0.5em;
+}
+.utilizando p {
+  font-weight: bold;
+}
+
+.selecionando {
+  display: none;
+}
+.selecionar .utilizando {
+  display: none;
+}
+
+.selecionar .acoes {
+  display: none;
+}
+.selecionar .selecionando {
+  display: flex;
+}
+
+.fotoUsuario {
+  border-radius: 20rem;
+  object-fit: cover;
+  height: 1.5em;
+  width: 1.5em;
+  aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 768px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 @media (max-width: 768px) {
   .titulo {

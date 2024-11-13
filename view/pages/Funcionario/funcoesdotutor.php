@@ -13,25 +13,6 @@
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
   <title>Funções do Tutor</title>
-  <style>
-    ins {
-      display: block;
-      width: fit-content;
-    }
-
-    .titulo {
-      margin-bottom: 0.5em;
-    }
-
-    @media (max-width: 768px) {
-      .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -58,64 +39,63 @@
         <div class="infor selecionar" id="infor">
           <div class="utilizando">
             Utilizando as informações de:
-            <img src="../../assets/img/Perfil/foto_usuario.png" class="fotoUsuario" />
-            <p>Miguel Yudi Baba</p>
+            <img src="../../assets/img/ImagensPerfil/user.png" class="fotoUsuario" id="foto_tutor" />
+            <p id="nome_tutor">Usuario</p>
             <ins><a href="" class="link" id="alterar">Alterar</a></ins>
           </div>
           <div class="selecionando">
-            <form action="../../../model/Arquivo/Inicializacao/vettutor_process.php" class="form__cadastro"
-              method="POST">
+            <div class="form__cadastro">
               <div class="form-input">
                 <label for="">Tutor</label><br />
                 <div class="custom-select">
-                  <select name="especie" id="especie-select" required>
-
-                    <option value="1">Miguel
-                    </option>
-                    <option value="2">Giovanna</option>
-                    <option value="3">Amanda</option>
+                  <select name="tutor" id="tutor" required>
+                    <?php foreach ($clientes as $cliente): ?>
+                      <option value="<?= $cliente->codcliente ?>" nome="<?= $cliente->nome ?>"
+                        img="<?= $cliente->imagem ?>"><?= $cliente->nome ?>
+                      </option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
               </div>
               <div class="button-wrapper-form">
                 <button class="botao-solido" id="salvar">Salvar</button>
               </div>
-            </form>
+            </div>
+          </div>
+          <br>
+          <div class="acoes">
+            <a class="nav-perfil" href="../Funcoes_Tutor/agendamentot.php" id="agendar"><img
+                src="../../assets/img/Perfil/agendar.png" alt="" />
+              <div class="card-txt">
+                <p>Agendar</p>
+                <strong>Consulta</strong>
+              </div>
+            </a>
+            <a class="nav-perfil" href="../Funcoes_Tutor/anuncioadocaot.php" id="anunciar"><img
+                src="../../assets/img/Perfil/anunciar.png" alt="" />
+              <div class="card-txt">
+                <p>Criar anúncio de</p>
+                <strong>Adoção</strong>
+              </div>
+            </a>
+            <a class="nav-perfil" href="../Funcoes_Tutor/cadastraranimalt.php" id="cadastrarpet"> <img
+                src="../../assets/img/Perfil/cadastrar.png" alt="" />
+              <div class="card-txt">
+                <p>Cadastrar</p>
+                <strong>Animal</strong>
+              </div>
+            </a>
+            <a class="nav-perfil" href="../Funcoes_Tutor/cadastrartutor.php" id="cadastrartutor"><img
+                src="../../assets/img/Perfil/funcionario.png" alt="" />
+              <div class="card-txt">
+                <p>Cadastrar</p>
+                <strong>Tutor</strong>
+              </div>
+            </a>
           </div>
         </div>
 
 
-        <br />
-        <div class="acoes">
-          <a class="nav-perfil" href="../Funcoes_Tutor/agendamentot.php"><img src="../../assets/img/Perfil/agendar.png"
-              alt="" />
-            <div class="card-txt">
-              <p>Agendar</p>
-              <strong>Consulta</strong>
-            </div>
-          </a>
-          <a class="nav-perfil" href="../Funcoes_Tutor/anuncioadocaot.php"><img
-              src="../../assets/img/Perfil/anunciar.png" alt="" />
-            <div class="card-txt">
-              <p>Criar anúncio de</p>
-              <strong>Adoção</strong>
-            </div>
-          </a>
-          <a class="nav-perfil" href="../Funcoes_Tutor/cadastraranimalt.php"><img
-              src="../../assets/img/Perfil/cadastrar.png" alt="" />
-            <div class="card-txt">
-              <p>Cadastrar</p>
-              <strong>Animal</strong>
-            </div>
-          </a>
-          <a class="nav-perfil" href="../Funcoes_Tutor/cadastrartutor.php"><img
-              src="../../assets/img/Perfil/funcionario.png" alt="" />
-            <div class="card-txt">
-              <p>Cadastrar</p>
-              <strong>Tutor</strong>
-            </div>
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -129,6 +109,13 @@
   $('#alterar').click(function () { alterar(); return false; });
   $('#salvar').click(function () { salvar(); return false; });
   let infor = document.querySelector('#infor');
+  let tutor = document.querySelector('#tutor');
+  let foto_tutor = document.querySelector('#foto_tutor');
+  let nome_tutor = document.querySelector('#nome_tutor');
+
+  let agendar = document.querySelector('#agendar');
+  let anunciar = document.querySelector('#anunciar');
+  let cadastrarpet = document.querySelector('#cadastrarpet');
 
   function alterar() {
     infor.classList.add("selecionar")
@@ -136,6 +123,13 @@
 
   function salvar() {
     infor.classList.remove("selecionar")
+    nome_tutor.innerHTML = $('#tutor').find(':selected').attr('nome');
+    foto_tutor.src = '../../assets/img/ImagensPerfil/' + $('#tutor').find(':selected').attr('img');
+
+    agendar.href = '../Funcoes_Tutor/agendamentot.php?codCliente=' + tutor.value;
+    anunciar.href = '../Funcoes_Tutor/anuncioadocaot.php?codCliente=' + tutor.value;
+    cadastrarpet.href = '../Funcoes_Tutor/cadastraranimalt.php?codCliente=' + tutor.value;
+
   }
 
 </script>
