@@ -29,13 +29,14 @@ class AdocaoDAO implements AdocaoDAOInterface
         $adocao->Telefone = $data["Telefone"];
         $adocao->Endereco = $data["Endereco"];
         $adocao->Adotado = $data["Adotado"];
+        $adocao->Aprovado = $data["Aprovado"];
 
         return $adocao;
     }
     public function create(Adocao $adocao)
     {
-        $stmt = $this->conn->prepare("INSERT INTO adocao(CodAdocao,CodEspecie, Nome, Idade, Porte, Castrado, Sexo, Descricao, Telefone, Endereco, Adotado) 
-      VALUES (:CodAdocao, :CodEspecie, :Nome, :Idade, :Porte, :Castrado, :Sexo, :Descricao, :Telefone, :Endereco, :Adotado)");
+        $stmt = $this->conn->prepare("INSERT INTO adocao(CodAdocao,CodEspecie, Nome, Idade, Porte, Castrado, Sexo, Descricao, Telefone, Endereco, Adotado, Aprovado) 
+      VALUES (:CodAdocao, :CodEspecie, :Nome, :Idade, :Porte, :Castrado, :Sexo, :Descricao, :Telefone, :Endereco, :Adotado, :Aprovado)");
 
         // Liga os parâmetros da query com os atributos do objeto Cliente
         $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
@@ -49,6 +50,7 @@ class AdocaoDAO implements AdocaoDAOInterface
         $stmt->bindParam(":Telefone", $adocao->Telefone);
         $stmt->bindParam(":Endereco", $adocao->Endereco);
         $stmt->bindParam(":Adotado", $adocao->Adotado);
+        $stmt->bindParam(":Aprovado", $adocao->Aprovado);
 
         $stmt->execute();
 
@@ -107,6 +109,20 @@ class AdocaoDAO implements AdocaoDAOInterface
         }
 
         return $adocoes;
+    }
+    public function getAllEspecie() 
+    {
+        $especies = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM especie");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $especiesArray = $stmt->fetchAll();
+
+                return $especiesArray;
+        }
+
     }
     public function getEspecieByCod($CodEspecie)
     {

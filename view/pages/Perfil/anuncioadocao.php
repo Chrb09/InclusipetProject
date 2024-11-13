@@ -34,7 +34,11 @@
     require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php");
     ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfil.php'); 
+
+      $adocaoDao = new AdocaoDAO($conn, $BASE_URL); // instancia do AdocaoDAO
+      $especies = $adocaoDao->getAllEspecie();
+      ?>
 
       <div class="content">
 
@@ -73,29 +77,30 @@
           <input type="file" name="foto-pet-4" id="foto-pet-4" hidden>
           <input type="file" name="foto-pet-5" id="foto-pet-5" hidden>
 
-          <input type="hidden" name="type" value="create">
+          <input type="hidden" name="type" value="create_adoption">
 
+          <!-- nome -->
           <div class="form-input">
             <label for="">Nome</label><br />
             <input type="text" name="nome" id="" maxlength="50" required placeholder="Nome do seu animalzinho.." />
           </div>
 
+          <!-- especie -->
           <div class="form-input">
             <label for="">Espécie</label><br />
             <div class="custom-select">
               <select id="" name="especie" required>
-
-                <!-- especie -->
-                <?php foreach ($servicos as $servico): ?>
+                <?php foreach ($especies as $especie): ?>
                   <!-- Define uma opção no select com o valor da  -->
-                  <option value="<?= $servico[0] ?>">
-                    <?= $agendamentoDao->getServicoByCod($servico[0]) ?>
+                  <option value="<?= $especie[0] ?>">
+                    <?= $adocaoDao->getEspecieByCod($especie[0]) ?>
                   </option>
                 <?php endforeach; ?>
               </select>
             </div>
           </div>
 
+          <!-- idade -->
           <div class="form-input">
             <div id="form-data">
               <label for="">Idade</label><br />
@@ -104,6 +109,7 @@
             <div class="radio-div"><input type="checkbox" name="" id="checkdata" class="check" /> Não sei a idade</div>
           </div>
 
+          <!-- porte -->
           <div class="form-input">
             <label for="">Porte</label><br />
             <div class="custom-select">
@@ -115,6 +121,7 @@
             </div>
           </div>
 
+          <!-- castrado -->
           <div class="form-input">
             <label for="">Castrado?</label>
             <div class="radio-group">
@@ -129,6 +136,7 @@
             </div>
           </div>
 
+          <!-- sexo -->
           <div class="form-input">
             <label for="">Sexo</label>
             <div class="radio-group">
@@ -143,30 +151,34 @@
             </div>
           </div>
 
+          <!-- descrição -->
           <div class="form-input">
             <label for="">Descrição do pet</label>
             <textarea name="descricao" maxlength="500" id="" cols="30" rows="5"
               placeholder="Descrição do seu animalzinho..." required></textarea>
           </div>
 
+          <!-- mais detalhes -->
           <div class="form-input">
             <label for="">Mais detalhes (Escreva um por linha)</label>
             <textarea name="detalhes" id="" cols="30" rows="5" placeholder="Escreva sua mensagem aqui..."
               required></textarea>
           </div>
 
+          <!-- telefone -->
           <div class="form-input">
             <label for="">Seu telefone para contato</label><br />
             <input type="tel" name="telefone" id="" required placeholder="(00)00000-0000" />
           </div>
 
+          <!-- endereço -->
           <div class="form-input">
             <label for="">Endereço de referência</label><br />
             <input type="text" name="endereco" maxlength="50" id="" required placeholder="Endereço de referencia..." />
           </div>
 
           <div class="button-wrapper-form">
-            <!--
+            <!-- TODO
             <button class="botao botao-borda" type="submit">
               Prévia
             </button>

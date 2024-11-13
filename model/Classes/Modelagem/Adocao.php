@@ -12,6 +12,7 @@ class Adocao
     public $Telefone;
     public $Endereco;
     public $Adotado;
+    public $Aprovado;
 
 }
 interface AdocaoDAOInterface
@@ -22,6 +23,7 @@ interface AdocaoDAOInterface
     public function getAdocaoByCodCliente($CodCliente);
     public function getAdocaoByCodAdocao($CodAdocao);
     public function getAllAdocao();
+    public function getAllEspecie();
     public function getEspecieByCod($CodEspecie);
     public function getImagemAdocaoByCod($CodAdocao);
     public function getDetalheAdocaoByCod($CodAdocao);
