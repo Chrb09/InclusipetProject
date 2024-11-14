@@ -180,7 +180,8 @@
 
               <div class="botoes">
                 <!--Div que contem os botões ao lado da descrição-->
-                <button class="botao-solido editar-button">
+                <button class="botao-solido editar-button" type="button"
+                  onclick="location.href='../adocao/animal.php?CodAdocao=10'">
                   <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
                   Visualizar
                 </button>
@@ -211,7 +212,8 @@
 
               <div class="botoes">
                 <!--Div que contem os botões ao lado da descrição-->
-                <button class="botao-solido editar-button">
+                <button class="botao-solido editar-button" type="button"
+                  onclick="location.href='../adocao/animal.php?CodAdocao=9'">
                   <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
                   Visualizar
                 </button>
@@ -241,7 +243,8 @@
               </div>
               <div class="botoes">
                 <!--Div que contem os botões ao lado da descrição-->
-                <button class="botao-solido editar-button">
+                <button class="botao-solido editar-button" type="button"
+                  onclick="location.href='../adocao/animal.php?CodAdocao=7'">
                   <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
                   Visualizar
                 </button>
