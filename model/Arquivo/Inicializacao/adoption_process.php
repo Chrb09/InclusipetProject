@@ -35,6 +35,7 @@ if ($type === 'create_adoption') {
         $message->setMessage("Preencha todos os campos.", "error", "popup", "../../../view/pages/Perfil/anuncioadocao.php");
     } else {
         $adocao = new Adocao();
+
         $adocao->CodEspecie = $especie;
         $adocao->Nome = $nome;
         $adocao->Idade = $idade;
@@ -46,15 +47,40 @@ if ($type === 'create_adoption') {
         $adocao->Endereco = $endereco;
         $adocao->Adotado = '0';
         $adocao->Aprovado = '0';
+        $adocao->CodAdocao = $adocaoDao->getNextId();
 
-        // Foreach dos detalhes
-        //  $adocao->Detalhes = $detalhes;
+        $detalhesArray = explode(',', $detalhes);
 
-        // Foreach das imagens
-        // $adocao->Imagens = ;
+        for ($i = 0; $i < count($detalhesArray); $i++) {
+            $adocao->Detalhes[$i] = $detalhesArray[$i];
+        }
+
+        for ($i = 0; $i < 5; $i++) {
+            if (isset($_FILES["foto-pet-"($id + 1)]) && !empty($_FILES["foto-pet-"($id + 1)]["tmp_name"])) {
+
+                $image = $_FILES["foto-pet-"($id + 1)];
+                $imageTypes = ["image/jpeg", "image/jpg", "image/png"];
+                $jpgArray = ["image/jpeg", "image/jpg"];
+
+                if (!in_array($image["type"], $imageTypes)) {
+                    $message->setMessage("Tipo inválido de imagem, permitidos PNG ou JPG!", "error", "popup", "back");
+                } else {
+                    if (in_array($image["type"], $jpgArray)) {
+                        $imageFile = imagecreatefromjpeg($image["tmp_name"]);
+                    } else {
+                        $imageFile = imagecreatefrompng($image["tmp_name"]);
+                    }
+
+                    $imageName = $adocao->imageGenerateName();
+
+                    imagejpeg($imageFile, "../../../view/assets/img/ImagensAdocao/$adocao->CodAdocao/" . $imageName, 100);
+
+                    $adocao->Imagens[$i] = $imageName;
+                }
+            }
+        }
 
         $adocaoDao->create($adocao);
     }
 
-    // TODO
 }

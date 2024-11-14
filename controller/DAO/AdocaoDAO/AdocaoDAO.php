@@ -53,8 +53,22 @@ class AdocaoDAO implements AdocaoDAOInterface
         $stmt->bindParam(":Aprovado", $adocao->Aprovado);
 
         // Foreach dos detalhes
+        foreach ($adocao->Detalhes as $detalhe) {
+            $stmt = $this->conn->prepare("INSERT INTO detalhes_adocao(CodAdocao,Detalhe) 
+            VALUES (:CodAdocao, :Detalhe)");
+            $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
+            $stmt->bindParam(":Detalhe", $detalhe);
+            $stmt->execute();
+        }
 
         // Foreach das imagens
+        foreach ($adocao->Imagens as $Imagem) {
+            $stmt = $this->conn->prepare("INSERT INTO imagem_adocao(CodAdocao,Imagem) 
+            VALUES (:CodAdocao, :Imagem)");
+            $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
+            $stmt->bindParam(":Imagem", $Imagem);
+            $stmt->execute();
+        }
 
         $stmt->execute();
 
@@ -174,5 +188,12 @@ class AdocaoDAO implements AdocaoDAOInterface
     public function updateAprovado($CodAdocao)
     {
 
+    }
+
+    public function getNextId()
+    {
+        $nextId = $this->conn->query("SHOW TABLE STATUS LIKE 'adocao'")->fetch(PDO::FETCH_ASSOC)['Auto_increment'];
+
+        return $nextId;
     }
 }

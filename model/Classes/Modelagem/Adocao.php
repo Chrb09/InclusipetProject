@@ -16,6 +16,11 @@ class Adocao
     public $Adotado;
     public $Aprovado;
 
+    public function imageGenerateName()
+    {
+        return bin2hex(random_bytes(60)) . ".jpg";
+    }
+
 }
 interface AdocaoDAOInterface
 {
@@ -30,6 +35,7 @@ interface AdocaoDAOInterface
     public function getImagemAdocaoByCod($CodAdocao);
     public function getDetalheAdocaoByCod($CodAdocao);
     public function updateAprovado($CodAdocao);
+    public function getNextId();
 
 }
 

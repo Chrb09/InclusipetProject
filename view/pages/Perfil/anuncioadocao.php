@@ -34,10 +34,11 @@
     require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php");
     ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); 
+      <?php include('../../components/headers/headerperfil.php');
 
       $adocaoDao = new AdocaoDAO($conn, $BASE_URL); // instancia do AdocaoDAO
       $especies = $adocaoDao->getAllEspecie();
+
       ?>
 
       <div class="content">
@@ -160,7 +161,7 @@
 
           <!-- mais detalhes -->
           <div class="form-input">
-            <label for="">Mais detalhes (Escreva um por linha)</label>
+            <label for="">Mais detalhes (Escreva cada um separado por virgulha)</label>
             <textarea name="detalhes" id="" cols="30" rows="5" placeholder="Escreva sua mensagem aqui..."
               required></textarea>
           </div>
