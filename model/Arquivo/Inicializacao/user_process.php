@@ -97,6 +97,8 @@ if ($type === "update_client") {
     if ($type === "update_funcionario") {
         $funcionarioData = $funcionarioDao->verifyToken();
 
+       
+
         $nome = filter_input(INPUT_POST, "sign-up-nome");
         $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
         $cpf = filter_input(INPUT_POST, "sign-up-cpf");
@@ -104,6 +106,16 @@ if ($type === "update_client") {
         $rg = filter_input(INPUT_POST, "sign-up-rg");
         $telefone = filter_input(INPUT_POST, "sign-up-tel");
         $codunidade = filter_input(INPUT_POST, "sign-up-unidade");
+
+        $funcionario = new Funcionario();
+
+        $funcionarioData->codcargo = $codcargo;
+        $funcionarioData->nome = $nome;
+        $funcionarioData->cpf = $cpf;
+        $funcionarioData->cep = $cep;
+        $funcionarioData->rg = $rg;
+        $funcionarioData->telefone = $telefone;
+        $funcionarioData->codunidade = $codunidade;
 
 
         $funcionarioDao->update($funcionarioData);
