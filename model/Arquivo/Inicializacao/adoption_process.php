@@ -50,6 +50,7 @@ if ($type === 'create_adoption') {
         $adocao->Endereco = $endereco;
         $adocao->Adotado = '0';
         $adocao->Aprovado = '0';
+        $adocao->MotivoRecusar = '';
         $adocao->CodAdocao = $adocaoDao->getNextId();
 
         $detalhesArray = explode(',', $detalhes);
@@ -91,4 +92,10 @@ if ($type === 'create_adoption') {
         $adocaoDao->create($adocao);
     }
 
+} else if ($type === 'update_adotado') {
+    $codAdocao = filter_input(INPUT_POST, "codAdocao");
+    $adotado = filter_input(INPUT_POST, "adotado");
+
+    $adocaoDao->updateAdotado($codAdocao, $adotado);
+} else if ($type === 'edit_adoption') {
 }

@@ -16,6 +16,7 @@ class Adocao
     public $Endereco;
     public $Adotado;
     public $Aprovado;
+    public $MotivoRecusar;
 
     public function imageGenerateName()
     {
@@ -37,6 +38,8 @@ interface AdocaoDAOInterface
     public function getDetalheAdocaoByCod($CodAdocao);
     public function updateAprovado($CodAdocao);
     public function getNextId();
+    public function updateAdotado($CodAdocao, $Adotado);
+    public function recusarAdocao($CodAdocao);
 
 }
 

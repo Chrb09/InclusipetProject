@@ -31,13 +31,14 @@ class AdocaoDAO implements AdocaoDAOInterface
         $adocao->Endereco = $data["Endereco"];
         $adocao->Adotado = $data["Adotado"];
         $adocao->Aprovado = $data["Aprovado"];
+        $adocao->MotivoRecusar = $data["MotivoRecusar"];
 
         return $adocao;
     }
     public function create(Adocao $adocao)
     {
-        $stmt = $this->conn->prepare("INSERT INTO adocao(CodAdocao,CodEspecie,CodCliente, Nome, Idade, Porte, Castrado, Sexo, Descricao, Telefone, Endereco, Adotado, Aprovado) 
-      VALUES (:CodAdocao, :CodEspecie,:CodCliente,  :Nome, :Idade, :Porte, :Castrado, :Sexo, :Descricao, :Telefone, :Endereco, :Adotado, :Aprovado)");
+        $stmt = $this->conn->prepare("INSERT INTO adocao(CodAdocao,CodEspecie,CodCliente, Nome, Idade, Porte, Castrado, Sexo, Descricao, Telefone, Endereco, Adotado, Aprovado, MotivoRecusar) 
+      VALUES (:CodAdocao, :CodEspecie,:CodCliente,  :Nome, :Idade, :Porte, :Castrado, :Sexo, :Descricao, :Telefone, :Endereco, :Adotado, :Aprovado, :MotivoRecusar)");
 
         // Liga os parâmetros da query com os atributos do objeto Cliente
         $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
@@ -53,6 +54,7 @@ class AdocaoDAO implements AdocaoDAOInterface
         $stmt->bindParam(":Endereco", $adocao->Endereco);
         $stmt->bindParam(":Adotado", $adocao->Adotado);
         $stmt->bindParam(":Aprovado", $adocao->Aprovado);
+        $stmt->bindParam(":MotivoRecusar", $adocao->MotivoRecusar);
 
         $stmt->execute();
 
@@ -190,6 +192,27 @@ class AdocaoDAO implements AdocaoDAOInterface
         }
     }
     public function updateAprovado($CodAdocao)
+    {
+
+    }
+    public function updateAdotado($CodAdocao, $Adotado)
+    {
+        $stmt = $this->conn->prepare("UPDATE adocao SET Adotado = :Adotado WHERE CodAdocao = :CodAdocao");
+
+        $stmt->bindParam(":Adotado", $Adotado);
+        $stmt->bindParam(":CodAdocao", $CodAdocao);
+
+        $stmt->execute();
+
+        // Redireciona para o perfil do usuario
+        if ($Adotado == '0') {
+            $this->message->setMessage("Pet não adotado!", "warning", "toast", "../../../view/pages/Perfil/gerenciaradocao.php");
+        } else {
+            $this->message->setMessage("Pet adotado!", "success", "toast", "../../../view/pages/Perfil/gerenciaradocao.php");
+        }
+
+    }
+    public function recusarAdocao($CodAdocao)
     {
 
     }

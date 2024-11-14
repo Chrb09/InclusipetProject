@@ -44,6 +44,10 @@
         margin-inline: auto;
       }
     }
+
+    .center {
+      text-align: center !important;
+    }
   </style>
 </head>
 
@@ -92,13 +96,40 @@
                 </div>
 
                 <div class="botoes">
-                  <!--Div que contem os botões ao lado da descrição-->
-                  <button class="botao-solido editar-button">
-                    <img src="../../assets/img/Perfil/editar_icon.png" alt="Editar" class="editar" />
-                    Editar
-                  </button>
+                  <?php if ($adocao->Aprovado == '1') { ?>
+                    <?php if ($adocao->Adotado == '0') { ?>
+                      <button class="botao-solido editar-button">
+                        <img src="../../assets/img/Perfil/editar_icon.png" alt="Editar" class="editar" />
+                        Editar
+                      </button>
 
-                  <button class="botao-borda">Adotado</button>
+                      <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
+                        <input type="hidden" name="type" value="update_adotado">
+                        <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
+                        <input type="hidden" name="adotado" value="1">
+
+                        <button class="botao-borda" type="submit">Adotado?</button>
+                      </form>
+                    <?php } else { ?>
+                      <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
+                        <input type="hidden" name="type" value="update_adotado">
+                        <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
+                        <input type="hidden" name="adotado" value="0">
+
+                        <button class="botao-solido adotar" type="submit">Adotado</button>
+                      </form>
+                    <?php } ?>
+                  <?php } else if ($adocao->Aprovado == '0' && $adocao->MotivoRecusar != '') { ?>
+                      <button class="botao-solido editar-button">
+                        <img src="../../assets/img/Perfil/editar_icon.png" alt="Editar" class="editar" />
+                        Editar
+                      </button>
+                      <button class="botao-solido recusar"
+                        onclick="mostrarMotivo('<?= $adocao->MotivoRecusar ?>')">Recusado</button>
+                  <?php } else { ?>
+                      <button class="botao-solido pendente"><img src="../../assets/img/Perfil/horario.png"
+                          alt="" />Pendente</button>
+                  <?php } ?>
                 </div>
               </div>
               <!--Fim item-->
@@ -120,5 +151,28 @@
     </div>
   </div>
 </body>
+
+<script>
+  function mostrarMotivo(Motivo) {
+    Swal.fire({
+      title: `<div class="titulo-sweetalert center">Motivo</div>`,
+      html: `
+        <p>`+ Motivo + `</p>
+        <br>
+        <div class="linha-sweetalert">
+          <button class="botao-borda" onclick="Swal.close()"  type="button">Voltar</button>
+        </div>
+
+        `,
+      customClass: {
+        popup: 'container-input',
+      },
+      showConfirmButton: false,
+      focusConfirm: false,
+      backdrop: "rgb(87, 77, 189, 0.5",
+    });
+  }
+
+</script>
 
 </html>

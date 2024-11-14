@@ -152,7 +152,21 @@ span {
   align-items: center;
   gap: 1rem;
 }
+.adotar {
+  --purple: var(--green);
+  --purplehover: var(--greenhover);
+}
 
+.pendente {
+  --purple: var(--yellow);
+  --purplehover: var(--yellowhover);
+  display: flex;
+  gap: 0.5em;
+}
+.recusar {
+  --purple: var(--red);
+  --purplehover: var(--redhover);
+}
 .foto-pet-adocao {
   width: 12%;
   cursor: pointer;

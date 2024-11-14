@@ -13,6 +13,7 @@ class Agendamento
     public $Resultado;
     public $CodServico;
     public $Cancelado;
+
 }
 
 interface AgendamentoDAOInterface
@@ -25,7 +26,6 @@ interface AgendamentoDAOInterface
     public function getAllAgendamento();
     public function getAgendamentoByInfoDateType($CodPet, $data, $tipo);
     public function getAgendamentoByInfoDate($CodPet, $data);
-
     public function getAgendamentoCount();
     public function getAllUnidade();
     public function getAllServico();
