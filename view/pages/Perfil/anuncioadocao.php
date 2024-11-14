@@ -34,7 +34,7 @@
     require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php");
     ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); 
+      <?php include('../../components/headers/headerperfil.php');
 
       $adocaoDao = new AdocaoDAO($conn, $BASE_URL); // instancia do AdocaoDAO
       $especies = $adocaoDao->getAllEspecie();
@@ -78,6 +78,7 @@
           <input type="file" name="foto-pet-5" id="foto-pet-5" hidden>
 
           <input type="hidden" name="type" value="create_adoption">
+
 
           <!-- nome -->
           <div class="form-input">

@@ -30,13 +30,24 @@
 
     $sidebarActive = "tutor";
     include('../../components/sidebarvet.php');
+    require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
     ?>
     <div class="main">
       <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
 
       <div class="content">
 
-        <?php include('../../components/navmobilevet.php'); ?>
+        <?php include('../../components/navmobilevet.php');
+        $clienteDao = new ClienteDAO($conn, $BASE_URL);
+
+        if (isset($_GET['codCliente'])) {
+          $CodTutor = $_GET['codCliente'];
+          $tutorInfo = $clienteDao->findById($CodTutor);
+        } else {
+          header("Location: ../Funcionario/funcoesdotutor.php");
+        }
+
+        ?>
 
         <!-- Começo do conteúdo principal -->
         <div class="titulo">Criar anúncio de adoção</div>
@@ -61,7 +72,7 @@
             </label>
           </div>
         </div>
-        <form action="../../../model/Arquivo/Inicializacao/adocao_process.php" class="form__cadastro"
+        <form action="../../../model/Arquivo/Inicializacao/vetUser_process.php" class="form__cadastro"
           onsubmit="return validarAnuncio()" method="POST" enctype="multipart/form-data">
           <input type="file" name="foto-pet-1" id="foto-pet-1" hidden>
           <input type="file" name="foto-pet-2" id="foto-pet-2" hidden>
@@ -69,7 +80,8 @@
           <input type="file" name="foto-pet-4" id="foto-pet-4" hidden>
           <input type="file" name="foto-pet-5" id="foto-pet-5" hidden>
 
-          <input type="hidden" name="type" value="create">
+          <input type="hidden" name="type" value="create_adoption">
+          <input type="hidden" name="codTutor" value="">
 
           <div class="form-input">
             <label for="">Nome</label><br />

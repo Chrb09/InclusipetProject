@@ -60,8 +60,9 @@ if (isset($_POST)) {
         <?php include('../../components/navmobilevet.php'); ?>
         <div class="titulo">Resumo agendamento</div>
 
-        <form action="../../../model/Arquivo/Inicializacao/appointment_process.php" method="POST">
+        <form action="../../../model/Arquivo/Inicializacao/vetUser_process.php" method="POST">
           <input type="hidden" name="type" value="create_appointment"> <!-- register do agendamento -->
+          <input type="hidden" name="codTutor" value="">
 
           <div class="pet-info">
             <div class="pet-info-wrapper">
@@ -133,7 +134,7 @@ if (isset($_POST)) {
               </div>
             </div>
             <div class="button-wrapper-form">
-              <button class="botao botao-borda" onclick="location.href='agendamento.php'" type="button">Voltar</button>
+              <button class="botao botao-borda" onclick="location.href='agendamentot.php'" type="button">Voltar</button>
               <button class="botao botao-solido" type="submit">Concluir</button>
             </div>
           </div>

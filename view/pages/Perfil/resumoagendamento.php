@@ -42,7 +42,6 @@ if (isset($_POST)) {
 
       <?php
       include('../../components/headers/headerperfil.php');
-
       require_once("../../../controller/DAO/PetDAO/PetDAO.php");
       require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
       require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
@@ -62,6 +61,7 @@ if (isset($_POST)) {
 
         <form action="../../../model/Arquivo/Inicializacao/appointment_process.php" method="POST">
           <input type="hidden" name="type" value="create_appointment"> <!-- register do agendamento -->
+
 
           <div class="pet-info">
             <div class="pet-info-wrapper">

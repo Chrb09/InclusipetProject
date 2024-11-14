@@ -71,6 +71,7 @@
               <input type="file" name="foto-pet-input" id="foto-pet-input" hidden>
               <input type="hidden" name="resetimage" id="resetimage" value="false">
               <input type="hidden" name="type" value="create">
+
               <div class="form-input">
                 <label for="">Nome</label><br />
                 <input type="text" name="nome" maxlength="50" placeholder="Nome do seu pet" required />

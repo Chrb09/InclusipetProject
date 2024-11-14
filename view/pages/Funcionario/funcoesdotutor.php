@@ -49,6 +49,7 @@
                 <label for="">Tutor</label><br />
                 <div class="custom-select">
                   <select name="tutor" id="tutor" required>
+                    <option value="" id="escolhatutor" disabled selected hidden>Escolha um tutor...</option>
                     <?php foreach ($clientes as $cliente): ?>
                       <option value="<?= $cliente->codcliente ?>" nome="<?= $cliente->nome ?>"
                         img="<?= $cliente->imagem ?>"><?= $cliente->nome ?>
@@ -119,18 +120,35 @@
 
   function alterar() {
     infor.classList.add("selecionar")
+    sessionStorage.setItem("tutorSelecionado", null);
+
   }
 
   function salvar() {
-    infor.classList.remove("selecionar")
-    nome_tutor.innerHTML = $('#tutor').find(':selected').attr('nome');
-    foto_tutor.src = '../../assets/img/ImagensPerfil/' + $('#tutor').find(':selected').attr('img');
+    if (tutor.value != "") {
+      infor.classList.remove("selecionar")
+      nome_tutor.innerHTML = $('#tutor').find(':selected').attr('nome');
+      foto_tutor.src = '../../assets/img/ImagensPerfil/' + $('#tutor').find(':selected').attr('img');
 
-    agendar.href = '../Funcoes_Tutor/agendamentot.php?codCliente=' + tutor.value;
-    anunciar.href = '../Funcoes_Tutor/anuncioadocaot.php?codCliente=' + tutor.value;
-    cadastrarpet.href = '../Funcoes_Tutor/cadastraranimalt.php?codCliente=' + tutor.value;
+      agendar.href = '../Funcoes_Tutor/agendamentot.php?codCliente=' + tutor.value;
+      anunciar.href = '../Funcoes_Tutor/anuncioadocaot.php?codCliente=' + tutor.value;
+      cadastrarpet.href = '../Funcoes_Tutor/cadastraranimalt.php?codCliente=' + tutor.value;
+
+      var selectedcategory = $('#tutor').children("option:selected").val();
+      sessionStorage.setItem("tutorSelecionado", selectedcategory);
+    }
 
   }
+
+  function carregar() {
+    if (sessionStorage.getItem('tutorSelecionado') != "") {
+      $('#tutor').find('option[value=' + sessionStorage.getItem('tutorSelecionado') + ']').attr('selected', 'selected');
+      salvar();
+    }
+  }
+
+
+  window.onload(carregar())
 
 </script>
 
