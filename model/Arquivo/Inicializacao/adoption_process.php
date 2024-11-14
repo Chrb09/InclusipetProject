@@ -3,16 +3,18 @@
 
 require_once('globals.php');
 require_once('db.php');
-
 require_once('../../Classes/Modelagem/Message.php');
 require_once('../../Classes/Modelagem/Adocao.php');
 require_once('../../../controller/DAO/AdocaoDAO/AdocaoDAO.php');
+require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 
 $message = new Message($BASE_URL);
+$clienteDao = new ClienteDAO($conn, $BASE_URL);
 $adocaoDao = new AdocaoDAO($conn, $BASE_URL);
 
 // Resgata o tipo do formulário
 $type = filter_input(INPUT_POST, "type");
+$clienteData = $clienteDao->verifyToken();
 
 // ===== COMEÇO DO ADOÇÃO =====
 
@@ -37,6 +39,7 @@ if ($type === 'create_adoption') {
         $adocao = new Adocao();
 
         $adocao->CodEspecie = $especie;
+        $adocao->CodCliente = $clienteData->codcliente;
         $adocao->Nome = $nome;
         $adocao->Idade = $idade;
         $adocao->Porte = $porte;
@@ -56,9 +59,11 @@ if ($type === 'create_adoption') {
         }
 
         for ($i = 0; $i < 5; $i++) {
-            if (isset($_FILES["foto-pet-"($id + 1)]) && !empty($_FILES["foto-pet-"($id + 1)]["tmp_name"])) {
+            $id = $i + 1;
+            if (isset($_FILES["foto-pet-$id"]) && !empty($_FILES["foto-pet-$id"]["tmp_name"])) {
 
-                $image = $_FILES["foto-pet-"($id + 1)];
+
+                $image = $_FILES["foto-pet-$id"];
                 $imageTypes = ["image/jpeg", "image/jpg", "image/png"];
                 $jpgArray = ["image/jpeg", "image/jpg"];
 
@@ -73,6 +78,9 @@ if ($type === 'create_adoption') {
 
                     $imageName = $adocao->imageGenerateName();
 
+                    if (!file_exists("../../../view/assets/img/ImagensAdocao/$adocao->CodAdocao")) {
+                        mkdir("../../../view/assets/img/ImagensAdocao/$adocao->CodAdocao");
+                    }
                     imagejpeg($imageFile, "../../../view/assets/img/ImagensAdocao/$adocao->CodAdocao/" . $imageName, 100);
 
                     $adocao->Imagens[$i] = $imageName;

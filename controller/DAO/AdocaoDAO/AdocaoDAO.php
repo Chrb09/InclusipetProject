@@ -20,6 +20,7 @@ class AdocaoDAO implements AdocaoDAOInterface
 
         $adocao->CodAdocao = $data["CodAdocao"];
         $adocao->CodEspecie = $data["CodEspecie"];
+        $adocao->CodCliente = $data["CodCliente"];
         $adocao->Nome = $data["Nome"];
         $adocao->Idade = $data["Idade"];
         $adocao->Porte = $data["Porte"];
@@ -35,12 +36,13 @@ class AdocaoDAO implements AdocaoDAOInterface
     }
     public function create(Adocao $adocao)
     {
-        $stmt = $this->conn->prepare("INSERT INTO adocao(CodAdocao,CodEspecie, Nome, Idade, Porte, Castrado, Sexo, Descricao, Telefone, Endereco, Adotado, Aprovado) 
-      VALUES (:CodAdocao, :CodEspecie, :Nome, :Idade, :Porte, :Castrado, :Sexo, :Descricao, :Telefone, :Endereco, :Adotado, :Aprovado)");
+        $stmt = $this->conn->prepare("INSERT INTO adocao(CodAdocao,CodEspecie,CodCliente, Nome, Idade, Porte, Castrado, Sexo, Descricao, Telefone, Endereco, Adotado, Aprovado) 
+      VALUES (:CodAdocao, :CodEspecie,:CodCliente,  :Nome, :Idade, :Porte, :Castrado, :Sexo, :Descricao, :Telefone, :Endereco, :Adotado, :Aprovado)");
 
         // Liga os parâmetros da query com os atributos do objeto Cliente
         $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
         $stmt->bindParam(":CodEspecie", $adocao->CodEspecie);
+        $stmt->bindParam(":CodCliente", $adocao->CodCliente);
         $stmt->bindParam(":Nome", $adocao->Nome);
         $stmt->bindParam(":Idade", $adocao->Idade);
         $stmt->bindParam(":Porte", $adocao->Porte);
@@ -51,6 +53,8 @@ class AdocaoDAO implements AdocaoDAOInterface
         $stmt->bindParam(":Endereco", $adocao->Endereco);
         $stmt->bindParam(":Adotado", $adocao->Adotado);
         $stmt->bindParam(":Aprovado", $adocao->Aprovado);
+
+        $stmt->execute();
 
         // Foreach dos detalhes
         foreach ($adocao->Detalhes as $detalhe) {
@@ -70,7 +74,7 @@ class AdocaoDAO implements AdocaoDAOInterface
             $stmt->execute();
         }
 
-        $stmt->execute();
+
 
         $this->message->setMessage("Adoção criada, esperando aprovação", "warning", "popup", "../../../view/pages/perfil/gerenciaradocao.php");
     }

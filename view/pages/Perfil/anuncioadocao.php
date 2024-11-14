@@ -170,7 +170,7 @@
           <!-- telefone -->
           <div class="form-input">
             <label for="">Seu telefone para contato</label><br />
-            <input type="tel" name="telefone" id="" required placeholder="(00)00000-0000" />
+            <input type="tel" name="telefone" id="telefone" required placeholder="(00)00000-0000" />
           </div>
 
           <!-- endereço -->
@@ -195,6 +195,8 @@
 </body>
 
 <script>
+  $("#telefone").mask("(00)00000-0000");
+
   let Picture1 = document.querySelector('#pet-img-1');  // Added the line.
   let PicInput1 = document.querySelector('#foto-pet-1');
   let Picture2 = document.querySelector('#pet-img-2');  // Added the line.

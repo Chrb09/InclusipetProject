@@ -3,6 +3,7 @@ class Adocao
 {
     public $CodAdocao;
     public $CodEspecie;
+    public $CodCliente;
     public $Nome;
     public $Idade;
     public $Porte;
