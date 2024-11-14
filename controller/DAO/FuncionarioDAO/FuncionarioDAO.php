@@ -66,7 +66,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   {
     $stmt = $this->conn->prepare("UPDATE funcionario SET 
      CodCargo = :CodCargo, Senha = :Senha,Nome = :Nome,RG = :RG, CPF = :CPF, Telefone = :Telefone, CEP = :CEP, CodUnidade = :CodUnidade,
-     Token = :Token, Imagem = :Imagem, DataAmissao = :DataAdmissao WHERE CodFuncionario = :CodFuncionario");
+     Token = :Token, Imagem = :Imagem WHERE CodFuncionario = :CodFuncionario");
 
     $stmt->bindParam(":CodCargo", $funcionario->codcargo);
     $stmt->bindParam(":Senha", $funcionario->senha);
@@ -78,7 +78,6 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     $stmt->bindParam(":CodUnidade", $funcionario->codunidade);
     $stmt->bindParam(":Token", $funcionario->token);
     $stmt->bindParam(":Imagem", $funcionario->imagem);
-    $stmt->bindParam(":DataAdmissao", $funcionario->dataAdmissao);
     $stmt->bindParam(":CodFuncionario", $funcionario->codfuncionario);
 
     $stmt->execute();

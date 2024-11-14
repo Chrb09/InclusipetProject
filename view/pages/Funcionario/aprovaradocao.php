@@ -162,7 +162,9 @@
             <!--Inicio Item-->
             <div class="item">
               <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-              <img src="../../assets/img/Adocao/Animal10/img1.png" alt="Belinha" class="animal" />
+              <img
+                src="../../assets/img/ImagensAdocao/10/5a89d6b3d4e56a0932cfa509aaa07f67c75715b6c2dcd3d8720187a34d99887c31361f01007e44ed632a450e405213559a8bef518ab2895558432824.jpg"
+                alt="Belinha" class="animal" />
 
               <div class="descricao-pet">
                 <!--Div com a descrição do animal-->
@@ -193,7 +195,9 @@
             <!--Inicio Item-->
             <div class="item">
               <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-              <img src="../../assets/img/Adocao/Animal9/img1.png" alt="Amarela" class="animal" />
+              <img
+                src="../../assets/img/ImagensAdocao/9/3c2d766f99a648aa1b81de4975053de9e5a31fdef0a0826dd421faa90543b9281beddf62f2e08d47331bc27183467742e7dfa5e7b15fecc7029e2362.jpg"
+                alt="Amarela" class="animal" />
 
               <div class="descricao-pet">
                 <!--Div com a descrição do animal-->
@@ -220,7 +224,9 @@
             <!--Inicio Item-->
             <div class="item">
               <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-              <img src="../../assets/img/Adocao/Animal7/img1.png" alt="Bolinha" class="animal" />
+              <img
+                src="../../assets/img/ImagensAdocao/7/3befbdb4a98118863a015e994e8ea36d3ece958cf4993792095aa21ee0318a17e79c460a6f7b6c361d18dfe8efb8e271da0a9746afc9317489db32db.jpg"
+                alt="Bolinha" class="animal" />
 
               <div class="descricao-pet">
                 <!--Div com a descrição do animal-->
