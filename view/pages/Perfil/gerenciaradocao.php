@@ -98,7 +98,8 @@
                 <div class="botoes">
                   <?php if ($adocao->Aprovado == '1') { ?>
                     <?php if ($adocao->Adotado == '0') { ?>
-                      <button class="botao-solido editar-button">
+                      <button class="botao-solido editar-button"
+                        onclick="location.href='anuncioadocao.php?edit=<?= $adocao->CodAdocao ?>'" type="button">
                         <img src="../../assets/img/Perfil/editar_icon.png" alt="Editar" class="editar" />
                         Editar
                       </button>
@@ -120,7 +121,8 @@
                       </form>
                     <?php } ?>
                   <?php } else if ($adocao->Aprovado == '0' && $adocao->MotivoRecusar != '') { ?>
-                      <button class="botao-solido editar-button">
+                      <button class="botao-solido editar-button"
+                        onclick="location.href='anuncioadocao.php?edit=<?= $adocao->CodAdocao ?>'" type="button">
                         <img src="../../assets/img/Perfil/editar_icon.png" alt="Editar" class="editar" />
                         Editar
                       </button>
