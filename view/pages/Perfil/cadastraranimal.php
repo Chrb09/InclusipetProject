@@ -144,7 +144,6 @@
               </div>
 
               <div class="button-wrapper-form">
-                <button class="botao botao-borda" onclick="location.href='meuspets.php'" type="button">Voltar</button>
                 <button class="botao botao-solido" onclick="" type="submit">Salvar</button>
               </div>
             </form>

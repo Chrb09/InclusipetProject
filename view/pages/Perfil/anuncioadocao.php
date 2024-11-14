@@ -228,15 +228,16 @@
           </div>
 
           <!-- CADASTRO DO PET PARA ADOCAO -->
-          <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" class="form__cadastro"
-            onsubmit="return validarAnuncio()" method="POST" enctype="multipart/form-data">
-            <input type="file" name="foto-pet-1" id="foto-pet-1" value="<?= $imagens[0] ?>" hidden>
-            <input type="file" name="foto-pet-2" id="foto-pet-2" value="<?= $imagens[1] ?>" hidden>
-            <input type="file" name="foto-pet-3" id="foto-pet-3" value="<?= $imagens[2] ?>" hidden>
-            <input type="file" name="foto-pet-4" id="foto-pet-4" value="<?= $imagens[3] ?>" hidden>
-            <input type="file" name="foto-pet-5" id="foto-pet-5" value="<?= $imagens[4] ?>" hidden>
+          <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" class="form__cadastro" method="POST"
+            enctype="multipart/form-data">
+            <input type="hidden" name="codAdocao" value="<?= $adocaoInfo->CodAdocao ?>" hidden>
+            <input type="file" name="foto-pet-1" id="foto-pet-1" hidden>
+            <input type="file" name="foto-pet-2" id="foto-pet-2" hidden>
+            <input type="file" name="foto-pet-3" id="foto-pet-3" hidden>
+            <input type="file" name="foto-pet-4" id="foto-pet-4" hidden>
+            <input type="file" name="foto-pet-5" id="foto-pet-5" hidden>
 
-            <input type="hidden" name="type" value="create_adoption">
+            <input type="hidden" name="type" value="edit_adoption">
 
 
             <!-- nome -->
@@ -346,11 +347,9 @@
             </div>
 
             <div class="button-wrapper-form">
-              <!-- TODO
-  <button class="botao botao-borda" type="submit">
-    Prévia
-  </button>
--->
+              <button class="botao botao-borda" onclick="location.href='gerenciaradocao.php'" type="button">
+                Voltar
+              </button>
               <button class="botao botao-solido" type="submit">Salvar</button>
             </div>
           </form>

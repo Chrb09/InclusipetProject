@@ -60,11 +60,13 @@ class AdocaoDAO implements AdocaoDAOInterface
 
         // Foreach dos detalhes
         foreach ($adocao->Detalhes as $detalhe) {
-            $stmt = $this->conn->prepare("INSERT INTO detalhes_adocao(CodAdocao,Detalhe) 
+            if ($detalhe != '' && $detalhe != ' ') {
+                $stmt = $this->conn->prepare("INSERT INTO detalhes_adocao(CodAdocao,Detalhe) 
             VALUES (:CodAdocao, :Detalhe)");
-            $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
-            $stmt->bindParam(":Detalhe", $detalhe);
-            $stmt->execute();
+                $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
+                $stmt->bindParam(":Detalhe", $detalhe);
+                $stmt->execute();
+            }
         }
 
         // Foreach das imagens
@@ -82,6 +84,59 @@ class AdocaoDAO implements AdocaoDAOInterface
     }
     public function update(Adocao $adocao)
     {
+        $stmt = $this->conn->prepare("UPDATE adocao SET 
+        CodEspecie = :CodEspecie, CodCliente = :CodCliente, Nome = :Nome, Idade = :Idade, Porte = :Porte,
+        Castrado = :Castrado, Sexo = :Sexo, Descricao = :Descricao, Telefone =:Telefone, Endereco =:Endereco , Adotado =:Adotado , Aprovado =:Aprovado , MotivoRecusar =:MotivoRecusar  WHERE CodAdocao = :CodAdocao");
+
+
+        $stmt->bindParam(":CodEspecie", $adocao->CodEspecie);
+        $stmt->bindParam(":CodCliente", $adocao->CodCliente);
+        $stmt->bindParam(":Nome", $adocao->Nome);
+        $stmt->bindParam(":Idade", $adocao->Idade);
+        $stmt->bindParam(":Porte", $adocao->Porte);
+        $stmt->bindParam(":Castrado", $adocao->Castrado);
+        $stmt->bindParam(":Sexo", $adocao->Sexo);
+        $stmt->bindParam(":Descricao", $adocao->Descricao);
+        $stmt->bindParam(":Telefone", $adocao->Telefone);
+        $stmt->bindParam(":Endereco", $adocao->Endereco);
+        $stmt->bindParam(":Adotado", $adocao->Adotado);
+        $stmt->bindParam(":Aprovado", $adocao->Aprovado);
+        $stmt->bindParam(":MotivoRecusar", $adocao->MotivoRecusar);
+        $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
+
+        $stmt->execute();
+
+        $stmt = $this->conn->prepare("DELETE FROM detalhes_adocao WHERE CodAdocao = :CodAdocao");
+        $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
+        $stmt->execute();
+
+        $stmt = $this->conn->prepare("DELETE FROM imagem_adocao WHERE CodAdocao = :CodAdocao");
+        $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
+        $stmt->execute();
+
+        foreach ($adocao->Detalhes as $detalhe) {
+            if ($detalhe != '' && $detalhe != ' ') {
+                $stmt = $this->conn->prepare("INSERT INTO detalhes_adocao(CodAdocao,Detalhe) 
+                VALUES (:CodAdocao, :Detalhe)");
+                $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
+                $stmt->bindParam(":Detalhe", $detalhe);
+                $stmt->execute();
+            }
+
+        }
+
+        // Foreach das imagens
+        foreach ($adocao->Imagens as $Imagem) {
+            $stmt = $this->conn->prepare("INSERT INTO imagem_adocao(CodAdocao,Imagem) 
+            VALUES (:CodAdocao, :Imagem)");
+            $stmt->bindParam(":CodAdocao", $adocao->CodAdocao);
+            $stmt->bindParam(":Imagem", $Imagem);
+            $stmt->execute();
+        }
+
+
+        // Redireciona para o perfil do usuario
+        $this->message->setMessage("Adoção editada, esperando aprovação", "warning", "popup", "../../../view/pages/perfil/gerenciaradocao.php");
         // qnd o pet for adotado
     }
     public function getAdocaoByCodCliente($CodCliente)
