@@ -55,14 +55,13 @@
     $sidebarActive = "adocao";
     include('../../components/sidebarperfil.php');
 
-    require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php");
-
-    $adocaoDao = new AdocaoDAO($conn, $BASE_URL);
-    $adocoes = $adocaoDao->getAllAdocao();
-
-    ?>
+    require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php"); ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfil.php');
+
+      $adocaoDao = new AdocaoDAO($conn, $BASE_URL);
+      $adocoes = $adocaoDao->getAdocaoByCodCliente($clienteData->codcliente);
+      ?>
 
       <div class="content">
 
@@ -76,19 +75,20 @@
             <h3 class="titulo">Para Adoção</h3>
             <!--Titulo da página-->
 
-            <?php foreach ($adocoes as $adocao): ?>
+            <?php foreach ($adocoes as $adocao):
+              $imagens = $adocaoDao->getImagemAdocaoByCod($adocao->CodAdocao); ?>
+
               <!--Inicio Item-->
               <div class="item">
                 <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-                <img src="../../assets/img/Adocao/Animal10/img1.png" alt="Belinha" class="animal" />
+                <img src="../../assets/img/ImagensAdocao/<?= $adocao->CodAdocao ?>/<?= $imagens[0] ?>"
+                  alt="<?= $adocao->Nome ?>" class="animal" />
 
                 <div class="descricao-pet">
                   <!--Div com a descrição do animal-->
                   <div class="titulo_item"><?= $adocao->Nome ?></div>
-                  <p class="descricao">São Paulo, São Paulo</p>
-                  <p class="descricao">
-                    Cadela de pequeno porte, com 10 anos de idade, de pelagem branca. É um pouco ansiosa.
-                  </p>
+                  <p class="descricao"><?= $adocao->Endereco ?></p>
+                  <p class="descricao"><?= $adocao->Descricao ?></p>
                 </div>
 
                 <div class="botoes">
@@ -102,6 +102,7 @@
                 </div>
               </div>
               <!--Fim item-->
+
             <?php endforeach; ?>
 
           </div>

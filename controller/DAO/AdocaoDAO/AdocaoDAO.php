@@ -86,7 +86,7 @@ class AdocaoDAO implements AdocaoDAOInterface
     {
         $adocoes = [];
 
-        $stmt = $this->conn->prepare("SELECT * FROM cliente WHERE CodCliente = :CodCliente");
+        $stmt = $this->conn->prepare("SELECT * FROM adocao WHERE CodCliente = :CodCliente");
         $stmt->bindParam(":CodCliente", $CodCliente);
         $stmt->execute();
 
