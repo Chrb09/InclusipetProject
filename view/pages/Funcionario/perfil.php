@@ -105,38 +105,6 @@
               <input name="sign-up-nome" placeholder="" type="text" required autocomplete="off"
                 value="<?= $funcionarioData->nome ?>" />
             </div>
-            <!--
-            <div class="form-input">
-              <label for="sign-up-cargo">Cargo</label><br />
-              <div class="custom-select">
-                <select id="" name="sign-up-cargo" size="0">
-                  <?php foreach ($cargos as $cargo): ?>
-                    <option value="<?= $cargo[0] ?>">
-                      <?= $funcionarioDao->getCargoByCod($cargo[0]) ?>
-                    </option>
-                  <?php endforeach; ?>
-                </select>
-              </div>
-            </div>
-
-
-            <div class="form-input">
-              <label for="sign-up-cpf">Email</label>
-              <input name="sign-up-cpf" placeholder="000.000.000-00" type="text" required autocomplete="off"
-                value="<?= $funcionarioData->cpf ?>" />
-            </div>
-
-            <div class="form-input desativado">
-              <label for="sign-up-cep">CEP</label>
-              <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" readonly autocomplete="off"
-                value="<?= $funcionarioData->cep ?>" />
-            </div>
-
-            <div class="form-input desativado">
-              <label for="sign-up-rg">CPF</label>
-              <input name="sign-up-rg" id="sign-up-rg" placeholder="00.000.000-0" type="text" readonly
-                autocomplete="off" value="<?= $funcionarioData->rg ?>" />
-            </div>
 
             <div class="form-input">
               <label for="sign-up-tel">Telefone</label>
@@ -157,8 +125,47 @@
               </div>
             </div>
 
-            <!--Final do editar informações
--->
+            <div class="form-input">
+              <label for="sign-up-cargo">Cargo</label><br />
+              <div class="custom-select">
+                <select id="" name="sign-up-cargo" size="0">
+                  <?php foreach ($cargos as $cargo): ?>
+                    <option value="<?= $cargo[0] ?>">
+                      <?= $funcionarioDao->getCargoByCod($cargo[0]) ?>
+                    </option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+            </div>
+            
+
+            
+            <!--
+
+
+            <div class="form-input">
+              <label for="sign-up-cpf">Email</label>
+              <input name="sign-up-cpf" placeholder="000.000.000-00" type="text" required autocomplete="off"
+                value="<?= $funcionarioData->cpf ?>" />
+            </div>
+
+            <div class="form-input desativado">
+              <label for="sign-up-cep">CEP</label>
+              <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" readonly autocomplete="off"
+                value="<?= $funcionarioData->cep ?>" />
+            </div>
+
+            <div class="form-input desativado">
+              <label for="sign-up-rg">CPF</label>
+              <input name="sign-up-rg" id="sign-up-rg" placeholder="00.000.000-0" type="text" readonly
+                autocomplete="off" value="<?= $funcionarioData->rg ?>" />
+            </div>
+
+           
+            
+
+            <!--Final do editar informações-->
+
             <div class="form-msg">Para alterar seu CEP ou CPF entre em contato.</div>
             <div class="button-wrapper-form">
 
