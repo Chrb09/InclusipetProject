@@ -56,9 +56,11 @@ if ($type === 'create_adoption') {
         }
 
         for ($i = 0; $i < 5; $i++) {
-            if (isset($_FILES["foto-pet-"($id + 1)]) && !empty($_FILES["foto-pet-"($id + 1)]["tmp_name"])) {
 
-                $image = $_FILES["foto-pet-"($id + 1)];
+            $id = $i + 1;
+            if (isset($_FILES["foto-pet-$id"]) && !empty($_FILES["foto-pet-$id"]["tmp_name"])) {
+
+                $image = $_FILES["foto-pet-$id"];
                 $imageTypes = ["image/jpeg", "image/jpg", "image/png"];
                 $jpgArray = ["image/jpeg", "image/jpg"];
 
