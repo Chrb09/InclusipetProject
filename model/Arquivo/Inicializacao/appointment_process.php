@@ -21,6 +21,7 @@ $type = filter_input(INPUT_POST, "type");
 // ===== COMEÇO DO AGENDAMENTO =====
 
 if ($type === 'create_appointment') {
+
     $unidade = filter_input(INPUT_POST, "unidade");
     $servico = filter_input(INPUT_POST, "servico");
     $especialidade = filter_input(INPUT_POST, "especialidade");

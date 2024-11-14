@@ -29,6 +29,7 @@
     require_once("../../../controller/DAO/PetDAO/PetDAO.php");
     require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
     require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
+    require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
     ?>
 
     <div class="main">
@@ -37,11 +38,19 @@
       $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL); // instancia do AgendamentoDAO
       $petDao = new PetDAO($conn, $BASE_URL);                 // instancia do PetDAO
       $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL); // instancia do FuncionarioDAO
-      
+      $clienteDao = new ClienteDAO($conn, $BASE_URL);
+
+      if (isset($_GET['codCliente'])) {
+        $CodTutor = $_GET['codCliente'];
+        $tutorInfo = $clienteDao->findById($CodTutor);
+      } else {
+        header("Location: ../Funcionario/funcoesdotutor.php");
+      }
+
       $unidades = $agendamentoDao->getAllUnidade();
       $servicos = $agendamentoDao->getAllServico();
       $especialidades = $agendamentoDao->getAllEspecialidade();
-      $pets = $petDao->getPetsByCodCliente($clienteData->codcliente);
+      $pets = $petDao->getPetsByCodCliente($tutorInfo->codcliente);
       $funcionarios = $funcionarioDao->getAllFuncionario();
 
       // Verifica se existem animais de estimação associados ao cliente
@@ -76,7 +85,7 @@
         <?php if ($pets !== []) { ?>
 
           <!-- começo do formulário  -->
-          <form class="form__cadastro" action="resumoagendamento.php" method="POST">
+          <form class="form__cadastro" action="resumoagendamentot.php" method="POST">
 
 
             <div class="pets">
@@ -194,6 +203,9 @@
 
             <!-- buttons -->
             <div class="button-wrapper-form">
+              <button class="botao botao-borda" onclick="location.href='../Funcionario/funcoesdotutor.php'" type="button">
+                Voltar
+              </button>
               <button class="botao botao-solido" type="submit">
                 Continuar
               </button>
