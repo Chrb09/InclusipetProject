@@ -42,6 +42,7 @@ interface ClienteDAOInterface
   public function create(Cliente $cliente, $authcliente = false);
   public function update(Cliente $cliente, $redirect = true);
   public function verifyToken($protected = false);
+
   public function setTokenToSession($token, $redirect = true);
   public function authenticatecliente($email, $senha);
   public function findByEmail($email);

@@ -26,9 +26,10 @@ interface AgendamentoDAOInterface
     public function getAllAgendamento();
     public function getAgendamentoByInfoDateType($CodPet, $data, $tipo);
     public function getAgendamentoByInfoDate($CodPet, $data);
-    public function getAllAgendamentoByNoInfo();
-    public function getAllAgendamentoByInfo();
-    public function getAllNextAgendamento();
+    public function getAllAgendamentoByNoInfo($CodFuncionario);
+    public function getAllAgendamentoByInfo($CodFuncionario);
+    public function getAllAgendamentoByFuncionario($CodFuncionario);
+    public function getAllNextAgendamento($CodFuncionario);
     public function getAgendamentoCount();
     public function getAllUnidade();
     public function getAllServico();

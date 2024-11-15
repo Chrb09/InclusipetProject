@@ -241,14 +241,12 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         }
     }
 
-    public function getAllAgendamentoByNoInfo()
+    public function getAllAgendamentoByFuncionario($CodFuncionario)
     {
         $agendamentos = [];
-        $dataAtual = new DateTime("Today");
-        $dataFormatada = $dataAtual->format('Y-m-d');
 
-        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Info IS NULL AND Cancelado = 0 AND Data < :Data ORDER BY Data ASC, Hora ASC");
-        $stmt->bindParam(":Data", $dataFormatada);
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Cancelado = 0 AND CodFuncionario = :CodFuncionario ORDER BY Data ASC, Hora ASC");
+        $stmt->bindParam(":CodFuncionario", $CodFuncionario);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -262,11 +260,34 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         return $agendamentos;
 
     }
-    public function getAllAgendamentoByInfo()
+    public function getAllAgendamentoByNoInfo($CodFuncionario)
+    {
+        $agendamentos = [];
+        $dataAtual = new DateTime("Today");
+        $dataFormatada = $dataAtual->format('Y-m-d');
+
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Info IS NULL AND Cancelado = 0 AND Data < :Data AND CodFuncionario = :CodFuncionario ORDER BY Data ASC, Hora ASC");
+        $stmt->bindParam(":Data", $dataFormatada);
+        $stmt->bindParam(":CodFuncionario", $CodFuncionario);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $agendamentosArray = $stmt->fetchAll();
+
+            foreach ($agendamentosArray as $agendamento) {
+                $agendamentos[] = $this->buildAgendamento($agendamento);
+            }
+        }
+
+        return $agendamentos;
+
+    }
+    public function getAllAgendamentoByInfo($CodFuncionario)
     {
         $agendamentos = [];
 
-        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Info IS NOT NULL AND Cancelado = 0  ORDER BY Data ASC, Hora ASC");
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Info IS NOT NULL AND Cancelado = 0 AND CodFuncionario = :CodFuncionario  ORDER BY Data ASC, Hora ASC");
+        $stmt->bindParam(":CodFuncionario", $CodFuncionario);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -279,14 +300,15 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
         return $agendamentos;
     }
-    public function getAllNextAgendamento()
+    public function getAllNextAgendamento($CodFuncionario)
     {
         $agendamentos = [];
         $dataAtual = new DateTime("Today");
         $dataFormatada = $dataAtual->format('Y-m-d');
 
-        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Data >= :Data AND Cancelado = 0  ORDER BY Data ASC, Hora ASC");
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Data >= :Data AND Cancelado = 0 AND CodFuncionario = :CodFuncionario  ORDER BY Data ASC, Hora ASC");
         $stmt->bindParam(":Data", $dataFormatada);
+        $stmt->bindParam(":CodFuncionario", $CodFuncionario);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {

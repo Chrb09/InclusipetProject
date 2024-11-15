@@ -31,6 +31,7 @@
     $sidebarActive = "tutor";
     include('../../components/sidebarvet.php');
     require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+    require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php");
     ?>
     <div class="main">
       <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
@@ -39,6 +40,8 @@
 
         <?php include('../../components/navmobilevet.php');
         $clienteDao = new ClienteDAO($conn, $BASE_URL);
+        $adocaoDao = new AdocaoDAO($conn, $BASE_URL); // instancia do AdocaoDAO
+        $especies = $adocaoDao->getAllEspecie();
 
         if (isset($_GET['codCliente'])) {
           $CodTutor = $_GET['codCliente'];
@@ -72,6 +75,8 @@
             </label>
           </div>
         </div>
+
+        <!-- CADASTRO DO PET PARA ADOCAO -->
         <form action="../../../model/Arquivo/Inicializacao/vetUser_process.php" class="form__cadastro"
           onsubmit="return validarAnuncio()" method="POST" enctype="multipart/form-data">
           <input type="file" name="foto-pet-1" id="foto-pet-1" hidden>
@@ -83,55 +88,65 @@
           <input type="hidden" name="type" value="create_adoption">
           <input type="hidden" name="codTutor" value="<?= $CodTutor ?>">
 
+
+          <!-- nome -->
           <div class="form-input">
             <label for="">Nome</label><br />
-            <input type="text" name="" id="" required placeholder="Nome do seu animalzinho.." />
+            <input type="text" name="nome" id="" maxlength="50" required placeholder="Nome do seu animalzinho.." />
           </div>
 
+          <!-- especie -->
           <div class="form-input">
             <label for="">Espécie</label><br />
             <div class="custom-select">
-              <select id="" name="" size="1" required>
-                <option value="cachorro">Cachorro</option>
-                <option value="gato">Gato</option>
-                <option value="passaro">Pássaro</option>
+              <select id="" name="especie" required>
+                <?php foreach ($especies as $especie): ?>
+                  <!-- Define uma opção no select com o valor da  -->
+                  <option value="<?= $especie[0] ?>">
+                    <?= $adocaoDao->getEspecieByCod($especie[0]) ?>
+                  </option>
+                <?php endforeach; ?>
               </select>
             </div>
           </div>
 
+          <!-- idade -->
           <div class="form-input">
             <div id="form-data">
               <label for="">Idade</label><br />
-              <input type="number" name="" id="datanasc" min="0" max="99" required placeholder="00" />
+              <input type="number" name="idade" id="datanasc" min="0" max="99" required placeholder="00" />
             </div>
-            <div class="radio-div"><input type="checkbox" name="" id="checkdata" class="check" /> Não sei a idade</div>
+            <!--<div class="radio-div"><input type="checkbox" name="" id="checkdata" class="check" /> Não sei a idade</div>-->
           </div>
 
+          <!-- porte -->
           <div class="form-input">
             <label for="">Porte</label><br />
             <div class="custom-select">
-              <select id="" name="" size="1" required>
-                <option value="cachorro">Pequeno</option>
-                <option value="gato">Médio</option>
-                <option value="passaro">Grande</option>
+              <select id="" name="porte" required>
+                <option value="Pequeno">Pequeno</option>
+                <option value="Médio">Médio</option>
+                <option value="Grande">Grande</option>
               </select>
             </div>
           </div>
 
+          <!-- castrado -->
           <div class="form-input">
             <label for="">Castrado?</label>
             <div class="radio-group">
               <div class="radio-div">
-                <input type="radio" name="castrado" value="Sim" class="radio" required />
+                <input type="radio" name="castrado" value="1" class="radio" required />
                 <label for="">Sim</label>
               </div>
               <div class="radio-div">
-                <input type="radio" name="castrado" value="Não" class="radio" required />
+                <input type="radio" name="castrado" value="0" class="radio" required />
                 <label for="">Não</label>
               </div>
             </div>
           </div>
 
+          <!-- sexo -->
           <div class="form-input">
             <label for="">Sexo</label>
             <div class="radio-group">
@@ -146,31 +161,35 @@
             </div>
           </div>
 
+          <!-- descrição -->
           <div class="form-input">
             <label for="">Descrição do pet</label>
-            <textarea name="" id="" cols="30" rows="5" placeholder="Descrição do seu animalzinho..."
+            <textarea name="descricao" maxlength="500" id="" cols="30" rows="5"
+              placeholder="Descrição do seu animalzinho..." required></textarea>
+          </div>
+
+          <!-- mais detalhes -->
+          <div class="form-input">
+            <label for="">Mais detalhes (Separado por virgulha)</label>
+            <textarea name="detalhes" id="" cols="30" rows="5" placeholder="Escreva sua mensagem aqui..."
               required></textarea>
           </div>
 
-          <div class="form-input">
-            <label for="">Mais detalhes (Escreva um por linha)</label>
-            <textarea name="" id="" cols="30" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
-          </div>
-
+          <!-- telefone -->
           <div class="form-input">
             <label for="">Seu telefone para contato</label><br />
-            <input type="tel" name="" id="" required placeholder="(00)00000-0000" />
+            <input type="tel" name="telefone" id="telefone" required placeholder="(00)00000-0000" />
           </div>
 
+          <!-- endereço -->
           <div class="form-input">
             <label for="">Endereço de referência</label><br />
-            <input type="text" name="" id="" required placeholder="Endereço de referencia..." />
+            <input type="text" name="endereco" maxlength="50" id="" required placeholder="Endereço de referencia..." />
           </div>
 
           <div class="button-wrapper-form">
             <button class="botao botao-borda" onclick="location.href='../Funcionario/funcoesdotutor.php'"
               type="button">Voltar</button>
-
             <button class="botao botao-solido" type="submit">Salvar</button>
           </div>
         </form>
@@ -181,6 +200,8 @@
 </body>
 
 <script>
+  $("#telefone").mask("(00)00000-0000");
+
   let Picture1 = document.querySelector('#pet-img-1');  // Added the line.
   let PicInput1 = document.querySelector('#foto-pet-1');
   let Picture2 = document.querySelector('#pet-img-2');  // Added the line.

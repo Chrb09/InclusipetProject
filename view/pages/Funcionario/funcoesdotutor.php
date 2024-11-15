@@ -128,7 +128,12 @@
     if (tutor.value != "") {
       infor.classList.remove("selecionar")
       nome_tutor.innerHTML = $('#tutor').find(':selected').attr('nome');
-      foto_tutor.src = '../../assets/img/ImagensPerfil/' + $('#tutor').find(':selected').attr('img');
+      if ($('#tutor').find(':selected').attr('img') != '') {
+        foto_tutor.src = '../../assets/img/ImagensPerfil/' + $('#tutor').find(':selected').attr('img');
+      } else {
+        foto_tutor.src = '../../assets/img/ImagensPerfil/user.png';
+      }
+
 
       agendar.href = '../Funcoes_Tutor/agendamentot.php?codCliente=' + tutor.value;
       anunciar.href = '../Funcoes_Tutor/anuncioadocaot.php?codCliente=' + tutor.value;

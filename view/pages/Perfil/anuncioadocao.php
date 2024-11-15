@@ -116,7 +116,7 @@
                 <label for="">Idade</label><br />
                 <input type="number" name="idade" id="datanasc" min="0" max="99" required placeholder="00" />
               </div>
-              <div class="radio-div"><input type="checkbox" name="" id="checkdata" class="check" /> Não sei a idade</div>
+              <!--<div class="radio-div"><input type="checkbox" name="" id="checkdata" class="check" /> Não sei a idade</div>-->
             </div>
 
             <!-- porte -->

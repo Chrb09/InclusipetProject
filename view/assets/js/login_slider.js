@@ -22,9 +22,6 @@ signUpButton.addEventListener("click", () => {
 signInButton.addEventListener("click", () => {
   containerlogin.classList.remove("right-panel-active");
 });
-function validateEmail(email) {
-  return emailRegex.test(email);
-}
 
 function cadastrarnext() {
   if (!signUpEmail.value.includes("@")) {
@@ -49,6 +46,10 @@ function cadastrarnext() {
       }
     }
   }
+}
+
+function validateEmail(email) {
+  return emailRegex.test(email);
 }
 
 function validarCadastro() {

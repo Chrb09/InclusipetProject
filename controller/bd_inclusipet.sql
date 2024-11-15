@@ -34,7 +34,7 @@ CREATE TABLE `adocao` (
   `CodEspecie` int(11) NOT NULL,
   `CodCliente` int(11) NOT NULL,
   `Nome` varchar(50) NOT NULL,
-  `Idade` int(11) NOT NULL,
+  `Idade` int(11),
   `Porte` varchar(20) NOT NULL,
   `Castrado` tinyint(1) NOT NULL,
   `Sexo` char(5) NOT NULL,
