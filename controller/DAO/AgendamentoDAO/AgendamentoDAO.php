@@ -36,7 +36,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
     }
 
 
-    public function create(Agendamento $agendamento)
+    public function create(Agendamento $agendamento, $user)
     {
         $stmt = $this->conn->prepare("INSERT INTO agendamento(CodFuncionario, CodAnimal, CodCliente, CodUnidade, Data, Hora, CodServico, Cancelado) 
       VALUES (:CodFuncionario, :CodAnimal, :CodCliente, :CodUnidade, :Data, :Hora, :CodServico, :Cancelado)");
@@ -53,7 +53,12 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
         $stmt->execute();
 
-        $this->message->setMessage("Visita agendada com sucesso!", "success", "popup", "../../../view/pages/perfil/meusagendamentos.php");
+        if ($user == 0) {
+            $this->message->setMessage("Visita agendada com sucesso!", "success", "popup", "../../../view/pages/perfil/meusagendamentos.php");
+        } else if ($user == 1) {
+            $this->message->setMessage("Visita agendada com sucesso!", "success", "popup", "../../../view/pages/funcionario/funcoesdotutor.php");
+        }
+
     }
     public function getAgendamentoByCodCliente($CodCliente)
     {

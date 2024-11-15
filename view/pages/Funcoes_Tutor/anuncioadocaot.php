@@ -81,7 +81,7 @@
           <input type="file" name="foto-pet-5" id="foto-pet-5" hidden>
 
           <input type="hidden" name="type" value="create_adoption">
-          <input type="hidden" name="codTutor" value="">
+          <input type="hidden" name="codTutor" value="<?= $CodTutor ?>">
 
           <div class="form-input">
             <label for="">Nome</label><br />

@@ -8,6 +8,7 @@ if (isset($_POST)) {
   $data = filter_input(INPUT_POST, "data");
   $horario = filter_input(INPUT_POST, "horario");
   $pets = filter_input(INPUT_POST, "pet");
+  $CodTutor = filter_input(INPUT_POST, "codTutor");
 } else {
   header("location:agendamento.php");
 }
@@ -62,7 +63,7 @@ if (isset($_POST)) {
 
         <form action="../../../model/Arquivo/Inicializacao/vetUser_process.php" method="POST">
           <input type="hidden" name="type" value="create_appointment"> <!-- register do agendamento -->
-          <input type="hidden" name="codTutor" value="">
+          <input type="hidden" name="codTutor" value="<?= $CodTutor ?>">
 
           <div class="pet-info">
             <div class="pet-info-wrapper">

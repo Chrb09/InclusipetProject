@@ -48,7 +48,7 @@ if ($type === 'create_appointment') {
         $agendamento->CodAnimal = $pet;
         $agendamento->Cancelado = false;
 
-        $agendamentoDao->create($agendamento);
+        $agendamentoDao->create($agendamento, 0);
     }
 } else if ($type === 'cancelar') {
     $codagendamento = filter_input(INPUT_POST, "id");

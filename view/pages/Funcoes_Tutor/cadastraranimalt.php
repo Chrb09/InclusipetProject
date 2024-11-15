@@ -66,12 +66,12 @@
             <ins><a href="#" id="resetarfoto">Resetar Foto</a></ins>
           </div>
 
-          <form action="../../../model/Arquivo/Inicializacao/pet_process.php" class="form__cadastro" method="POST"
+          <form action="../../../model/Arquivo/Inicializacao/vetUser_process.php" class="form__cadastro" method="POST"
             enctype="multipart/form-data">
             <input type="file" name="foto-pet-input" id="foto-pet-input" hidden>
             <input type="hidden" name="resetimage" id="resetimage" value="false">
             <input type="hidden" name="type" value="create_pet">
-            <input type="hidden" name="codTutor" value="">
+            <input type="hidden" name="codTutor" value="<?= $CodTutor ?>">
 
             <div class="form-input">
               <label for="">Nome</label><br />

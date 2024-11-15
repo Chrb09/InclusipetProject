@@ -89,7 +89,7 @@ if ($type === 'create_adoption') {
             }
         }
 
-        $adocaoDao->create($adocao);
+        $adocaoDao->create($adocao, 0);
     }
 
 } else if ($type === 'update_adotado') {

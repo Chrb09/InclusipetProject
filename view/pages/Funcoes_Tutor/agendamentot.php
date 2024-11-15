@@ -86,7 +86,7 @@
 
           <!-- começo do formulário  -->
           <form class="form__cadastro" action="resumoagendamentot.php" method="POST">
-
+            <input type="hidden" name="codTutor" value="<?= $CodTutor ?>">
 
             <div class="pets">
 
@@ -192,13 +192,13 @@
             <!-- data -->
             <div class="form-input">
               <label for="">Data desejada para consulta</label><br />
-              <input type="date" name="data" value="" max="" min="1900-01-01" required />
+              <input type="date" name="data" id="dataConsulta" value="" max="" min="1900-01-01" required />
             </div>
 
             <!-- hora -->
             <div class="form-input">
               <label for="">Horário desejado para consulta</label><br />
-              <input type="time" name="horario" value="" required />
+              <input type="time" name="horario" value="" step="1800" required />
             </div>
 
             <!-- buttons -->
@@ -218,5 +218,18 @@
     </div>
   </div>
 </body>
+<script>
+  const DataInput = document.getElementById("dataConsulta");
+
+  let date = new Date();
+
+  year = date.getFullYear();
+  month = (date.getMonth() + 1).toString().padStart(2, "0");
+  day = date.getDate().toString().padStart(2, "0");
+
+  let dataFormatada = year + "-" + month + "-" + day;
+
+  DataInput.setAttribute("min", dataFormatada);
+</script>
 
 </html>

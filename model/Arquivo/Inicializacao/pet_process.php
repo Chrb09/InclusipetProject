@@ -75,7 +75,7 @@ if ($type === "create" || $type === "edit") {
                 }
             }
             if ($type === "create") {
-                $petDao->create($pet);
+                $petDao->create($pet, 0);
             } else if ($type === "edit") {
                 $codanimal = filter_input(INPUT_POST, "codpet");
                 $pet->CodAnimal = $codanimal;

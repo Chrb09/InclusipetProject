@@ -27,7 +27,7 @@ class Adocao
 interface AdocaoDAOInterface
 {
     public function buildAdocao($data);
-    public function create(Adocao $adocao);
+    public function create(Adocao $adocao, $user);
     public function update(Adocao $adocao);
     public function getAdocaoByCodCliente($CodCliente);
     public function getAdocaoByCodAdocao($CodAdocao);

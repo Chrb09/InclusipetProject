@@ -79,7 +79,7 @@ class PetDAO implements PetDAOInterface
 
 
     }
-    public function create(Pet $pet)
+    public function create(Pet $pet, $user)
     {
         $stmt = $this->conn->prepare("INSERT INTO animal(CodRaca, CodCliente, Nome, Sexo, DataNasc, DataAprox, Peso, Castrado, Imagem) 
         VALUES(:CodRaca, :CodCliente, :Nome, :Sexo, :DataNasc, :DataAprox, :Peso, :Castrado, :Imagem)");
@@ -96,7 +96,12 @@ class PetDAO implements PetDAOInterface
 
         $stmt->execute();
 
-        $this->message->setMessage("Animal cadastrado com sucesso!", "success", "popup", "../../../view/pages/perfil/meuspets.php");
+        if ($user == 0) {
+            $this->message->setMessage("Animal cadastrado com sucesso!", "success", "popup", "../../../view/pages/perfil/meuspets.php");
+        } else if ($user == 1) {
+            $this->message->setMessage("Animal cadastrado com sucesso!", "success", "popup", "../../../view/pages/funcionario/funcoesdotutor.php");
+        }
+
     }
     public function update(Pet $pet)
     {
