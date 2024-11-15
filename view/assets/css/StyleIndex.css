@@ -32,6 +32,7 @@
 .index-slide4 {
   background-image: url("../img/Index/slide4.png");
   background-size: contain;
+  cursor: pointer;
 }
 
 .container__titulo {

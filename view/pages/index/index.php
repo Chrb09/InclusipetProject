@@ -31,10 +31,11 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
+      <a class="swiper-slide index-slide4"
+        href="https://drive.google.com/file/d/1X5gTYyRNvY_xTznlJKeusi64kDknuwfW/view?usp=sharing"></a>
       <div class="swiper-slide index-slide1"></div>
       <div class="swiper-slide index-slide2"></div>
       <div class="swiper-slide index-slide3"></div>
-      <div class="swiper-slide index-slide4"></div>
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
