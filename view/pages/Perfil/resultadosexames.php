@@ -71,24 +71,25 @@
       $servicos = $agendamentoDao->getAllServico();
       $agendamentos = $agendamentoDao->getAgendamentoByCodCliente($clienteData->codcliente);
 
-      if (isset($_POST)) {
-        $codanimalinfo = filter_input(INPUT_POST, "pet");
-        $datainfo = filter_input(INPUT_POST, "data");
-        $tipoexameinfo = filter_input(INPUT_POST, "tipoexame");
-      }
+      if ($pets != []) {
+        if (isset($_POST)) {
+          $codanimalinfo = filter_input(INPUT_POST, "pet");
+          $datainfo = filter_input(INPUT_POST, "data");
+          $tipoexameinfo = filter_input(INPUT_POST, "tipoexame");
+        }
 
-      if ($codanimalinfo == '') {
-        $codanimalinfo = $pets[0]->CodAnimal;
-      }
-      if ($datainfo == '' && $tipoexameinfo == '') {
-        $resultados = $agendamentoDao->getAgendamentoByInfoDate($codanimalinfo, "1900-01-01");
-      } else if ($tipoexameinfo == '') {
-        $resultados = $agendamentoDao->getAgendamentoByInfoDate($codanimalinfo, $datainfo);
-      } else {
-        $resultados = $agendamentoDao->getAgendamentoByInfoDateType($codanimalinfo, $datainfo, $tipoexameinfo);
-      }
+        if ($codanimalinfo == '') {
+          $codanimalinfo = $pets[0]->CodAnimal;
+        }
+        if ($datainfo == '' && $tipoexameinfo == '') {
+          $resultados = $agendamentoDao->getAgendamentoByInfoDate($codanimalinfo, "1900-01-01");
+        } else if ($tipoexameinfo == '') {
+          $resultados = $agendamentoDao->getAgendamentoByInfoDate($codanimalinfo, $datainfo);
+        } else {
+          $resultados = $agendamentoDao->getAgendamentoByInfoDateType($codanimalinfo, $datainfo, $tipoexameinfo);
+        }
 
-
+      }
 
 
 

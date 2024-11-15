@@ -71,9 +71,8 @@
 
         <?php include('../../components/navmobileperfil.php');
         // Adicionar Condição
-        $condicao = true;
-
-        if ($condicao == true) { ?>
+        
+        if ($adocoes != []) { ?>
           <div class="principal">
             <!--Div que contem o conteudo principal da pagina-->
             <h3 class="titulo">Para Adoção</h3>

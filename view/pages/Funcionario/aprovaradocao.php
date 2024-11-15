@@ -267,14 +267,17 @@
     Swal.fire({
       title: `<div class="titulo">Recusar Adoção</div>`,
       html: `
+      <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
+      <input type="hidden" name="type" value="motivorecusar">
         <div class="form-input">
           <label for="" >Motivo por ter recusado</label>
-          <textarea name="" id="" cols="40" rows="7" placeholder="Escreva sua mensagem..."></textarea>
+          <textarea name="motivo" id="" cols="40" rows="7" placeholder="Escreva sua mensagem..."></textarea>
         </div>
         <div class="linha">
           <button class="botao-borda" onclick="Swal.close()" type="button">Voltar</button>
-          <button class="botao-solido recusar" onclick="Swal.close()" type="button">Recusar</button>
+          <button class="botao-solido" onclick="" type="submit">Enviar</button>
         </div>
+</form>
 
         `,
       confirmButtonText: "Ok!",
