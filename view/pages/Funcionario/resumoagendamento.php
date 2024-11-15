@@ -346,9 +346,17 @@
               </table>
             </div>
             <div class="linha-button">
-              <button class="botao-solido" onclick="enviarRelatorio(<?= $agendamento->CodAgendamento ?>)"
-                type="button">Enviar
-                Relatório</button>
+              <?php if ($dataAgendamento <= $dataAtual) {
+                if ($agendamento->Info != '') {
+                  ?>
+                  <button class="botao-solido" onclick="enviarRelatorio(<?= $agendamento->CodAgendamento ?>)"
+                    type="button">Enviar Novamente</button>
+                <?php } else { ?>
+                  <button class="botao-solido" onclick="enviarRelatorio(<?= $agendamento->CodAgendamento ?>)"
+                    type="button">Enviar
+                    Relatório</button>
+                <?php }
+              } ?>
               <button class="botao-borda" onclick="location.href='agendamentos.php'" type="button">Voltar</button>
             </div>
           </div>

@@ -28,6 +28,10 @@
         $Animal = $adocaoDao->getAdocaoByCodAdocao($CodAdocao);    // Objeto da Adocao
         $Imagens = $adocaoDao->getImagemAdocaoByCod($CodAdocao);   // Array de Imagens
         $Detalhes = $adocaoDao->getDetalheAdocaoByCod($CodAdocao); // Array de Detalhes
+    
+        if ($Animal->Aprovado == '0' || $Animal->Adotado == '1' || $Animal->CodAdocao == '') {
+            header("Location: adocao.php");
+        }
     } else {
         header("Location: adocao.php");
     }
@@ -118,7 +122,7 @@
                     foreach ($Detalhes as $Detalhe):
                         ?>
                         <div class="categoria"><?= $Detalhe ?></div>
-                    <?php
+                        <?php
                     endforeach;
                     ?>
                 </div>
