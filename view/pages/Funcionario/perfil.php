@@ -100,6 +100,7 @@
             <input type="file" name="foto-usuario-input" id="foto-usuario-input" hidden>
             <input type="hidden" name="resetimage" id="resetimage" value="false">
             <input type="hidden" name="type" value="update_funcionario"> <!-- update das informações do funcionario -->
+           
             <div class="form-input">
               <label for="sign-up-nome">Nome Completo</label>
               <input name="sign-up-nome" placeholder="" type="text" required autocomplete="off"
@@ -131,11 +132,26 @@
                 <select id="" name="sign-up-cargo" size="0">
                   <?php foreach ($cargos as $cargo): ?>
                     <option value="<?= $cargo[0] ?>">
-                      <?= $funcionarioDao->getCargoByCod($cargo[0]) ?>
+                      <?= $funcionarioDao->getCargoByCod($cargo[0])  ?>
                     </option>
                   <?php endforeach; ?>
                 </select>
               </div>
+            </div>
+
+            <!--
+            
+
+            <div class="form-input desativado">
+              <label for="sign-up-rg">RG</label>
+              <input name="sign-up-rg" id="sign-up-rg" placeholder="00.000.000-0" type="text" readonly
+                autocomplete="off" value="<?= $funcionarioData->rg ?>" />
+            </div>
+
+             <div class="form-input desativado">
+              <label for="sign-up-cep">CEP</label>
+              <input name="sign-up-cep" id="sign-up-cep" placeholder="00000-000" type="text" readonly autocomplete="off"
+                value="<?= $funcionarioData->cep ?>" />
             </div>
             
 
@@ -144,7 +160,7 @@
 
 
             <div class="form-input">
-              <label for="sign-up-cpf">Email</label>
+              <label for="sign-up-cpf">CPF</label>
               <input name="sign-up-cpf" placeholder="000.000.000-00" type="text" required autocomplete="off"
                 value="<?= $funcionarioData->cpf ?>" />
             </div>

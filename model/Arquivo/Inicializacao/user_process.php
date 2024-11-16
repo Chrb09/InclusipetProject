@@ -109,8 +109,8 @@ if ($type === "update_client") {
 
         $funcionario = new Funcionario();
 
-        $funcionarioData->codcargo = $codcargo;
         $funcionarioData->nome = $nome;
+        $funcionarioData->codcargo = $codcargo;
         $funcionarioData->cpf = $cpf;
         $funcionarioData->cep = $cep;
         $funcionarioData->rg = $rg;

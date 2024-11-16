@@ -72,9 +72,11 @@
             <label for="sign-up-cargo">Cargo</label><br />
             <div class="custom-select">
               <select id="" name="sign-up-cargo" size="0">
+  
                 <?php foreach ($cargos as $cargo): ?>
                   <option value="<?= $cargo[0] ?>">
                     <?= $funcionarioDao->getCargoByCod($cargo[0]) ?>
+                    
                   </option>
                 <?php endforeach; ?>
               </select>
