@@ -142,6 +142,10 @@
               <button type="submit" class="botao-solido">Filtrar</button>
             </div>
           </form>
+            <!--Fim das filtragens-->
+
+          <!--Apresentação dos resultados COMEÇO-->
+
           <?php if ($resultados != []) { ?>
             <div class="card-container">
               <?php foreach ($resultados as $resultado):
