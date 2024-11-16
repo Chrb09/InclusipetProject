@@ -83,18 +83,20 @@
                     <option value="1">Canino</option>
                     <option value="2">Gato</option>
                     <option value="3">Pássaro</option>
+                    <option value="4">Outro</option>
                   </select>
                 </div>
               </div>
               <div class="form-input">
                 <label for="">Raça</label><br />
-                <div class="custom-select">
+                <div class="custom-select" id="raca-select-custom">
                   <select name="raca" id="raca-select" required>
                     <option value="1">Vira-Lata</option>
                     <option value="2">Border Collie</option>
                     <option value="3">Lhasa Apso</option>
                     <option value="4">Pastor Alemão</option>
                     <option value="7">Chihuahua</option>
+                    <option value="10">Outro</option>
                   </select>
                 </div>
               </div>
@@ -189,33 +191,69 @@
                     <option value="2" <?= ($petDao->getPetEspecie($petInfo) == 'Gato') ? 'selected' : '' ?>>Gato</option>
                     <option value="3" <?= ($petDao->getPetEspecie($petInfo) == 'Pássaro') ? 'selected' : '' ?>>Pássaro
                     </option>
+                    <option value="4" <?= ($petDao->getPetEspecie($petInfo) == 'Outro') ? 'selected' : '' ?>>Outro
+                    </option>
                   </select>
                 </div>
               </div>
               <div class="form-input">
                 <label for="">Raça</label><br />
-                <div class="custom-select">
-                  <select name="raca" id="raca-select" required>
-                    <?php if ($petDao->getPetEspecie($petInfo) == 'Canino') { ?>
-                      <option value="1" <?= ($petDao->getPetRaca($petInfo) == 'Vira-Lata') ? 'selected' : '' ?>>Vira-Lata
+
+                <?php if ($petDao->getPetEspecie($petInfo) == 'Canino') { ?>
+                  <div class="custom-select" id="raca-select-custom">
+                    <select name="raca" id="raca-select" required>
+                      <option value="1" <?= ($petDao->getPetRaca($petInfo) == 'Vira-Lata') ? 'selected' : '' ?>>
+                        Vira-Lata
                       </option>
-                      <option value="2" <?= ($petDao->getPetRaca($petInfo) == 'Border Collie') ? 'selected' : '' ?>></option>
-                      >Border Collie</option>
-                      <option value="3" <?= ($petDao->getPetRaca($petInfo) == 'Lhasa Apso') ? 'selected' : '' ?>></option>
-                      >Lhasa Apso</option>
-                      <option value="4" <?= ($petDao->getPetRaca($petInfo) == 'Pastor Alemão') ? 'selected' : '' ?>></option>
-                      >Pastor Alemão</option>
-                      <option value="7" <?= ($petDao->getPetRaca($petInfo) == 'Chihuahua') ? 'selected' : '' ?>></option>
-                      >Chihuahua</option>
-                    <?php } else if ($petDao->getPetEspecie($petInfo) == 'Gato') { ?>
-                        <option value="6" <?= ($petDao->getPetRaca($petInfo) == 'Vira-Lata') ? 'selected' : '' ?>>Vira-Lata
+                      <option value="2" <?= ($petDao->getPetRaca($petInfo) == 'Border Collie') ? 'selected' : '' ?>>
+                        BorderCollie</option>
+                      <option value="3" <?= ($petDao->getPetRaca($petInfo) == 'Lhasa Apso') ? 'selected' : '' ?>>
+                        Lhasa Apso
+                      </option>
+                      <option value="4" <?= ($petDao->getPetRaca($petInfo) == 'Pastor Alemão') ? 'selected' : '' ?>>
+                        Pastor
+                        Alemão
+                      </option>
+                      <option value="7" <?= ($petDao->getPetRaca($petInfo) == 'Chihuahua') ? 'selected' : '' ?>>
+                        Chihuahua
+                      </option>
+                      <option value="10" <?= ($petDao->getPetRaca($petInfo) == 'Outro') ? 'selected' : '' ?>>
+                        Outro
+                      </option>
+                    </select>
+                  </div>
+                <?php } else if ($petDao->getPetEspecie($petInfo) == 'Gato') { ?>
+                    <div class="custom-select" id="raca-select-custom">
+                      <select name="raca" id="raca-select" required>
+                        <option value="6" <?= ($petDao->getPetRaca($petInfo) == 'Vira-Lata') ? 'selected' : '' ?>>
+                          Vira-Lata
                         </option>
-                    <?php } else if ($petDao->getPetEspecie($petInfo) == 'Pássaro') { ?>
-                          <option value="5" <?= ($petDao->getPetRaca($petInfo) == 'Calopsita') ? 'selected' : '' ?>>Calopsita
+                        <option value="9" <?= ($petDao->getPetRaca($petInfo) == 'Outro') ? 'selected' : '' ?>>
+                          Outro
+                        </option>
+                      </select>
+                    </div>
+                <?php } else if ($petDao->getPetEspecie($petInfo) == 'Pássaro') { ?>
+                      <div class="custom-select" id="raca-select-custom">
+                        <select name="raca" id="raca-select" required>
+                          <option value="5" <?= ($petDao->getPetRaca($petInfo) == 'Calopsita') ? 'selected' : '' ?>>
+                            Calopsita
                           </option>
-                    <?php } ?>
-                  </select>
-                </div>
+                          <option value="8" <?= ($petDao->getPetRaca($petInfo) == 'Outro') ? 'selected' : '' ?>>
+                            Outro
+                          </option>
+                        </select>
+                      </div>
+                <?php } else if ($petDao->getPetEspecie($petInfo) == 'Outro') { ?>
+                        <div class="custom-select" id="raca-select-custom">
+                          <select name="raca" id="raca-select" required>
+                            <option value="11" <?= ($petDao->getPetRaca($petInfo) == 'Outro') ? 'selected' : '' ?>>
+                              Outro
+                            </option>
+                          </select>
+                        </div>
+                <?php } ?>
+
               </div>
 
               <div class="form-input">
@@ -316,6 +354,7 @@
   let datanasc = document.querySelector('#datanasc');
   let especieselect = document.querySelector('#especie-select');
   let racaselect = document.querySelector('#raca-select');
+  let racaselectcustom = document.querySelector('#raca-select-custom');
 
 
   $('#dataaprox').mask("0000");
@@ -335,26 +374,43 @@
   function mudarSelect() {
     let valor = especieselect.value
     if (valor == "1") {
-      $('#raca-select').replaceWith(
+      $('#raca-select-custom').replaceWith(
+        '<div class="custom-select" id="raca-select-custom">' +
         '<select name="raca" required id="raca-select">' +
         '<option value="1">Vira-Lata</option>' +
         '<option value="2">Border Collie</option>' +
         '<option value="3">Lhasa Apso</option>' +
         '<option value="4">Pastor Alemão</option>' +
         '<option value="7">Chihuahua</option>' +
-        '</select>'
+        '<option value="10">Outro</option>' +
+        '</select>' +
+        '</div>'
       )
     } else if (valor == "2") {
-      $('#raca-select').replaceWith(
+      $('#raca-select-custom').replaceWith(
+        '<div class="custom-select" id="raca-select-custom">' +
         '<select name="raca" required id="raca-select">' +
         '<option value="6">Vira-Lata</option>' +
-        '</select>'
+        '<option value="9">Outro</option>' +
+        '</select>' +
+        '</div>'
       )
     } else if (valor == "3") {
-      $('#raca-select').replaceWith(
+      $('#raca-select-custom').replaceWith(
+        '<div class="custom-select" id="raca-select-custom">' +
         '<select name="raca" required id="raca-select">' +
         '<option value="5">Calopsita</option>' +
-        '</select>'
+        '<option value="8">Outro</option>' +
+        '</select>' +
+        '</div>'
+      )
+    } else if (valor == "4") {
+      $('#raca-select-custom').replaceWith(
+        '<div class="custom-select" id="raca-select-custom">' +
+        '<select name="raca" required id="raca-select">' +
+        '<option value="11">Outro</option>' +
+        '</select>' +
+        '</div>'
       )
     }
   }

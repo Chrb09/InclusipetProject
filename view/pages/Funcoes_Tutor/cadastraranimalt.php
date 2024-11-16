@@ -84,18 +84,20 @@
                   <option value="1">Canino</option>
                   <option value="2">Gato</option>
                   <option value="3">Pássaro</option>
+                  <option value="4">Outro</option>
                 </select>
               </div>
             </div>
             <div class="form-input">
               <label for="">Raça</label><br />
-              <div class="custom-select">
+              <div class="custom-select" id="raca-select-custom">
                 <select name="raca" id="raca-select" required>
                   <option value="1">Vira-Lata</option>
                   <option value="2">Border Collie</option>
                   <option value="3">Lhasa Apso</option>
                   <option value="4">Pastor Alemão</option>
                   <option value="7">Chihuahua</option>
+                  <option value="10">Outro</option>
                 </select>
               </div>
             </div>
@@ -172,6 +174,7 @@
   let datanasc = document.querySelector('#datanasc');
   let especieselect = document.querySelector('#especie-select');
   let racaselect = document.querySelector('#raca-select');
+  let racaselectcustom = document.querySelector('#raca-select-custom');
 
 
   $('#dataaprox').mask("0000");
@@ -191,26 +194,43 @@
   function mudarSelect() {
     let valor = especieselect.value
     if (valor == "1") {
-      $('#raca-select').replaceWith(
+      $('#raca-select-custom').replaceWith(
+        '<div class="custom-select" id="raca-select-custom">' +
         '<select name="raca" required id="raca-select">' +
         '<option value="1">Vira-Lata</option>' +
         '<option value="2">Border Collie</option>' +
         '<option value="3">Lhasa Apso</option>' +
         '<option value="4">Pastor Alemão</option>' +
         '<option value="7">Chihuahua</option>' +
-        '</select>'
+        '<option value="10">Outro</option>' +
+        '</select>' +
+        '</div>'
       )
     } else if (valor == "2") {
-      $('#raca-select').replaceWith(
+      $('#raca-select-custom').replaceWith(
+        '<div class="custom-select" id="raca-select-custom">' +
         '<select name="raca" required id="raca-select">' +
         '<option value="6">Vira-Lata</option>' +
-        '</select>'
+        '<option value="9">Outro</option>' +
+        '</select>' +
+        '</div>'
       )
     } else if (valor == "3") {
-      $('#raca-select').replaceWith(
+      $('#raca-select-custom').replaceWith(
+        '<div class="custom-select" id="raca-select-custom">' +
         '<select name="raca" required id="raca-select">' +
         '<option value="5">Calopsita</option>' +
-        '</select>'
+        '<option value="8">Outro</option>' +
+        '</select>' +
+        '</div>'
+      )
+    } else if (valor == "4") {
+      $('#raca-select-custom').replaceWith(
+        '<div class="custom-select" id="raca-select-custom">' +
+        '<select name="raca" required id="raca-select">' +
+        '<option value="11">Outro</option>' +
+        '</select>' +
+        '</div>'
       )
     }
   }
