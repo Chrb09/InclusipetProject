@@ -97,7 +97,7 @@ if ($type === "update_client") {
     if ($type === "update_funcionario") {
         $funcionarioData = $funcionarioDao->verifyToken();
 
-       
+
 
         $nome = filter_input(INPUT_POST, "sign-up-nome");
         $codcargo = filter_input(INPUT_POST, "sign-up-cargo");
@@ -116,6 +116,33 @@ if ($type === "update_client") {
         $funcionarioData->rg = $rg;
         $funcionarioData->telefone = $telefone;
         $funcionarioData->codunidade = $codunidade;
+
+        if ($resetimage == "true") {
+            $funcionarioData->imagem = "";
+        } else {
+            if (isset($_FILES["foto-usuario-input"]) && !empty($_FILES["foto-usuario-input"]["tmp_name"])) {
+
+                $image = $_FILES["foto-usuario-input"];
+                $imageTypes = ["image/jpeg", "image/jpg", "image/png"];
+                $jpgArray = ["image/jpeg", "image/jpg"];
+
+                if (!in_array($image["type"], $imageTypes)) {
+                    $message->setMessage("Tipo inválido de imagem, permitidos PNG ou JPG!", "error", "popup", "back");
+                } else {
+                    if (in_array($image["type"], $jpgArray)) {
+                        $imageFile = imagecreatefromjpeg($image["tmp_name"]);
+                    } else {
+                        $imageFile = imagecreatefrompng($image["tmp_name"]);
+                    }
+
+                    $imageName = $funcionario->imageGenerateName();
+
+                    imagejpeg($imageFile, "../../../view/assets/img/ImagensFuncionario/" . $imageName, 100);
+
+                    $funcionarioData->imagem = $imageName;
+                }
+            }
+        }
 
 
         $funcionarioDao->update($funcionarioData);

@@ -1,7 +1,9 @@
 ![Logo](view/assets/img/Outros/inclusipetREADME.png)
 
-**Inclusipet** é um site desenvolvido para um projeto que dura 2 anos ( 2023 - 2024 ) com uma empresa parceira no curso de Desenvolvimento de Sistemas AMS da Etec da Zona Leste.
-[**Link do Github Pages**](https://chrb09.github.io/InclusipetProject/)
+**Inclusipet** é um site & aplicativo desenvolvido para um projeto que dura 2 anos ( 2023 - 2024 ) com uma empresa parceira no curso de Desenvolvimento de Sistemas AMS da Etec da Zona Leste.
+[**Link do Github Pages**](https://chrb09.github.io/InclusipetProject/) <br>
+
+Veja também o repositorio do [**Aplicativo da Inclusipet**](https://github.com/Chrb09/InclusipetProject_Mobile)
 
 # Sumário
 
@@ -15,7 +17,6 @@
     - [Framework ](#framework-)
   - [📁 Rodando o Projeto](#-rodando-o-projeto)
   - [❓ FAQ](#-FAQ)
-  - [💻 Roadmap](#-roadmap)
   - [🐕 Contribuidores](#-contribuidores)
 
 ## 🤔 Sobre a Inclusipet
@@ -68,7 +69,7 @@ Inicie os serviços Apache & MySQL do XAMPP
 Abra o phpMyAdmin no diretorio ROOT e importe o banco de dados 'bd_inclusipet.sql' em:
 
 ```bash
-C:\xampp\htdocs\InclusipetProject\controller
+C:/xampp/htdocs/InclusipetProject/controller
 ```
 
 Digite o URL do projeto em sua barra de pesquisa
@@ -77,11 +78,19 @@ Digite o URL do projeto em sua barra de pesquisa
 http://localhost/inclusipetProject/view/pages/index/index.php
 ```
 
+Para funcionamento das imagens no site é necessário ativar a extensão gd no arquivo:
+
+```bash
+C:/xampp/php/php.ini
+```
+
+![alt text](view/assets/img/Outros/gd.png)
+
 ## ❓ FAQ
 
 ### **O site está finalizado?**
 
-Não, o projeto ainda está em desenvolvimento e terá sua finalização no final de 2024.
+Sim, o projeto teve sua finalização no final de 2024.
 
 ### **Qual o envolvimento da empresa parceira neste projeto?**
 
@@ -94,22 +103,6 @@ O projeto foi criado com o intuito de simular uma interação entre cliente e de
 ### **O Design do site foi criado com qual ferramenta?**
 
 O site foi criado utilizando [ **Figma**](https://www.figma.com/file/L4PJEj1teaiU0Gs0vkBkwf/Figma-Inclusipet-Oficial?type=design&node-id=0-1&mode=design&t=fGISzfXShJrtB8nw-0).
-
-### **O BackEnd Está pronto?**
-
-Não, ele ainda está em desenvolvimento.
-<br>
-
-## 💻 Roadmap
-
-- Adicionar Backend
-
-- Adicionar Banco de dados
-
-- Melhorar o suporte de navegadores
-
-- Otimzar o código
-
 <br>
 
 ## 🐕 Contribuidores
@@ -125,7 +118,7 @@ Não, ele ainda está em desenvolvimento.
           </sub> <br>
         </a>
         <sub>
-          Código, Design, Conteúdo , Documentação
+          Código, Design, Conteúdo, Documentação, Responsividade
         </sub>
       </td>
       <td align="center">
@@ -136,7 +129,7 @@ Não, ele ainda está em desenvolvimento.
           </sub> <br>
         </a>
         <sub>
-            Código, Conteúdo, Documentação. Responsividade
+            Código, Conteúdo, Documentação, Responsividade
           </sub>
       </td>
       </td>
@@ -148,7 +141,7 @@ Não, ele ainda está em desenvolvimento.
           </sub> <br> 
         </a>
         <sub>
-            Conteúdo, Documentação
+            Conteúdo, Documentação, Código
         </sub>
       </td>
       <td align="center">
@@ -159,7 +152,7 @@ Não, ele ainda está em desenvolvimento.
             </sub> <br>
         </a>
         <sub>
-            Código, Design, Conteúdo, Documentação, Responsividade
+            Código, Design, Conteúdo, Documentação, Responsividade, App
           </sub>
       </td>
       </td>
@@ -171,7 +164,7 @@ Não, ele ainda está em desenvolvimento.
           </sub> <br>
         </a>
         <sub>
-            Conteúdo, Documentação
+            Conteúdo, Design, Documentação
           </sub>
       </td>
     </tr>
