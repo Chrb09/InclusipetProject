@@ -65,8 +65,8 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   public function update(Funcionario $funcionario, $redirect = true)
   {
     $stmt = $this->conn->prepare("UPDATE funcionario SET 
-     CodCargo = :CodCargo, Senha = :Senha,Nome = :Nome,RG = :RG, CPF = :CPF, Telefone = :Telefone, CEP = :CEP, CodUnidade = :CodUnidade,
-     Token = :Token, Imagem = :Imagem WHERE CodFuncionario = :CodFuncionario");
+     CodCargo = :CodCargo , Senha = :Senha,Nome = :Nome,RG = :RG, CPF = :CPF, Telefone = :Telefone, CEP = :CEP, CodUnidade = :CodUnidade,
+     Token = :Token, Imagem = :Imagem, DataAdmissao = :DataAdmissao WHERE CodFuncionario = :CodFuncionario");
 
     $stmt->bindParam(":CodCargo", $funcionario->codcargo);
     $stmt->bindParam(":Senha", $funcionario->senha);
@@ -78,6 +78,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     $stmt->bindParam(":CodUnidade", $funcionario->codunidade);
     $stmt->bindParam(":Token", $funcionario->token);
     $stmt->bindParam(":Imagem", $funcionario->imagem);
+    $stmt->bindParam(":DataAdmissao", $funcionario->dataAdmissao);
     $stmt->bindParam(":CodFuncionario", $funcionario->codfuncionario);
 
     $stmt->execute();
@@ -88,6 +89,8 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
     }
   }
+
+  
 
   public function verifyToken($protected = false)
   {
@@ -142,6 +145,10 @@ class FuncionarioDAO implements FuncionarioDAOInterface
       return false;
     }
   }
+
+ 
+
+   
 
   public function findById($codfuncionario)
   {
@@ -264,6 +271,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
       $cargo = $stmt->fetchAll();
       return $cargo;
     }
+    
   }
 
   public function getAllFuncionario()
