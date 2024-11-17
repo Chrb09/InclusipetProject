@@ -20,6 +20,7 @@ interface AgendamentoDAOInterface
 {
     public function buildAgendamento($data);
     public function create(Agendamento $agendamento, $user);
+    public function update(Agendamento $agendamento);
     public function cancel($CodAgendamento);
     public function getAgendamentoByCodCliente($CodCliente);
     public function getAgendamentoByCodAgendamento($CodAgendamento);

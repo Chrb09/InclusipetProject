@@ -142,13 +142,14 @@
               <button type="submit" class="botao-solido">Filtrar</button>
             </div>
           </form>
-            <!--Fim das filtragens-->
+         <!--Fim das filtragens-->
+
 
           <!--Apresentação dos resultados COMEÇO-->
-
           <?php if ($resultados != []) { ?>
             <div class="card-container">
               <?php foreach ($resultados as $resultado):
+               //Buscando o resultado com base no ID
                 $funcionario = $funcionarioDao->findById($resultado->CodFuncionario);
                 ?>
                 <div class="card">

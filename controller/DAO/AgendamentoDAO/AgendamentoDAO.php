@@ -60,6 +60,17 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         }
 
     }
+
+    public function update(Agendamento $agendamento)
+{
+    $stmt = $this->conn->prepare("UPDATE agendamento SET Info = :Info, Resultado = :Resultado WHERE CodAgendamento = :CodAgendamento");
+
+    $stmt->bindParam(":Info", $agendamento->Info);
+    $stmt->bindParam(":Resultado", $agendamento->Resultado);
+    $stmt->bindParam(":CodAgendamento", $agendamento->CodAgendamento);
+
+    return $stmt->execute();
+}
     public function getAgendamentoByCodCliente($CodCliente)
     {
         $agendamentos = [];
@@ -121,6 +132,10 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         }
 
     }
+
+    
+    
+
     public function getAgendamentoByInfoDate($CodPet, $data)
     {
         $agendamentos = [];

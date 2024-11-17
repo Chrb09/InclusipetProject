@@ -384,7 +384,7 @@
         </div>
         <div class="form-input">
           <label for="">PDF Resultado dos Exames</label>
-          <input type="file" name="pdf" value="" required/>
+          <input type="file" name="pdf" value="pdf" accept=".pdf"  required/>
         </div>
         <div class="linha">
           <button class="botao-borda" onclick="Swal.close()" type="button">Voltar</button>
