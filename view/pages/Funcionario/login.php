@@ -16,72 +16,28 @@
 
 <body>
   <!-- HEADER-->
-  <header class="header">
-    <div class="container container__header">
-      <a href="../../index.php">
-        <img src="../../assets/img/Outros/inclusipet.png" alt="Logo Inclusipet" class="logo__header" />
-      </a>
-      <ul class="menu__header">
-        <li>
-          <a href="../QuemSomos/quemsomos.php" class="links__header a-under">Quem Somos</a>
-        </li>
-        <li>
-          <a href="../Unidades/unidades.php" class="links__header a-under">Unidades</a>
-        </li>
-        <li>
-          <a href="../Blog/blog.php" class="links__header a-under">Blog</a>
-        </li>
-        <li>
-          <a href="../Adocao/adocao.php" class="links__header a-under">Adoção</a>
-        </li>
-        <li>
-          <a href="../Contato/contato.php" class="links__header a-under">Contato</a>
-        </li>
-        <li>
-          <a href="../Login/login.php"><img src="../../assets/img/Login/login.png" alt="Login"
-              class="login__header" /></a>
-        </li>
-      </ul>
-      <button class="barra__header">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-      </button>
-      <div class="dropdown__header">
-        <li>
-          <a href="../QuemSomos/quemsomos.php" class="links__header">Quem Somos</a>
-        </li>
-        <li>
-          <a href="../Unidades/unidades.php" class="links__header">Unidades</a>
-        </li>
-        <li>
-          <a href="../Blog/blog.php" class="links__header">Blog</a>
-        </li>
-        <li>
-          <a href="../Adocao/adocao.php" class="links__header">Adoção</a>
-        </li>
-        <li>
-          <a href="../Contato/contato.php" class="links__header">Contato</a>
-        </li>
-        <li>
-          <div class="botao-solido-branco" onclick="location.href='../Login/login.php'" type="button">Login</div>
-        </li>
-      </div>
-    </div>
-  </header>
-  <script src="../../assets/js/dropdown_header.js"></script>
+  <?php include('../../components/headers/header.php'); ?>
 
   <!-- LOGIN -->
   <div class="container-login">
-    <form class="container-form" action="#">
+  <form action="../../../model/Arquivo/Inicializacao/auth_process.php" 
+  method="POST">
+  <input type="hidden" name="type" value="login_funcionario">
       <div class="form-content">
         <div class="titulo">Sistema do Funcionário</div>
-        <label for="log-in-email">Código de acesso</label>
-        <input name="log-in-email" type="text" required autocomplete="on" />
+
+        <!--CodFuncionario-->
+        <label for="log-in-cod">Código de acesso</label>
+        <input name="log-in-cod" id="log-in-cod" type="text" required autocomplete="off" placeholder="Digite seu código de acesso" />
+       
+        <!--Senha-->
         <label for="log-in-password">Senha</label>
-        <input name="log-in-password" type="password" required autocomplete="on" />
-        <button class="botao-solido" onclick="location.href='perfil.php'" type="button">Entre</button>
+        <input name="log-in-password" id="log-in-password" type="password" required autocomplete="off" placeholder="Sua senha..." />
+        
+        <!--Senha-->
+        <button class="botao-solido" value="login" type="submit">Entre</button>
+        
+        <!--Retorno ao login usuário-->
         <ins><a href="../Login/login.php">Login Usuário</a></ins>
       </div>
     </form>

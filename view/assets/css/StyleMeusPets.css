@@ -1,10 +1,15 @@
 /* MEUS PETS */
-.selecionado img {
-  border: 0.3em solid var(--purple);
+.button-pet:has(:checked) img {
+  outline: 0.3em solid var(--purple);
+  outline-offset: -0.3em;
 }
-.selecionado {
+.button-pet:has(:checked) {
   color: var(--purple);
 }
+.button-pet [type="radio"] {
+  display: none;
+}
+
 .img-menor,
 .novo-pet {
   border-radius: 100rem;
@@ -30,6 +35,11 @@
   gap: 0.5em;
   align-items: center;
   font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.meus-pets .button-pet:hover {
+  transform: scale(103%);
 }
 .button-cadastrar {
   flex-direction: row;
@@ -83,6 +93,7 @@
   display: flex;
   gap: 1em;
 }
+
 @media (max-width: 1536px) {
 }
 
@@ -146,18 +157,54 @@
 }
 
 /* CADASTRAR PET */
+.cadastrar_pet {
+  margin-top: 2em;
+}
+.foto-edit {
+  display: flex;
+  width: fit-content;
+  margin-right: auto;
+  flex-direction: column;
+}
+.foto-edit ins {
+  color: var(--purple);
+  font-weight: 650;
+}
+.foto-edit-wrapper {
+  width: 8em;
+  position: relative;
+}
+.foto-pet-label {
+  width: 3.5em;
+  height: 3.5em;
+  background-color: var(--purple);
+  border-radius: 10rem;
+  padding: 0.6em;
+  display: block;
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: background-color 0.3s;
+  &:hover {
+    cursor: pointer;
+    background-color: var(--purplehover);
+  }
+}
+.foto-pet-label img {
+  z-index: 9;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
 
+.nome-foto-pet {
+  max-width: 20ch;
+  font-size: 1em;
+  font-weight: 500;
+  display: block;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 /* sm */
-@media (max-width: 640px) {
-  .foto {
-    margin-inline: auto;
-    width: 80%;
-  }
-}
-
-/* xs */
-@media (max-width: 475px) {
-  .foto {
-    width: 100%;
-  }
-}

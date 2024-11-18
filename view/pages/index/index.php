@@ -20,16 +20,22 @@
 
 <body>
   <!-- HEADER-->
-  <?php include('../../components/header.php'); ?>
+  <?php include('../../components/headers/header.php');
+  require_once("../../../controller/DAO/PetDAO/PetDAO.php");
+  require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
+
+  $petDao = new PetDAO($conn, $BASE_URL);
+  $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL); ?>
   <!-- CARROSSEL -->
   <div class="swiper swiper-index">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
+      <a class="swiper-slide index-slide4"
+        href="https://drive.google.com/file/d/1X5gTYyRNvY_xTznlJKeusi64kDknuwfW/view?usp=sharing"></a>
       <div class="swiper-slide index-slide1"></div>
       <div class="swiper-slide index-slide2"></div>
       <div class="swiper-slide index-slide3"></div>
-      <div class="swiper-slide index-slide4"></div>
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
@@ -59,7 +65,11 @@
     </div>
     <div class="container linha-hero">
       <div class="card-hero">
-        <a href="../Login/login.php">
+        <a href="<?php if ($clienteData) {
+          echo '../Perfil/agendamento.php';
+        } else {
+          echo '../Login/login.php';
+        } ?>">
           <img src="../../assets/img/Index/agendamento.png" alt="" />
           <div class="titulo-card-hero">
             Agende sua <br />
@@ -67,7 +77,11 @@
           </div>
         </a>
         <p>Cadastre o seu pet e faça um agendamento direto do conforto de sua casa!</p>
-        <a href="../Login/login.php" class="link">Acessar
+        <a href="<?php if ($clienteData) {
+          echo '../Perfil/agendamento.php';
+        } else {
+          echo '../Login/login.php';
+        } ?>" class="link">Acessar
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
             class="seta__link">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -127,7 +141,11 @@
     <div class="swiper swiper_hero">
       <div class="swiper-wrapper">
         <div class="card-hero swiper-slide">
-          <a href="../Login/login.php">
+          <a href="<?php if ($clienteData) {
+            echo '../Perfil/agendamento.php';
+          } else {
+            echo '../Login/login.php';
+          } ?>">
             <img src="../../assets/img/Index/agendamento.png" alt="" />
             <div class="titulo-card-hero">
               Agende sua <br />
@@ -135,7 +153,11 @@
             </div>
           </a>
           <p>Cadastre o seu pet e faça um agendamento direto do conforto de sua casa!</p>
-          <a href="../Login/login.php" class="link">Acessar
+          <a href="<?php if ($clienteData) {
+            echo '../Perfil/agendamento.php';
+          } else {
+            echo '../Login/login.php';
+          } ?>" class="link">Acessar
             <?php
             include('../../assets/svg/seta_link.php');
             ?>
@@ -198,11 +220,11 @@
         <div class="hr hr-branco"></div>
         <div class="subtitulo__reviews">
           <p class="subtitulo-text__reviews">
-            +1.000 <br />
+            +<?= $petDao->getPetCount() ?> <br />
             Pets Felizes
           </p>
           <p class="subtitulo-text__reviews">
-            +2.500 <br />
+            +<?= $agendamentoDao->getAgendamentoCount() ?> <br />
             Atendimentos
           </p>
         </div>
@@ -296,8 +318,14 @@
     </div>
     <div class="container container__reviews">
       <div class="botao__reviews">
-        <button class="botao-solido-branco" onclick="location.href='../Perfil/agendamentoantigo.php'" type="button">
-          Agende uma visita!
+        <button class="botao-solido-branco" type="button">
+          <a href="<?php if ($clienteData) {
+            echo '../Perfil/agendamento.php';
+          } else {
+            echo '../Login/login.php';
+          } ?>">
+            Agende uma visita!
+          </a>
         </button>
       </div>
     </div>

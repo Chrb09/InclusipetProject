@@ -20,7 +20,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "quemsomos";
-  include('../../components/header.php');
+  include('../../components/headers/header.php');
   ?>
   <!--Conteudo-->
 

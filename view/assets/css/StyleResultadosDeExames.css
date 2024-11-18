@@ -193,3 +193,60 @@ td {
     width: 80%;
   }
 }
+
+.button-pet:has(:checked) img {
+  outline: 0.3em solid var(--purple);
+  outline-offset: -0.3em;
+}
+.button-pet:has(:checked) {
+  color: var(--purple);
+}
+.button-pet [type="radio"] {
+  display: none;
+}
+
+.img-menor,
+.novo-pet {
+  border-radius: 100rem;
+  aspect-ratio: 1 / 1;
+  height: 5em;
+  object-fit: cover;
+}
+
+.pets {
+  margin-block: 3%;
+  font-size: 1.2em;
+}
+.meus-pets {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block: 2%;
+  gap: 1em;
+  width: 100%;
+}
+.button-pet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.meus-pets .button-pet:hover {
+  transform: scale(103%);
+}
+.button-cadastrar {
+  flex-direction: row;
+}
+.button-cadastrar img {
+  height: 2em;
+  transition: transform 0.3s;
+}
+.button-cadastrar:hover img {
+  transform: translate(0, -3px);
+}
+.cadastrar-pet {
+  font-weight: 700;
+  color: var(--purple);
+}

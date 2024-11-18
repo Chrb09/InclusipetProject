@@ -152,14 +152,7 @@ body {
   text-align: left;
   width: 100%;
 }
-.infor {
-  display: flex;
-  gap: 0.6em;
-  padding-bottom: 0.5em;
-}
-.infor p {
-  font-weight: bold;
-}
+
 .fotoUsuario {
   height: 30px;
   width: 30px;
@@ -184,10 +177,7 @@ body {
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
-.foto-edit p {
-  font-size: 1.75em;
-  font-weight: 700;
-}
+
 .edit {
   z-index: 2;
   height: 40%;
@@ -209,6 +199,8 @@ body {
   z-index: 1;
   border-radius: 100%;
   width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 .foto-edit-wrapper {
   position: relative;

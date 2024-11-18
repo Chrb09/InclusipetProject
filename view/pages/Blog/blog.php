@@ -18,7 +18,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "blog";
-  include('../../components/header.php');
+  include('../../components/headers/header.php');
   ?>
   <!-- BLOG -->
   <div class="container container-blog container__heading">
@@ -27,10 +27,18 @@
   <div class="container container-blog container__main">
     <div class="sidebar-nav">
       <strong>Categorias de Blog</strong>
-      <button class="sidebar-button ativo" onclick="" type="button">Ver Todos</button>
-      <button class="sidebar-button" onclick="" type="button">Acessibilidade</button>
-      <button class="sidebar-button" onclick="" type="button">Conscientização</button>
-      <button class="sidebar-button" onclick="" type="button">Cuidados</button>
+      <label class="sidebar-button ativo" for="todos">Ver Todos <input type="radio" name="filtro" checked value="todos"
+          id="todos">
+      </label>
+      <label class="sidebar-button" for="Acessibilidade">Acessibilidade <input type="radio" name="filtro"
+          value="Acessibilidade" id="Acessibilidade">
+      </label>
+      <label class="sidebar-button" for="Conscientização">Conscientização <input type="radio" name="filtro"
+          value="Conscientização" id="Conscientização">
+      </label>
+      <label class="sidebar-button" for="Cuidados">Cuidados <input type="radio" name="filtro" value="Cuidados"
+          id="Cuidados">
+      </label>
     </div>
     <main>
       <div class="section-nav-mobile">
@@ -39,10 +47,18 @@
           <div class="wrapper-faq">
             <div class="colapse">
               <div class="nav-mobile">
-                <button class="sidebar-button ativo" onclick="" type="button">Ver Todos</button>
-                <button class="sidebar-button" onclick="" type="button">Acessibilidade</button>
-                <button class="sidebar-button" onclick="" type="button">Conscientização</button>
-                <button class="sidebar-button" onclick="" type="button">Cuidados</button>
+                <label class="sidebar-button ativo" for="todos2">Ver Todos <input type="radio" name="filtro"
+                    value="todos" id="todos2">
+                </label>
+                <label class="sidebar-button" for="Acessibilidade2">Acessibilidade <input type="radio" name="filtro"
+                    value="Acessibilidade" id="Acessibilidade2">
+                </label>
+                <label class="sidebar-button" for="Conscientização2">Conscientização <input type="radio" name="filtro"
+                    value="Conscientização" id="Conscientização2">
+                </label>
+                <label class="sidebar-button" for="Cuidados2">Cuidados <input type="radio" name="filtro"
+                    value="Cuidados" id="Cuidados2">
+                </label>
               </div>
             </div>
           </div>
@@ -53,27 +69,28 @@
         </div>
       </div>
       <script src="../../assets/js/nav_mobile.js"></script>
-      <div class="cartao-transp">
-        <a href="post1.php"><img src="../../assets/img/Blog/Post1/blog1.png" alt="" class="cartao__imagem" /></a>
-        <div class="cartao__content">
-          <div class="categorias">
-            <div class="categoria">Acessibilidade</div>
-            Leitura em 5min
+
+      <div class="grid__blog todosg" id="grid__blog">
+        <div class="cartao-transp acessibilidade">
+          <a href="post1.php"><img src="../../assets/img/Blog/Post1/blog1.png" alt="" class="cartao__imagem" /></a>
+          <div class="cartao__content">
+            <div class="categorias">
+              <div class="categoria">Acessibilidade</div>
+              Leitura em 5min
+            </div>
+            <b>Desvendando Mitos sobre Animais Deficientes</b>
+            <div class="cartao_texto">
+              A natureza é repleta de diversidade, e os animais também podem enfrentar desafios de saúde que os tornam
+              diferentes do padrão. No entanto, muitas ideias erradas cercam os animais deficientes
+            </div>
+            <a href="post1.php" class="link">Ler Mais
+              <?php
+              include('../../assets/svg/seta_link.php');
+              ?>
+            </a>
           </div>
-          <b>Desvendando Mitos sobre Animais Deficientes</b>
-          <div class="cartao_texto">
-            A natureza é repleta de diversidade, e os animais também podem enfrentar desafios de saúde que os tornam
-            diferentes do padrão. No entanto, muitas ideias erradas cercam os animais deficientes
-          </div>
-          <a href="post1.php" class="link">Ler Mais
-            <?php
-            include('../../assets/svg/seta_link.php');
-            ?>
-          </a>
         </div>
-      </div>
-      <div class="grid__blog">
-        <div class="cartao-transp">
+        <div class="cartao-transp conscientizacao">
           <a href="post2.php"><img src="../../assets/img/Blog/Post2/blog2.png" alt="" class="cartao__imagem" /></a>
           <div class="cartao__content">
             <div class="categorias">
@@ -94,7 +111,7 @@
             </a>
           </div>
         </div>
-        <div class="cartao-transp">
+        <div class="cartao-transp cuidados">
           <a href="post3.php"><img src="../../assets/img/Blog/Post3/blog3.png" alt="" class="cartao__imagem" /></a>
           <div class="cartao__content">
             <div class="categorias">
@@ -114,7 +131,7 @@
             </a>
           </div>
         </div>
-        <div class="cartao-transp">
+        <div class="cartao-transp cuidados">
           <a href="post4.php"><img src="../../assets/img/Blog/Post4/blog4.png" alt="" class="cartao__imagem" /></a>
           <div class="cartao__content">
             <div class="categorias">
@@ -134,7 +151,7 @@
             </a>
           </div>
         </div>
-        <div class="cartao-transp">
+        <div class="cartao-transp conscientizacao">
           <a href="post5.php"><img src="../../assets/img/Blog/Post5/blog5.png" alt="" class="cartao__imagem" /></a>
           <div class="cartao__content">
             <div class="categorias">
@@ -163,5 +180,59 @@
   include('../../components/footer.php');
   ?>
 </body>
+<script>
+  let posts = document.getElementsByClassName("cartao-transp");
+
+  let checks = document.querySelectorAll('input[type=radio]')
+  let grid = document.getElementById('grid__blog')
+
+  for (i = 0; i < checks.length; i++) {
+    checks[i].addEventListener('change', function () {
+      if (document.getElementById('todos').checked || document.getElementById('todos2').checked) {
+        for (i = 0; i < posts.length; i++) {
+          posts[i].style.display = "";
+
+        }
+        grid.className = ''
+        grid.classList.add("todosg")
+        grid.classList.add("grid__blog")
+      } else if (document.getElementById('Acessibilidade').checked || document.getElementById('Acessibilidade2').checked) {
+        for (i = 0; i < posts.length; i++) {
+          if (posts[i].querySelector(".cartao__content .categorias .categoria").innerText.toLowerCase() == "acessibilidade") {
+            posts[i].style.display = "";
+          } else {
+            posts[i].style.display = "none";
+          }
+        }
+        grid.className = ''
+        grid.classList.add("acessibilidadeg")
+        grid.classList.add("grid__blog")
+      } else if (document.getElementById('Conscientização').checked || document.getElementById('Conscientização2').checked) {
+        for (i = 0; i < posts.length; i++) {
+          if (posts[i].querySelector(".cartao__content .categorias .categoria").innerText.toLowerCase() == "conscientização") {
+            posts[i].style.display = "";
+          } else {
+            posts[i].style.display = "none";
+          }
+        }
+        grid.className = ''
+        grid.classList.add("conscientizacaog")
+        grid.classList.add("grid__blog")
+      } else if (document.getElementById('Cuidados').checked || document.getElementById('Cuidados2').checked) {
+        for (i = 0; i < posts.length; i++) {
+          if (posts[i].querySelector(".cartao__content .categorias .categoria").innerText.toLowerCase() == "cuidados") {
+            posts[i].style.display = "";
+          } else {
+            posts[i].style.display = "none";
+          }
+        }
+        grid.className = ''
+        grid.classList.add("cuidadosg")
+        grid.classList.add("grid__blog")
+      }
+    })
+  }
+
+</script>
 
 </html>

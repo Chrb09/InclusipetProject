@@ -90,7 +90,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1em;
-      margin-block: 1.75em;
       width: 100%;
     }
 
@@ -100,8 +99,9 @@
 
     .form-group {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: center;
+      gap: 1em;
       min-width: 20%;
     }
 
@@ -145,12 +145,42 @@
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 1;
+
     $sidebarActive = "agendamentos";
     include('../../components/sidebarvet.php');
     ?>
     <div class="main">
-      <?php include('../../components/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfilfuncionario.php');
+
+      require_once("../../../controller/DAO/PetDAO/PetDAO.php");
+      require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
+      require_once("../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php");
+      require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+
+      $agendamentoDao = new AgendamentoDAO($conn, $BASE_URL); // instancia do AgendamentoDAO
+      $petDao = new PetDAO($conn, $BASE_URL);                 // instancia do PetDAO
+      $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL); // instancia do FuncionarioDAO
+      $clienteDao = new ClienteDAO($conn, $BASE_URL);         // instancia do ClienteDAO
+      
+
+
+      if (isset($_POST)) {
+        $filtro = filter_input(INPUT_POST, "filtro");
+      }
+
+      if ($filtro == 'Todos') {
+        $agendamentos = $agendamentoDao->getAllAgendamentoByFuncionario($funcionarioData->codfuncionario);
+      } else if ($filtro == 'Sem') {
+        $agendamentos = $agendamentoDao->getAllAgendamentoByNoInfo($funcionarioData->codfuncionario);
+      } else if ($filtro == 'Com') {
+        $agendamentos = $agendamentoDao->getAllAgendamentoByInfo($funcionarioData->codfuncionario);
+      } else {
+        $filtro = 'Proximos';
+        $agendamentos = $agendamentoDao->getAllNextAgendamento($funcionarioData->codfuncionario);
+
+      }
+
+      ?>
 
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>
@@ -158,7 +188,10 @@
         <!-- Conteudo principal -->
         <div class="conteudo-principal">
           <div class="titulo">Agendamentos</div>
-          <div class="top">
+
+          <form class="top" method="POST" action="agendamentos.php">
+
+            <!-- FILTROS 
             <div class="form-group">
               <label for="data">A Partir de:</label>
               <input type="date" id="data" name="data" />
@@ -174,245 +207,272 @@
                 </select>
               </div>
             </div>
-
+-->
             <div class="form-group">
-              <label for="tipo">Filtros:</label>
+              <label for="tipo">Mostrar:</label>
               <div class="radio-group">
                 <div class="radio-div">
-                  <input type="radio" name="filtro" value="Proximos" class="radio" />
+                  <input type="radio" name="filtro" value="Proximos" class="radio" <?= ($filtro == 'Proximos') ? 'checked' : '' ?> />
                   <label for="">Próximos</label>
                 </div>
                 <div class="radio-div">
-                  <input type="radio" name="filtro" value="Sem" class="radio" />
+                  <input type="radio" name="filtro" value="Sem" class="radio" <?= ($filtro == 'Sem') ? 'checked' : '' ?> />
                   <label for="">Sem Relatório</label>
                 </div>
                 <div class="radio-div">
-                  <input type="radio" name="filtro" value="Com" class="radio" />
+                  <input type="radio" name="filtro" value="Com" class="radio" <?= ($filtro == 'Com') ? 'checked' : '' ?> />
                   <label for="">Com Relatório</label>
                 </div>
                 <div class="radio-div">
-                  <input type="radio" name="filtro" value="Todos" class="radio" checked />
+                  <input type="radio" name="filtro" value="Todos" class="radio" <?= ($filtro == 'Todos') ? 'checked' : '' ?> />
                   <label for="">Todos</label>
                 </div>
               </div>
+              <button type="submit" class="botao-solido">Filtrar</button>
             </div>
-          </div>
-          <div class="linha-hr">
-            <b>12/09</b>
-            <div class="hr"></div>
-          </div>
-          <div class="conteudo">
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
-                </div>
-                <div class="status">Enviado</div>
-              </div>
-              <table class="info-table">
-                <tr>
-                  <th>Tutor:</th>
-                  <td>Miguel Yudi Baba</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Data Consulta:</th>
-                  <td>12/09/2024</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form">
-                <button class="botao botao-solido" onclick="location.href='resumoagendamento.php'" type="button">
-                  Visualizar Detalhes
-                </button>
-              </div>
-            </div>
+          </form>
+          <?php if ($agendamentos == []): ?>
+            <p>Nenhum agendamento encontrado</p>
+          <?php else: ?>
 
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
-                </div>
-                <div class="status pendente">Pendente</div>
-              </div>
-              <table class="info-table">
-                <tr>
-                  <th>Tutor:</th>
-                  <td>Miguel Yudi Baba</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Data Consulta:</th>
-                  <td>12/09/2024</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form">
-                <button class="botao botao-solido" onclick="location.href='resumoagendamento.php'" type="button">
-                  Visualizar Detalhes
-                </button>
-              </div>
-            </div>
 
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
+            <?php for ($i = 0; $i < count($agendamentos); $i++):
+              $agendamento = $agendamentos[$i];
+              $ultimaData = null;
+
+              $cliente = $clienteDao->findById($agendamento->CodCliente);
+              $funcionario = $funcionarioDao->findById($agendamento->CodFuncionario);
+              $pet = $petDao->findByCod($agendamento->CodAnimal);
+              $dataAgendamento = new DateTime($agendamento->Data);
+              $dataAtual = new DateTime("Today");
+
+
+
+              if ($i > 0) {
+                $ultimaData = $agendamentos[$i - 1]->Data;
+                if ($agendamento->Data !== $ultimaData) { ?>
                 </div>
-                <div class="status"><img src="../../assets/img/Perfil/horario.png" alt="" />13:00</div>
-              </div>
-              <table class="info-table">
-                <tr>
-                  <th>Tutor:</th>
-                  <td>Miguel Yudi Baba</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Data Consulta:</th>
-                  <td>12/09/2024</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form">
-                <button class="botao botao-solido" onclick="location.href='resumoagendamento.php'" type="button">
-                  Visualizar Detalhes
-                </button>
-              </div>
+                <div class="linha-hr">
+                  <b><?php $dataAgendamentos = explode("-", $agendamento->Data);
+                  echo ("$dataAgendamentos[2]/$dataAgendamentos[1]"); ?></b>
+                  <div class="hr"></div>
+                </div>
+                <div class="conteudo">
+                  <div class="card-agendamento">
+                    <div class="animal">
+                      <div class="animal-wrapper">
+                        <img src="../../assets/img/ImagensPet/<?php
+                        if ($pet->Imagem == "") {
+                          echo ("pet.png");
+                        } else {
+                          echo ($pet->Imagem);
+                        }
+                        ?>" alt="" class="animal_photo" />
+                        <p><?= $pet->Nome ?></p>
+                      </div>
+                      <div class="status 
+                    <?php
+                    if ($dataAgendamento < $dataAtual) {
+                      if ($agendamento->Info == '') {
+                        echo 'pendente';
+                      }
+                    }
+                    ?>">
+                        <?php
+                        if ($dataAgendamento < $dataAtual) {
+                          if ($agendamento->Info == '') {
+                            echo 'Enviar Relatorio';
+                          } else {
+                            echo 'Enviado';
+                          }
+                        } else {
+                          echo '<img src="../../assets/img/Perfil/horario.png" alt=""/> ' . explode(":00", string: $agendamento->Hora)[0] . "h";
+                        } ?>
+                      </div> <!-- TODO -->
+                    </div>
+                    <table class="info-table">
+                      <tr>
+                        <th>Tutor:</th>
+                        <td><?= $cliente->nome ?></td>
+                      </tr>
+
+                      <tr>
+                        <th>Serviço:</th>
+                        <td><?= $agendamentoDao->getServicoByCod($agendamento->CodServico) ?></td>
+                      </tr>
+
+                      <tr>
+                        <th>Pedido:</th>
+                        <td><?= $agendamento->CodAgendamento ?></td>
+                      </tr>
+
+                      <tr>
+                        <th>Data Consulta:</th>
+                        <td><?php
+                        $data = explode("-", $agendamento->Data);
+                        $dataFormatada = "$data[2]/$data[1]/$data[0]";
+
+                        echo $dataFormatada;
+                        ?></td>
+                      </tr>
+                    </table>
+                    <div class="button-wrapper-form">
+                      <button class="botao botao-solido"
+                        onclick="location.href='resumoagendamento.php?CodAgendamento=<?= $agendamento->CodAgendamento ?>'"
+                        type="button">
+                        Visualizar Detalhes
+                      </button>
+                    </div>
+                  </div>
+                <?php } else { ?>
+
+                  <div class="card-agendamento">
+                    <div class="animal">
+                      <div class="animal-wrapper">
+                        <img src="../../assets/img/ImagensPet/<?php
+                        if ($pet->Imagem == "") {
+                          echo ("pet.png");
+                        } else {
+                          echo ($pet->Imagem);
+                        }
+                        ?>" alt="" class="animal_photo" />
+                        <p><?= $pet->Nome ?></p>
+                      </div>
+                      <div class="status 
+                    <?php
+                    if ($dataAgendamento < $dataAtual) {
+                      if ($agendamento->Info == '') {
+                        echo 'pendente';
+                      }
+                    }
+                    ?>">
+                        <?php
+                        if ($dataAgendamento < $dataAtual) {
+                          if ($agendamento->Info == '') {
+                            echo 'Enviar Relatorio';
+                          } else {
+                            echo 'Enviado';
+                          }
+                        } else {
+                          echo '<img src="../../assets/img/Perfil/horario.png" alt=""/> ' . explode(":00", string: $agendamento->Hora)[0] . "h";
+                        } ?>
+                      </div> <!-- TODO -->
+                    </div>
+                    <table class="info-table">
+                      <tr>
+                        <th>Tutor:</th>
+                        <td><?= $cliente->nome ?></td>
+                      </tr>
+
+                      <tr>
+                        <th>Serviço:</th>
+                        <td><?= $agendamentoDao->getServicoByCod($agendamento->CodServico) ?></td>
+                      </tr>
+
+                      <tr>
+                        <th>Pedido:</th>
+                        <td><?= $agendamento->CodAgendamento ?></td>
+                      </tr>
+
+                      <tr>
+                        <th>Data Consulta:</th>
+                        <td><?php
+                        $data = explode("-", $agendamento->Data);
+                        $dataFormatada = "$data[2]/$data[1]/$data[0]";
+
+                        echo $dataFormatada;
+                        ?></td>
+                      </tr>
+                    </table>
+                    <div class="button-wrapper-form">
+                      <button class="botao botao-solido"
+                        onclick="location.href='resumoagendamento.php?CodAgendamento=<?= $agendamento->CodAgendamento ?>'"
+                        type="button">
+                        Visualizar Detalhes
+                      </button>
+                    </div>
+                  </div>
+                <?php }
+              } else { ?>
+                <div class="linha-hr">
+                  <b><?php $dataAgendamentos = explode("-", $agendamento->Data);
+                  echo ("$dataAgendamentos[2]/$dataAgendamentos[1]"); ?></b>
+                  <div class="hr"></div>
+                </div>
+                <!-- AGENDAMENTOS -->
+                <div class="conteudo">
+                  <div class="card-agendamento">
+                    <div class="animal">
+                      <div class="animal-wrapper">
+                        <img src="../../assets/img/ImagensPet/<?php
+                        if ($pet->Imagem == "") {
+                          echo ("pet.png");
+                        } else {
+                          echo ($pet->Imagem);
+                        }
+                        ?>" alt="" class="animal_photo" />
+                        <p><?= $pet->Nome ?></p>
+                      </div>
+                      <div class="status 
+                    <?php
+                    if ($dataAgendamento < $dataAtual) {
+                      if ($agendamento->Info == '') {
+                        echo 'pendente';
+                      }
+                    }
+                    ?>">
+                        <?php
+                        if ($dataAgendamento < $dataAtual) {
+                          if ($agendamento->Info == '') {
+                            echo 'Enviar Relatorio';
+                          } else {
+                            echo 'Enviado';
+                          }
+                        } else {
+                          echo '<img src="../../assets/img/Perfil/horario.png" alt=""/> ' . explode(":00", string: $agendamento->Hora)[0] . "h";
+                        } ?>
+                      </div> <!-- TODO -->
+                    </div>
+                    <table class="info-table">
+                      <tr>
+                        <th>Tutor:</th>
+                        <td><?= $cliente->nome ?></td>
+                      </tr>
+
+                      <tr>
+                        <th>Serviço:</th>
+                        <td><?= $agendamentoDao->getServicoByCod($agendamento->CodServico) ?></td>
+                      </tr>
+
+                      <tr>
+                        <th>Pedido:</th>
+                        <td><?= $agendamento->CodAgendamento ?></td>
+                      </tr>
+
+                      <tr>
+                        <th>Data Consulta:</th>
+                        <td><?php
+                        $data = explode("-", $agendamento->Data);
+                        $dataFormatada = "$data[2]/$data[1]/$data[0]";
+
+                        echo $dataFormatada;
+                        ?></td>
+                      </tr>
+                    </table>
+                    <div class="button-wrapper-form">
+                      <button class="botao botao-solido"
+                        onclick="location.href='resumoagendamento.php?CodAgendamento=<?= $agendamento->CodAgendamento ?>'"
+                        type="button">
+                        Visualizar Detalhes
+                      </button>
+                    </div>
+                  </div>
+                <?php }endfor; ?>
+
             </div>
           </div>
-          <div class="linha-hr">
-            <b>13/09</b>
-            <div class="hr"></div>
-          </div>
-          <div class="conteudo">
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
-                </div>
-                <div class="status"><img src="../../assets/img/Perfil/horario.png" alt="" />15:00</div>
-              </div>
-              <table class="info-table">
-                <tr>
-                  <th>Tutor:</th>
-                  <td>Miguel Yudi Baba</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Data Consulta:</th>
-                  <td>13/09/2024</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form">
-                <button class="botao botao-solido" onclick="location.href='resumoagendamento.php'" type="button">
-                  Visualizar Detalhes
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="linha-hr">
-            <b>14/09</b>
-            <div class="hr"></div>
-          </div>
-          <div class="conteudo">
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
-                </div>
-                <div class="status"><img src="../../assets/img/Perfil/horario.png" alt="" />16:00</div>
-              </div>
-              <table class="info-table">
-                <tr>
-                  <th>Tutor:</th>
-                  <td>Miguel Yudi Baba</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Data Consulta:</th>
-                  <td>14/09/2024</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form">
-                <button class="botao botao-solido" onclick="location.href='resumoagendamento.php'" type="button">
-                  Visualizar Detalhes
-                </button>
-              </div>
-            </div>
-            <div class="card-agendamento">
-              <div class="animal">
-                <div class="animal-wrapper">
-                  <img src="../../assets/img/Perfil/fonseca.png" alt="" />
-                  <p>Fonseca</p>
-                </div>
-                <div class="status"><img src="../../assets/img/Perfil/horario.png" alt="" />17:30</div>
-              </div>
-              <table class="info-table">
-                <tr>
-                  <th>Tutor:</th>
-                  <td>Miguel Yudi Baba</td>
-                </tr>
-                <tr>
-                  <th>Serviço:</th>
-                  <td>Exame</td>
-                </tr>
-                <tr>
-                  <th>Pedido:</th>
-                  <td>34012</td>
-                </tr>
-                <tr>
-                  <th>Data Consulta:</th>
-                  <td>14/09/2024</td>
-                </tr>
-              </table>
-              <div class="button-wrapper-form">
-                <button class="botao botao-solido" onclick="location.href='resumoagendamento.php'" type="button">
-                  Visualizar Detalhes
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php endif; ?>
       </div>
-    </div>
-  </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>

@@ -121,12 +121,12 @@
   <!-- PERFIL -->
   <div class="container-usuario">
     <?php
-    $user = 1;
+
     $sidebarActive = "adocao";
     include('../../components/sidebarvet.php');
     ?>
     <div class="main">
-      <?php include('../../components/headerperfil.php'); ?>
+      <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
 
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>
@@ -162,7 +162,9 @@
             <!--Inicio Item-->
             <div class="item">
               <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-              <img src="../../assets/img/Adocao/Animal10/img1.png" alt="Belinha" class="animal" />
+              <img
+                src="../../assets/img/ImagensAdocao/10/5a89d6b3d4e56a0932cfa509aaa07f67c75715b6c2dcd3d8720187a34d99887c31361f01007e44ed632a450e405213559a8bef518ab2895558432824.jpg"
+                alt="Belinha" class="animal" />
 
               <div class="descricao-pet">
                 <!--Div com a descrição do animal-->
@@ -178,7 +180,8 @@
 
               <div class="botoes">
                 <!--Div que contem os botões ao lado da descrição-->
-                <button class="botao-solido editar-button">
+                <button class="botao-solido editar-button" type="button"
+                  onclick="location.href='../adocao/animal.php?CodAdocao=10'">
                   <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
                   Visualizar
                 </button>
@@ -193,7 +196,9 @@
             <!--Inicio Item-->
             <div class="item">
               <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-              <img src="../../assets/img/Adocao/Animal9/img1.png" alt="Amarela" class="animal" />
+              <img
+                src="../../assets/img/ImagensAdocao/9/3c2d766f99a648aa1b81de4975053de9e5a31fdef0a0826dd421faa90543b9281beddf62f2e08d47331bc27183467742e7dfa5e7b15fecc7029e2362.jpg"
+                alt="Amarela" class="animal" />
 
               <div class="descricao-pet">
                 <!--Div com a descrição do animal-->
@@ -207,7 +212,8 @@
 
               <div class="botoes">
                 <!--Div que contem os botões ao lado da descrição-->
-                <button class="botao-solido editar-button">
+                <button class="botao-solido editar-button" type="button"
+                  onclick="location.href='../adocao/animal.php?CodAdocao=9'">
                   <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
                   Visualizar
                 </button>
@@ -220,7 +226,9 @@
             <!--Inicio Item-->
             <div class="item">
               <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-              <img src="../../assets/img/Adocao/Animal7/img1.png" alt="Bolinha" class="animal" />
+              <img
+                src="../../assets/img/ImagensAdocao/7/3befbdb4a98118863a015e994e8ea36d3ece958cf4993792095aa21ee0318a17e79c460a6f7b6c361d18dfe8efb8e271da0a9746afc9317489db32db.jpg"
+                alt="Bolinha" class="animal" />
 
               <div class="descricao-pet">
                 <!--Div com a descrição do animal-->
@@ -235,7 +243,8 @@
               </div>
               <div class="botoes">
                 <!--Div que contem os botões ao lado da descrição-->
-                <button class="botao-solido editar-button">
+                <button class="botao-solido editar-button" type="button"
+                  onclick="location.href='../adocao/animal.php?CodAdocao=7'">
                   <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
                   Visualizar
                 </button>
@@ -253,5 +262,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
+<script>
+  function motivoRecusar() {
+    Swal.fire({
+      title: `<div class="titulo">Recusar Adoção</div>`,
+      html: `
+      <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
+      <input type="hidden" name="type" value="motivorecusar">
+        <div class="form-input">
+          <label for="" >Motivo por ter recusado</label>
+          <textarea name="motivo" id="" cols="40" rows="7" placeholder="Escreva sua mensagem..."></textarea>
+        </div>
+        <div class="linha">
+          <button class="botao-borda" onclick="Swal.close()" type="button">Voltar</button>
+          <button class="botao-solido" onclick="" type="submit">Enviar</button>
+        </div>
+</form>
+
+        `,
+      confirmButtonText: "Ok!",
+      showConfirmButton: false,
+      focusConfirm: false,
+      backdrop: "rgb(87, 77, 189, 0.5",
+    });
+  }
+</script>
 
 </html>

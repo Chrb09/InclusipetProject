@@ -8,7 +8,7 @@
   <!-- CSS EXTERNO GERAL -->
   <link rel="stylesheet" href="../../assets/css/StyleAnimal.css" />
   <!-- CSS EXTERNO PAGINA -->
-  <link rel="icon" href="../../../assets/img/Outros/inclusipet.ico" />
+  <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
   <title>Prévia</title>
   <style>
@@ -31,7 +31,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "adocao";
-  include('../../components/header.php');
+  include('../../components/headers/header.php');
   ?>
 
   <!--Conteudo-->

@@ -9,7 +9,7 @@
   <!-- CSS EXTERNO GERAL -->
   <link rel="stylesheet" href="../../assets/css/StylePost.css" />
   <!-- CSS EXTERNO PAGINA -->
-  <link rel="icon" href="../../../assets/img/Outros/inclusipet.ico" />
+  <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
   <title>Desvendando os Mitos sobre Animais Deficientes</title>
 </head>
@@ -18,7 +18,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "blog";
-  include('../../components/header.php');
+  include('../../components/headers/header.php');
   ?>
   <!--Conteudo-->
   <div class="scroll-watcher"></div>

@@ -19,7 +19,7 @@
   <!-- HEADER-->
   <?php
   $activePage = "quemsomos";
-  include('../../components/header.php');
+  include('../../components/headers/header.php');
   ?>
   <!--Conteudo-->
 
@@ -31,97 +31,48 @@
     <div class="content">
       <?php
       include('../../components/navmobilequemsomos.php');
+      require_once("../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php");
+
+      $funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
+
+      $funcionarios = $funcionarioDao->getAllFuncionario();
       ?>
       <div class="titulo">Nossos Profissionais</div>
       <!--CODIGO DA PAGINA AQUI-->
       <div class="card-container">
-        <div class="card">
-          <img src="../../assets/img/QuemSomos/prof1.png" alt="" />
-          <div class="table-wrapper">
-            <table class="info">
-              <tr>
-                <th>Nome</th>
-                <th>Especialidade</th>
-                <th>Unidade</th>
-                <th>Anos de atuação</th>
-                <th>Nota</th>
-              </tr>
-              <tr>
-                <td>Klein Figueiredo</td>
-                <td>Nêurologia</td>
-                <td>Artur Alvim</td>
-                <td>10 Anos</td>
-                <td>4,5 Estrelas</td>
-              </tr>
-            </table>
+        <?php foreach ($funcionarios as $funcionario): ?>
+          <div class="card">
+            <img src="../../assets/img/ImagensFuncionario/<?php if ($funcionario->imagem == "") {
+              echo ("user.png");
+            } else {
+              echo $funcionario->imagem;
+            } ?>" alt="" />
+            <div class="table-wrapper">
+              <table class="info">
+                <tr>
+                  <th>Nome</th>
+                  <th>Especialidade</th>
+                  <th>Unidade</th>
+                  <th>Anos de atuação</th>
+                </tr>
+                <tr>
+                  <td><?= $funcionario->nome ?></td>
+                  <td><?= $funcionarioDao->getCargoByCod($funcionario->codcargo) ?></td>
+                  <td><?= explode("- ", $funcionarioDao->getUnidadeByCod($funcionario->codunidade)[1])[1] ?></td>
+                  <td><?php
+                  $tempoAdmissao = date("Y") - explode("-", $funcionario->dataAdmissao)[0];
+                  if ($tempoAdmissao <= 0) {
+                    echo "<1 Ano";
+                  } else {
+                    echo "$tempoAdmissao Anos";
+                  }
+                  ?></td>
+                </tr>
+              </table>
+            </div>
           </div>
-        </div>
+        <?php endforeach; ?>
 
-        <div class="card">
-          <img src="../../assets/img/QuemSomos/prof2.png" alt="" />
-          <div class="table-wrapper">
-            <table class="info">
-              <tr>
-                <th>Nome</th>
-                <th>Especialidade</th>
-                <th>Unidade</th>
-                <th>Anos de atuação</th>
-                <th>Nota</th>
-              </tr>
-              <tr>
-                <td>Sarah Siqueira</td>
-                <td>Fisioterapia</td>
-                <td>Artur Alvim</td>
-                <td>2 Anos</td>
-                <td>4,9 Estrelas</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="../../assets/img/QuemSomos/prof3.png" alt="" />
-          <div class="table-wrapper">
-            <table class="info">
-              <tr>
-                <th>Nome</th>
-                <th>Especialidade</th>
-                <th>Unidade</th>
-                <th>Anos de atuação</th>
-                <th>Nota</th>
-              </tr>
-              <tr>
-                <td>Miguel YuYuHakusho Roxildo</td>
-                <td>Cirurgião</td>
-                <td>Artur Alvim</td>
-                <td>5 Anos</td>
-                <td>5,0 Estrelas</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="../../assets/img/QuemSomos/prof4.png" alt="" />
-          <div class="table-wrapper">
-            <table class="info">
-              <tr>
-                <th>Nome</th>
-                <th>Especialidade</th>
-                <th>Unidade</th>
-                <th>Anos de atuação</th>
-                <th>Nota</th>
-              </tr>
-              <tr>
-                <td>Antonia Shouko dos Santos</td>
-                <td>Clínico</td>
-                <td>Artur Alvim</td>
-                <td>9 Anos</td>
-                <td>4,1 Estrelas</td>
-              </tr>
-            </table>
-          </div>
-        </div>
       </div>
     </div>
   </div>

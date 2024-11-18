@@ -1,0 +1,95 @@
+.nav-perfil {
+  display: flex;
+  flex-direction: column;
+  width: 8em;
+  align-items: center;
+  text-align: center;
+  transition: filter 0.3s;
+  &:hover {
+    filter: brightness(80%);
+  }
+}
+.nav-perfil img {
+  width: 7em;
+}
+.acoes {
+  display: flex;
+  gap: 2em;
+}
+
+.form__cadastro,
+.button-wrapper-form {
+  justify-content: start;
+}
+ins {
+  display: block;
+  width: fit-content;
+}
+
+.titulo {
+  margin-bottom: 0.5em;
+}
+
+.utilizando {
+  display: flex;
+  gap: 0.6em;
+  padding-bottom: 0.5em;
+}
+.utilizando p {
+  font-weight: bold;
+}
+
+.selecionando {
+  display: none;
+}
+.selecionar .utilizando {
+  display: none;
+}
+
+.selecionar .acoes {
+  display: none;
+}
+.selecionar .selecionando {
+  display: flex;
+}
+
+.fotoUsuario {
+  border-radius: 20rem;
+  object-fit: cover;
+  height: 1.5em;
+  width: 1.5em;
+  aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 768px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .titulo {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .acoes {
+    justify-content: center;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .acoes {
+    gap: 0.75em;
+  }
+}
+@media (max-width: 325px) {
+}
