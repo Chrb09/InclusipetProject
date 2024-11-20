@@ -37,7 +37,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   }
 
   //Função Create
-  public function create(Funcionario $funcionario, $authfuncionario = false, $senha)
+  public function create(Funcionario $funcionario, $senha)
   {
     $stmt = $this->conn->prepare("INSERT INTO funcionario( CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem, DataAdmissao) 
      VALUES ( :CodCargo, :Senha, :Nome, :RG, :CPF,:Telefone, :CEP, :CodUnidade , :Token, :Imagem, :DataAdmissao)");
@@ -90,7 +90,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     }
   }
 
-  
+
 
   public function verifyToken($protected = false)
   {
@@ -146,9 +146,9 @@ class FuncionarioDAO implements FuncionarioDAOInterface
     }
   }
 
- 
 
-   
+
+
 
   public function findById($codfuncionario)
   {
@@ -271,7 +271,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
       $cargo = $stmt->fetchAll();
       return $cargo;
     }
-    
+
   }
 
   public function getAllFuncionario()

@@ -200,6 +200,9 @@ b {
   .grid__blog {
     margin-top: 1em;
   }
+  .cartao-transp {
+    grid-column: 1 / span 2;
+  }
 }
 
 /* xs */
