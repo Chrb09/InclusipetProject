@@ -90,7 +90,7 @@ if ($type === 'create_appointment') {
             // Verifica se o diretório de destino para a cópia existe, senão cria
             $copyDir = dirname($copyPath); // Obtém o diretório onde a cópia será salva
             if (!is_dir($copyDir)) {
-                // Cria o diretório com permissão 0777 (permissão total)
+                
                 mkdir($copyDir, 0777, true);
             }
 
@@ -104,12 +104,19 @@ if ($type === 'create_appointment') {
             }
         } else {
             // Mensagem de erro caso o upload do arquivo falhe
+            
             $message->setMessage("Erro ao fazer upload do arquivo. Tente novamente.", "error", "popup", "back");
         }
     }
 }
 
-  $agendamentoDao->update($codagendamento, $info, $agendamento->Resultado);
+
+  if($agendamentoDao->update($agendamento)){
+    
+    $message->setMessage("Relatório enviado com Sucesso!", "success", "toast", "back");
+
+  }
+
 
 
 } else {
