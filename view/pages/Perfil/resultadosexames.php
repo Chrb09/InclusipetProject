@@ -188,7 +188,13 @@
                           <strong>Info Adicionais:</strong>
                           <?= $resultado->Info ?>
                         </p>
-                        <div class="botao-borda">Baixar PDF</div>
+                        <!-- Adicionar o link para o PDF -->
+                        <?php if (!empty($resultado->Resultado)): ?>
+                          <a href="../../../view/assets/img/ArquivosAgendamdento/<?= $resultado->Resultado ?>" 
+                            target="_blank" class="botao-borda">Baixar PDF</a>
+                        <?php else: ?>
+                          <p><em>PDF não disponível</em></p>
+                        <?php endif; ?>
                       </div>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="var(--purple)"
