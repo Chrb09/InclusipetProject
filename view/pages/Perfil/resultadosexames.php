@@ -193,7 +193,7 @@
                           <a href="../../../view/assets/pdf/<?= $resultado->Resultado ?>/Resultado.pdf" target="_blank"
                             class="botao-borda" download>Baixar PDF</a>
                         <?php else: ?>
-                          <p><em>PDF não disponível</em></p>
+                          <a>PDF não disponível</a>
                         <?php endif; ?>
                       </div>
                     </div>
