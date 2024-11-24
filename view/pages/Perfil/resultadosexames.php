@@ -190,8 +190,8 @@
                         </p>
                         <!-- Adicionar o link para o PDF -->
                         <?php if (!empty($resultado->Resultado)): ?>
-                          <a href="../../../view/assets/img/ArquivosAgendamdento/<?= $resultado->Resultado ?>" 
-                            target="_blank" class="botao-borda">Baixar PDF</a>
+                          <a href="../../../view/assets/pdf/<?= $resultado->Resultado ?>/Resultado.pdf" target="_blank"
+                            class="botao-borda" download>Baixar PDF</a>
                         <?php else: ?>
                           <p><em>PDF não disponível</em></p>
                         <?php endif; ?>

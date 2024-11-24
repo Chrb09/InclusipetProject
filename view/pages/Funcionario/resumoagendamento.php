@@ -375,7 +375,7 @@
     Swal.fire({
       title: `<div class="titulo">Enviar Relatorio para Cod ` + codAgendamento + `</div>`,
       html: `
-      <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/appointment_process.php" method="POST">
+      <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/appointment_process.php" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="type" value="enviarrelatorio">
         <input name="id" type="hidden" value="`+ codAgendamento + `" required/>
         <div class="form-input">
