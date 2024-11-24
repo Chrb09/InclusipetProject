@@ -33,13 +33,15 @@
         onsubmit="return validarMensagem()">
         <input type="hidden" name="_next"
           value="http://localhost/inclusipetProject/model/Arquivo/Inicializacao/contato_process.php">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <div class="form__row">
           <label for="">Nome</label><br />
-          <input type="text" name="name" id="contato-nome" placeholder="Seu nome..." required />
+          <input type="text" name="name" id="contato-nome" placeholder="Seu nome..." <?= ($clienteData) ? 'value="' . $clienteData->nome . '"' : '' ?> required />
         </div>
         <div class="form__row">
           <label for="">Email</label><br />
-          <input type="email" name="email" id="contato-email" placeholder="Seu email..." required />
+          <input type="email" name="email" id="contato-email" placeholder="Seu email..." <?= ($clienteData) ? 'value="' . $clienteData->email . '"' : '' ?> required />
         </div>
         <div class="form__row">
           <label for="">Mensagem</label><br />
@@ -48,7 +50,7 @@
         </div>
         <div class="form__row linha">
           <input type="checkbox" name="check" id="contato-check" class="check" required />
-          <label for="">Eu aceito os
+          <label for="contato-check">Eu aceito os
             <strong><a href="creditos.php"><ins>termos</ins></a></strong>
           </label>
         </div>

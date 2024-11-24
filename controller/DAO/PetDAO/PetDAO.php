@@ -1,7 +1,7 @@
 <?php
 
 require_once('../../../model/Classes/Modelagem/Pet.php');
-require_once("../../../model/Classes/Modelagem/Message.php");
+require_once('../../../model/Classes/Modelagem/Message.php');
 
 class PetDAO implements PetDAOInterface
 {
@@ -82,7 +82,7 @@ class PetDAO implements PetDAOInterface
     public function create(Pet $pet, $user)
     {
         $stmt = $this->conn->prepare("INSERT INTO animal(CodRaca, CodCliente, Nome, Sexo, DataNasc, DataAprox, Peso, Castrado, Imagem) 
-        VALUES(:CodRaca, :CodCliente, :Nome, :Sexo, :DataNasc, :DataAprox, :Peso, :Castrado, :Imagem)");
+        VALUES (:CodRaca, :CodCliente, :Nome, :Sexo, :DataNasc, :DataAprox, :Peso, :Castrado, :Imagem)");
 
         $stmt->bindParam(":CodRaca", $pet->CodRaca);
         $stmt->bindParam(":CodCliente", $pet->CodCliente);
@@ -97,9 +97,9 @@ class PetDAO implements PetDAOInterface
         $stmt->execute();
 
         if ($user == 0) {
-            $this->message->setMessage("Animal cadastrado com sucesso!", "success", "popup", "../../../view/pages/perfil/meuspets.php");
+            $this->message->setMessage("Animal cadastrado com sucesso!", "success", "popup", "../../../view/Pages/Perfil/meuspets.php");
         } else if ($user == 1) {
-            $this->message->setMessage("Animal cadastrado com sucesso!", "success", "popup", "../../../view/pages/funcionario/funcoesdotutor.php");
+            $this->message->setMessage("Animal cadastrado com sucesso!", "success", "popup", "../../../view/pages/Funcionario/funcoesdotutor.php");
         }
 
     }

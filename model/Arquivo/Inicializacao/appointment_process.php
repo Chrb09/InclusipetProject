@@ -60,7 +60,6 @@ if ($type === 'create_appointment') {
     $codagendamento = filter_input(INPUT_POST, "id");
     $info = filter_input(INPUT_POST, "info");
     
-    
    $agendamento = new Agendamento();
 
    if (isset($_FILES["pdf"]) && !empty($_FILES["pdf"]["tmp_name"])) {

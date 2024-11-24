@@ -135,11 +135,11 @@
                 <label for="">Castrado?</label>
                 <div class="radio-group">
                   <div class="radio-div">
-                    <input type="radio" name="castrado" value="Sim" class="radio" required />
+                    <input type="radio" name="castrado" value="1" class="radio" required />
                     <label for="">Sim</label>
                   </div>
                   <div class="radio-div">
-                    <input type="radio" name="castrado" value="Não" class="radio" required />
+                    <input type="radio" name="castrado" value="0" class="radio" required />
                     <label for="">Não</label>
                   </div>
                 </div>
@@ -315,11 +315,11 @@
                 <label for="">Castrado?</label>
                 <div class="radio-group">
                   <div class="radio-div">
-                    <input type="radio" name="castrado" value="Sim" class="radio" required <?= ($petInfo->Castrado == '1') ? 'checked' : '' ?> />
+                    <input type="radio" name="castrado" value="1" class="radio" required <?= ($petInfo->Castrado == '1') ? 'checked' : '' ?> />
                     <label for="">Sim</label>
                   </div>
                   <div class="radio-div">
-                    <input type="radio" name="castrado" value="Não" class="radio" required <?= ($petInfo->Castrado == '0') ? 'checked' : '' ?> />
+                    <input type="radio" name="castrado" value="0" class="radio" required <?= ($petInfo->Castrado == '0') ? 'checked' : '' ?> />
                     <label for="">Não</label>
                   </div>
                 </div>

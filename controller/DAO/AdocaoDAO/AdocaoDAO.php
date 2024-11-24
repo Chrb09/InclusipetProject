@@ -37,6 +37,7 @@ class AdocaoDAO implements AdocaoDAOInterface
     }
     public function create(Adocao $adocao, $user)
     {
+
         $stmt = $this->conn->prepare("INSERT INTO adocao(CodAdocao,CodEspecie,CodCliente, Nome, Idade, Porte, Castrado, Sexo, Descricao, Telefone, Endereco, Adotado, Aprovado, MotivoRecusar) 
       VALUES (:CodAdocao, :CodEspecie,:CodCliente,  :Nome, :Idade, :Porte, :Castrado, :Sexo, :Descricao, :Telefone, :Endereco, :Adotado, :Aprovado, :MotivoRecusar)");
 
@@ -140,7 +141,7 @@ class AdocaoDAO implements AdocaoDAOInterface
 
 
         // Redireciona para o perfil do usuario
-        $this->message->setMessage("Adoção editada, esperando aprovação", "warning", "popup", "../../../view/pages/perfil/gerenciaradocao.php");
+        $this->message->setMessage("Adoção editada, esperando aprovação", "warning", "popup", "../../../view/pages/Perfil/gerenciaradocao.php");
         // qnd o pet for adotado
     }
     public function getAdocaoByCodCliente($CodCliente)

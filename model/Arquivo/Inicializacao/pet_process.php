@@ -1,11 +1,12 @@
 <?php
 
-require_once('../../../model/Arquivo/inicializacao/globals.php');
-require_once('../../../model/Arquivo/inicializacao/db.php');
-require_once('../../../model/Classes/Modelagem/Pet.php');
-require_once('../../../model/Classes/Modelagem/Message.php');
-require_once('../../../controller/DAO/PetDAO/PetDAO.php');
+require_once('globals.php');
+require_once('db.php');
+
+require_once('../../Classes/Modelagem/Message.php');
+require_once('../../Classes/Modelagem/Pet.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+require_once('../../../controller/DAO/PetDAO/PetDAO.php');
 
 $message = new Message($BASE_URL);
 $clienteDao = new ClienteDAO($conn, $BASE_URL);
@@ -30,7 +31,7 @@ if ($type === "create" || $type === "edit") {
 
     $pet = new Pet();
 
-    if (!$nome || !$especie || !$raca || !$sexo || !$peso || !$castrado) {
+    if (!$nome || !$especie || !$raca || !$sexo || !$peso || $castrado == '') {
         $message->setMessage("Preencha todos os campos.", "error", "toast", "back");
     } else {
         if (!$datanasc && !$dataaprox) {

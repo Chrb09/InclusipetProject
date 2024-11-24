@@ -1,13 +1,14 @@
 <?php
 
-require_once('../../../model/Arquivo/inicializacao/globals.php');
-require_once('../../../model/Arquivo/inicializacao/db.php');
+require_once('globals.php');
+require_once('db.php');
+
 require_once('../../../model/Classes/Modelagem/Pet.php');
 require_once('../../Classes/Modelagem/Agendamento.php');
 require_once('../../../controller/DAO/AgendamentoDAO/AgendamentoDAO.php');
 require_once('../../Classes/Modelagem/Adocao.php');
 require_once('../../../controller/DAO/AdocaoDAO/AdocaoDAO.php');
-require_once('../../../model/Classes/Modelagem/Message.php');
+require_once('../../Classes/Modelagem/Message.php');
 require_once('../../../controller/DAO/PetDAO/PetDAO.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 
