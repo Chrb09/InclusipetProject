@@ -46,7 +46,7 @@ if ($type === 'create_appointment') {
         $agendamento->Data = $data;
         $agendamento->Hora = $horario;
         $agendamento->CodAnimal = $pet;
-        $agendamento->Cancelado = false;
+        $agendamento->Cancelado = '0';
 
         $agendamentoDao->create($agendamento, 0);
     }
@@ -59,7 +59,7 @@ if ($type === 'create_appointment') {
     // Coleta de informações 
     $codagendamento = filter_input(INPUT_POST, "id");
     $info = filter_input(INPUT_POST, "info");
-    
+
 
 } else {
     $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");

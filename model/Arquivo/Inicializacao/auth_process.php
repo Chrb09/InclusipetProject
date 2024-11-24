@@ -133,7 +133,7 @@ if ($type === 'register_client') {
 
         $authfuncionario = false;
 
-        $funcionarioDao->create($funcionario, $authfuncionario, $senha);
+        $funcionarioDao->create($funcionario, $senha);
       } else {
         // Enviar uma msg de erro, de dados faltantes
         $message->setMessage("Funcionario já cadastrado.", "error", "toast", "back");

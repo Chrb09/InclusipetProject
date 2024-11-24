@@ -1,10 +1,11 @@
 <?php
 
-require_once('../../../model/Arquivo/inicializacao/globals.php');
-require_once('../../../model/Arquivo/inicializacao/db.php');
-require_once('../../../model/Classes/Modelagem/Cliente.php');
-require_once('../../../model/Classes/Modelagem/Funcionario.php');
-require_once('../../../model/Classes/Modelagem/Message.php');
+require_once('globals.php');
+require_once('db.php');
+
+require_once('../../Classes/Modelagem/Cliente.php');
+require_once('../../Classes/Modelagem/Funcionario.php');
+require_once('../../Classes/Modelagem/Message.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
 

@@ -54,23 +54,23 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         $stmt->execute();
 
         if ($user == 0) {
-            $this->message->setMessage("Visita agendada com sucesso!", "success", "popup", "../../../view/pages/perfil/meusagendamentos.php");
+            $this->message->setMessage("Visita agendada com sucesso!", "success", "popup", "../../../view/pages/Perfil/meusagendamentos.php");
         } else if ($user == 1) {
-            $this->message->setMessage("Visita agendada com sucesso!", "success", "popup", "../../../view/pages/funcionario/funcoesdotutor.php");
+            $this->message->setMessage("Visita agendada com sucesso!", "success", "popup", "../../../view/pages/Funcionario/funcoesdotutor.php");
         }
 
     }
 
     public function update(Agendamento $agendamento)
-{
-    $stmt = $this->conn->prepare("UPDATE agendamento SET Info = :Info, Resultado = :Resultado WHERE CodAgendamento = :CodAgendamento");
+    {
+        $stmt = $this->conn->prepare("UPDATE agendamento SET Info = :Info, Resultado = :Resultado WHERE CodAgendamento = :CodAgendamento");
 
-    $stmt->bindParam(":Info", $agendamento->Info);
-    $stmt->bindParam(":Resultado", $agendamento->Resultado);
-    $stmt->bindParam(":CodAgendamento", $agendamento->CodAgendamento);
+        $stmt->bindParam(":Info", $agendamento->Info);
+        $stmt->bindParam(":Resultado", $agendamento->Resultado);
+        $stmt->bindParam(":CodAgendamento", $agendamento->CodAgendamento);
 
-    return $stmt->execute();
-}
+        return $stmt->execute();
+    }
     public function getAgendamentoByCodCliente($CodCliente)
     {
         $agendamentos = [];
@@ -133,8 +133,8 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     }
 
-    
-    
+
+
 
     public function getAgendamentoByInfoDate($CodPet, $data)
     {
@@ -178,7 +178,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function cancel($CodAgendamento)
     {
-        $stmt = $this->conn->prepare("UPDATE Agendamento SET Cancelado = 1 WHERE CodAgendamento = :CodAgendamento");
+        $stmt = $this->conn->prepare("UPDATE agendamento SET Cancelado = 1 WHERE CodAgendamento = :CodAgendamento");
 
         $stmt->bindParam(":CodAgendamento", $CodAgendamento);
 
@@ -190,7 +190,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function getAllUnidade()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM Unidade");
+        $stmt = $this->conn->prepare("SELECT * FROM unidade");
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -201,7 +201,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function getAllServico()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM Servico");
+        $stmt = $this->conn->prepare("SELECT * FROM servico");
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -212,7 +212,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function getAllEspecialidade()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM Cargo");
+        $stmt = $this->conn->prepare("SELECT * FROM cargo");
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $cargo = $stmt->fetchAll();
@@ -222,7 +222,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function getUnidadeByCod($CodUnidade)
     {
-        $stmt = $this->conn->prepare("SELECT * FROM Unidade WHERE CodUnidade = :CodUnidade");
+        $stmt = $this->conn->prepare("SELECT * FROM unidade WHERE CodUnidade = :CodUnidade");
         $stmt->bindParam(":CodUnidade", $CodUnidade);
         $stmt->execute();
 
@@ -234,7 +234,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function getServicoByCod($CodServico)
     {
-        $stmt = $this->conn->prepare("SELECT Descricao FROM Servico WHERE CodServico = :CodServico");
+        $stmt = $this->conn->prepare("SELECT Descricao FROM servico WHERE CodServico = :CodServico");
         $stmt->bindParam(":CodServico", $CodServico);
         $stmt->execute();
 
@@ -246,7 +246,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function getEspecialidadeByCod($CodEspecialidade)
     {
-        $stmt = $this->conn->prepare("SELECT Descricao FROM Cargo WHERE CodCargo = :CodEspecialidade");
+        $stmt = $this->conn->prepare("SELECT Descricao FROM cargo WHERE CodCargo = :CodEspecialidade");
         $stmt->bindParam(":CodEspecialidade", $CodEspecialidade);
         $stmt->execute();
 

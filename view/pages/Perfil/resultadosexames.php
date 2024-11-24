@@ -85,6 +85,8 @@
           $resultados = $agendamentoDao->getAgendamentoByInfoDate($codanimalinfo, "1900-01-01");
         } else if ($tipoexameinfo == '') {
           $resultados = $agendamentoDao->getAgendamentoByInfoDate($codanimalinfo, $datainfo);
+        } else if ($tipoexameinfo != '' && $datainfo == '') {
+          $resultados = $agendamentoDao->getAgendamentoByInfoDateType($codanimalinfo, "1900-01-01", $tipoexameinfo);
         } else {
           $resultados = $agendamentoDao->getAgendamentoByInfoDateType($codanimalinfo, $datainfo, $tipoexameinfo);
         }
@@ -142,14 +144,14 @@
               <button type="submit" class="botao-solido">Filtrar</button>
             </div>
           </form>
-         <!--Fim das filtragens-->
+          <!--Fim das filtragens-->
 
 
           <!--Apresentação dos resultados COMEÇO-->
           <?php if ($resultados != []) { ?>
             <div class="card-container">
               <?php foreach ($resultados as $resultado):
-               //Buscando o resultado com base no ID
+                //Buscando o resultado com base no ID
                 $funcionario = $funcionarioDao->findById($resultado->CodFuncionario);
                 ?>
                 <div class="card">

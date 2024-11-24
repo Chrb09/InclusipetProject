@@ -40,8 +40,7 @@ class ClienteDAO implements ClienteDAOInterface
   public function create(Cliente $cliente, $authcliente = false)
   {
 
-    $stmt = $this->conn->prepare("INSERT INTO Cliente(Nome, DataNasc, Telefone, CEP, CPF, Email, Senha, Token) 
-      VALUES (:Nome, :DataNasc, :Telefone, :CEP, :CPF, :Email, :Senha, :Token)");
+    $stmt = $this->conn->prepare("INSERT INTO cliente(Nome, DataNasc, Telefone, CEP, CPF, Email, Senha, Token) VALUES (:Nome, :DataNasc, :Telefone, :CEP, :CPF, :Email, :Senha, :Token)");
 
     // Liga os parâmetros da query com os atributos do objeto Cliente
     $stmt->bindParam(":Nome", $cliente->nome);
@@ -68,7 +67,7 @@ class ClienteDAO implements ClienteDAOInterface
   public function update(Cliente $cliente, $redirect = true)
   {
 
-    $stmt = $this->conn->prepare("UPDATE Cliente SET 
+    $stmt = $this->conn->prepare("UPDATE cliente SET 
       Nome = :Nome, DataNasc = :DataNasc, Telefone = :Telefone, CEP = :CEP, CPF = :CPF,
       Email = :Email, Senha = :Senha, Token = :Token, Imagem =:Imagem WHERE CodCliente = :CodCliente");
 
@@ -96,9 +95,9 @@ class ClienteDAO implements ClienteDAOInterface
   public function verifyToken($protected = false)
   {
 
-    if (!empty($_SESSION["token_cliente"])) {
+    if (!empty($_SESSION["token_clienteInclusipet"])) {
       // Pega o token da session
-      $token = $_SESSION["token_cliente"];
+      $token = $_SESSION["token_clienteInclusipet"];
 
       $cliente = $this->findByToken($token);
 
@@ -107,13 +106,13 @@ class ClienteDAO implements ClienteDAOInterface
       } else if ($protected) {
 
         // Redireciona usuário não autenticado
-        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/login/login.php");
+        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/Login/login.php");
 
       }
     } else if ($protected) {
 
       // Redireciona usuário não autenticado
-      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/login/login.php");
+      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/Login/login.php");
 
     }
 
@@ -123,7 +122,7 @@ class ClienteDAO implements ClienteDAOInterface
   {
 
     // Salva token na session
-    $_SESSION["token_cliente"] = $token;
+    $_SESSION["token_clienteInclusipet"] = $token;
 
     if ($redirect) {
 
@@ -167,7 +166,7 @@ class ClienteDAO implements ClienteDAOInterface
       return false;
     } else {
 
-      $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE Email = :Email");
+      $stmt = $this->conn->prepare("SELECT * FROM cliente WHERE Email = :Email");
       $stmt->bindParam(":Email", $email);
       $stmt->execute();
 
@@ -195,7 +194,7 @@ class ClienteDAO implements ClienteDAOInterface
       return false;
     } else {
 
-      $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE CPF = :cpf");
+      $stmt = $this->conn->prepare("SELECT * FROM cliente WHERE CPF = :cpf");
       $stmt->bindParam(":cpf", $cpf);
       $stmt->execute();
 
@@ -256,7 +255,7 @@ class ClienteDAO implements ClienteDAOInterface
 
     } else {
 
-      $stmt = $this->conn->prepare("SELECT * FROM Cliente WHERE Token = :token");
+      $stmt = $this->conn->prepare("SELECT * FROM cliente WHERE Token = :token");
       $stmt->bindParam(":token", $token);
       $stmt->execute();
 
@@ -279,7 +278,7 @@ class ClienteDAO implements ClienteDAOInterface
   public function destroyToken()
   {
 
-    $_SESSION["token_cliente"] = ""; // Remove o token da session
+    $_SESSION["token_clienteInclusipet"] = ""; // Remove o token da session
 
     // Redireciona e apresentar a mensagem de sucesso
     $this->message->setMessage("Você fez o logout com sucesso!", "success", "toast", "../../../view/pages/index/index.php");
@@ -288,7 +287,7 @@ class ClienteDAO implements ClienteDAOInterface
 
   public function changePassword(Cliente $cliente)
   {
-    $stmt = $this->conn->prepare("UPDATE Cliente SET Senha = :Senha WHERE CodCliente = :CodCliente");
+    $stmt = $this->conn->prepare("UPDATE cliente SET Senha = :Senha WHERE CodCliente = :CodCliente");
 
     $stmt->bindParam(":Senha", $cliente->senha);
     $stmt->bindParam(":CodCliente", $cliente->codcliente);
@@ -302,7 +301,7 @@ class ClienteDAO implements ClienteDAOInterface
   {
     $clientes = [];
 
-    $stmt = $this->conn->prepare("SELECT * FROM Cliente");
+    $stmt = $this->conn->prepare("SELECT * FROM cliente");
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {

@@ -39,7 +39,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   //Função Create
   public function create(Funcionario $funcionario, $senha)
   {
-    $stmt = $this->conn->prepare("INSERT INTO funcionario( CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem, DataAdmissao) 
+    $stmt = $this->conn->prepare("INSERT INTO funcionario(CodCargo, Senha, Nome, RG, CPF, Telefone, CEP, CodUnidade, Token, Imagem, DataAdmissao) 
      VALUES ( :CodCargo, :Senha, :Nome, :RG, :CPF,:Telefone, :CEP, :CodUnidade , :Token, :Imagem, :DataAdmissao)");
 
     $stmt->bindParam(":CodCargo", $funcionario->codcargo);
@@ -94,9 +94,9 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function verifyToken($protected = false)
   {
-    if (!empty($_SESSION["token_func"])) {
+    if (!empty($_SESSION["token_funcInclusipet"])) {
 
-      $token = $_SESSION["token_func"];
+      $token = $_SESSION["token_funcInclusipet"];
 
       $funcionario = $this->findByToken($token);
 
@@ -104,18 +104,18 @@ class FuncionarioDAO implements FuncionarioDAOInterface
         return $funcionario;
       } else if ($protected) {
 
-        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/funcionario/login.php");
+        $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/Funcionario/login.php");
       }
     } else if ($protected) {
 
-      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/funcionario/login.php");
+      $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "popup", "../../../view/pages/Funcionario/login.php");
     }
 
   }
 
   public function setTokenToSession($token, $redirect = true)
   {
-    $_SESSION["token_func"] = $token;
+    $_SESSION["token_funcInclusipet"] = $token;
     //if para autenticação se estiver autenticado redireciona a Perfil
     if ($redirect) {
       $this->message->setMessage("Usuario autenticado com sucesso!", "success", "toast", "../../../view/pages/Funcionario/perfil.php");
@@ -178,7 +178,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
       return false;
     } else {
 
-      $stmt = $this->conn->prepare("SELECT * FROM Funcionario WHERE CPF = :cpf");
+      $stmt = $this->conn->prepare("SELECT * FROM funcionario WHERE CPF = :cpf");
       $stmt->bindParam(":cpf", $cpf);
       $stmt->execute();
 
@@ -204,7 +204,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
       return false;
     } else {
 
-      $stmt = $this->conn->prepare("SELECT * FROM Funcionario WHERE RG = :rg");
+      $stmt = $this->conn->prepare("SELECT * FROM funcionario WHERE RG = :rg");
       $stmt->bindParam(":rg", $rg);
       $stmt->execute();
 
@@ -245,7 +245,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function destroyToken()
   {
-    $_SESSION["token_func"] = "";
+    $_SESSION["token_funcInclusipet"] = "";
 
 
     $this->message->setMessage("Você fez o logout com sucesso!", "success", "toast", "../../../view/pages/index/index.php");
@@ -265,7 +265,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function getAllCargo()
   {
-    $stmt = $this->conn->prepare("SELECT * FROM Cargo");
+    $stmt = $this->conn->prepare("SELECT * FROM cargo");
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
       $cargo = $stmt->fetchAll();
@@ -298,7 +298,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
 
   public function getAllUnidade()
   {
-    $stmt = $this->conn->prepare("SELECT * FROM Unidade");
+    $stmt = $this->conn->prepare("SELECT * FROM unidade");
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {
@@ -322,7 +322,7 @@ class FuncionarioDAO implements FuncionarioDAOInterface
   //Função Get cargobycod, encontrar o cargo pelo código
   public function getCargoByCod($codcargo)
   {
-    $stmt = $this->conn->prepare("SELECT Descricao FROM Cargo WHERE CodCargo = :CodEspecialidade");
+    $stmt = $this->conn->prepare("SELECT Descricao FROM cargo WHERE CodCargo = :CodEspecialidade");
     $stmt->bindParam(":CodEspecialidade", $codcargo);
     $stmt->execute();
 
