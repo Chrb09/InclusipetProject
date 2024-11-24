@@ -60,6 +60,58 @@ if ($type === 'create_appointment') {
     $codagendamento = filter_input(INPUT_POST, "id");
     $info = filter_input(INPUT_POST, "info");
     
+    
+   $agendamento = new Agendamento();
+
+   if (isset($_FILES["pdf"]) && !empty($_FILES["pdf"]["tmp_name"])) {
+
+    $pdf = $_FILES["pdf"];
+    // Define os tipos permitidos de arquivo (somente PDF)
+    $allowedTypes = ["application/pdf"];
+
+    // Verifica se o tipo do arquivo é válido (PDF)
+    if (!in_array($pdf["type"], $allowedTypes)) {
+        // Mensagem de erro caso o tipo do arquivo seja inválido
+        $message->setMessage("Tipo de arquivo inválido, permitido apenas PDF!", "error", "popup", "back");
+    } else {
+        // Gera um nome único para o arquivo PDF
+        $pdfName = $agendamento->fileGenerateName() . ".pdf";
+
+        // Define o caminho onde o arquivo será salvo
+        $uploadPath = "../../../view/assets/img/ArquivosAgendamdento/" . $pdfName;
+
+        // Move o arquivo para o diretório desejado
+        if (move_uploaded_file($pdf["tmp_name"], $uploadPath)) {
+            // Atualiza a propriedade 'Resultado' com o nome do arquivo PDF
+            $agendamento->Resultado = $pdfName;
+
+            // Define o caminho para a cópia do arquivo
+            $copyPath = "../../../view/assets/img/ArquivosAgendamdento/copy_" . $pdfName;
+
+            // Verifica se o diretório de destino para a cópia existe, senão cria
+            $copyDir = dirname($copyPath); // Obtém o diretório onde a cópia será salva
+            if (!is_dir($copyDir)) {
+                // Cria o diretório com permissão 0777 (permissão total)
+                mkdir($copyDir, 0777, true);
+            }
+
+            // Usa a função copy() para fazer a cópia do arquivo
+            if (copy($uploadPath, $copyPath)) {
+                // Mensagem de sucesso: arquivo original e cópia foram salvos
+                $message->setMessage("Arquivo PDF carregado e copiado com sucesso!", "success", "popup", "back");
+            } else {
+                // Mensagem de erro caso a cópia não tenha sido bem-sucedida
+                $message->setMessage("Erro ao criar a cópia do arquivo. Tente novamente.", "error", "popup", "back");
+            }
+        } else {
+            // Mensagem de erro caso o upload do arquivo falhe
+            $message->setMessage("Erro ao fazer upload do arquivo. Tente novamente.", "error", "popup", "back");
+        }
+    }
+}
+
+  $agendamentoDao->update($codagendamento, $info, $agendamento->Resultado);
+
 
 } else {
     $message->setMessage("Informações inválidas!", "error", "toast", "../../../view/pages/index/index.php");

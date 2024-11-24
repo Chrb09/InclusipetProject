@@ -14,6 +14,12 @@ class Agendamento
     public $CodServico;
     public $Cancelado;
 
+
+    public function fileGenerateName()
+    {
+      return bin2hex(random_bytes(60)) . ".pdf";
+    }
+
 }
 
 interface AgendamentoDAOInterface
