@@ -98,6 +98,7 @@ if ($type === 'create_adoption') {
     $adotado = filter_input(INPUT_POST, "adotado");
 
     $adocaoDao->updateAdotado($codAdocao, $adotado);
+
 } else if ($type === 'edit_adoption') {
 
     $codAdocao = filter_input(INPUT_POST, "codAdocao");
@@ -172,4 +173,10 @@ if ($type === 'create_adoption') {
 
     $adocaoDao->update($adocao);
 
+} else if ($type === 'update_aprovado') {
+    $codAdocao = filter_input(INPUT_POST, "codAdocao");
+    $aprovado = filter_input(INPUT_POST, "aprovado");
+    $MotivoRecusar = filter_input(INPUT_POST, "motivo");
+
+    $adocaoDao->updateAprovado($codAdocao, $aprovado, $MotivoRecusar);
 }

@@ -177,7 +177,6 @@
       } else {
         $filtro = 'Proximos';
         $agendamentos = $agendamentoDao->getAllNextAgendamento($funcionarioData->codfuncionario);
-
       }
 
       ?>

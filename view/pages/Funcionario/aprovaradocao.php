@@ -124,134 +124,127 @@
 
     $sidebarActive = "adocao";
     include('../../components/sidebarvet.php');
+
+    require_once("../../../controller/DAO/AdocaoDAO/AdocaoDAO.php");
+    require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
+
     ?>
     <div class="main">
-      <?php include('../../components/headers/headerperfilfuncionario.php'); ?>
+      <?php include('../../components/headers/headerperfilfuncionario.php');
+
+      $adocaoDao = new AdocaoDAO($conn, $BASE_URL);
+      $clienteDao = new ClienteDAO($conn, $BASE_URL);
+
+      if (isset($_POST)) {
+        $filtro = filter_input(INPUT_POST, "filtro");
+      }
+
+      if ($filtro == 'Todos') { // não pode ser aprovado nem adotado 
+        $adocoes = $adocaoDao->getAllAdocaoFunc();
+      } else if ($filtro == 'Aprovados') {
+        $adocoes = $adocaoDao->getAllAdocaoByAprovado();
+      } else if ($filtro == 'Recusados') {
+        $adocoes = $adocaoDao->getAllAdocaoByRecusado();
+      } else {
+        $filtro = 'Novos';
+        $adocoes = $adocaoDao->getAllNewAdocao();
+      }
+
+
+      ?>
 
       <div class="content">
         <?php include('../../components/navmobilevet.php'); ?>
+
         <!-- Conteudo principal -->
         <div class="titulo">Aprovar Adoção</div>
         <!--Titulo da página-->
         <div>
+
           <div class="principal">
             <!--Div que contem o conteudo principal da pagina-->
-            <div class="top">
+
+            <!-- COMEÇO DOS FILTROS -->
+            <form class="top" method="POST" action="aprovaradocao.php">
               <div class="form-group">
                 <label for="tipo">Mostrar:</label>
                 <div class="radio-group">
                   <div class="radio-div">
-                    <input type="radio" name="filtro" value="Novos" class="radio" />
-                    <label for="">Novos</label>
+                    <input type="radio" name="filtro" value="Novos" class="radio" <?= ($filtro == 'Novos') ? 'checked' : '' ?> />
+                    <label for="">Pendentes</label>
                   </div>
                   <div class="radio-div">
-                    <input type="radio" name="filtro" value="Aprovados" class="radio" />
+                    <input type="radio" name="filtro" value="Aprovados" class="radio" <?= ($filtro == 'Aprovados') ? 'checked' : '' ?> />
                     <label for="">Aprovados</label>
                   </div>
                   <div class="radio-div">
-                    <input type="radio" name="filtro" value="Negados" class="radio" />
-                    <label for="">Negados</label>
+                    <input type="radio" name="filtro" value="Recusados" class="radio" <?= ($filtro == 'Recusados') ? 'checked' : '' ?> />
+                    <label for="">Recusados</label>
                   </div>
                   <div class="radio-div">
-                    <input type="radio" name="filtro" value="Todos" class="radio" checked />
+                    <input type="radio" name="filtro" value="Todos" class="radio" <?= ($filtro == 'Todos') ? 'checked' : '' ?> />
                     <label for="">Todos</label>
                   </div>
                 </div>
+                <button type="submit" class="botao-solido">Filtrar</button>
               </div>
-            </div>
-            <!--Inicio Item-->
-            <div class="item">
-              <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-              <img
-                src="../../assets/img/ImagensAdocao/10/5a89d6b3d4e56a0932cfa509aaa07f67c75715b6c2dcd3d8720187a34d99887c31361f01007e44ed632a450e405213559a8bef518ab2895558432824.jpg"
-                alt="Belinha" class="animal" />
+            </form>
+            <!-- FIM DOS FILTROS -->
 
-              <div class="descricao-pet">
-                <!--Div com a descrição do animal-->
-                <div class="titulo_item">Belinha</div>
-                <p class="descricao">
-                  Cadela de pequeno porte, com 10 anos de idade, de pelagem branca. É um pouco ansiosa.
-                </p>
-                <div class="usuario">
-                  <img src="../../assets/img/Perfil/foto_usuario.png" class="fotoUsuario" />
-                  <p class="nomeUsuario">Miguel Yudi Baba</p>
+            <?php foreach ($adocoes as $adocao):
+              $imagens = $adocaoDao->getImagemAdocaoByCod($adocao->CodAdocao);
+              $cliente = $clienteDao->findById($adocao->CodCliente) ?>
+
+              <!-- INICIO ITEM -->
+              <div class="item">
+                <!--Div que contem um dos animais disponiveiis prar a a adoção-->
+                <img src="../../assets/img/ImagensAdocao/<?= $adocao->CodAdocao ?>/<?= $imagens[0] ?>"
+                  alt="<?= $adocao->Nome ?>" class="animal" />
+
+                <div class="descricao-pet">
+                  <!--Div com a descrição do animal-->
+                  <div class="titulo_item"><?= $adocao->Nome ?></div>
+                  <p class="descricao">
+                    <?= $adocao->Descricao ?>
+                  </p>
+                  <div class="usuario">
+                    <img src="../../assets/img/ImagensPerfil/<?= $cliente->imagem ?>" class="fotoUsuario" />
+                    <p class="nomeUsuario"><?= $cliente->nome ?></p>
+                  </div>
+                </div>
+
+                <div class="botoes">
+                  <!--Div que contem os botões ao lado da descrição-->
+                  <button class="botao-solido editar-button" type="button"
+                    onclick="location.href='../adocao/animal.php?CodAdocao=<?= $adocao->CodAdocao ?>'">
+                    <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
+                    Visualizar
+                  </button>
+
+                  <?php if ($adocao->Aprovado == 1) { ?>
+                    <button class="adotado">Aprovado</button>
+
+                  <?php } else if ($adocao->MotivoRecusar != '') { ?>
+                      <button class="recusado">Recusado</button>
+                  <?php } else if ($adocao->Aprovado == 0) { ?>
+                        <div class="aprovar">
+                          <button class="botao-solido recusar"
+                            onclick="motivoRecusar('<?= $adocao->Nome ?>','<?= $adocao->CodAdocao ?>')"
+                            type="button">Recusar</button>
+
+                          <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
+                            <input type="hidden" name="type" value="update_aprovado">
+                            <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
+                            <input type="hidden" name="aprovado" value="1">
+                            <input type="hidden" name="motivo" value="">
+                            <button class="botao-solido aprovar">Aprovar</button>
+                          </form>
+                        </div>
+                  <?php } ?>
                 </div>
               </div>
-
-              <div class="botoes">
-                <!--Div que contem os botões ao lado da descrição-->
-                <button class="botao-solido editar-button" type="button"
-                  onclick="location.href='../adocao/animal.php?CodAdocao=10'">
-                  <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
-                  Visualizar
-                </button>
-                <div class="aprovar">
-                  <button class="botao-solido recusar" onclick="motivoRecusar()" type="button">Recusar</button>
-                  <button class="botao-solido aprovar">Aprovar</button>
-                </div>
-              </div>
-            </div>
-            <!--Fim item-->
-
-            <!--Inicio Item-->
-            <div class="item">
-              <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-              <img
-                src="../../assets/img/ImagensAdocao/9/3c2d766f99a648aa1b81de4975053de9e5a31fdef0a0826dd421faa90543b9281beddf62f2e08d47331bc27183467742e7dfa5e7b15fecc7029e2362.jpg"
-                alt="Amarela" class="animal" />
-
-              <div class="descricao-pet">
-                <!--Div com a descrição do animal-->
-                <div class="titulo_item">Amarela</div>
-                <p class="descricao">Gato jovem e lerdo, ama comer pão com leite de café da manhã.</p>
-                <div class="usuario">
-                  <img src="../../assets/img/Perfil/foto_usuario.png" class="fotoUsuario" />
-                  <p class="nomeUsuario">Miguel Yudi Baba</p>
-                </div>
-              </div>
-
-              <div class="botoes">
-                <!--Div que contem os botões ao lado da descrição-->
-                <button class="botao-solido editar-button" type="button"
-                  onclick="location.href='../adocao/animal.php?CodAdocao=9'">
-                  <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
-                  Visualizar
-                </button>
-
-                <button class="adotado">Aprovado</button>
-              </div>
-            </div>
-            <!--Fim item-->
-
-            <!--Inicio Item-->
-            <div class="item">
-              <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-              <img
-                src="../../assets/img/ImagensAdocao/7/3befbdb4a98118863a015e994e8ea36d3ece958cf4993792095aa21ee0318a17e79c460a6f7b6c361d18dfe8efb8e271da0a9746afc9317489db32db.jpg"
-                alt="Bolinha" class="animal" />
-
-              <div class="descricao-pet">
-                <!--Div com a descrição do animal-->
-                <div class="titulo_item">Bolinha</div>
-                <p class="descricao">
-                  Cadela de pequeno porte, com 12 anos de idade, de pelagem dourada e de olhos castanhos. Sofr...
-                </p>
-                <div class="usuario">
-                  <img src="../../assets/img/Perfil/foto_usuario.png" class="fotoUsuario" />
-                  <p class="nomeUsuario">Miguel Yudi Baba</p>
-                </div>
-              </div>
-              <div class="botoes">
-                <!--Div que contem os botões ao lado da descrição-->
-                <button class="botao-solido editar-button" type="button"
-                  onclick="location.href='../adocao/animal.php?CodAdocao=7'">
-                  <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
-                  Visualizar
-                </button>
-
-                <button class="recusado">Recusado</button>
-              </div>
-            </div>
+              <!-- FIM ITEM -->
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -263,14 +256,16 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../assets/js/perfil.js"></script>
 <script>
-  function motivoRecusar() {
+  function motivoRecusar(Nome, Id) {
     Swal.fire({
       title: `<div class="titulo">Recusar Adoção</div>`,
       html: `
       <form class="form-sweetalert" action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
-      <input type="hidden" name="type" value="motivorecusar">
+      <input type="hidden" name="type" value="update_aprovado">
+       <input type="hidden" name="codAdocao" value="` + Id + `">
+      <input type="hidden" name="aprovado" value="0">
         <div class="form-input">
-          <label for="" >Motivo por ter recusado</label>
+          <label for="" >Motivo por ter recusado ` + Nome + `</label>
           <textarea name="motivo" id="" cols="40" rows="7" placeholder="Escreva sua mensagem..."></textarea>
         </div>
         <div class="linha">

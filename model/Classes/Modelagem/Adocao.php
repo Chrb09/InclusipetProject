@@ -36,10 +36,13 @@ interface AdocaoDAOInterface
     public function getEspecieByCod($CodEspecie);
     public function getImagemAdocaoByCod($CodAdocao);
     public function getDetalheAdocaoByCod($CodAdocao);
-    public function updateAprovado($CodAdocao);
+    public function updateAprovado($CodAdocao, $Aprovado, $MotivoRecusar);
     public function getNextId();
     public function updateAdotado($CodAdocao, $Adotado);
-    public function recusarAdocao($CodAdocao);
+    public function getAllNewAdocao();
+    public function getAllAdocaoByAprovado();
+    public function getAllAdocaoByRecusado();
+    public function getAllAdocaoFunc();
 
 }
 

@@ -251,9 +251,22 @@ class AdocaoDAO implements AdocaoDAOInterface
             return $detalheAdocao;
         }
     }
-    public function updateAprovado($CodAdocao)
+    public function updateAprovado($CodAdocao, $Aprovado, $MotivoRecusar)
     {
+        $stmt = $this->conn->prepare("UPDATE adocao SET Aprovado = :Aprovado, MotivoRecusar = :MotivoRecusar WHERE CodAdocao = :CodAdocao");
 
+        $stmt->bindParam(":Aprovado", $Aprovado);
+        $stmt->bindParam(":MotivoRecusar", $MotivoRecusar);
+        $stmt->bindParam(":CodAdocao", $CodAdocao);
+
+        $stmt->execute();
+
+        // Redireciona para o perfil do usuario
+        if ($Aprovado == '0') {
+            $this->message->setMessage("Pet recusado com sucesso!", "success", "toast", "../../../view/pages/Funcionario/aprovaradocao.php");
+        } else {
+            $this->message->setMessage("Pet aprovado!", "success", "toast", "../../../view/pages/Funcionario/aprovaradocao.php");
+        }
     }
     public function updateAdotado($CodAdocao, $Adotado)
     {
@@ -272,15 +285,81 @@ class AdocaoDAO implements AdocaoDAOInterface
         }
 
     }
-    public function recusarAdocao($CodAdocao)
-    {
-
-    }
 
     public function getNextId()
     {
         $nextId = $this->conn->query("SHOW TABLE STATUS LIKE 'adocao'")->fetch(PDO::FETCH_ASSOC)['Auto_increment'];
 
         return $nextId;
+    }
+
+    public function getAllNewAdocao()
+    {
+        $adocoes = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM adocao WHERE Aprovado = 0 AND LENGTH(MotivoRecusar) = 0");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $adocoesArray = $stmt->fetchAll();
+
+            foreach ($adocoesArray as $adocao) {
+                $adocoes[] = $this->buildAdocao($adocao);
+            }
+        }
+
+        return $adocoes;
+    }
+    public function getAllAdocaoByAprovado()
+    {
+        $adocoes = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM adocao WHERE Aprovado = 1");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $adocoesArray = $stmt->fetchAll();
+
+            foreach ($adocoesArray as $adocao) {
+                $adocoes[] = $this->buildAdocao($adocao);
+            }
+        }
+
+        return $adocoes;
+    }
+
+    public function getAllAdocaoByRecusado()
+    {
+        $adocoes = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM adocao WHERE Aprovado = 0 AND LENGTH(MotivoRecusar) > 0");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $adocoesArray = $stmt->fetchAll();
+
+            foreach ($adocoesArray as $adocao) {
+                $adocoes[] = $this->buildAdocao($adocao);
+            }
+        }
+
+        return $adocoes;
+    }
+    public function getAllAdocaoFunc()
+    {
+        $adocoes = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM adocao ORDER BY Aprovado ASC, MotivoRecusar ASC");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $adocoesArray = $stmt->fetchAll();
+
+            foreach ($adocoesArray as $adocao) {
+                $adocoes[] = $this->buildAdocao($adocao);
+            }
+        }
+
+        return $adocoes;
     }
 }

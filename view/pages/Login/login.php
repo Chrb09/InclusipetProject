@@ -132,7 +132,7 @@
             Ainda não possui uma conta?
             <a class="" id="signUp">Cadastre-se</a>
           </p>
-          <ins><a href="../Funcionario/login.php">Login Funcionario</a></ins> <!-- Leva para o LOGIN do funcionario -->
+          <ins><a href="../Funcionario/login.php">Login Funcionário</a></ins> <!-- Leva para o LOGIN do funcionario -->
         </div>
       </form>
     </div>
