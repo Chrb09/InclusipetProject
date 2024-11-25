@@ -262,10 +262,12 @@ class AdocaoDAO implements AdocaoDAOInterface
         $stmt->execute();
 
         // Redireciona para o perfil do usuario
-        if ($Aprovado == '0') {
+        if ($Aprovado == '0' && $MotivoRecusar != '') {
             $this->message->setMessage("Pet recusado com sucesso!", "success", "toast", "../../../view/pages/Funcionario/aprovaradocao.php");
-        } else {
+        } else if ($Aprovado == '1') {
             $this->message->setMessage("Pet aprovado!", "success", "toast", "../../../view/pages/Funcionario/aprovaradocao.php");
+        } else {
+            $this->message->setMessage("Pet pendente", "warning", "toast", "../../../view/pages/Funcionario/aprovaradocao.php");
         }
     }
     public function updateAdotado($CodAdocao, $Adotado)

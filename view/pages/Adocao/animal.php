@@ -29,8 +29,14 @@
         $Imagens = $adocaoDao->getImagemAdocaoByCod($CodAdocao);   // Array de Imagens
         $Detalhes = $adocaoDao->getDetalheAdocaoByCod($CodAdocao); // Array de Detalhes
     
-        if ($Animal->Aprovado == '0' || $Animal->Adotado == '1' || $Animal->CodAdocao == '') {
-            header("Location: adocao.php");
+        if (isset($_GET['Func'])) {
+            if ($Animal->CodAdocao == '') {
+                header("Location: ../Funcionario/aprovaradocao.php");
+            }
+        } else {
+            if ($Animal->Aprovado == '0' || $Animal->Adotado == '1' || $Animal->CodAdocao == '') {
+                header("Location: adocao.php");
+            }
         }
     } else {
         header("Location: adocao.php");
@@ -132,6 +138,11 @@
                 <?= $Animal->Telefone ?> <br />
                 <?= $Animal->Endereco ?>
             </div>
+            <?php if (isset($_GET['Func'])) { ?>
+                <br>
+                <button class="botao-borda" type="button"
+                    onclick="location.href='../Funcionario/aprovaradocao.php'">Voltar</button>
+            <?php } ?>
         </div>
     </div>
     <!-- FOOTER -->

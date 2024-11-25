@@ -45,6 +45,7 @@
   height: 35px;
   width: 35px;
   border-radius: 30rem;
+  object-fit: cover;
 }
 .botoes {
   display: flex;

@@ -71,17 +71,17 @@
       font-size: inherit;
     }
 
-    .swal2-popup .titulo {
+    .container-formulario .titulo {
       margin-bottom: 0;
     }
 
-    .swal2-container .swal2-title {
+    .container-formulario .swal2-title {
       text-align: left;
       padding: 0;
       margin-bottom: 1em;
     }
 
-    .swal2-container .swal2-html-container {
+    .container-formulario .swal2-html-container {
       text-align: left;
       display: flex !important;
       flex-direction: column;
@@ -89,13 +89,13 @@
       padding: 0;
     }
 
-    .swal2-container .linha {
+    .container-formulario .linha {
       width: 100%;
       align-items: center;
       justify-content: center;
     }
 
-    .swal2-container .linha button {
+    .container-formulario .linha button {
       width: 80%;
     }
 
@@ -392,6 +392,9 @@
         </div>
 </form>
         `,
+      customClass: {
+        popup: 'container-formulario',
+      },
       showConfirmButton: false,
       focusConfirm: false,
       backdrop: "rgb(87, 77, 189, 0.5",

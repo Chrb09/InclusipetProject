@@ -54,13 +54,13 @@
       margin-bottom: 0;
     }
 
-    .swal2-container .swal2-title {
+    .container-formulario .swal2-title {
       text-align: left;
       padding: 0;
       margin-bottom: 1em;
     }
 
-    .swal2-container .swal2-html-container {
+    .container-formulario .swal2-html-container {
       text-align: left;
       display: flex !important;
       flex-direction: column;
@@ -68,13 +68,13 @@
       padding: 0;
     }
 
-    .swal2-container .linha {
+    .container-formulario .linha {
       width: 100%;
       align-items: center;
       justify-content: center;
     }
 
-    .swal2-container .linha button {
+    .container-formulario .linha button {
       width: 80%;
     }
 
@@ -216,16 +216,27 @@
                 <div class="botoes">
                   <!--Div que contem os botões ao lado da descrição-->
                   <button class="botao-solido editar-button" type="button"
-                    onclick="location.href='../adocao/animal.php?CodAdocao=<?= $adocao->CodAdocao ?>'">
+                    onclick="location.href='../Adocao/animal.php?CodAdocao=<?= $adocao->CodAdocao ?>&Func=1'">
                     <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
                     Visualizar
                   </button>
 
                   <?php if ($adocao->Aprovado == 1) { ?>
-                    <button class="adotado">Aprovado</button>
-
+                    <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
+                      <input type="hidden" name="type" value="update_aprovado">
+                      <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
+                      <input type="hidden" name="aprovado" value="0">
+                      <input type="hidden" name="motivo" value="">
+                      <button class="botao-solido aprovar" type="submit">Aprovado</button>
+                    </form>
                   <?php } else if ($adocao->MotivoRecusar != '') { ?>
-                      <button class="recusado">Recusado</button>
+                      <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
+                        <input type="hidden" name="type" value="update_aprovado">
+                        <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
+                        <input type="hidden" name="aprovado" value="0">
+                        <input type="hidden" name="motivo" value="">
+                        <button class="botao-solido recusar" type="submit">Recusado</button>
+                      </form>
                   <?php } else if ($adocao->Aprovado == 0) { ?>
                         <div class="aprovar">
                           <button class="botao-solido recusar"
@@ -237,7 +248,7 @@
                             <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
                             <input type="hidden" name="aprovado" value="1">
                             <input type="hidden" name="motivo" value="">
-                            <button class="botao-solido aprovar">Aprovar</button>
+                            <button class="botao-solido aprovar" type="submit">Aprovar</button>
                           </form>
                         </div>
                   <?php } ?>
@@ -273,8 +284,10 @@
           <button class="botao-solido" onclick="" type="submit">Enviar</button>
         </div>
 </form>
-
         `,
+      customClass: {
+        popup: 'container-formulario',
+      },
       confirmButtonText: "Ok!",
       showConfirmButton: false,
       focusConfirm: false,
