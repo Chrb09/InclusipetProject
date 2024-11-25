@@ -30,8 +30,12 @@
         $Detalhes = $adocaoDao->getDetalheAdocaoByCod($CodAdocao); // Array de Detalhes
     
         if (isset($_GET['Func'])) {
-            if ($Animal->CodAdocao == '') {
-                header("Location: ../Funcionario/aprovaradocao.php");
+            if ($funcionarioData) {
+                if ($Animal->CodAdocao == '') {
+                    header("Location: ../Funcionario/aprovaradocao.php");
+                }
+            } else {
+                header("Location: adocao.php");
             }
         } else {
             if ($Animal->Aprovado == '0' || $Animal->Adotado == '1' || $Animal->CodAdocao == '') {
