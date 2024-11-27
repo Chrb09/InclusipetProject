@@ -6,7 +6,6 @@ class Agendamento
   public $CodFuncionario;
   public $CodAnimal;
   public $CodCliente;
-  public $CodUnidade;
   public $Data;
   public $Hora;
   public $Info;
@@ -31,6 +30,7 @@ interface AgendamentoDAOInterface
   public function getAgendamentoByCodCliente($CodCliente);
   public function getAgendamentoByCodAgendamento($CodAgendamento);
   public function getAllAgendamento();
+  public function getAgendamentosByDate($data);
   public function getAgendamentoByInfoDateType($CodPet, $data, $tipo);
   public function getAgendamentoByInfoDate($CodPet, $data);
   public function getAllAgendamentoByNoInfo($CodFuncionario);

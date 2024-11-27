@@ -113,50 +113,19 @@
               </button>
             </div>
 
-            <!-- unidade -->
-            <div class="form-input">
-              <label for="">Unidade</label><br />
-              <div class="custom-select">
-                <select id="" name="unidade" required>
-
-                  <?php foreach ($unidades as $unidade): ?>
-                    <!-- Define uma opção no select com o valor da unidade -->
-                    <option value="<?= $unidade[0] ?>">
-                      <?= $agendamentoDao->getUnidadeByCod($unidade[0])[1] ?>
-                    </option>
-                  <?php endforeach; ?>
-
-                </select>
-              </div>
-            </div>
-
-            <!-- especialidade -->
-            <div class="form-input">
-              <label for="">Especialidade</label><br />
-              <div class="custom-select">
-                <select id="" name="especialidade" required>
-
-                  <?php foreach ($especialidades as $especialidade): ?>
-                    <!-- Define uma opção no select com o valor da  -->
-                    <option value="<?= $especialidade[0] ?>">
-                      <?= $agendamentoDao->getEspecialidadeByCod($especialidade[0]) ?>
-                    </option>
-                  <?php endforeach; ?>
-
-                </select>
-              </div>
-            </div>
-
             <!-- profissionais -->
             <div class="form-input">
               <label for="">Profissional</label><br />
               <div class="custom-select">
-                <select id="" name="profissional" required>
+                <select id="funcionario" name="profissional" required>
 
-                  <?php foreach ($funcionarios as $funcionario): ?>
+                  <?php foreach ($funcionarios as $funcionario):
+                    $unidade = $agendamentoDao->getUnidadeByCod($funcionario->codunidade);
+                    $nome = explode('-', $unidade[1]);
+                    ?>
                     <!-- Define uma opção no select com o valor da  -->
                     <option value="<?= $funcionario->codfuncionario ?>">
-                      <?= $funcionario->nome ?>
+                      <?= $funcionario->nome ?> - <?= $nome[1] ?>
                     </option>
                   <?php endforeach; ?>
 
@@ -190,7 +159,11 @@
             <!-- hora -->
             <div class="form-input">
               <label for="">Horário desejado para consulta</label><br />
-              <input type="time" name="horario" value="" step="1800" required />
+              <div class="custom-select" id="raca-select-custom">
+                <select id="horario-select" name="horario" required">
+                  <option value="" disabled selected hidden>Escolha uma data antes...</option>
+                </select>
+              </div>
             </div>
 
             <!-- buttons -->
@@ -209,6 +182,9 @@
 </body>
 <script>
   const DataInput = document.getElementById("dataConsulta");
+  const horarioSelect = document.getElementById('horario-select');
+  const funcionario = document.getElementById('funcionario');
+
 
   let date = new Date();
 
@@ -219,6 +195,40 @@
   let dataFormatada = year + "-" + month + "-" + day;
 
   DataInput.setAttribute("min", dataFormatada);
+
+  document.getElementById('dataConsulta').addEventListener('change', function () {
+    const dataConsultaValue = this.value; // ID da espécie selecionada
+    const funcionarioData = funcionario.value;
+
+    // Limpa o select de raças
+    horarioSelect.innerHTML = '<option value="" disabled selected hidden>Selecione um horario</option>';
+
+    if (dataConsultaValue) {
+      // Faz a requisição para buscar as raças
+      fetch(`../../../controller/DAO/AgendamentoDAO/get_time.php?data=${dataConsultaValue}&funcionario=${funcionarioData}`)
+        .then(response => response.json())
+        .then(data => {
+          if (!data || data.length === 0) {
+            horarioSelect.innerHTML = '<option value="" disabled selected hidden>Nenhum horario disponivel...</option>';
+          } else {
+            data.forEach(hora => {
+              console.log("Resposta do servidor:", hora);
+              const option = document.createElement('option');
+              option.value = hora;
+              option.textContent = hora;
+              horarioSelect.appendChild(option);
+            });
+          }
+
+        })
+        .catch(error => console.error('Erro ao carregar horas:', error));
+    }
+  });
+
+  document.getElementById('funcionario').addEventListener('change', function () {
+    horarioSelect.innerHTML = '<option value="" disabled selected hidden>Escolha uma data antes...</option>';
+    DataInput.value = '';
+  });
 </script>
 
 </html>

@@ -313,7 +313,7 @@
     const racaSelect = document.getElementById('raca-select');
 
     // Limpa o select de raças
-    racaSelect.innerHTML = '<option value="">Selecione uma raça</option>';
+    racaSelect.innerHTML = '<option value="" disabled selected hidden>Escolha uma raça...</option>;'
 
     if (especieId) {
       // Faz a requisição para buscar as raças

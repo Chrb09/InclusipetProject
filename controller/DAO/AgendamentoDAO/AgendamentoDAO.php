@@ -24,7 +24,6 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         $agendamento->CodFuncionario = $data["CodFuncionario"];
         $agendamento->CodAnimal = $data["CodAnimal"];
         $agendamento->CodCliente = $data["CodCliente"];
-        $agendamento->CodUnidade = $data["CodUnidade"];
         $agendamento->Data = $data["Data"];
         $agendamento->Hora = $data["Hora"];
         $agendamento->Info = $data["Info"];
@@ -38,14 +37,13 @@ class AgendamentoDAO implements AgendamentoDAOInterface
 
     public function create(Agendamento $agendamento, $user)
     {
-        $stmt = $this->conn->prepare("INSERT INTO agendamento(CodFuncionario, CodAnimal, CodCliente, CodUnidade, Data, Hora, CodServico, Cancelado) 
-      VALUES (:CodFuncionario, :CodAnimal, :CodCliente, :CodUnidade, :Data, :Hora, :CodServico, :Cancelado)");
+        $stmt = $this->conn->prepare("INSERT INTO agendamento(CodFuncionario, CodAnimal, CodCliente,Data, Hora, CodServico, Cancelado) 
+      VALUES (:CodFuncionario, :CodAnimal, :CodCliente,:Data, :Hora, :CodServico, :Cancelado)");
 
         // Liga os parâmetros da query com os atributos do objeto Cliente
         $stmt->bindParam(":CodFuncionario", $agendamento->CodFuncionario);
         $stmt->bindParam(":CodAnimal", $agendamento->CodAnimal);
         $stmt->bindParam(":CodCliente", $agendamento->CodCliente);
-        $stmt->bindParam(":CodUnidade", $agendamento->CodUnidade);
         $stmt->bindParam(":Data", $agendamento->Data);
         $stmt->bindParam(":Hora", $agendamento->Hora);
         $stmt->bindParam(":CodServico", $agendamento->CodServico);
@@ -132,10 +130,24 @@ class AgendamentoDAO implements AgendamentoDAOInterface
         }
 
     }
+    public function getAgendamentosByDate($data)
+    {
+        $agendamentos = [];
 
+        $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Data = :Data");
+        $stmt->bindParam(":Data", $data);
+        $stmt->execute();
 
+        if ($stmt->rowCount() > 0) {
+            $agendamentosArray = $stmt->fetchAll();
 
+            foreach ($agendamentosArray as $agendamento) {
+                $agendamentos[] = $this->buildAgendamento($agendamento);
+            }
+        }
 
+        return $agendamentos;
+    }
     public function getAgendamentoByInfoDate($CodPet, $data)
     {
         $agendamentos = [];
@@ -278,7 +290,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
     public function getAllAgendamentoByNoInfo($CodFuncionario)
     {
         $agendamentos = [];
-        $dataAtual = new DateTime("Today");
+        $dataAtual = new DateTime("Today", new DateTimeZone("America/Sao_Paulo"));
         $dataFormatada = $dataAtual->format('Y-m-d');
 
         $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Info IS NULL AND Cancelado = 0 AND Data < :Data AND CodFuncionario = :CodFuncionario ORDER BY Data ASC, Hora ASC");
@@ -318,7 +330,7 @@ class AgendamentoDAO implements AgendamentoDAOInterface
     public function getAllNextAgendamento($CodFuncionario)
     {
         $agendamentos = [];
-        $dataAtual = new DateTime("Today");
+        $dataAtual = new DateTime("Today", new DateTimeZone("America/Sao_Paulo"));
         $dataFormatada = $dataAtual->format('Y-m-d');
 
         $stmt = $this->conn->prepare("SELECT * FROM agendamento WHERE Data >= :Data AND Cancelado = 0 AND CodFuncionario = :CodFuncionario  ORDER BY Data ASC, Hora ASC");

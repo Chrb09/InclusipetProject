@@ -22,26 +22,22 @@ $type = filter_input(INPUT_POST, "type");
 
 if ($type === 'create_appointment') {
 
-    $unidade = filter_input(INPUT_POST, "unidade");
     $servico = filter_input(INPUT_POST, "servico");
-    $especialidade = filter_input(INPUT_POST, "especialidade");
     $funcionario = filter_input(INPUT_POST, "funcionario");
     $data = filter_input(INPUT_POST, "data");
     $horario = filter_input(INPUT_POST, "horario");
     $pet = filter_input(INPUT_POST, "pet");
 
     // Verificação de dados mínimos 
-    if (!$unidade || !$servico || !$especialidade || !$funcionario || !$data || !$horario || !$pet) {
+    if (!$servico || !$funcionario || !$data || !$horario || !$pet) {
 
         // Enviar uma msg de erro, de dados faltantes
         $message->setMessage("Preencha todos os campos.", "error", "popup", "../../../view/pages/Perfil/agendamento.php");
     } else {
         $agendamento = new Agendamento();
 
-        $agendamento->CodUnidade = $unidade;
         $agendamento->CodServico = $servico;
         $agendamento->CodCliente = $clienteData->codcliente;
-        // $agendamento->especialidade = $especialidade;
         $agendamento->CodFuncionario = $funcionario;
         $agendamento->Data = $data;
         $agendamento->Hora = $horario;

@@ -177,7 +177,7 @@
         $funcionario = $funcionarioDao->findById($agendamento->CodFuncionario);
         $pet = $petDao->findByCod($agendamento->CodAnimal);
         $dataAgendamento = new DateTime($agendamento->Data);
-        $dataAtual = new DateTime("Today");
+        $dataAtual = new DateTime("Today", new DateTimeZone("America/Sao_Paulo"));
 
       } else {
         header("Location: agendamentos.php");

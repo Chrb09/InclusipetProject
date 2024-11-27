@@ -1,9 +1,7 @@
 <?php
 
 if (isset($_POST)) {
-  $unidade = filter_input(INPUT_POST, "unidade");
   $servico = filter_input(INPUT_POST, "servico");
-  $especialidade = filter_input(INPUT_POST, "especialidade");
   $profissional = filter_input(INPUT_POST, "profissional");
   $data = filter_input(INPUT_POST, "data");
   $horario = filter_input(INPUT_POST, "horario");
@@ -101,17 +99,7 @@ if (isset($_POST)) {
                     <tr>
                       <th>Unidade:</th>
                       <input type="hidden" name="unidade" value="<?= $unidade ?>">
-                      <td><?= $agendamentoDao->getUnidadeByCod($unidade)[1] ?></td>
-                    </tr>
-                    <tr>
-                      <th>Serviço:</th>
-                      <input type="hidden" name="servico" value="<?= $servico ?>">
-                      <td><?= $agendamentoDao->getServicoByCod($servico) ?></td>
-                    </tr>
-                    <tr>
-                      <th>Especialidade:</th>
-                      <input type="hidden" name="especialidade" value="<?= $especialidade ?>">
-                      <td><?= $agendamentoDao->getEspecialidadeByCod($especialidade) ?></td>
+                      <td><?= $agendamentoDao->getUnidadeByCod($funcionario->codunidade)[1] ?></td>
                     </tr>
                     <tr>
                       <th>Profissional:</th>
@@ -119,9 +107,19 @@ if (isset($_POST)) {
                       <td><?= $funcionario->nome ?></td>
                     </tr>
                     <tr>
+                      <th>Serviço:</th>
+                      <input type="hidden" name="servico" value="<?= $servico ?>">
+                      <td><?= $agendamentoDao->getServicoByCod($servico) ?></td>
+                    </tr>
+                    <tr>
                       <th>Data consulta:</th>
                       <input type="hidden" name="data" value="<?= $data ?>">
-                      <td><?= $data ?></td>
+                      <td><?php
+                      $date = explode("-", $data);
+                      $dataFormatada = "$date[2]/$date[1]/$date[0]";
+
+                      echo $dataFormatada;
+                      ?></td>
                     </tr>
                     <tr>
                       <th>Hora Consulta:</th>

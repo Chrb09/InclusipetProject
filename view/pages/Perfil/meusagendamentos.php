@@ -85,7 +85,7 @@
               $funcionario = $funcionarioDao->findById($agendamento->CodFuncionario);
               $pet = $petDao->findByCod($agendamento->CodAnimal);
               $dataAgendamento = new DateTime($agendamento->Data);
-              $dataAtual = new DateTime("Today");
+              $dataAtual = new DateTime("Today", new DateTimeZone("America/Sao_Paulo"));
               ?>
 
               <div class="card-agendamento">
@@ -132,15 +132,11 @@
 
                   <tr>
                     <th>Unidade:</th>
-                    <td><?= $agendamentoDao->getUnidadeByCod($agendamento->CodUnidade)[1] ?></td>
+                    <td><?= $agendamentoDao->getUnidadeByCod($funcionario->codunidade)[1] ?></td>
                   </tr>
                   <tr>
                     <th>Serviço:</th>
                     <td><?= $agendamentoDao->getServicoByCod($agendamento->CodServico) ?></td>
-                  </tr>
-                  <tr>
-                    <th>Especialidade:</th>
-                    <td><?= $agendamentoDao->getEspecialidadeByCod($funcionario->codcargo) ?></td>
                   </tr>
                   <tr>
                     <th>Data da Consulta:</th>
@@ -157,7 +153,7 @@
                   </tr>
                 </table>
                 <?php
-                if ($dataAgendamento > $dataAtual) {
+                if ($dataAgendamento >= $dataAtual) {
                   ?>
                   <div class="button-wrapper-form <?= ($agendamento->Cancelado == 1) ? 'desativado' : '' ?>">
                     <button class="botao botao-solido" id="resetarfoto" type="button"

@@ -73,7 +73,6 @@ CREATE TABLE `agendamento` (
   `CodFuncionario` int(11) NOT NULL,
   `CodAnimal` int(11) NOT NULL,
   `CodCliente` int(11) NOT NULL,
-  `CodUnidade` int(11) NOT NULL,
   `Data` date NOT NULL,
   `Hora` time NOT NULL,
   `Info` varchar(200) DEFAULT NULL,
@@ -86,8 +85,8 @@ CREATE TABLE `agendamento` (
 -- Despejando dados para a tabela `agendamento`
 --
 
-INSERT INTO `agendamento` (`CodAgendamento`, `CodFuncionario`, `CodAnimal`, `CodCliente`, `CodUnidade`, `Data`, `Hora`, `Info`, `Resultado`, `CodServico`, `Cancelado`) VALUES
-(1, 1, 1, 3, 3, '2024-10-21', '16:00:00', 'Exame Mensal Legal do cachorro fez tanana uou varias linha shikanoko nokonoko koshi tan tan', NULL, 5, 0);
+INSERT INTO `agendamento` (`CodAgendamento`, `CodFuncionario`, `CodAnimal`, `CodCliente`,`Data`, `Hora`, `Info`, `Resultado`, `CodServico`, `Cancelado`) VALUES
+(1, 1, 1, 3,'2024-10-21', '16:00:00', 'Exame Mensal Legal do cachorro fez tanana uou varias linha shikanoko nokonoko koshi tan tan', NULL, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -376,7 +375,7 @@ INSERT INTO `raca` (`CodRaca`, `CodEspecie`, `Descricao`) VALUES
 
 CREATE TABLE `servico` (
   `CodServico` int(11) NOT NULL,
-  `Descricao` varchar(20) NOT NULL
+  `Descricao` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -384,11 +383,9 @@ CREATE TABLE `servico` (
 --
 
 INSERT INTO `servico` (`CodServico`, `Descricao`) VALUES
-(1, 'Fisioterapia'),
-(2, 'Ortopedia'),
-(3, 'Neurologia'),
-(4, 'Terapia Comportament'),
-(5, 'Aconselhamento');
+(1, 'Atendimento Veterinário'),
+(2, 'Cirurgias & Procedimentos'),
+(3, 'Vacinação');
 
 -- --------------------------------------------------------
 
@@ -436,7 +433,6 @@ ALTER TABLE `agendamento`
   ADD KEY `CodAnimalAgendamento` (`CodAnimal`),
   ADD KEY `CodClienteAgendamento` (`CodCliente`),
   ADD KEY `CodFuncionarioAgendamento` (`CodFuncionario`),
-  ADD KEY `CodUnidadeAgendamento` (`CodUnidade`),
   ADD KEY `CodServicoAgendamento` (`CodServico`);
 
 --
@@ -589,8 +585,7 @@ ALTER TABLE `agendamento`
   ADD CONSTRAINT `CodAnimalAgendamento` FOREIGN KEY (`CodAnimal`) REFERENCES `animal` (`CodAnimal`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `CodClienteAgendamento` FOREIGN KEY (`CodCliente`) REFERENCES `cliente` (`CodCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `CodFuncionarioAgendamento` FOREIGN KEY (`CodFuncionario`) REFERENCES `funcionario` (`CodFuncionario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `CodServicoAgendamento` FOREIGN KEY (`CodServico`) REFERENCES `servico` (`CodServico`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `CodUnidadeAgendamento` FOREIGN KEY (`CodUnidade`) REFERENCES `unidade` (`CodUnidade`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `CodServicoAgendamento` FOREIGN KEY (`CodServico`) REFERENCES `servico` (`CodServico`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Restrições para tabelas `animal`
