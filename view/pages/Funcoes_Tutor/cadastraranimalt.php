@@ -37,6 +37,8 @@
     <div class="main">
       <?php include('../../components/headers/headerperfilfuncionario.php');
       $clienteDao = new ClienteDAO($conn, $BASE_URL);
+      $petDao = new PetDAO($conn, $BASE_URL);
+      $especies = $petDao->getAllEspecies();
 
       if (isset($_GET['codCliente'])) {
         $CodTutor = $_GET['codCliente'];
@@ -81,10 +83,10 @@
               <label for="">Espécie</label><br />
               <div class="custom-select">
                 <select name="especie" id="especie-select" required>
-                  <option value="1">Canino</option>
-                  <option value="2">Gato</option>
-                  <option value="3">Pássaro</option>
-                  <option value="4">Outro</option>
+                  <option value="" disabled selected hidden>Escolha uma espécie...</option>
+                  <?php foreach ($especies as $especie): ?>
+                    <option value="<?= $especie[0] ?>"><?= $especie[1] ?></option>
+                  <?php endforeach; ?>
                 </select>
               </div>
             </div>
@@ -92,12 +94,7 @@
               <label for="">Raça</label><br />
               <div class="custom-select" id="raca-select-custom">
                 <select name="raca" id="raca-select" required>
-                  <option value="1">Vira-Lata</option>
-                  <option value="2">Border Collie</option>
-                  <option value="3">Lhasa Apso</option>
-                  <option value="4">Pastor Alemão</option>
-                  <option value="7">Chihuahua</option>
-                  <option value="10">Outro</option>
+                  <option value="" disabled selected hidden>Escolha uma espécie antes...</option>
                 </select>
               </div>
             </div>
@@ -176,6 +173,28 @@
   let racaselect = document.querySelector('#raca-select');
   let racaselectcustom = document.querySelector('#raca-select-custom');
 
+  document.getElementById('especie-select').addEventListener('change', function () {
+    const especieId = this.value; // ID da espécie selecionada
+    const racaSelect = document.getElementById('raca-select');
+
+    // Limpa o select de raças
+    racaSelect.innerHTML = '<option value="" disabled selected hidden>Escolha uma raça...</option>;'
+
+    if (especieId) {
+      // Faz a requisição para buscar as raças
+      fetch(`../../../controller/DAO/PetDAO/get_racas.php?especie_id=${especieId}`)
+        .then(response => response.json())
+        .then(data => {
+          data.forEach(raca => {
+            const option = document.createElement('option');
+            option.value = raca.CodRaca; // ID da raça
+            option.textContent = raca.Descricao; // Nome da raça
+            racaSelect.appendChild(option);
+          });
+        })
+        .catch(error => console.error('Erro ao carregar raças:', error));
+    }
+  });
 
   $('#dataaprox').mask("0000");
 
@@ -185,54 +204,6 @@
     imgPicture.src = "../../assets/img/ImagensPet/pet.png"
     resetimage.value = "true"
     document.querySelector('#nome-foto-pet').innerHTML = "";
-  }
-
-  especieselect.addEventListener("change", () => {
-    mudarSelect()
-  });
-
-  function mudarSelect() {
-    let valor = especieselect.value
-    if (valor == "1") {
-      $('#raca-select-custom').replaceWith(
-        '<div class="custom-select" id="raca-select-custom">' +
-        '<select name="raca" required id="raca-select">' +
-        '<option value="1">Vira-Lata</option>' +
-        '<option value="2">Border Collie</option>' +
-        '<option value="3">Lhasa Apso</option>' +
-        '<option value="4">Pastor Alemão</option>' +
-        '<option value="7">Chihuahua</option>' +
-        '<option value="10">Outro</option>' +
-        '</select>' +
-        '</div>'
-      )
-    } else if (valor == "2") {
-      $('#raca-select-custom').replaceWith(
-        '<div class="custom-select" id="raca-select-custom">' +
-        '<select name="raca" required id="raca-select">' +
-        '<option value="6">Vira-Lata</option>' +
-        '<option value="9">Outro</option>' +
-        '</select>' +
-        '</div>'
-      )
-    } else if (valor == "3") {
-      $('#raca-select-custom').replaceWith(
-        '<div class="custom-select" id="raca-select-custom">' +
-        '<select name="raca" required id="raca-select">' +
-        '<option value="5">Calopsita</option>' +
-        '<option value="8">Outro</option>' +
-        '</select>' +
-        '</div>'
-      )
-    } else if (valor == "4") {
-      $('#raca-select-custom').replaceWith(
-        '<div class="custom-select" id="raca-select-custom">' +
-        '<select name="raca" required id="raca-select">' +
-        '<option value="11">Outro</option>' +
-        '</select>' +
-        '</div>'
-      )
-    }
   }
 
   checkdata.addEventListener("change", function () {

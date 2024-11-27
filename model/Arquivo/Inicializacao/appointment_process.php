@@ -42,7 +42,7 @@ if ($type === 'create_appointment') {
         $agendamento->Data = $data;
         $agendamento->Hora = $horario;
         $agendamento->CodAnimal = $pet;
-        $agendamento->Cancelado = false;
+        $agendamento->Cancelado = 0;
 
         $agendamentoDao->create($agendamento, 0);
     }

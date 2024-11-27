@@ -87,31 +87,27 @@ if ($type === "create_pet") {
     }
 } else if ($type === 'create_appointment') {
 
-    $unidade = filter_input(INPUT_POST, "unidade");
     $servico = filter_input(INPUT_POST, "servico");
-    $especialidade = filter_input(INPUT_POST, "especialidade");
     $funcionario = filter_input(INPUT_POST, "funcionario");
     $data = filter_input(INPUT_POST, "data");
     $horario = filter_input(INPUT_POST, "horario");
     $pet = filter_input(INPUT_POST, "pet");
 
     // Verificação de dados mínimos 
-    if (!$unidade || !$servico || !$especialidade || !$funcionario || !$data || !$horario || !$pet) {
+    if (!$servico || !$funcionario || !$data || !$horario || !$pet) {
 
         // Enviar uma msg de erro, de dados faltantes
         $message->setMessage("Preencha todos os campos.", "error", "popup", "back");
     } else {
         $agendamento = new Agendamento();
 
-        $agendamento->CodUnidade = $unidade;
         $agendamento->CodServico = $servico;
         $agendamento->CodCliente = $clienteData->codcliente;
-        // $agendamento->especialidade = $especialidade;
         $agendamento->CodFuncionario = $funcionario;
         $agendamento->Data = $data;
         $agendamento->Hora = $horario;
         $agendamento->CodAnimal = $pet;
-        $agendamento->Cancelado = false;
+        $agendamento->Cancelado = 0;
 
         $agendamentoDao->create($agendamento, 1);
     }
@@ -128,7 +124,7 @@ if ($type === "create_pet") {
     $endereco = filter_input(INPUT_POST, "endereco");
 
     // Verificação de dados mínimos TODO
-    if (!$nome || !$especie || !$porte || !$castrado || !$sexo || !$descricao || !$telefone || !$endereco) {
+    if (!$nome || !$especie || !$idade || !$porte || !$castrado || !$sexo || !$descricao || !$telefone || !$endereco) {
         // Enviar uma msg de erro, de dados faltantes
         $message->setMessage("Preencha todos os campos.", "error", "popup", "back");
     } else {
