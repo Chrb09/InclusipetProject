@@ -242,23 +242,18 @@
               </tr>
 
               <tr>
-                <th>Unidade:</th>
-                <td><?= $agendamentoDao->getUnidadeByCod($agendamento->CodUnidade)[1] ?></td>
-              </tr>
-
-              <tr>
                 <th>Serviço:</th>
                 <td><?= $agendamentoDao->getServicoByCod($agendamento->CodServico) ?></td>
               </tr>
 
               <tr>
-                <th>Especialidade:</th>
-                <td><?= $agendamentoDao->getEspecialidadeByCod($funcionario->codcargo) ?></td>
+                <th>Profissional:</th>
+                <td><?= $funcionario->nome ?></td>
               </tr>
 
               <tr>
-                <th>Profissional:</th>
-                <td><?= $funcionario->nome ?></td>
+                <th>Unidade:</th>
+                <td><?= $agendamentoDao->getUnidadeByCod($funcionario->codunidade)[1] ?></td>
               </tr>
 
               <tr>

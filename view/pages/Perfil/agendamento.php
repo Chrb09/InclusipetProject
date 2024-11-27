@@ -185,16 +185,25 @@
   const horarioSelect = document.getElementById('horario-select');
   const funcionario = document.getElementById('funcionario');
 
-
   let date = new Date();
+
+  let year = date.getFullYear();
+  let month = (date.getMonth() + 1).toString().padStart(2, "0");
+  let day = date.getDate().toString().padStart(2, "0");
+
+  let dataFormatadaMin = year + "-" + month + "-" + day;
+
+  date = new Date();
+  date.setMonth(date.getMonth() + 1);
 
   year = date.getFullYear();
   month = (date.getMonth() + 1).toString().padStart(2, "0");
   day = date.getDate().toString().padStart(2, "0");
 
-  let dataFormatada = year + "-" + month + "-" + day;
+  let dataFormatadaMax = year + "-" + month + "-" + day;
 
-  DataInput.setAttribute("min", dataFormatada);
+  DataInput.setAttribute("min", dataFormatadaMin);
+  DataInput.setAttribute("max", dataFormatadaMax);
 
   document.getElementById('dataConsulta').addEventListener('change', function () {
     const dataConsultaValue = this.value; // ID da espécie selecionada

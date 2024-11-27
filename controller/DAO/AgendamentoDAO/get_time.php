@@ -35,6 +35,8 @@ if (isset($_GET['data'])) {
                 } else {
                     $tempo->modify("+30 minutes");
                 }
+            } else {
+                $tempo->modify("+30 minutes");
             }
         } else {
             if (strtotime($tempo->format('H:i:s')) > strtotime($horaInicial) && strtotime($tempo->format('H:i')) < strtotime($horaFinal)) {
