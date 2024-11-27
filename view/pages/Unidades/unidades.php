@@ -68,7 +68,7 @@
     console.log(cartao.getAttribute("inicial"));
     console.log(hora);
     console.log(cartao.getAttribute("final"));
-    if (hora <= cartao.getAttribute("inicial") || hora >= cartao.getAttribute("final")) {
+    if (hora < cartao.getAttribute("inicial") || hora >= cartao.getAttribute("final")) {
       cartao.classList.toggle("fechado");
     }
   }
