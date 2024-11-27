@@ -130,23 +130,6 @@
               </div>
             </div>
 
-            <!-- serviço -->
-            <div class="form-input">
-              <label for="">Serviço</label><br />
-              <div class="custom-select">
-                <select id="" name="servico" required">
-
-                  <?php foreach ($servicos as $servico): ?>
-                    <!-- Define uma opção no select com o valor da  -->
-                    <option value="<?= $servico[0] ?>">
-                      <?= $agendamentoDao->getServicoByCod($servico[0]) ?>
-                    </option>
-                  <?php endforeach; ?>
-
-                </select>
-              </div>
-            </div>
-
             <!-- especialidade -->
             <div class="form-input">
               <label for="">Especialidade</label><br />
@@ -174,6 +157,23 @@
                     <!-- Define uma opção no select com o valor da  -->
                     <option value="<?= $funcionario->codfuncionario ?>">
                       <?= $funcionario->nome ?>
+                    </option>
+                  <?php endforeach; ?>
+
+                </select>
+              </div>
+            </div>
+
+            <!-- serviço -->
+            <div class="form-input">
+              <label for="">Serviço</label><br />
+              <div class="custom-select">
+                <select id="" name="servico" required">
+
+                  <?php foreach ($servicos as $servico): ?>
+                    <!-- Define uma opção no select com o valor da  -->
+                    <option value="<?= $servico[0] ?>">
+                      <?= $agendamentoDao->getServicoByCod($servico[0]) ?>
                     </option>
                   <?php endforeach; ?>
 

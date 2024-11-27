@@ -162,5 +162,26 @@ class PetDAO implements PetDAOInterface
         }
     }
 
+    public function getAllEspecies()
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM especie");
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $petsArray = $stmt->fetchAll();
+
+            return $petsArray;
+        }
+    }
+
+    public function getRacasByEspecie($CodEspecie)
+    {
+        $stmt = $this->conn->prepare("SELECT CodRaca, Descricao FROM raca WHERE CodEspecie = :CodEspecie");
+        $stmt->bindParam(':CodEspecie', $CodEspecie);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
 
 }

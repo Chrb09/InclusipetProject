@@ -36,9 +36,10 @@
     <div class="main">
       <?php include('../../components/headers/headerperfil.php');
 
+      $petDao = new PetDAO($conn, $BASE_URL);
+      $especies = $petDao->getAllEspecies();
 
       if (isset($_GET['edit'])) {
-        $petDao = new PetDAO($conn, $BASE_URL);
         $CodAnimal = $_GET['edit'];
         $petInfo = $petDao->findByCod($CodAnimal);
       }
@@ -80,10 +81,10 @@
                 <label for="">Espécie</label><br />
                 <div class="custom-select">
                   <select name="especie" id="especie-select" required>
-                    <option value="1">Canino</option>
-                    <option value="2">Gato</option>
-                    <option value="3">Pássaro</option>
-                    <option value="4">Outro</option>
+                    <option value="" disabled selected hidden>Escolha uma espécie...</option>
+                    <?php foreach ($especies as $especie): ?>
+                      <option value="<?= $especie[0] ?>"><?= $especie[1] ?></option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
               </div>
@@ -91,12 +92,7 @@
                 <label for="">Raça</label><br />
                 <div class="custom-select" id="raca-select-custom">
                   <select name="raca" id="raca-select" required>
-                    <option value="1">Vira-Lata</option>
-                    <option value="2">Border Collie</option>
-                    <option value="3">Lhasa Apso</option>
-                    <option value="4">Pastor Alemão</option>
-                    <option value="7">Chihuahua</option>
-                    <option value="10">Outro</option>
+                    <option value="" disabled selected hidden>Escolha uma espécie antes...</option>
                   </select>
                 </div>
               </div>
@@ -186,73 +182,29 @@
                 <label for="">Espécie</label><br />
                 <div class="custom-select">
                   <select name="especie" id="especie-select" required>
-                    <option value="1" <?= ($petDao->getPetEspecie($petInfo) == 'Canino') ? 'selected' : '' ?>>Canino
-                    </option>
-                    <option value="2" <?= ($petDao->getPetEspecie($petInfo) == 'Gato') ? 'selected' : '' ?>>Gato</option>
-                    <option value="3" <?= ($petDao->getPetEspecie($petInfo) == 'Pássaro') ? 'selected' : '' ?>>Pássaro
-                    </option>
-                    <option value="4" <?= ($petDao->getPetEspecie($petInfo) == 'Outro') ? 'selected' : '' ?>>Outro
-                    </option>
+                    <?php foreach ($especies as $especie): ?>
+                      <option value="<?= $especie[0] ?>" <?= ($petDao->getPetEspecie($petInfo) == $especie[1]) ? 'selected' : '' ?>><?= $especie[1] ?></option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
               </div>
               <div class="form-input">
                 <label for="">Raça</label><br />
 
-                <?php if ($petDao->getPetEspecie($petInfo) == 'Canino') { ?>
-                  <div class="custom-select" id="raca-select-custom">
-                    <select name="raca" id="raca-select" required>
-                      <option value="1" <?= ($petDao->getPetRaca($petInfo) == 'Vira-Lata') ? 'selected' : '' ?>>
-                        Vira-Lata
-                      </option>
-                      <option value="2" <?= ($petDao->getPetRaca($petInfo) == 'Border Collie') ? 'selected' : '' ?>>
-                        BorderCollie</option>
-                      <option value="3" <?= ($petDao->getPetRaca($petInfo) == 'Lhasa Apso') ? 'selected' : '' ?>>
-                        Lhasa Apso
-                      </option>
-                      <option value="4" <?= ($petDao->getPetRaca($petInfo) == 'Pastor Alemão') ? 'selected' : '' ?>>
-                        Pastor
-                        Alemão
-                      </option>
-                      <option value="7" <?= ($petDao->getPetRaca($petInfo) == 'Chihuahua') ? 'selected' : '' ?>>
-                        Chihuahua
-                      </option>
-                      <option value="10" <?= ($petDao->getPetRaca($petInfo) == 'Outro') ? 'selected' : '' ?>>
-                        Outro
-                      </option>
-                    </select>
-                  </div>
-                <?php } else if ($petDao->getPetEspecie($petInfo) == 'Gato') { ?>
+                <?php foreach ($especies as $especie) {
+                  if ($especie[1] == $petDao->getPetEspecie($petInfo)) {
+                    $racas = $petDao->getRacasByEspecie($especie[0])
+                      ?>
                     <div class="custom-select" id="raca-select-custom">
                       <select name="raca" id="raca-select" required>
-                        <option value="6" <?= ($petDao->getPetRaca($petInfo) == 'Vira-Lata') ? 'selected' : '' ?>>
-                          Vira-Lata
-                        </option>
-                        <option value="9" <?= ($petDao->getPetRaca($petInfo) == 'Outro') ? 'selected' : '' ?>>
-                          Outro
-                        </option>
-                      </select>
+                        <?php foreach ($racas as $raca): ?>
+                          <option value="<?= $raca[0] ?>" <?= ($raca[0] == $petInfo->CodRaca) ? 'selected' : '' ?>>
+                            <?= $raca[1] ?>
+                          </option>
+                        <?php endforeach; ?>
                     </div>
-                <?php } else if ($petDao->getPetEspecie($petInfo) == 'Pássaro') { ?>
-                      <div class="custom-select" id="raca-select-custom">
-                        <select name="raca" id="raca-select" required>
-                          <option value="5" <?= ($petDao->getPetRaca($petInfo) == 'Calopsita') ? 'selected' : '' ?>>
-                            Calopsita
-                          </option>
-                          <option value="8" <?= ($petDao->getPetRaca($petInfo) == 'Outro') ? 'selected' : '' ?>>
-                            Outro
-                          </option>
-                        </select>
-                      </div>
-                <?php } else if ($petDao->getPetEspecie($petInfo) == 'Outro') { ?>
-                        <div class="custom-select" id="raca-select-custom">
-                          <select name="raca" id="raca-select" required>
-                            <option value="11" <?= ($petDao->getPetRaca($petInfo) == 'Outro') ? 'selected' : '' ?>>
-                              Outro
-                            </option>
-                          </select>
-                        </div>
-                <?php } ?>
+                  <?php }
+                } ?>
 
               </div>
 
@@ -356,6 +308,29 @@
   let racaselect = document.querySelector('#raca-select');
   let racaselectcustom = document.querySelector('#raca-select-custom');
 
+  document.getElementById('especie-select').addEventListener('change', function () {
+    const especieId = this.value; // ID da espécie selecionada
+    const racaSelect = document.getElementById('raca-select');
+
+    // Limpa o select de raças
+    racaSelect.innerHTML = '<option value="">Selecione uma raça</option>';
+
+    if (especieId) {
+      // Faz a requisição para buscar as raças
+      fetch(`../../../controller/DAO/PetDAO/get_racas.php?especie_id=${especieId}`)
+        .then(response => response.json())
+        .then(data => {
+          data.forEach(raca => {
+            const option = document.createElement('option');
+            option.value = raca.CodRaca; // ID da raça
+            option.textContent = raca.Descricao; // Nome da raça
+            racaSelect.appendChild(option);
+          });
+        })
+        .catch(error => console.error('Erro ao carregar raças:', error));
+    }
+  });
+
 
   $('#dataaprox').mask("0000");
 
@@ -365,54 +340,6 @@
     imgPicture.src = "../../assets/img/ImagensPet/pet.png"
     resetimage.value = "true"
     document.querySelector('#nome-foto-pet').innerHTML = "";
-  }
-
-  especieselect.addEventListener("change", () => {
-    mudarSelect()
-  });
-
-  function mudarSelect() {
-    let valor = especieselect.value
-    if (valor == "1") {
-      $('#raca-select-custom').replaceWith(
-        '<div class="custom-select" id="raca-select-custom">' +
-        '<select name="raca" required id="raca-select">' +
-        '<option value="1">Vira-Lata</option>' +
-        '<option value="2">Border Collie</option>' +
-        '<option value="3">Lhasa Apso</option>' +
-        '<option value="4">Pastor Alemão</option>' +
-        '<option value="7">Chihuahua</option>' +
-        '<option value="10">Outro</option>' +
-        '</select>' +
-        '</div>'
-      )
-    } else if (valor == "2") {
-      $('#raca-select-custom').replaceWith(
-        '<div class="custom-select" id="raca-select-custom">' +
-        '<select name="raca" required id="raca-select">' +
-        '<option value="6">Vira-Lata</option>' +
-        '<option value="9">Outro</option>' +
-        '</select>' +
-        '</div>'
-      )
-    } else if (valor == "3") {
-      $('#raca-select-custom').replaceWith(
-        '<div class="custom-select" id="raca-select-custom">' +
-        '<select name="raca" required id="raca-select">' +
-        '<option value="5">Calopsita</option>' +
-        '<option value="8">Outro</option>' +
-        '</select>' +
-        '</div>'
-      )
-    } else if (valor == "4") {
-      $('#raca-select-custom').replaceWith(
-        '<div class="custom-select" id="raca-select-custom">' +
-        '<select name="raca" required id="raca-select">' +
-        '<option value="11">Outro</option>' +
-        '</select>' +
-        '</div>'
-      )
-    }
   }
 
   checkdata.addEventListener("change", function () {

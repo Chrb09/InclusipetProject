@@ -168,7 +168,6 @@ iframe {
   gap: 0.5em;
   padding: 0;
 }
-
 .container-custom .swal2-confirm {
   background-color: var(--purple);
   color: var(--white);

@@ -31,5 +31,7 @@ interface PetDAOInterface
     public function create(Pet $pet, $user);
     public function update(Pet $pet);
     public function destroy($CodPet);
+    public function getRacasByEspecie($CodEspecie);
+    public function getAllEspecies();
 
 }
