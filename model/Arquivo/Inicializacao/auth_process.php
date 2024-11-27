@@ -130,6 +130,7 @@ if ($type === 'register_client') {
         $funcionario->codunidade = $codunidade;
         $funcionario->token = $funcionarioToken;
         $funcionario->dataAdmissao = date("Y-m-d");
+        $funcionario->admin = 0;
 
         $authfuncionario = false;
 

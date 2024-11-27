@@ -21,6 +21,12 @@
             echo ' ativo'; ?>" onclick="location.href='../Funcionario/funcoesdotutor.php'" type="button">
             Funções do tutor
           </button>
+          <?php if ($funcionarioData->admin == '1'): ?>
+            <button class="sidebar-button <?php if ($sidebarActive == 'admin')
+              echo ' ativo'; ?>" onclick="location.href='../Admin/dashboard.php'" type="button">
+              Dashboard Admin
+            </button>
+          <?php endif; ?>
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ class Funcionario
   public $token;
   public $imagem;
   public $dataAdmissao;
+  public $admin;
 
   public function getFullName($funcionario)
   {

@@ -1,21 +1,5 @@
 <?php
 
-require_once('../../../model/Arquivo/inicializacao/globals.php');
-require_once('../../../model/Arquivo/inicializacao/db.php');
-require_once('../../../model/Classes/Modelagem/Message.php');
-require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
-
-$message = new Message($BASE_URL);
-$flassMessage = $message->getMessage();
-
-if (!empty($flassMessage["msg"])) {
-  $message->clearMessage();
-}
-
-// funcionario 
-$funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
-$funcionarioData = $funcionarioDao->verifyToken(true);
-
 if ($funcionarioData) {
   if ($funcionarioData->imagem == "") {
     $funcionarioData->imagem = "user.png";
