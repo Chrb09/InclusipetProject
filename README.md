@@ -15,6 +15,7 @@ Veja também o repositorio do [**Aplicativo da Inclusipet**](https://github.com/
     - [Back end](#back-end-)
     - [Biblioteca ](#biblioteca-)
     - [Framework ](#framework-)
+    - [Outros ](#outros-)
   - [📁 Rodando o Projeto](#-rodando-o-projeto)
   - [❓ FAQ](#-FAQ)
   - [🐕 Contribuidores](#-contribuidores)
@@ -49,6 +50,10 @@ Algumas das funcionalidade incluem um sistema de login e cadastro do tutor do pe
 ### Framework: <br>
 
 ![SWIPERJS](https://img.shields.io/badge/Swiper.JS-574DBD?style=for-the-badge&logo=swiper&logoColor=white)
+
+### Outros: <br>
+
+![AJAX](https://img.shields.io/badge/AJAX-574DBD?style=for-the-badge&logo=javascript&logoColor=white)
 <br>
 
 ## 📁 Rodando o projeto
