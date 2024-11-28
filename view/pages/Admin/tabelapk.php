@@ -55,8 +55,9 @@
                 <!-- Conteudo principal -->
                 <div class="titulo"><?= $tabela ?></div>
                 <br />
-                <form class="form-container" id="sign-up-form">
+                <form class="form-container" id="dashboard-form">
                     <div class="form__cadastro">
+                        <input type="hidden" id="operacao" value="inserir">
                         <?php
                         foreach ($colunas as $coluna) {
                             $nome = $coluna['Field']; // Nome da coluna
@@ -72,8 +73,8 @@
                             if (preg_match('/\((\d+)\)/', $tipo, $matches)) {
                                 $maxlength = $matches[1]; // Pega o valor dentro dos parênteses
                                 if (stripos($tipo, 'tinyint') !== false) {
-                                    $max = (2 ** 7) - 1; // Para `tinyint`, 127 (se unsigned, ajuste para 255)
-                                    $min = -(2 ** 7);    // Para signed, -128
+                                    $max = 1; // Para `tinyint`, 127 (se unsigned, ajuste para 255)
+                                    $min = 0;    // Para signed, -128
                                 } elseif (stripos($tipo, 'year') !== false) {
                                     $min = 1901; // Intervalo padrão do tipo `YEAR`
                                     $max = 2155;
@@ -192,6 +193,8 @@
     const mostrar = document.getElementById('mostrar');
     const inputPK = document.getElementById('<?= $colunas[0]["Field"] ?>');
     const limpar = document.getElementById('limpar');
+    const formulario = document.getElementById('dashboard-form');
+    const operacao = document.getElementById('operacao');
 
     inputPK.addEventListener('input', () => {
         verificarInput();
@@ -306,8 +309,62 @@
         }
     });
 
-    function inserir() {
+    formulario.addEventListener('submit', function (event) {
+        event.preventDefault(); // Impede o recarregamento da página
 
+        if (operacao.value == 'inserir') {
+            inserir()
+        } else if (operacao.value == 'editar') {
+            editar()
+        }
+
+    });
+
+    function inserir() {
+        const formData = new FormData(formulario);
+
+        // Converte os dados para um objeto simples, se necessário
+        const dados = Object.fromEntries(formData);
+
+        console.log(dados);
+
+        // Envia os dados com fetch
+        fetch('sql.php?operacao=inserir&tabela=<?= $tabela ?>', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                if (data.sucesso) {
+                    Swal.fire({
+                        html: `<div><p for="" >${data.mensagem}</p></div> `,
+                        showConfirmButton: true,
+                        icon: "success",
+                        focusConfirm: true,
+                        customClass: {
+                            popup: 'container-custom',
+                        },
+                        backdrop: "rgb(87, 77, 189, 0.5",
+                    });
+                } else {
+                    Swal.fire({
+                        html: `<div><p for="" >${data.erro}</p></div> `,
+                        showConfirmButton: true,
+                        icon: "error",
+                        focusConfirm: true,
+                        customClass: {
+                            popup: 'container-custom',
+                        },
+                        backdrop: "rgb(87, 77, 189, 0.5",
+                    });
+                }
+            })
+            .catch(error => console.error('Erro na solicitação:', error));
+        filtrar();
     }
     function editar() {
 
@@ -324,6 +381,7 @@
             },
             backdrop: "rgb(87, 77, 189, 0.5",
         });
+        limpar()
         filtrar()
     }
 
@@ -332,10 +390,12 @@
             $("#submit").replaceWith(
                 `<button class="botao-solido" id="submit" type="submit">Cadastrar</button>`
             )
+            operacao.value = 'inserir'
         } else {
             $("#submit").replaceWith(
                 `<button class="botao-solido" id="submit" type="submit">Editar</button>`
             )
+            operacao.value = 'editar'
         }
     }
 
