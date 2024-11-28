@@ -432,18 +432,76 @@
     }
     function excluir() {
         Swal.close()
-        Swal.fire({
-            html: `<div><p for="" > Registro Excluido com sucesso!</p></div> `,
-            showConfirmButton: true,
-            icon: "success",
-            focusConfirm: true,
-            customClass: {
-                popup: 'container-custom',
+
+        const dados = Object()
+
+        dados.primaryKey = '<?= $colunas[0]["Field"] ?>';
+        dados.primaryKeyValue = document.getElementById('<?= $colunas[0]["Field"] ?>').value;
+
+        console.log(dados);
+
+        // Envia os dados com fetch
+        fetch('excluir.php?tabela=<?= $tabela ?>', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
             },
-            backdrop: "rgb(87, 77, 189, 0.5",
-        });
-        limpar()
-        filtrar()
+            body: JSON.stringify(dados)
+        })
+            .then(response => {
+                // Verifica se a resposta foi bem-sucedida
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text(); // Retorna o texto bruto da resposta
+            })
+            .then(data => {
+                try {
+                    // Tenta interpretar como JSON
+                    const json = JSON.parse(data);
+                    console.log('Resposta JSON:', json);
+                } catch (e) {
+                    // Caso não seja JSON, exibe o texto bruto
+                    console.log('Resposta não-JSON:', data);
+                }
+                /*
+                if (data.sucesso) {
+                    Swal.fire({
+                        html: `<div><p for="" >${data.mensagem}</p></div> `,
+                        showConfirmButton: true,
+                        icon: "success",
+                        focusConfirm: true,
+                        customClass: {
+                            popup: 'container-custom',
+                        },
+                        backdrop: "rgb(87, 77, 189, 0.5",
+                    });
+                } else {
+                    Swal.fire({
+                        html: `<div><p for="" >${data.erro}</p></div> `,
+                        showConfirmButton: true,
+                        icon: "error",
+                        focusConfirm: true,
+                        customClass: {
+                            popup: 'container-custom',
+                        },
+                        backdrop: "rgb(87, 77, 189, 0.5",
+                    });
+                }*/
+            })
+            .catch(error => {
+                Swal.fire({
+                    html: `<div><p for="" >${error}</p></div> `,
+                    showConfirmButton: true,
+                    icon: "error",
+                    focusConfirm: true,
+                    customClass: {
+                        popup: 'container-custom',
+                    },
+                    backdrop: "rgb(87, 77, 189, 0.5",
+                });
+            });
+        filtrar();
     }
 
     function verificarInput() {
