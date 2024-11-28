@@ -38,7 +38,68 @@
         <!-- Conteudo principal -->
         <div class="titulo">Dashboard</div>
         <br />
-        <a href="tabela.php" class="link">table</a>
+        <div class="grid-dashboard">
+          <a class="nav-perfil" href="tabelapk.php?tabela=adocao"><img src="../../assets/img/Perfil/anunciar.png"
+              alt="" />
+            <div class="card-txt">
+              <p>Adocao</p>
+            </div>
+          </a>
+          <a class="nav-perfil" href="tabelapk.php?tabela=agendamento"><img src="../../assets/img/Perfil/agendar.png"
+              alt="" />
+            <div class="card-txt">
+              <p>Agendamento</p>
+            </div>
+          </a>
+          <a class="nav-perfil" href="tabelapk.php?tabela=animal"><img src="../../assets/img/Perfil/cadastrar.png"
+              alt="" />
+            <div class="card-txt">
+              <p>Animal</p>
+            </div>
+          </a>
+          <a class="nav-perfil" href="tabelapk.php?tabela=cargo"><img src="../../assets/img/Perfil/funcionario.png"
+              alt="" />
+            <div class="card-txt">
+              <p>Cargo</p>
+            </div>
+          </a>
+          <a class="nav-perfil" href="tabelapk.php?tabela=cliente"><img src="../../assets/img/Perfil/funcionario.png"
+              alt="" />
+            <div class="card-txt">
+              <p>Cliente</p>
+            </div>
+          </a>
+          <a class="nav-perfil desativado" href="tabelasempk.php?tabela=detalhes_adocao"><img
+              src="../../assets/img/Perfil/anunciar.png" alt="" />
+            <div class="card-txt">
+              <p>Detalhes <br> Adocao</p>
+            </div>
+          </a>
+          <a class="nav-perfil" href="tabelapk.php?tabela=especie"><img src="../../assets/img/Perfil/cadastrar.png"
+              alt="" />
+            <div class="card-txt">
+              <p>Especie</p>
+            </div>
+          </a>
+          <a class="nav-perfil" href="tabelapk.php?tabela=funcionario"><img
+              src="../../assets/img/Perfil/funcionario.png" alt="" />
+            <div class="card-txt">
+              <p>Funcionario</p>
+            </div>
+          </a>
+          <a class="nav-perfil desativado" href="tabelasempk.php?tabela=imagem_adocao"><img
+              src="../../assets/img/Perfil/anunciar.png" alt="" />
+            <div class="card-txt">
+              <p>Imagem <br> Adocao</p>
+            </div>
+          </a>
+          <a class="nav-perfil" href="tabelapk.php?tabela=raca"><img src="../../assets/img/Perfil/cadastrar.png"
+              alt="" />
+            <div class="card-txt">
+              <p>Raca</p>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>

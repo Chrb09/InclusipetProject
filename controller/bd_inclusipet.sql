@@ -34,7 +34,7 @@ CREATE TABLE `adocao` (
   `CodEspecie` int(11) NOT NULL,
   `CodCliente` int(11) NOT NULL,
   `Nome` varchar(50) NOT NULL,
-  `Idade` int(11) DEFAULT NULL,
+  `Idade` int(11) NOT NULL,
   `Porte` varchar(20) NOT NULL,
   `Castrado` tinyint(1) NOT NULL,
   `Sexo` char(5) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `adocao` (
   `Endereco` varchar(50) NOT NULL,
   `Adotado` tinyint(1) NOT NULL,
   `Aprovado` tinyint(1) NOT NULL,
-  `MotivoRecusar` varchar(200) NOT NULL
+  `MotivoRecusar` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

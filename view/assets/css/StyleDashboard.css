@@ -12,7 +12,11 @@
   justify-content: start;
   padding-top: 2em;
 }
-.button-side button {
+#limpar {
+  cursor: pointer;
+}
+.button-side button,
+#limpar {
   width: 100%;
 }
 .hr {
@@ -218,7 +222,8 @@
     gap: 1em;
     flex-direction: column;
   }
-  .button-wrapper-form button {
+  .button-wrapper-form button,
+  #limpar {
     min-width: 15rem;
   }
 }
