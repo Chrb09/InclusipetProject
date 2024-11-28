@@ -34,4 +34,42 @@ if ($operacao == 'inserir') {
         // Retorna erro
         echo json_encode(['sucesso' => false, 'erro' => $e->getMessage()]);
     }
+} else if ($operacao == 'editar') {
+    // Atualização
+    if (!isset($dados['primaryKey'])) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Chave primária não fornecida.']);
+        exit;
+    }
+
+    $primaryKey = $dados['primaryKey'] ?? null; // Verifica se 'primaryKey' existe no array
+
+    if (!$primaryKey || !isset($dados[$primaryKey])) {
+        echo json_encode([
+            'sucesso' => false,
+            'mensagem' => 'Chave primária inválida ou não encontrada nos dados.'
+        ]);
+        exit;
+    }
+    $primaryKeyValue = $dados[$primaryKey];
+    unset($dados['primaryKey']); // Remove a chave primária para não ser incluída na lista de colunas
+    unset($dados[$primaryKey]);
+
+    // Cria a string para o SET do SQL dinamicamente
+    $setClause = implode(', ', array_map(fn($campo) => "$campo = :$campo", array_keys($dados)));
+
+    $sql = "UPDATE $tabela SET $setClause WHERE $primaryKey = :primaryKey";
+    $stmt = $conn->prepare($sql);
+
+    // Bind dos campos para o SET
+    foreach ($dados as $campo => $valor) {
+        $stmt->bindValue(":$campo", $valor);
+    }
+    // Bind da primary key
+    $stmt->bindValue(":primaryKey", $primaryKeyValue);
+
+    if ($stmt->execute()) {
+        echo json_encode(['sucesso' => true, 'mensagem' => 'Registro atualizado com sucesso!']);
+    } else {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao atualizar registro.']);
+    }
 }

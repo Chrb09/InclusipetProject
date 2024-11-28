@@ -363,11 +363,79 @@
                     });
                 }
             })
-            .catch(error => console.error('Erro na solicitação:', error));
+            .catch(error => {
+                Swal.fire({
+                    html: `<div><p for="" >${error}</p></div> `,
+                    showConfirmButton: true,
+                    icon: "error",
+                    focusConfirm: true,
+                    customClass: {
+                        popup: 'container-custom',
+                    },
+                    backdrop: "rgb(87, 77, 189, 0.5",
+                });
+            });
         filtrar();
     }
     function editar() {
+        const formData = new FormData(formulario);
 
+        // Converte os dados para um objeto simples, se necessário
+        const dados = Object.fromEntries(formData);
+
+        dados.primaryKey = '<?= $colunas[0]["Field"] ?>';
+
+        console.log(dados);
+
+        // Envia os dados com fetch
+        fetch('sql.php?operacao=editar&tabela=<?= $tabela ?>', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                if (data.sucesso) {
+                    Swal.fire({
+                        html: `<div><p for="" >${data.mensagem}</p></div> `,
+                        showConfirmButton: true,
+                        icon: "success",
+                        focusConfirm: true,
+                        customClass: {
+                            popup: 'container-custom',
+                        },
+                        backdrop: "rgb(87, 77, 189, 0.5",
+                    });
+                } else {
+                    Swal.fire({
+                        html: `<div><p for="" >${data.erro}</p></div> `,
+                        showConfirmButton: true,
+                        icon: "error",
+                        focusConfirm: true,
+                        customClass: {
+                            popup: 'container-custom',
+                        },
+                        backdrop: "rgb(87, 77, 189, 0.5",
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    html: `<div><p for="" >${error}</p></div> `,
+                    showConfirmButton: true,
+                    icon: "error",
+                    focusConfirm: true,
+                    customClass: {
+                        popup: 'container-custom',
+                    },
+                    backdrop: "rgb(87, 77, 189, 0.5",
+                });
+            });
+        limpar();
+        filtrar();
     }
     function excluir() {
         Swal.close()
