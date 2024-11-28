@@ -99,6 +99,18 @@
               <p>Raca</p>
             </div>
           </a>
+          <a class="nav-perfil" href="tabelapk.php?tabela=servico"><img src="../../assets/img/Perfil/agendar.png"
+              alt="" />
+            <div class="card-txt">
+              <p>Servico</p>
+            </div>
+          </a>
+          <a class="nav-perfil" href="tabelapk.php?tabela=unidade"><img src="../../assets/img/Perfil/agendar.png"
+              alt="" />
+            <div class="card-txt">
+              <p>Unidade</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>

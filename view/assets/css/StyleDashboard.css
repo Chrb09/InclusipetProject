@@ -12,11 +12,11 @@
   justify-content: start;
   padding-top: 2em;
 }
-#limpar {
+.limpar {
   cursor: pointer;
 }
 .button-side button,
-#limpar {
+.limpar {
   width: 100%;
 }
 .hr {
@@ -25,6 +25,11 @@
 .top {
   display: flex;
   gap: 1.5em;
+}
+.grid-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(13em - (2em * 2)), 1fr));
+  gap: 2em;
 }
 .group-top {
   display: flex;
@@ -223,7 +228,7 @@
     flex-direction: column;
   }
   .button-wrapper-form button,
-  #limpar {
+  .limpar {
     min-width: 15rem;
   }
 }

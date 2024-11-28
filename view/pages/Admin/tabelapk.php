@@ -100,6 +100,8 @@
                                 $tipoInput = 'textarea'; // Campos `text` podem ser mapeados para textarea
                             } elseif (stripos($tipo, 'varchar') !== false) {
                                 $tipoInput = 'text';
+                            } elseif (stripos($tipo, 'time') !== false) {
+                                $tipoInput = 'time';
                             }
 
                             // Gerando o HTML dinamicamente
@@ -123,7 +125,8 @@
                     </div>
                     <div class="button-wrapper-form button-side" id="button-side">
                         <button class="botao-solido" id="submit" type="submit">Cadastrar</button>
-                        <div class="botao botao-borda" id="limpar">Limpar</div>
+                        <div class="botao botao-borda limpar" id="limpar">Limpar</div>
+                        <div class="botao botao-borda limpar" onclick="location.href='dashboard.php'">Voltar</div>
                     </div>
                 </form>
                 <div class="hr"></div>
