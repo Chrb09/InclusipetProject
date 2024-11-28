@@ -192,22 +192,14 @@
     const coluna = document.getElementById('coluna');
     const mostrar = document.getElementById('mostrar');
     const inputPK = document.getElementById('<?= $colunas[0]["Field"] ?>');
-    const limpar = document.getElementById('limpar');
+    const limparButton = document.getElementById('limpar');
     const formulario = document.getElementById('dashboard-form');
     const operacao = document.getElementById('operacao');
 
     inputPK.addEventListener('input', () => {
         verificarInput();
     });
-    limpar.addEventListener('click', () => {
-        <?php
-        foreach ($colunas as $coluna) {
-            $nome = $coluna["Field"];
-            echo "document.getElementById('$nome').value = '';";
-        }
-        ?>
-        verificarInput();
-    });
+    limparButton.addEventListener('click', limpar);
 
     pesquisar.addEventListener('change', filtrar);
     coluna.addEventListener('change', filtrar);
@@ -375,6 +367,7 @@
                     backdrop: "rgb(87, 77, 189, 0.5",
                 });
             });
+        limpar();
         filtrar();
     }
     function editar() {
@@ -465,6 +458,16 @@
             )
             operacao.value = 'editar'
         }
+    }
+
+    function limpar() {
+        <?php
+        foreach ($colunas as $coluna) {
+            $nome = $coluna["Field"];
+            echo "document.getElementById('$nome').value = '';";
+        }
+        ?>
+        verificarInput();
     }
 
     document.addEventListener('DOMContentLoaded', function () {
