@@ -1,0 +1,224 @@
+.form-container {
+  width: 100%;
+  display: flex;
+}
+.form__cadastro {
+  width: 77%;
+}
+.button-side {
+  width: 23%;
+  flex-direction: column;
+  padding-inline: 2em;
+  justify-content: start;
+  padding-top: 2em;
+}
+.button-side button {
+  width: 100%;
+}
+.hr {
+  margin-left: 0;
+}
+.top {
+  display: flex;
+  gap: 1.5em;
+}
+.group-top {
+  display: flex;
+  gap: 0.25em;
+  flex-direction: column;
+  width: 25%;
+}
+.group-top:first-of-type {
+  width: 35%;
+}
+.button-dashboard {
+  background-color: var(--purple);
+  color: var(--white);
+  border-radius: 0.9em;
+  margin-inline: 0.15em;
+  padding: 0.45em;
+  aspect-ratio: 1 / 1;
+  height: 2.4em;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: var(--purplehover);
+  }
+}
+.excluir {
+  --purple: var(--red);
+  --purplehover: var(--redhover);
+}
+.button-dashboard img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.table-wrapper {
+  box-shadow: 0px 20px 24px -4px rgba(0, 0, 0, 0.1), 0px 8px 8px -4px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  border-radius: 0.75em;
+  max-height: 50rem;
+}
+
+.table-dashboard {
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+
+.table-dashboard td,
+.table-dashboard th {
+  text-align: left;
+  padding: 0.5em;
+  padding-block: 0.75em;
+  min-width: 8rem;
+}
+
+.table-dashboard td {
+  border-right: 1px solid #f8f8f8;
+  font-size: 0.85em;
+}
+
+.table-dashboard thead th {
+  color: #ffffff;
+  background: var(--purple);
+}
+
+.table-dashboard thead th:nth-child(odd) {
+  color: #ffffff;
+  background: var(--purplehover);
+}
+
+.table-dashboard tr:nth-child(even) {
+  background: #f5f5f5;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .form-container {
+    flex-direction: column;
+  }
+  .form__cadastro {
+    width: 100%;
+  }
+  .button-side {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    padding-inline: 0;
+  }
+  .button-side button {
+    max-width: 10rem;
+  }
+  .top {
+    justify-content: center;
+  }
+  .group-top {
+    width: 100%;
+  }
+  .group-top:first-of-type {
+    width: 100%;
+  }
+  .hr {
+    margin-left: auto;
+  }
+}
+@media (min-width: 767px) {
+  .table-dashboard td:first-of-type,
+  .table-dashboard th:first-of-type {
+    padding: 0rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .table-wrapper {
+    max-height: 70rem;
+  }
+  .table-dashboard {
+    display: block;
+    width: 100%;
+  }
+  .table-wrapper:before {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: white;
+    padding: 0 0 10px;
+  }
+  .table-dashboard thead,
+  .table-dashboard tbody,
+  .table-dashboard thead th {
+    display: block;
+  }
+  .table-dashboard thead th:last-child {
+    border-bottom: none;
+  }
+  .table-dashboard thead {
+    float: left;
+  }
+  .table-dashboard tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+  }
+  .table-dashboard td,
+  .table-dashboard th {
+    padding: 20px 0.625em 0.625em 0.625em;
+    height: 60px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 120px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+  .table-dashboard thead th {
+    text-align: left;
+    border-bottom: 1px solid #f7f7f9;
+  }
+  .table-dashboard tbody tr {
+    display: table-cell;
+  }
+  .table-dashboard tbody tr:nth-child(odd) {
+    background: none;
+  }
+  .table-dashboard tr:nth-child(even) {
+    background: transparent;
+  }
+  .table-dashboard tr td:nth-child(odd) {
+    background: #ebebeb;
+    border-right: 1px solid #e6e4e4;
+  }
+  .table-dashboard tr td:nth-child(even) {
+    border-right: 1px solid #e6e4e4;
+  }
+  .table-dashboard tbody td {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 475px) {
+  .top {
+    flex-wrap: wrap;
+  }
+  .group-top {
+    width: 15rem;
+  }
+  .group-top:first-of-type {
+    width: 15rem;
+  }
+  .button-wrapper-form {
+    gap: 1em;
+    flex-direction: column;
+  }
+  .button-wrapper-form button {
+    min-width: 15rem;
+  }
+}

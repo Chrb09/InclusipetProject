@@ -9,6 +9,7 @@
   <!-- CSS EXTERNO GERAL -->
   <link rel="stylesheet" href="../../assets/css/StylePerfil.css" />
   <link rel="stylesheet" href="../../assets/css/StyleUsuario.css" />
+  <link rel="stylesheet" href="../../assets/css/StyleDashboard.css" />
   <!-- CSS EXTERNO PAGINA -->
   <link rel="icon" href="../../assets/img/Outros/inclusipet.ico" />
   <!-- ICON -->
@@ -37,6 +38,7 @@
         <!-- Conteudo principal -->
         <div class="titulo">Dashboard</div>
         <br />
+        <a href="tabela.php" class="link">table</a>
       </div>
     </div>
   </div>

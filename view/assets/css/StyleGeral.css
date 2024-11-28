@@ -532,7 +532,7 @@ strong {
   color: var(--purple);
 }
 .hr {
-  border-top: 5px solid var(--purple);
+  border-top: 3px solid var(--purple);
   border-radius: 5px;
   width: 75%;
   margin-block: 2.5rem;

@@ -42,7 +42,6 @@
         <!-- Conteudo principal -->
         <div class="titulo">Cadastrar Funcionário</div>
         <br />
-        <div class="cadastrar_pet"></div>
 
         <form action="../../../model/Arquivo/Inicializacao/auth_process.php" id="sign-up-form" method="POST"
           onsubmit="return validarCadastro();" class="form__cadastro">
