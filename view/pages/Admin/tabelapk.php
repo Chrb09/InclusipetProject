@@ -342,6 +342,7 @@
                         },
                         backdrop: "rgb(87, 77, 189, 0.5",
                     });
+
                 } else {
                     Swal.fire({
                         html: `<div><p for="" >${data.erro}</p></div> `,
@@ -354,6 +355,8 @@
                         backdrop: "rgb(87, 77, 189, 0.5",
                     });
                 }
+                limpar();
+                filtrar();
             })
             .catch(error => {
                 Swal.fire({
@@ -367,8 +370,7 @@
                     backdrop: "rgb(87, 77, 189, 0.5",
                 });
             });
-        limpar();
-        filtrar();
+
     }
     function editar() {
         const formData = new FormData(formulario);
@@ -414,6 +416,8 @@
                         backdrop: "rgb(87, 77, 189, 0.5",
                     });
                 }
+                limpar();
+                filtrar();
             })
             .catch(error => {
                 Swal.fire({
@@ -427,44 +431,14 @@
                     backdrop: "rgb(87, 77, 189, 0.5",
                 });
             });
-        limpar();
-        filtrar();
     }
-    function excluir() {
+    function excluir(primaryKeyValue) {
         Swal.close()
 
-        const dados = Object()
-
-        dados.primaryKey = '<?= $colunas[0]["Field"] ?>';
-        dados.primaryKeyValue = document.getElementById('<?= $colunas[0]["Field"] ?>').value;
-
-        console.log(dados);
-
         // Envia os dados com fetch
-        fetch('excluir.php?tabela=<?= $tabela ?>', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dados)
-        })
-            .then(response => {
-                // Verifica se a resposta foi bem-sucedida
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text(); // Retorna o texto bruto da resposta
-            })
+        fetch('excluir.php?tabela=<?= $tabela ?>&primaryKey=<?= $colunas[0]["Field"] ?>&value=' + primaryKeyValue)
+            .then(response => response.json())
             .then(data => {
-                try {
-                    // Tenta interpretar como JSON
-                    const json = JSON.parse(data);
-                    console.log('Resposta JSON:', json);
-                } catch (e) {
-                    // Caso não seja JSON, exibe o texto bruto
-                    console.log('Resposta não-JSON:', data);
-                }
-                /*
                 if (data.sucesso) {
                     Swal.fire({
                         html: `<div><p for="" >${data.mensagem}</p></div> `,
@@ -487,7 +461,9 @@
                         },
                         backdrop: "rgb(87, 77, 189, 0.5",
                     });
-                }*/
+                }
+                limpar();
+                filtrar();
             })
             .catch(error => {
                 Swal.fire({
@@ -501,7 +477,6 @@
                     backdrop: "rgb(87, 77, 189, 0.5",
                 });
             });
-        filtrar();
     }
 
     function verificarInput() {

@@ -2,6 +2,15 @@
 require_once('../../../model/Arquivo/inicializacao/globals.php');
 require_once('../../../model/Arquivo/inicializacao/db.php');
 require_once('../../../model/Classes/Modelagem/Message.php');
+require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
+
+$funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
+$funcionarioData = $funcionarioDao->verifyToken(true);
+
+if ($funcionarioData->admin != '1') {
+    $message->setMessage("É necessario ser administrador para acessar essa página!", "error", "popup", "../../../view/pages/Funcionario/perfil.php");
+    exit();
+}
 
 $tabela = $_GET['tabela'];  // Tabela a ser consultada
 $pesquisar = $_GET['pesquisar'];  // Valor para pesquisa

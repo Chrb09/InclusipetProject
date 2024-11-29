@@ -190,72 +190,77 @@
               </div>
             </form>
             <!-- FIM DOS FILTROS -->
+            <?php if ($adocoes == []): ?>
+              <center>
+                <p>Nenhuma adoção encontrado</p>
+              </center>
+            <?php else: ?>
+              <?php foreach ($adocoes as $adocao):
+                $imagens = $adocaoDao->getImagemAdocaoByCod($adocao->CodAdocao);
+                $cliente = $clienteDao->findById($adocao->CodCliente) ?>
 
-            <?php foreach ($adocoes as $adocao):
-              $imagens = $adocaoDao->getImagemAdocaoByCod($adocao->CodAdocao);
-              $cliente = $clienteDao->findById($adocao->CodCliente) ?>
+                <!-- INICIO ITEM -->
+                <div class="item">
+                  <!--Div que contem um dos animais disponiveiis prar a a adoção-->
+                  <img src="../../assets/img/ImagensAdocao/<?= $adocao->CodAdocao ?>/<?= $imagens[0] ?>"
+                    alt="<?= $adocao->Nome ?>" class="animal" />
 
-              <!-- INICIO ITEM -->
-              <div class="item">
-                <!--Div que contem um dos animais disponiveiis prar a a adoção-->
-                <img src="../../assets/img/ImagensAdocao/<?= $adocao->CodAdocao ?>/<?= $imagens[0] ?>"
-                  alt="<?= $adocao->Nome ?>" class="animal" />
-
-                <div class="descricao-pet">
-                  <!--Div com a descrição do animal-->
-                  <div class="titulo_item"><?= $adocao->Nome ?></div>
-                  <p class="descricao">
-                    <?= $adocao->Descricao ?>
-                  </p>
-                  <div class="usuario">
-                    <img src="../../assets/img/ImagensPerfil/<?= $cliente->imagem ?>" class="fotoUsuario" />
-                    <p class="nomeUsuario"><?= $cliente->nome ?></p>
+                  <div class="descricao-pet">
+                    <!--Div com a descrição do animal-->
+                    <div class="titulo_item"><?= $adocao->Nome ?></div>
+                    <p class="descricao">
+                      <?= $adocao->Descricao ?>
+                    </p>
+                    <div class="usuario">
+                      <img src="../../assets/img/ImagensPerfil/<?= $cliente->imagem ?>" class="fotoUsuario" />
+                      <p class="nomeUsuario"><?= $cliente->nome ?></p>
+                    </div>
                   </div>
-                </div>
 
-                <div class="botoes">
-                  <!--Div que contem os botões ao lado da descrição-->
-                  <button class="botao-solido editar-button" type="button"
-                    onclick="location.href='../Adocao/animal.php?CodAdocao=<?= $adocao->CodAdocao ?>&Func=1'">
-                    <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
-                    Visualizar
-                  </button>
+                  <div class="botoes">
+                    <!--Div que contem os botões ao lado da descrição-->
+                    <button class="botao-solido editar-button" type="button"
+                      onclick="location.href='../Adocao/animal.php?CodAdocao=<?= $adocao->CodAdocao ?>&Func=1'">
+                      <img src="../../assets/img/Perfil/olho.png" alt="Editar" class="editar" />
+                      Visualizar
+                    </button>
 
-                  <?php if ($adocao->Aprovado == 1) { ?>
-                    <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
-                      <input type="hidden" name="type" value="update_aprovado">
-                      <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
-                      <input type="hidden" name="aprovado" value="0">
-                      <input type="hidden" name="motivo" value="">
-                      <button class="botao-solido aprovar" type="submit">Aprovado</button>
-                    </form>
-                  <?php } else if ($adocao->MotivoRecusar != '') { ?>
+                    <?php if ($adocao->Aprovado == 1) { ?>
                       <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
                         <input type="hidden" name="type" value="update_aprovado">
                         <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
                         <input type="hidden" name="aprovado" value="0">
                         <input type="hidden" name="motivo" value="">
-                        <button class="botao-solido recusar" type="submit">Recusado</button>
+                        <button class="botao-solido aprovar" type="submit">Aprovado</button>
                       </form>
-                  <?php } else if ($adocao->Aprovado == 0) { ?>
-                        <div class="aprovar">
-                          <button class="botao-solido recusar"
-                            onclick="motivoRecusar('<?= $adocao->Nome ?>','<?= $adocao->CodAdocao ?>')"
-                            type="button">Recusar</button>
+                    <?php } else if ($adocao->MotivoRecusar != '') { ?>
+                        <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
+                          <input type="hidden" name="type" value="update_aprovado">
+                          <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
+                          <input type="hidden" name="aprovado" value="0">
+                          <input type="hidden" name="motivo" value="">
+                          <button class="botao-solido recusar" type="submit">Recusado</button>
+                        </form>
+                    <?php } else if ($adocao->Aprovado == 0) { ?>
+                          <div class="aprovar">
+                            <button class="botao-solido recusar"
+                              onclick="motivoRecusar('<?= $adocao->Nome ?>','<?= $adocao->CodAdocao ?>')"
+                              type="button">Recusar</button>
 
-                          <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
-                            <input type="hidden" name="type" value="update_aprovado">
-                            <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
-                            <input type="hidden" name="aprovado" value="1">
-                            <input type="hidden" name="motivo" value="">
-                            <button class="botao-solido aprovar" type="submit">Aprovar</button>
-                          </form>
-                        </div>
-                  <?php } ?>
+                            <form action="../../../model/Arquivo/Inicializacao/adoption_process.php" method="POST">
+                              <input type="hidden" name="type" value="update_aprovado">
+                              <input type="hidden" name="codAdocao" value="<?= $adocao->CodAdocao ?>">
+                              <input type="hidden" name="aprovado" value="1">
+                              <input type="hidden" name="motivo" value="">
+                              <button class="botao-solido aprovar" type="submit">Aprovar</button>
+                            </form>
+                          </div>
+                    <?php } ?>
+                  </div>
                 </div>
-              </div>
-              <!-- FIM ITEM -->
-            <?php endforeach; ?>
+                <!-- FIM ITEM -->
+              <?php endforeach; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>

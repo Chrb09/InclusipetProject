@@ -3,26 +3,31 @@
 require_once('../../../model/Arquivo/inicializacao/globals.php');
 require_once('../../../model/Arquivo/inicializacao/db.php');
 require_once('../../../model/Classes/Modelagem/Message.php');
-header('Content-Type: application/json');
+require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
+
+$funcionarioDao = new FuncionarioDAO($conn, $BASE_URL);
+$funcionarioData = $funcionarioDao->verifyToken(true);
+
+if ($funcionarioData->admin != '1') {
+    $message->setMessage("É necessario ser administrador para acessar essa página!", "error", "popup", "../../../view/pages/Funcionario/perfil.php");
+    exit();
+}
 
 $tabela = $_GET['tabela'];
-
-$input = file_get_contents('php://input');
-$dados = json_decode($input, true);
+$primaryKey = $_GET['primaryKey'];
+$value = $_GET['value'];
 
 try {
-    if (!isset($dados['primaryKey'])) {
+    if (!$primaryKey) {
         echo json_encode(['sucesso' => false, 'mensagem' => 'Chave primária não fornecida.']);
         exit;
     }
 
-    $primaryKey = $dados['primaryKey'] ?? null; // Verifica se 'primaryKey' existe no array
-
-    $primaryKeyValue = $dados["primaryKeyValue "];
 
     $sql = "DELETE FROM $tabela WHERE $primaryKey = :primaryKey";
+
     $stmt = $conn->prepare($sql);
-    $stmt->bindValue(":primaryKey", $primaryKeyValue);
+    $stmt->bindValue(":primaryKey", $value);
 
     if ($stmt->execute()) {
         echo json_encode(['sucesso' => true, 'mensagem' => 'Registro deletado com sucesso!']);

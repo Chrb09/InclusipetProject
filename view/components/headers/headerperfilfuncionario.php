@@ -53,8 +53,6 @@ if ($funcionarioData) {
   </div>
 </div>
 
-<script src="../../assets/js/dropdown_header.js"></script>
-
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
