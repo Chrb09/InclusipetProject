@@ -202,6 +202,7 @@
                             <?= $raca[1] ?>
                           </option>
                         <?php endforeach; ?>
+                      </select>
                     </div>
                   <?php }
                 } ?>

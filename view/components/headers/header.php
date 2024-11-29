@@ -1,7 +1,7 @@
 <?php
 
-require_once('../../../model/Arquivo/inicializacao/globals.php');
-require_once('../../../model/Arquivo/inicializacao/db.php');
+require_once('../../../model/Arquivo/Inicializacao/globals.php');
+require_once('../../../model/Arquivo/Inicializacao/db.php');
 require_once('../../../model/Classes/Modelagem/Message.php');
 require_once('../../../controller/DAO/ClienteDAO/ClienteDAO.php');
 require_once('../../../controller/DAO/FuncionarioDAO/FuncionarioDAO.php');
